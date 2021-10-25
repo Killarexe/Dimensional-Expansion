@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "title": "The Palon",
+    "description": "Obtain Palon Ingot!"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "dimensional_expansion:palon_ingot",
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50,
+    "recipes": [
+      "dimensional_expansion:palon_axe",
+      "dimensional_expansion:palon_block",
+      "dimensional_expansion:palon_boots",
+      "dimensional_expansion:palon_chestplate",
+      "dimensional_expansion:palon_helmet",
+      "dimensional_expansion:palon_hoe",
+      "dimensional_expansion:palon_ingot",
+      "dimensional_expansion:palon_ingot2",
+      "dimensional_expansion:palon_ingot3",
+      "dimensional_expansion:palon_leggings",
+      "dimensional_expansion:palon_pickaxe",
+      "dimensional_expansion:palon_shovel",
+      "dimensional_expansion:palon_sword"
+    ]
+  },
+  "parent": "dimensional_expansion:dimensional_expansion"
+}

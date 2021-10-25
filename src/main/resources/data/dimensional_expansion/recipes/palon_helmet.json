@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraft:netherite_helmet"
+    },
+    "addition": {
+        "item": "dimensional_expansion:palon_ingot"
+    },
+    "result": {
+        "item": "dimensional_expansion:palon_helmet"
+    }
+}

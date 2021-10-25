@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraft:netherite_pickaxe"
+    },
+    "addition": {
+        "item": "dimensional_expansion:palon_ingot"
+    },
+    "result": {
+        "item": "dimensional_expansion:palon_pickaxe"
+    }
+}

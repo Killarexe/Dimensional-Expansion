@@ -1,0 +1,15 @@
+{
+  "display": {
+    "background": "dimensional_expansion:textures/block/palon_block.png",
+    "icon": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "title": "Dimensional Expansion",
+    "description": "Thank For Playing Dimensional Expansion!"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
