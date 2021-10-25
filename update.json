@@ -1,0 +1,15 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion/files",
+  "1.16.4": {
+    "0.1a": "Added Villager Trades, Added Ores, Added Items, Added Item Groups, Added Blocks, Added Ores Generation, Added Craft",
+  },
+  "1.17.1": {
+    "0.2a": "Added Villager Trades, Added Items, Added Blocks, Added Ores, Added Ores Generation, Added Crafts, Added Config",
+  },
+
+  "promos": {
+    "1.16.4-latest": "0.1a",
+    "1.17.1-latest": "0.2a",
+    "1.17.1-recommended": "0.2a",
+  }
+}
