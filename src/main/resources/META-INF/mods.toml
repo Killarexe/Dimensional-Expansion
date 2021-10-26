@@ -9,6 +9,7 @@ logoFile="logo.png" #optional
 credits="" #optional
 authors="Killar.exe" #optional
 description=''''''
+updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory

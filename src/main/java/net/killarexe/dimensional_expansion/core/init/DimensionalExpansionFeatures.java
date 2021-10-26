@@ -1,16 +1,26 @@
 package net.killarexe.dimensional_expansion.core.init;
 
-import net.minecraft.world.level.block.Blocks;
+import net.killarexe.dimensional_expansion.DimensionalExpansionMod;
+import net.killarexe.dimensional_expansion.world.feature.EndTreeFeature;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.SquareDecorator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.*;
 
 public class DimensionalExpansionFeatures {
+
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, DimensionalExpansionMod.MODID);
+
+    public static final RegistryObject<EndTreeFeature> END_TREE = FEATURES.register("end_tree", () -> new EndTreeFeature(NoneFeatureConfiguration.CODEC));
 
     private static final RuleTest NATURAL_END_STONE = new BlockMatchTest(Blocks.END_STONE);
 
@@ -27,4 +37,5 @@ public class DimensionalExpansionFeatures {
                         .decorated(SquareDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.absolute(minHeight), VerticalAnchor.absolute(maxHeight)))))
                         .squared().count(amount));
     }
+
 }

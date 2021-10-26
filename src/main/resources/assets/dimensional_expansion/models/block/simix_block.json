@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "dimensional_expansion:block/simix_ore"
+		"all": "dimensional_expansion:block/simix_block"
 	}
 }

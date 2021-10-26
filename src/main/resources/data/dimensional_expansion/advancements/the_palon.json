@@ -12,7 +12,9 @@
       "conditions": {
         "items": [
           {
-            "item": "dimensional_expansion:palon_ingot",
+            "items": [
+              "dimensional_expansion:palon_ingot"
+            ],
             "count": {
               "min": 1,
               "max": 64

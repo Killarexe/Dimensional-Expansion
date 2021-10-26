@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:count",
+      "config": {
+        "count": 2
+      }
+    },
+    "feature": {
+      "type": "minecraft:decorated",
+      "config": {
+        "decorator": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:square",
+              "config": {
+
+              }
+            },
+            "inner": {
+              "type": "minecraft:heightmap_spread_double",
+              "config": {
+                "heightmap": "WORLD_SURFACE_WG"
+              }
+            }
+          }
+        },
+        "feature": {
+          "type": "dimensional_expansion:end_tree",
+          "config": {
+
+          }
+        }
+      }
+    }
+  }
+}

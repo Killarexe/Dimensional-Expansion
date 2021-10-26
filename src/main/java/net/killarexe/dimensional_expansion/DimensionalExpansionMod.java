@@ -1,7 +1,9 @@
 package net.killarexe.dimensional_expansion;
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.killarexe.dimensional_expansion.core.config.DimensionalExpansionConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +30,7 @@ public class DimensionalExpansionMod
         //DimensionExpansionBiomes.BIOMES.register(bus);
         //DimensionExpansionBiomes.registerBiomes();
         LOGGER.info("Init Dimensional Expension Features");
+        DimensionalExpansionFeatures.FEATURES.register(bus);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, DimensionalExpansionFeatures::addOres);
         LOGGER.info("Init Dimensional Expension Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DimensionalExpansionConfig.SPEC, "dimensional_expansion-client.toml");

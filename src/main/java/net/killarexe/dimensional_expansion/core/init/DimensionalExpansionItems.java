@@ -1,7 +1,8 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DimensionalExpansionMod;
-import net.killarexe.dimensional_expansion.uitls.*;
+import net.killarexe.dimensional_expansion.common.material.CustomArmorMaterial;
+import net.killarexe.dimensional_expansion.common.material.CustomItemTier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.*;
@@ -24,7 +25,7 @@ public class DimensionalExpansionItems {
     public static final RegistryObject<Item> PALON_LEGGINGS = createArmorItem("palon_leggings", CustomArmorMaterial.PALON, EquipmentSlot.LEGS, DimensionalExpansionItemGroups.COMBAT);
     public static final RegistryObject<Item> PALON_BOOTS = createArmorItem("palon_boots", CustomArmorMaterial.PALON, EquipmentSlot.FEET, DimensionalExpansionItemGroups.COMBAT);
 
-    public static final RegistryObject<Item> BASSMITE_GEM = createItem("bassmite", DimensionalExpansionItemGroups.MISC);
+    public static final RegistryObject<Item> BASSMITE_GEM = createItem("bassmite_gem", DimensionalExpansionItemGroups.MISC);
     public static final RegistryObject<Item> BASSMITE_SWORD = createSwordItem("bassmite_sword", CustomItemTier.BASSMITE, 3, DimensionalExpansionItemGroups.COMBAT);
     public static final RegistryObject<Item> BASSMITE_PICKAXE = createPickaxeItem("bassmite_pickaxe", CustomItemTier.BASSMITE, 6, DimensionalExpansionItemGroups.TOOLS);
     public static final RegistryObject<Item> BASSMITE_AXE = createAxeItem("bassmite_axe", CustomItemTier.BASSMITE, 6, DimensionalExpansionItemGroups.COMBAT);
@@ -48,7 +49,7 @@ public class DimensionalExpansionItems {
     public static final RegistryObject<Item> SIMIX_BOOTS = createArmorItem("simix_boots", CustomArmorMaterial.SIMIX, EquipmentSlot.FEET, DimensionalExpansionItemGroups.COMBAT);
 
 
-    public static final RegistryObject<Item> EMERTYST_GEM = createItem("emertyst", DimensionalExpansionItemGroups.MISC);
+    public static final RegistryObject<Item> EMERTYST_GEM = createItem("emertyst_gem", DimensionalExpansionItemGroups.MISC);
     public static final RegistryObject<Item> EMERTYST_SWORD = createSwordItem("emertyst_sword", CustomItemTier.EMERTYST, 3, DimensionalExpansionItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", CustomItemTier.EMERTYST, 6, DimensionalExpansionItemGroups.TOOLS);
     public static final RegistryObject<Item> EMERTYST_AXE = createAxeItem("emertyst_axe", CustomItemTier.EMERTYST, 6, DimensionalExpansionItemGroups.COMBAT);

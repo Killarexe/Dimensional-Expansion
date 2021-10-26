@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.uitls;
+package net.killarexe.dimensional_expansion.common.material;
 
 import net.killarexe.dimensional_expansion.DimensionalExpansionMod;
 import net.killarexe.dimensional_expansion.core.init.DimensionalExpansionBlocks;
