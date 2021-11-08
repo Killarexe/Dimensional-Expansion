@@ -9,6 +9,7 @@
 
   "promos": {
     "1.16.4-latest": "0.1a",
+    "1.16.4-recommended": "0.1a",
     "1.17.1-latest": "0.2a",
     "1.17.1-recommended": "0.2a"
   }

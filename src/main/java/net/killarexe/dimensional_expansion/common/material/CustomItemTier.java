@@ -11,13 +11,13 @@ public enum CustomItemTier implements Tier {
 	PALON(5, 3592, 17.0f, 7f, 25, () -> {
 		return Ingredient.of(DimensionalExpansionItems.PALON_INGOT.get());
 	}),
-	EMERTYST(5, 3592, 17.0f, 7f, 25, () -> {
+	BASSMITE(6, 4092, 19.0f, 9f, 30, () -> {
 		return Ingredient.of(DimensionalExpansionItems.PALON_INGOT.get());
 	}),
-	SIMIX(5, 3592, 17.0f, 7f, 25, () -> {
+	SIMIX(7, 5092, 27.0f, 10f, 35, () -> {
 		return Ingredient.of(DimensionalExpansionItems.PALON_INGOT.get());
 	}),
-	BASSMITE(5, 3592, 17.0f, 7f, 25, () -> {
+	EMERTYST(8, 3592*2, 17.0f*2, 14f, 50, () -> {
 		return Ingredient.of(DimensionalExpansionItems.PALON_INGOT.get());
 	});
 

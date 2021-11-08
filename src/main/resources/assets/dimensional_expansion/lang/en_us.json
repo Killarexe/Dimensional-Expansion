@@ -1,5 +1,5 @@
 {
-	"item.dimensional_expansion.palon_ingot": "Raw Palon",
+	"item.dimensional_expansion.raw_palon": "Raw Palon",
 	"item.dimensional_expansion.palon_ingot": "Palon Ingot",
 	"item.dimensional_expansion.palon_sword": "Palon Sword",
 	"item.dimensional_expansion.palon_pickaxe": "Palon Pickaxe",
@@ -61,7 +61,8 @@
 
 	"block.dimensional_expansion.end_log": "End Log",
 	"block.dimensional_expansion.end_planks": "End Planks",
-	"block.dimensional_expansion.ened_leaves": "End Leaves",
+	"block.dimensional_expansion.end_leaves": "End Leaves",
+	"block.dimensional_expansion.end_grass_block": "End Grass Block",
 
 	"itemGroup.dimensional_expansion.building_blocks": "Dimensional Expansion Blocks",
 	"itemGroup.dimensional_expansion.combat": "Dimensional Expansion Combat",

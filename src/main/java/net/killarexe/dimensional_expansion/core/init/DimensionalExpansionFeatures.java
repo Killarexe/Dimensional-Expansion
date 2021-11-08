@@ -2,11 +2,9 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DimensionalExpansionMod;
 import net.killarexe.dimensional_expansion.world.feature.EndTreeFeature;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.*;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;

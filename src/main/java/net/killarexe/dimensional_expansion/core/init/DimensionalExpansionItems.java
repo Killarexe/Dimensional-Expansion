@@ -1,11 +1,12 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DimensionalExpansionMod;
-import net.killarexe.dimensional_expansion.common.material.CustomArmorMaterial;
-import net.killarexe.dimensional_expansion.common.material.CustomItemTier;
+import net.killarexe.dimensional_expansion.common.material.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.*;
 
@@ -38,6 +39,7 @@ public class DimensionalExpansionItems {
 
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DimensionalExpansionItemGroups.MISC);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DimensionalExpansionItemGroups.MISC);
+    public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DimensionalExpansionItemGroups.MISC);
     public static final RegistryObject<Item> SIMIX_SWORD = createSwordItem("simix_sword", CustomItemTier.SIMIX, 3, DimensionalExpansionItemGroups.COMBAT);
     public static final RegistryObject<Item> SIMIX_PICKAXE = createPickaxeItem("simix_pickaxe", CustomItemTier.SIMIX, 6, DimensionalExpansionItemGroups.TOOLS);
     public static final RegistryObject<Item> SIMIX_AXE = createAxeItem("simix_axe", CustomItemTier.SIMIX, 6, DimensionalExpansionItemGroups.COMBAT);
@@ -61,30 +63,46 @@ public class DimensionalExpansionItems {
     public static final RegistryObject<Item> EMERTYST_BOOTS = createArmorItem("emertyst_boots", CustomArmorMaterial.EMERTYST, EquipmentSlot.FEET, DimensionalExpansionItemGroups.COMBAT);
 
     private static RegistryObject<Item> createItem(String id, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new Item(new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new Item(new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createSwordItem(String id, Tier tier, int level, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new SwordItem(tier, level, -2.4F, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new SwordItem(tier, level, -2.4F, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createPickaxeItem(String id, Tier tier, int level, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new PickaxeItem(tier, level, -2.8F, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new PickaxeItem(tier, level, -2.8F, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createAxeItem(String id, Tier tier, float level, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new AxeItem(tier, level, -3.2F, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new AxeItem(tier, level, -3.2F, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createShovelItem(String id, Tier tier, float level, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new ShovelItem(tier, level, -3F, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new ShovelItem(tier, level, -3F, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createHoeItem(String id, Tier tier, int level, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
     private static RegistryObject<Item> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().tab(itemGroup).fireResistant()));
+    }
+
+    private static RegistryObject<Item> createDiscItem(String id, int comparatorValue, ResourceLocation path, CreativeModeTab itemGroup){
+        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> new SoundEvent(path), new Item.Properties().tab(itemGroup)));
+    }
+
+    private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
+        return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
+    }
+
+    private static RegistryObject<Item> createPotionItem(String id, CreativeModeTab itemGroup){
+        return ITEMS.register(id, () -> new PotionItem(new Item.Properties().tab(itemGroup)));
+    }
+
+    private static RegistryObject<Item> createThrowbalePotionItem(String id, CreativeModeTab itemGroup){
+        return ITEMS.register(id, () -> new ThrowablePotionItem(new Item.Properties().tab(itemGroup)));
     }
 }

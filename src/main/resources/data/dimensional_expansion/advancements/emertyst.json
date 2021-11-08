@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "dimensional_expansion:emertyst_gem"
+    },
+    "title": "The Emertyst!",
+    "description": "Obtain A Emertyst Gem!"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:emertyst_gem"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50,
+    "recipes": [
+      "dimensional_expansion:emertyst_axe",
+      "dimensional_expansion:emertyst_block",
+      "dimensional_expansion:emertyst_boots",
+      "dimensional_expansion:emertyst_chestplate",
+      "dimensional_expansion:emertyst_helmet",
+      "dimensional_expansion:emertyst_hoe",
+      "dimensional_expansion:emertyst_ingot",
+      "dimensional_expansion:emertyst_ingot2",
+      "dimensional_expansion:emertyst_ingot3",
+      "dimensional_expansion:emertyst_leggings",
+      "dimensional_expansion:emertyst_pickaxe",
+      "dimensional_expansion:emertyst_shovel",
+      "dimensional_expansion:emertyst_sword"
+    ]
+  },
+  "parent": "dimensional_expansion:simix"
+}

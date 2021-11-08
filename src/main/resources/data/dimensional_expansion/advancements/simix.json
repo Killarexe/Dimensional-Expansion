@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "dimensional_expansion:simix_ingot"
+    },
+    "title": "Simix",
+    "description": "Obtain Simix Ingot!"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:simix_ingot"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50,
+    "recipes": [
+      "dimensional_expansion:simix_axe",
+      "dimensional_expansion:simix_block",
+      "dimensional_expansion:simix_boots",
+      "dimensional_expansion:simix_chestplate",
+      "dimensional_expansion:simix_helmet",
+      "dimensional_expansion:simix_hoe",
+      "dimensional_expansion:simix_ingot",
+      "dimensional_expansion:simix_ingot2",
+      "dimensional_expansion:simix_ingot3",
+      "dimensional_expansion:simix_leggings",
+      "dimensional_expansion:simix_pickaxe",
+      "dimensional_expansion:simix_shovel",
+      "dimensional_expansion:simix_sword"
+    ]
+  },
+  "parent": "dimensional_expansion:bassmite"
+}

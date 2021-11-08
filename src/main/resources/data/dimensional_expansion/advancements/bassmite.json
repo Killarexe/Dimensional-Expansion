@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    "title": "Bassmite!",
+    "description": "Obtain A Bassmite Gem!"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:bassmite_gem"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50,
+    "recipes": [
+      "dimensional_expansion:bassmite_axe",
+      "dimensional_expansion:bassmite_block",
+      "dimensional_expansion:bassmite_boots",
+      "dimensional_expansion:bassmite_chestplate",
+      "dimensional_expansion:bassmite_helmet",
+      "dimensional_expansion:bassmite_hoe",
+      "dimensional_expansion:bassmite_ingot",
+      "dimensional_expansion:bassmite_ingot2",
+      "dimensional_expansion:bassmite_ingot3",
+      "dimensional_expansion:bassmite_leggings",
+      "dimensional_expansion:bassmite_pickaxe",
+      "dimensional_expansion:bassmite_shovel",
+      "dimensional_expansion:bassmite_sword"
+    ]
+  },
+  "parent": "dimensional_expansion:the_palon"
+}

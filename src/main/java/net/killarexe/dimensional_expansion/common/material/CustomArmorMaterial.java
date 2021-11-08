@@ -17,15 +17,15 @@ public enum CustomArmorMaterial implements ArmorMaterial {
 		return Ingredient.of(DimensionalExpansionItems.PALON_INGOT.get());
 	}),
 
-	EMERTYST(DimensionalExpansionMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	EMERTYST(DimensionalExpansionMod.MODID + ":emertyst",124, new int[] {10, 22, 28, 10}, 48, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DimensionalExpansionItems.EMERTYST_GEM.get());
 	}),
 
-	BASSMITE(DimensionalExpansionMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	BASSMITE(DimensionalExpansionMod.MODID + ":bassmite",64, new int[] {7, 13, 16, 7}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DimensionalExpansionItems.BASSMITE_GEM.get());
 	}),
 
-	SIMIX(DimensionalExpansionMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	SIMIX(DimensionalExpansionMod.MODID + ":simix",67, new int[] {10, 16, 19, 10}, 29, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DimensionalExpansionItems.SIMIX_INGOT.get());
 	});
 

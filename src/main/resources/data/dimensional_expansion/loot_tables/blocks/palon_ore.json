@@ -9,7 +9,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:raw_palon",
+              "name": "dimensional_expansion:palon_ore",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

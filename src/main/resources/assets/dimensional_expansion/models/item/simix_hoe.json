@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "dimensional_expansion:item/simix_hoe"
+  }
+}
