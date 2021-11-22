@@ -1,0 +1,12 @@
+{
+  "dw": {
+    "catergory": "record",
+    "subtitle": "dimensional_expansion.dw",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:dw",
+        "stream": true
+      }
+    ]
+  }
+}

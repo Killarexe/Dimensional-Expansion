@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "dimensional_expansion:block/end_door_top",
+    "bottom": "dimensional_expansion:block/end_door_bottom"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "dimensional_expansion:block/end_planks"
+  }
+}
