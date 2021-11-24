@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        " # ",
+        "   "
+    ],
+    "key": {
+        "#": {
+            "item": "dimensional_expansion:bassmite_block"
+        }
+    },
+    "result": {
+        "item": "dimensional_expansion:bassmite_gem",
+        "count": 9
+    }
+}

@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.*;
 import net.minecraft.world.level.biome.*;
@@ -15,10 +16,7 @@ public class DEBiomes {
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, DEMod.MODID);
 
-    static{
-    }
-
-    public static ResourceKey<Biome> END_FOREST = registerBiome("end_forest");
+    public static final RegistryObject<Biome> END_FOREST = createBiome("end_forest", () -> EndForest.createBiome());
 
     private static ResourceKey<Biome> registerBiome(String id){
         return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DEMod.MODID, id));
@@ -28,6 +26,6 @@ public class DEBiomes {
     }
 
     public static void registerBiomes(){
-        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(END_FOREST, 10));
+
     }
 }

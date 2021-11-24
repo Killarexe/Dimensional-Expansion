@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "dimensional_expansion:simix_sword"
+    },
+    "addition": {
+        "item": "dimensional_expansion:emertyst_gem"
+    },
+    "result": {
+        "item": "dimensional_expansion:emertyst_sword"
+    }
+}

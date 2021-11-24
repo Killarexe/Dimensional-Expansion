@@ -17,6 +17,7 @@ public class DEItems {
 
     public static final RegistryObject<Item> RAW_PALON = createItem("raw_palon", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> PALON_INGOT = createItem("palon_ingot", DEItemGroups.MISC, true);
+    public static final RegistryObject<Item> PALON_NUGGET = createItem("palon_nugget", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> PALON_SWORD = createSwordItem("palon_sword", CustomItemTier.PALON, 3, DEItemGroups.COMBAT);
     public static final RegistryObject<Item> PALON_PICKAXE = createPickaxeItem("palon_pickaxe", CustomItemTier.PALON, 6, DEItemGroups.TOOLS);
     public static final RegistryObject<Item> PALON_AXE = createAxeItem("palon_axe", CustomItemTier.PALON, 6, DEItemGroups.COMBAT);

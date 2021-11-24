@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.*;

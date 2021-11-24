@@ -22,12 +22,12 @@ public class DEBlocks {
 
     public static final RegistryObject<Block> PALON_ORE = createOreBlock("palon_ore", Material.STONE, MaterialColor.COLOR_GRAY, 4, 10, 4, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK,4, 10, 4, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_BLACK,4, 10, 7, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_BLACK,4, 10, 7, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_BLACK,4, 10, 6, SoundType.NETHERRACK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_BLACK,4, 10, 6, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_BLACK,4, 10, 5, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLACK,4, 10, 5, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_BLACK,5, 20, 5, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLACK,5, 20, 5, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_BLACK,6, 30, 6, SoundType.NETHERRACK, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_BLACK,6, 30, 6, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_BLACK,7, 40, 7, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_BLACK,7, 40, 7, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
 
     public static final RegistryObject<Block> END_GRASS_BLOCK = createBlock("end_grass_block", Material.DIRT, MaterialColor.COLOR_BLACK,1, 10, 0, SoundType.GRASS, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_LOG = createPillarBlock("end_log", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 0, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);

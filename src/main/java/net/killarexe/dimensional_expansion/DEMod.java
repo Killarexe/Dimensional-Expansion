@@ -5,6 +5,7 @@ import net.killarexe.dimensional_expansion.core.config.*;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.uitls.ClientEventBusSubscriber;
 import net.killarexe.dimensional_expansion.uitls.CustomVillagerTrades;
+import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -27,6 +28,9 @@ public class DEMod
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         LOGGER.info("Init Dimensional Expension Sounds");
         DESounds.SOUNDS.register(bus);
+        LOGGER.info("Init Dimensional Expension Biomes");
+        DEBiomes.BIOMES.register(bus);
+        DEBiomes.registerBiomes();
         LOGGER.info("Init Dimensional Expension Blocks");
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expension Items");
@@ -36,7 +40,6 @@ public class DEMod
         DEPoitions.POTION.register(bus);
         LOGGER.info("Init Dimensional Enchantments");
         DEEnchantments.ENCHANTMENT.register(bus);
-        LOGGER.info("Init Dimensional Expension Biomes");
         LOGGER.info("Init Dimensional Expension Block Entities");
         DEBlockEntities.BLOCK_ENTITIES.register(bus);
         LOGGER.info("Init Dimensional Expension Villager Proffessions");
@@ -57,6 +60,7 @@ public class DEMod
     }
 
     @SubscribeEvent
-    private static void commonSetup(FMLCommonSetupEvent e){
+    public static void commonSetup(FMLCommonSetupEvent e){
+        EndForest.init();
     }
 }

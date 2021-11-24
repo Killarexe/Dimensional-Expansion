@@ -1,12 +1,12 @@
 {
     "type": "minecraft:smithing",
     "base": {
-        "item": "dimensional_expansion:bassmite_sword"
+        "item": "dimensional_expansion:bassmite_pickaxe"
     },
     "addition": {
         "item": "dimensional_expansion:simix_ingot"
     },
     "result": {
-        "item": "dimensional_expansion:simix_sword"
+        "item": "dimensional_expansion:simix_pickaxe"
     }
 }
