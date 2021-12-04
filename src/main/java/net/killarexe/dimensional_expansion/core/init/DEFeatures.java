@@ -22,12 +22,13 @@ public class DEFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, DEMod.MODID);
 
     private static final RuleTest NATURAL_END_STONE = new BlockMatchTest(Blocks.END_STONE);
+    private static final RuleTest NATURAL_DEEPSLATE = new BlockMatchTest(Blocks.DEEPSLATE);
 
     public static void addFeatures(final BiomeLoadingEvent e){
-        addOre(e, NATURAL_END_STONE, DEBlocks.PALON_ORE.get().defaultBlockState(), 8, 64, 75, 1);
+        addOre(e, NATURAL_END_STONE, DEBlocks.PALON_ORE.get().defaultBlockState(), 8, 54, 75, 1);
         addOre(e, OreConfiguration.Predicates.NATURAL_STONE, DEBlocks.BASSMITE_ORE.get().defaultBlockState(), 8, 0, 12, 1);
         addOre(e, OreConfiguration.Predicates.NETHERRACK, DEBlocks.SIMIX_ORE.get().defaultBlockState(), 8, 0, 14, 1);
-        addOre(e, OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, DEBlocks.EMERTYST_ORE.get().defaultBlockState(), 8, 16, 0, 1);
+        addOre(e, NATURAL_DEEPSLATE, DEBlocks.EMERTYST_ORE.get().defaultBlockState(), 8, 16, 0, 1);
         e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.CONFIGURED_FEATURE);
     }
 

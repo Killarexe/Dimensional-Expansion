@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:end_planks"
+    }
+  },
+  "result": {
+    "item": "dimensional_expansion:end_trapdoor",
+    "count": 6
+  }
+}
