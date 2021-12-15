@@ -6,10 +6,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.extensions.IForgeContainerType;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nonnull;
 import java.util.function.Supplier;
@@ -19,7 +19,7 @@ public class DEContainers {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, DEMod.MODID);
 
     public static final RegistryObject<MenuType<WeatherChangerContainer>> WEATHER_CHANGER_CONTAINER = createContainer("weather_changer_container",
-            () -> IForgeContainerType.create(((windowId, inv, data) -> {
+            () -> IForgeMenuType.create(((windowId, inv, data) -> {
                 BlockPos pos = data.readBlockPos();
                 Level world = inv.player.level;
                 return new WeatherChangerContainer(windowId, world, pos, inv, inv.player);

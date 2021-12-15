@@ -6,7 +6,6 @@ import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScree
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.uitls.CustomVillagerTrades;
-import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -71,7 +70,6 @@ public class DEMod
 
     private void commonSetup(final FMLCommonSetupEvent event){
         LOGGER.info("Dimensional Expansion Common Setup");
-        EndForest.init();
         DEVillagerTypes.registerPOI(DEVillagerTypes.END_FORGER_POI.get());
     }
 

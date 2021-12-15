@@ -8,7 +8,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 public class DimensionalExpensionVersionOverlay {
 
     public static void render(RenderGameOverlayEvent.Pre event){
-        if (!event.isCancelable() && event.getType() == RenderGameOverlayEvent.ElementType.ALL && DEConfig.showVersion.get()) {
+        if (event.getType() == RenderGameOverlayEvent.ElementType.ALL && DEConfig.showVersion.get()) {
             DEMod.LOGGER.info("Render Overlay...");
             int w = event.getWindow().getGuiScaledWidth();
             int h = event.getWindow().getGuiScaledHeight();

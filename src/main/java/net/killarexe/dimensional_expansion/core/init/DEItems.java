@@ -2,14 +2,16 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.item.FuelItem;
-import net.killarexe.dimensional_expansion.common.item.material.*;
+import net.killarexe.dimensional_expansion.common.item.material.CustomArmorMaterial;
+import net.killarexe.dimensional_expansion.common.item.material.CustomItemTier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BannerPattern;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.*;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class DEItems {
 
