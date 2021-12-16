@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.data;
 
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 import static net.killarexe.dimensional_expansion.core.init.DEItems.*;

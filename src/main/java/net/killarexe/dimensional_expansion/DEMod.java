@@ -5,7 +5,6 @@ import net.killarexe.dimensional_expansion.common.gui.overlay.DimensionalExpensi
 import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.killarexe.dimensional_expansion.uitls.CustomVillagerTrades;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -27,7 +26,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.2a";
+    public static final String VERSION = "0.2.5a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -58,8 +57,8 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.SPEC, "dimensional_expansion-client.toml");
 
-        MinecraftForge.EVENT_BUS.addListener(DEFeatures::addFeatures);
-        MinecraftForge.EVENT_BUS.addListener(CustomVillagerTrades::addNewTrade);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
         MinecraftForge.EVENT_BUS.addListener(DimensionalExpensionVersionOverlay::render);
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);

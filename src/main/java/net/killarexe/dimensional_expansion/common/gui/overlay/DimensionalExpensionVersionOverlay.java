@@ -12,8 +12,8 @@ public class DimensionalExpensionVersionOverlay {
             DEMod.LOGGER.info("Render Overlay...");
             int w = event.getWindow().getGuiScaledWidth();
             int h = event.getWindow().getGuiScaledHeight();
-            int posX = w / 2;
-            int posY = h / 2;
+            int posX = w - 10;
+            int posY = h - 10;
             if(DEConfig.showVersion.get()){
                 Minecraft.getInstance().font.draw(event.getMatrixStack(), "Dimensional Expansion " + DEMod.VERSION, posX, posY, 255);
             }
