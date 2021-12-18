@@ -7,16 +7,18 @@ import net.minecraft.network.chat.TextComponent;
 public final class DEConfigGui extends Screen{
 
     private static final String displayName = "Dimensional Expansion Config";
+    private static final int TITLE_HEIGHT = 8;
     private Screen parent;
 
     public DEConfigGui() {
         super(new TextComponent(displayName));
-        this.parent = parent;
     }
 
     @Override
-    public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
-        super.render(p_96562_, p_96563_, p_96564_, p_96565_);
-        this.renderBackground(p_96562_);
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks) {
+        this.renderBackground(poseStack);
+        drawCenteredString(poseStack, this.font, this.title.getString(),
+                this.width / 2, TITLE_HEIGHT, 0xFFFFFF);
+        super.render(poseStack, mouseX, mouseY, partialTicks);
     }
 }

@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.common.gui.overlay.DimensionalExpensionVersionOverlay;
 import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
+import net.killarexe.dimensional_expansion.core.config.DEConfigGui;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -62,6 +64,8 @@ public class DEMod
         MinecraftForge.EVENT_BUS.addListener(DimensionalExpensionVersionOverlay::render);
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
+
+        //ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> (mc, screen) -> new DEConfigGui());
 
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expension Complete!");

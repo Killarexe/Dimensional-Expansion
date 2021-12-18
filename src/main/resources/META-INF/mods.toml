@@ -1,14 +1,14 @@
-modLoader="javafml" #mandatory
-loaderVersion="[37,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
-license="All rights reserved"
-[[mods]] #mandatory
-modId="dimensional_expansion" #mandatory
-version="0.2.5a" #mandatory
-displayName="Dimensional Expansion Mod" #mandatory
-logoFile="textures/logo/logo.png" #optional
-credits="" #optional
+modLoader="javafml"
+loaderVersion="[39,)"
+license="Creative Commons Attribution-NonCommercial 3.0"
+[[mods]]
+modId="dimensional_expansion"
+version="0.2.5a"
+displayName="Dimensional Expansion Mod"
+logoFile="icon.png"
+credits="This Mod made bt Killar.exe"
 authors="Killar.exe" #optional
-description=''''''
+description='''Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes and more!'''
 updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory

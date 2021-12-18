@@ -106,7 +106,7 @@ public class DEItems {
     }
 
     private static RegistryObject<Item> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().tab(itemGroup).stacksTo(1)));
     }
 
     private static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block, CreativeModeTab itemGroup){
