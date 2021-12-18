@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -28,7 +27,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.2.5a";
+    public static final String VERSION = "0.3a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
