@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.common.gui.overlay.DimensionalExpensionVersionOverlay;
 import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.config.DEConfigGui;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
