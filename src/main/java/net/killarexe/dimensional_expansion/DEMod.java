@@ -5,10 +5,14 @@ import net.killarexe.dimensional_expansion.common.gui.overlay.DimensionalExpensi
 import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
+import net.killarexe.dimensional_expansion.event.DEEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -72,6 +76,8 @@ public class DEMod
     private void commonSetup(final FMLCommonSetupEvent event){
         LOGGER.info("Dimensional Expansion Common Setup");
         DEVillagerTypes.registerPOI(DEVillagerTypes.END_FORGER_POI.get());
+        WoodType.register(DEWoodTypes.END);
+        Sheets.addWoodType(DEWoodTypes.END);
     }
 
     private void clientSetup(final FMLClientSetupEvent event){
@@ -81,9 +87,12 @@ public class DEMod
 
         MenuScreens.register(DEContainers.WEATHER_CHANGER_CONTAINER.get(), WeatherChangerScreen::new);
 
+
         LOGGER.info("Set Dimensional Expansion Blocks Settings");
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_LEAVES.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(DEBlocks.XP_CROPS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
     }
 }

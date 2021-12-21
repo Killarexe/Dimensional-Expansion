@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.block.WeatherChangerBlock;
+import net.killarexe.dimensional_expansion.common.block.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -43,8 +43,14 @@ public class DEBlocks {
     public static final RegistryObject<Block> END_LEAVES = createLeavesBlock("end_leaves", Material.LEAVES, MaterialColor.COLOR_BLACK,0, 50, 1, SoundType.GRASS, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> END_STAIRS = createStairBlock("end_stairs", END_PLANKS, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_FORGE = createBlock("end_forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> END_BOOKSHELF = createCustomBlock("end_bookshelf", new EndBookself());
+    public static final RegistryObject<Block> END_SIGN = createCustomBlock("end_sign", new EndStandingSignBlock());
+    public static final RegistryObject<Block> END_WALL_SIGN = createCustomBlock("end_wall_sign", new EndWallSignBlock());
 
-    public static final RegistryObject<Block> WEATHER_CHANGER = createCustomBlock("weather_changer", new WeatherChangerBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(6, 50).requiresCorrectToolForDrops().destroyTime(3).sound(SoundType.ANVIL)), DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", new XPCrops());
+    public static final RegistryObject<Block> HEALTH_CROPS = createCustomBlock("health_crops", new HealthCrops());
+
+    public static final RegistryObject<Block> WEATHER_CHANGER = createCustomBlock("weather_changer", new WeatherChangerBlock(), DEItemGroups.DECORATION_BLOCKS);
 
     @Nonnull
     private static RegistryObject<Block> createBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
@@ -133,6 +139,11 @@ public class DEBlocks {
     private static RegistryObject<Block> createCustomBlock(@Nonnull String id, Block block, CreativeModeTab itemGroup){
         RegistryObject<Block> cBlock = BLOCK.register(id, () -> block);
         RegistryObject<Item> itemBlock = DEItems.ITEMS.register(id, () -> new BlockItem(cBlock.get(), new Item.Properties().tab(itemGroup).fireResistant()));
+        return cBlock;
+    }
+
+    private static RegistryObject<Block> createCustomBlock(@Nonnull String id, Block block){
+        RegistryObject<Block> cBlock = BLOCK.register(id, () -> block);
         return cBlock;
     }
 

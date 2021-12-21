@@ -1,6 +1,9 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;

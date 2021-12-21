@@ -3,9 +3,9 @@ loaderVersion="[39,)"
 license="Creative Commons Attribution-NonCommercial 3.0"
 [[mods]]
 modId="dimensional_expansion"
-version="0.2.5a"
+version="0.3a"
 displayName="Dimensional Expansion Mod"
-logoFile="icon.png"
+logoFile="pack.png"
 credits="This Mod made bt Killar.exe"
 authors="Killar.exe" #optional
 description='''Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes and more!'''

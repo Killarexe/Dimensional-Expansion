@@ -15,6 +15,9 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import java.util.function.Consumer;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
+import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
+import static net.minecraft.world.item.Items.*;
+import static net.minecraft.world.item.crafting.RecipeSerializer.*;
 
 public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
 
@@ -24,22 +27,26 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> r) {
-        //createSmelting(r, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createSmelting(r, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, BLASTING_RECIPE);
-        //createMaterialIngotRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
-        //createMaterialRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
-        //createOreBlockRecipe(r, PALON_BLOCK.get(), PALON_INGOT.get());
-        //createSmelting(r, BASSMITE_ORE.get(), BASSMITE_GEM.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createMaterialRecipe(r, BASSMITE_GEM.get(), BASSMITE_BLOCK.get());
-        //createOreBlockRecipe(r, BASSMITE_BLOCK.get(), BASSMITE_GEM.get());
-        //createSmelting(r, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createSmelting(r, RAW_SIMIX.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createMaterialRecipe(r, SIMIX_INGOT.get(), SIMIX_BLOCK.get());
-        //createMaterialRecipe(r, SIMIX_NUGGET.get(), SIMIX_INGOT.get());
-        //createOreBlockRecipe(r, SIMIX_BLOCK.get(), SIMIX_INGOT.get());
-        //createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);;
-        //createMaterialRecipe(r, EMERTYST_GEM.get(), EMERTYST_BLOCK.get());
-        //createOreBlockRecipe(r, EMERTYST_BLOCK.get(), EMERTYST_GEM.get());
+        createSmelting(r, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createSmelting(r, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, BLASTING_RECIPE);
+        createMaterialIngotRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
+        createMaterialRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
+        createOreBlockRecipe(r, PALON_BLOCK.get(), PALON_INGOT.get());
+        createSmelting(r, BASSMITE_ORE.get(), BASSMITE_GEM.get(), 0.1f, 200, BLASTING_RECIPE);
+        createMaterialRecipe(r, BASSMITE_GEM.get(), BASSMITE_BLOCK.get());
+        createOreBlockRecipe(r, BASSMITE_BLOCK.get(), BASSMITE_GEM.get());
+        createSmelting(r, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createSmelting(r, RAW_SIMIX.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createMaterialRecipe(r, SIMIX_INGOT.get(), SIMIX_BLOCK.get());
+        createMaterialRecipe(r, SIMIX_NUGGET.get(), SIMIX_INGOT.get());
+        createOreBlockRecipe(r, SIMIX_BLOCK.get(), SIMIX_INGOT.get());
+        createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);;
+        createMaterialRecipe(r, EMERTYST_GEM.get(), EMERTYST_BLOCK.get());
+        createOreBlockRecipe(r, EMERTYST_BLOCK.get(), EMERTYST_GEM.get());
+        createMixRecipe(r, PALON_MIXED_COAL.get(), PALON_INGOT.get(), COAL);
+        createMixRecipe(r, BASSMITE_MIXED_COAL.get(), BASSMITE_GEM.get(), COAL);
+        createMixRecipe(r, SIMIX_MIXED_COAL.get(), SIMIX_INGOT.get(), COAL);
+        createMixRecipe(r, EMERTYST_MIXED_COAL.get(), EMERTYST_GEM.get(), COAL);
 
         createSlabRecipe(r, END_SLAB.get(), END_PLANKS.get());
         createStairsRecipe(r, END_STAIRS.get(), END_PLANKS.get());
@@ -145,6 +152,15 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapedRecipeBuilder.shaped(resultItem, 9).define('#', requireItem)
                 .pattern("   ")
                 .pattern(" # ")
+                .pattern("   ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+
+    private void createMixRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem, ItemLike requireItem1){
+        ShapedRecipeBuilder.shaped(resultItem, 9).define('1', requireItem).define('2', requireItem1)
+                .pattern("   ")
+                .pattern(" 12")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
                 .save(r);

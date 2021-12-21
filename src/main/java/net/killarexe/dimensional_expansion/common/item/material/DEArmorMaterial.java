@@ -11,7 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 
-public enum CustomArmorMaterial implements ArmorMaterial {
+public enum DEArmorMaterial implements ArmorMaterial {
 	PALON(DEMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
 	}),
@@ -38,7 +38,7 @@ public enum CustomArmorMaterial implements ArmorMaterial {
 	private final float knockbackResistance;
 	private final LazyLoadedValue<Ingredient> repairIngredient;
 
-	private CustomArmorMaterial(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
+	private DEArmorMaterial(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
 		this.name = p_40474_;
 		this.durabilityMultiplier = p_40475_;
 		this.slotProtections = p_40476_;

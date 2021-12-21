@@ -5,6 +5,7 @@ import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -78,6 +79,17 @@ public class WeatherChangerBlockEntity extends BlockEntity {
             return handler.cast();
         }
         return super.getCapability(cap);
+    }
+
+    public void changeWeather(){
+        if(itemHandler.isItemValid(0, itemHandler.getStackInSlot(0))){
+            Level level = this.getLevel();
+            if(level.isRaining()){
+                level.setRainLevel(-1);
+            }else{
+                level.setRainLevel(1);
+            }
+        }
     }
 
 }

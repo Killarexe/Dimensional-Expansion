@@ -7,7 +7,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum CustomItemTier implements Tier {
+public enum DEItemTier implements Tier {
 	PALON(5, 3592, 17.0f, 7f, 25, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
 	}),
@@ -28,7 +28,7 @@ public enum CustomItemTier implements Tier {
 	private final int enchantmentValue;
 	private final LazyLoadedValue<Ingredient> repairIngredient;
 
-	private CustomItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
+	private DEItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
 		this.level = p_43332_;
 		this.uses = p_43333_;
 		this.speed = p_43334_;

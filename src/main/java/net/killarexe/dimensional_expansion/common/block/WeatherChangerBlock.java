@@ -14,8 +14,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
@@ -23,22 +27,22 @@ import javax.annotation.Nullable;
 
 public class WeatherChangerBlock extends BaseEntityBlock {
 
-    public WeatherChangerBlock(Properties p_49795_) {
-        super(p_49795_);
+    public WeatherChangerBlock() {
+        super(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(6, 50).requiresCorrectToolForDrops().destroyTime(3).sound(SoundType.ANVIL));
     }
 
     @Override
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-        if(p_60504_.isClientSide()){
-            BlockEntity be = p_60504_.getBlockEntity(p_60505_);
+        if(!p_60504_.isClientSide() && p_60504_.getBlockEntity(p_60505_) instanceof WeatherChangerBlockEntity){
+            WeatherChangerBlockEntity be = (WeatherChangerBlockEntity) p_60504_.getBlockEntity(p_60505_);
 
             if(!p_60506_.isCrouching()){
-                if(be instanceof WeatherChangerBlockEntity && p_60506_ instanceof ServerPlayer){
+                if(p_60506_ instanceof ServerPlayer){
                     MenuProvider containerProvider = createContainerProvider(p_60504_, p_60505_);
                     NetworkHooks.openGui(((ServerPlayer) p_60506_), containerProvider, be.getBlockPos());
                 }
             }else{
-                //TODO change weather
+                be.changeWeather();
             }
         }
         return InteractionResult.SUCCESS;
