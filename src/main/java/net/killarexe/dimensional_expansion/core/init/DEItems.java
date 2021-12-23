@@ -77,7 +77,7 @@ public class DEItems {
     public static final RegistryObject<Item> XP_PLANTS = createItem("xp_plants", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> HEART = createItem("heart", DEItemGroups.MISC, false);
 
-    public static final RegistryObject<Item> END_SIGN = createSignItem("end_sign", DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get(), DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.DECORATION_BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
 
     private static RegistryObject<Item> createItem(String id, CreativeModeTab itemGroup, boolean isFireProof){
         if(isFireProof){
@@ -122,7 +122,7 @@ public class DEItems {
     }
 
     private static RegistryObject<Item> createHorseArmorItem(String id, int armorValue, String tierID, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, tierID), new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID), new Item.Properties().tab(itemGroup)));
     }
 
     private static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block, CreativeModeTab itemGroup){
@@ -137,7 +137,4 @@ public class DEItems {
         return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
     }
 
-    private static RegistryObject<Item> createSignItem(String id, Block standingBlock, Block wallBlock, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new SignItem(new Item.Properties().stacksTo(16).tab(itemGroup), standingBlock, wallBlock));
-    }
 }

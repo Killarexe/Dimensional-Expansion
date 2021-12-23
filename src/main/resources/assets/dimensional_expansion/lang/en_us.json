@@ -87,6 +87,11 @@
 	"item.dimensional_expansion.end_sign": "End Sign",
 	"block.dimensional_expansion.end_bookshelf": "End Bookshelf",
 
+	"item.dimensional_expansion.xp_plants": "Xp Plants",
+	"item.dimensional_expansion.heart": "Heart",
+
+	"block.dimensional_expansion.end_rose": "End Rose",
+
 	"block.dimensional_expansion.weather_changer": "Weather Changer",
 	"block.dimensional_expansion.end_forge": "End Forge",
 

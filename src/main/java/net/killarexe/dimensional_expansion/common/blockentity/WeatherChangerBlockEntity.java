@@ -85,9 +85,9 @@ public class WeatherChangerBlockEntity extends BlockEntity {
         if(itemHandler.isItemValid(0, itemHandler.getStackInSlot(0))){
             Level level = this.getLevel();
             if(level.isRaining()){
-                level.setRainLevel(-1);
-            }else{
                 level.setRainLevel(1);
+            }else{
+                level.setRainLevel(-1);
             }
         }
     }

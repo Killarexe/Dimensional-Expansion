@@ -4,11 +4,15 @@ import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class EndBookself extends Block {
     public EndBookself() {
-        super(Properties.copy(DEBlocks.END_PLANKS.get()));
+        super(BlockBehaviour.Properties.of(Material.WOOD).color(MaterialColor.COLOR_BLUE).strength(1, 10).requiresCorrectToolForDrops().destroyTime(1).sound(SoundType.WOOD));
     }
 
     @Override

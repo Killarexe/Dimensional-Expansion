@@ -41,7 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
-public class EndForest {
+public class EndForest{
 
     private static final Map<ResourceLocation, ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = new HashMap<>();
     private static BlockStateProvider log = new BlockStateProvider() {
@@ -77,13 +77,6 @@ public class EndForest {
                 .build();
 
         BiomeGenerationSettings.Builder settings = new BiomeGenerationSettings.Builder();
-        //settings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, register("end_tree", Feature.TREE.configured(new TreeConfiguration.TreeConfigurationBuilder(
-        //                log,
-        //                new StraightTrunkPlacer(5, 2, 0),
-        //                leaves,
-        //                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
-        //                new TwoLayersFeatureSize(1, 0, 1)).build())
-        //        ).)));
 
         MobSpawnSettings.Builder spawn = new MobSpawnSettings.Builder();
         spawn.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 5));
