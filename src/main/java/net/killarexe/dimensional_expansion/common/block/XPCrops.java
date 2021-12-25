@@ -22,7 +22,7 @@ public class XPCrops extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return DEItems.XP_PLANTS.get();
+        return DEItems.XP_SEEDS.get();
     }
 
     @Override

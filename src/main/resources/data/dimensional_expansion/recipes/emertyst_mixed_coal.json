@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " 12",
+    "   "
+  ],
+  "key": {
+    "1": {
+      "item": "dimensional_expansion:emertyst_gem"
+    },
+    "2": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "item": "dimensional_expansion:emertyst_mixed_coal",
+    "count": 9
+  }
+}

@@ -2,11 +2,16 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.item.FuelItem;
+import net.killarexe.dimensional_expansion.common.item.XpPlants;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BannerPattern;
@@ -74,8 +79,10 @@ public class DEItems {
     public static final RegistryObject<Item> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DEItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DEItemGroups.MISC, true);
 
-    public static final RegistryObject<Item> XP_PLANTS = createItem("xp_plants", DEItemGroups.MISC, false);
-    public static final RegistryObject<Item> HEART = createItem("heart", DEItemGroups.MISC, false);
+    public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
+    public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
+    public static final RegistryObject<Item> XP_PLANTS = createCustomItem("xp_plants", new XpPlants());
+    public static final RegistryObject<Item> HEART = createFoodItem("heart", 2, 2, MobEffects.HEALTH_BOOST, 1, 1, 1,DEItemGroups.MISC, false);
 
     public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.DECORATION_BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
 
@@ -91,6 +98,13 @@ public class DEItems {
             return ITEMS.register(id, () -> new FuelItem(new Item.Properties().tab(itemGroup).fireResistant(), burnTime));
         }
         return ITEMS.register(id, () -> new FuelItem(new Item.Properties().tab(itemGroup), burnTime));
+    }
+
+    private static RegistryObject<Item> createFoodItem(String id, float staturation, int nutrition, MobEffect effect, int level, int duration, float probability, CreativeModeTab itemGroup, boolean isFireProof){
+        if(isFireProof){
+            return ITEMS.register(id, () -> new Item(new Item.Properties().tab(itemGroup).food(new FoodProperties.Builder().saturationMod(staturation).nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build()).fireResistant()));
+        }
+        return ITEMS.register(id, () -> new Item(new Item.Properties().tab(itemGroup).food(new FoodProperties.Builder().saturationMod(staturation).nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build())));
     }
 
     private static RegistryObject<Item> createSwordItem(String id, Tier tier, int level, CreativeModeTab itemGroup){
@@ -122,7 +136,11 @@ public class DEItems {
     }
 
     private static RegistryObject<Item> createHorseArmorItem(String id, int armorValue, String tierID, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID), new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
+    }
+
+    private static RegistryObject<Item> createCustomItem(String id, Item item){
+        return ITEMS.register(id, () -> item);
     }
 
     private static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block, CreativeModeTab itemGroup){

@@ -11,6 +11,9 @@
     "dimensional_expansion:end_pressure_plate",
     "dimensional_expansion:end_door",
     "dimensional_expansion:end_stairs",
-    "dimensional_expansion:end_trapdoor"
+    "dimensional_expansion:end_trapdoor",
+    "dimensional_expansion:end_bookshelf",
+    "dimensional_expansion:end_sign",
+    "dimensional_expansion:end_wall_sign"
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "dimensional_expansion:block/xp_crops_stage2"
+  }
+}

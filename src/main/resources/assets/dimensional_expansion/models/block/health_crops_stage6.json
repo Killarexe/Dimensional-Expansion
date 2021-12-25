@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "dimensional_expansion:block/health_crops_stage6"
+  }
+}

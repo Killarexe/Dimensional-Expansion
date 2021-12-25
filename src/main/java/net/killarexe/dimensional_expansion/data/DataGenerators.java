@@ -14,6 +14,6 @@ public class DataGenerators {
         DataGenerator generator = e.getGenerator();
 
         generator.addProvider(new DERecipeProvider(generator));
-        generator.addProvider(new DELootTableProvider(generator));
+        //generator.addProvider(new DELootTableProvider(generator));
     }
 }

@@ -19,7 +19,7 @@ public class HealthCrops extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return DEItems.HEART.get();
+        return DEItems.HEART_SEEDS.get();
     }
 
     @Override

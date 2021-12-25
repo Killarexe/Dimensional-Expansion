@@ -7,7 +7,8 @@
     "0.2a": "Updated to 1.17.1, Added Villager Trades, Added Items, Added Blocks, Added Ores, Added Ores Generation, Added Crafts, Added Config, Added Biome, Added Sturctures"
   },
   "1.18.1": {
-    "0.2.5a": "Updated to 1.18.1"
+    "0.2.5a": "Updated to 1.18.1",
+    "0.3a": "Added Blocks, Items, Crops. Remove Enchantment, Potion. Update/Patch Loot Tables, Models, Lang file"
   },
 
   "promos": {
@@ -15,7 +16,7 @@
     "1.16.4-recommended": "0.1a",
     "1.17.1-latest": "0.2a",
     "1.17.1-recommended": "0.2a",
-    "1.18.1-latest": "0.2.5a",
-    "1.18.1-recommended": "0.2.5a"
+    "1.18.1-latest": "0.3a",
+    "1.18.1-recommended": "0.3a"
   }
 }

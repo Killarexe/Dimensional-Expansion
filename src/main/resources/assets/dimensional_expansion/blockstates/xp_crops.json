@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "dimensional_expansion:block/xp_crops_stage0"
+    },
+    "age=1": {
+      "model": "dimensional_expansion:block/xp_crops_stage1"
+    },
+    "age=2": {
+      "model": "dimensional_expansion:block/xp_crops_stage2"
+    },
+    "age=3": {
+      "model": "dimensional_expansion:block/xp_crops_stage3"
+    },
+    "age=4": {
+      "model": "dimensional_expansion:block/xp_crops_stage4"
+    },
+    "age=5": {
+      "model": "dimensional_expansion:block/xp_crops_stage5"
+    },
+    "age=6": {
+      "model": "dimensional_expansion:block/xp_crops_stage6"
+    },
+    "age=7": {
+      "model": "dimensional_expansion:block/xp_crops_stage7"
+    }
+  }
+}

@@ -12,7 +12,10 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -75,7 +78,6 @@ public class DEMod
         LOGGER.info("Dimensional Expansion Common Setup");
         DEVillagerTypes.registerPOI(DEVillagerTypes.END_FORGER_POI.get());
         WoodType.register(DEWoodTypes.END);
-        Sheets.addWoodType(DEWoodTypes.END);
     }
 
     private void clientSetup(final FMLClientSetupEvent event){
@@ -84,6 +86,10 @@ public class DEMod
         window.setTitle("Dimensional Expansion " + DEMod.VERSION);
 
         MenuScreens.register(DEContainers.WEATHER_CHANGER_CONTAINER.get(), WeatherChangerScreen::new);
+
+        Sheets.addWoodType(DEWoodTypes.END);
+
+        BlockEntityRenderers.register(DEBlockEntities.END_SIGN.get(), SignRenderer::new);
 
         EndForest.init();
 

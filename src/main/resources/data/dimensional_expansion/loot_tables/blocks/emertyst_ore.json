@@ -2,14 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:emertyst_ore",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -24,11 +24,11 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "name": "dimensional_expansion:emertyst_ore"
             },
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:emertyst_gem",
               "functions": [
                 {
                   "function": "minecraft:apply_bonus",
@@ -38,7 +38,8 @@
                 {
                   "function": "minecraft:explosion_decay"
                 }
-              ]
+              ],
+              "name": "dimensional_expansion:emertyst_gem"
             }
           ]
         }
