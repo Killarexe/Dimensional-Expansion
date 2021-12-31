@@ -91,53 +91,53 @@ public class DEItems {
 
     private static Item createFoodItem(String id, float staturation, int nutrition, StatusEffect effect, int level, int duration, float probability, ItemGroup itemGroup, boolean isFireProof){
         if(isFireProof){
-            return Registry.register(Registry.ITEM,id, new Item(new FabricItemSettings().group(itemGroup).food(new FoodComponent.Builder().saturationModifier(staturation).hunger(nutrition).statusEffect( new StatusEffectInstance(effect, level, duration), probability).build()).fireproof()));
+            return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new Item(new FabricItemSettings().group(itemGroup).food(new FoodComponent.Builder().saturationModifier(staturation).hunger(nutrition).statusEffect( new StatusEffectInstance(effect, level, duration), probability).build()).fireproof()));
         }
-        return Registry.register(Registry.ITEM,id, new Item(new FabricItemSettings().group(itemGroup).food(new FoodComponent.Builder().saturationModifier(staturation).hunger(nutrition).statusEffect( new StatusEffectInstance(effect, level, duration), probability).build())));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new Item(new FabricItemSettings().group(itemGroup).food(new FoodComponent.Builder().saturationModifier(staturation).hunger(nutrition).statusEffect( new StatusEffectInstance(effect, level, duration), probability).build())));
     }
 
     private static Item createSwordItem(String id, ToolMaterial ToolMaterial, int level, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new SwordItem(ToolMaterial, level, -2.4F, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new SwordItem(ToolMaterial, level, -2.4F, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createPickaxeItem(String id, ToolMaterial ToolMaterial, int level, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new DEPickaxeItem(ToolMaterial, level, -2.8F, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new DEPickaxeItem(ToolMaterial, level, -2.8F, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createAxeItem(String id, ToolMaterial ToolMaterial, float level, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new DEAxeItem(ToolMaterial, level, -3.2F, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new DEAxeItem(ToolMaterial, level, -3.2F, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createShovelItem(String id, ToolMaterial ToolMaterial, float level, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new ShovelItem(ToolMaterial, level, -3F, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new ShovelItem(ToolMaterial, level, -3F, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createHoeItem(String id, ToolMaterial ToolMaterial, int level, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new DEHoeItem(ToolMaterial, level, -3F, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new DEHoeItem(ToolMaterial, level, -3F, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new ArmorItem(material, slot, new FabricItemSettings().group(itemGroup).fireproof()));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new ArmorItem(material, slot, new FabricItemSettings().group(itemGroup).fireproof()));
     }
 
     private static Item createDiscItem(String id, int comparatorValue, SoundEvent sound, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new DEMusicDiscItem(comparatorValue, sound, new FabricItemSettings().group(itemGroup).maxCount(1)));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new DEMusicDiscItem(comparatorValue, sound, new FabricItemSettings().group(itemGroup).maxCount(1)));
     }
 
     private static Item createHorseArmorItem(String id, int armorValue, String ToolMaterialID, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new HorseArmorItem(armorValue, ToolMaterialID,  new FabricItemSettings().group(itemGroup)));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new HorseArmorItem(armorValue, ToolMaterialID,  new FabricItemSettings().group(itemGroup)));
     }
 
     private static Item createCustomItem(String id, Item item){
-        return Registry.register(Registry.ITEM,id, item);
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), item);
     }
 
     private static Item createBlockItem(String id, Block block, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new BlockItem(block, new FabricItemSettings().group(itemGroup)));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BlockItem(block, new FabricItemSettings().group(itemGroup)));
     }
 
     private static Item createBannerPatternItem(String id, BannerPattern pattern, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM,id, new BannerPatternItem(pattern, new FabricItemSettings().group(itemGroup)));
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BannerPatternItem(pattern, new FabricItemSettings().group(itemGroup)));
     }
 
 }

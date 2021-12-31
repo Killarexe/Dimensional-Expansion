@@ -51,12 +51,12 @@ public enum DEArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return HEALTH_PER_SLOT[slot.getArmorStandSlotId()] * this.durabilityMultiplier;
+        return HEALTH_PER_SLOT[slot.getEntitySlotId()] * this.durabilityMultiplier;
     }
 
     @Override
     public int getProtectionAmount(EquipmentSlot slot) {
-        return this.slotProtections[slot.getArmorStandSlotId()];
+        return this.slotProtections[slot.getEntitySlotId()];
     }
 
     @Override
