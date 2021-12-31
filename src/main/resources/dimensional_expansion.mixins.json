@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.killarexe.dimsional_expansion.mixin",
+  "package": "net.killarexe.dimensional_expansion.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],
