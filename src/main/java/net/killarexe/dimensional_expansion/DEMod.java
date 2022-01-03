@@ -6,6 +6,7 @@ import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScree
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.event.DEEvents;
+import net.killarexe.dimensional_expansion.uitls.StrippingMap;
 import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -33,7 +34,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.3a";
+    public static final String VERSION = "0.4a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -62,7 +63,8 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Features");
         DEFeatures.FEATURES.register(bus);
         LOGGER.info("Init Dimensional Expansion Config");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.SPEC, "dimensional_expansion-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
 
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
@@ -77,7 +79,11 @@ public class DEMod
     private void commonSetup(final FMLCommonSetupEvent event){
         LOGGER.info("Dimensional Expansion Common Setup");
         DEVillagerTypes.registerPOI(DEVillagerTypes.END_FORGER_POI.get());
+        DEVillagerTypes.registerPOI(DEVillagerTypes.END_FARMER_POI.get());
         WoodType.register(DEWoodTypes.END);
+        event.enqueueWork(() ->{
+            StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
+        });
     }
 
     private void clientSetup(final FMLClientSetupEvent event){
@@ -100,6 +106,6 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.XP_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_ROSE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(DEBlocks.WEATHER_CHANGER.get(), RenderType.cutoutMipped());
+        //ItemBlockRenderTypes.setRenderLayer(DEBlocks.WEATHER_CHANGER.get(), RenderType.cutoutMipped());
     }
 }

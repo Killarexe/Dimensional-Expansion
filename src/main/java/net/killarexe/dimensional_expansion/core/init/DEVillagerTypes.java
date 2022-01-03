@@ -2,15 +2,12 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import com.google.common.collect.ImmutableSet;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.*;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.*;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -21,9 +18,11 @@ public class DEVillagerTypes {
 
     //PoiTypes
     public static final RegistryObject<PoiType> END_FORGER_POI = createPoiType("end_forger_poi", DEBlocks.END_FORGE);
+    public static final RegistryObject<PoiType> END_FARMER_POI = createPoiType("end_farmer_poi", null);
 
     //Villager Types
     public static final RegistryObject<VillagerProfession> END_FORGER = createProfession("end_forger", END_FORGER_POI, SoundEvents.ANVIL_LAND);
+    public static final RegistryObject<VillagerProfession> END_FARMER = createProfession("end_farmer", END_FARMER_POI, SoundEvents.COMPOSTER_FILL);
 
     private static RegistryObject<PoiType> createPoiType(String name, RegistryObject<Block> targetBlock){
         RegistryObject<PoiType> type = POI_TYPE.register(name, () -> new PoiType(name, PoiType.getBlockStates(targetBlock.get()), 1, 1));

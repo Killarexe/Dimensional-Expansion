@@ -2,6 +2,8 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.item.FuelItem;
+import net.killarexe.dimensional_expansion.common.item.TimePowerStone;
+import net.killarexe.dimensional_expansion.common.item.WeatherPowerStone;
 import net.killarexe.dimensional_expansion.common.item.XpPlants;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
@@ -78,6 +80,9 @@ public class DEItems {
     public static final RegistryObject<Item> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, EquipmentSlot.FEET, DEItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DEItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DEItemGroups.MISC, true);
+
+    public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", new WeatherPowerStone());
+    public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", new TimePowerStone());
 
     public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));

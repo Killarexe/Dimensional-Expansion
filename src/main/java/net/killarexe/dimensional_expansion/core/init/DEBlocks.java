@@ -53,7 +53,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", new XPCrops());
     public static final RegistryObject<Block> HEALTH_CROPS = createCustomBlock("health_crops", new HealthCrops());
 
-    public static final RegistryObject<Block> WEATHER_CHANGER = createCustomBlock("weather_changer", new WeatherChangerBlock(), DEItemGroups.DECORATION_BLOCKS);
+    //public static final RegistryObject<Block> WEATHER_CHANGER = createCustomBlock("weather_changer", new WeatherChangerBlock(), DEItemGroups.DECORATION_BLOCKS);
 
     @Nonnull
     private static RegistryObject<Block> createBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
