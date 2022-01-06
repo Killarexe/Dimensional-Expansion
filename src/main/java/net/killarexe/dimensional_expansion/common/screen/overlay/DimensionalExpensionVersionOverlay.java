@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.common.gui.overlay;
+package net.killarexe.dimensional_expansion.common.screen.overlay;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;

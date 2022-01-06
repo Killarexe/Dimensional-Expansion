@@ -91,17 +91,25 @@
 	"item.dimensional_expansion.xp_seeds": "Xp Seeds",
 	"item.dimensional_expansion.heart": "Heart",
 	"item.dimensional_expansion.heart_seeds": "Heart Seeds",
+	"item.dimensional_expansion.weather_power_stone": "Weather Power Stone",
+	"item.dimensional_expansion.time_power_stone": "Time Power Stone",
 
 	"block.dimensional_expansion.end_rose": "End Rose",
 
-	"block.dimensional_expansion.weather_changer": "Weather Changer",
-	"block.dimensional_expansion.end_forge": "End Forge",
+	"block.dimensional_expansion.forge": "Forge",
 
-	"entity.minecraft.villager.dimensional_expansion.end_forger": "End Forger",
+	"entity.minecraft.villager.dimensional_expansion.forger": "Forger",
+	"entity.minecraft.villager.dimensional_expansion.farmer": "Farmer",
+	"entity.minecraft.villager.dimensional_expansion.miner": "Miner",
 
 	"itemGroup.dimensional_expansion.building_blocks": "Dimensional Expansion Blocks",
 	"itemGroup.dimensional_expansion.combat": "Dimensional Expansion Combat",
 	"itemGroup.dimensional_expansion.tools": "Dimensional Expansion Tools",
 	"itemGroup.dimensional_expansion.misc": "Dimensional Expansion Misc",
-	"itemGroup.dimensional_expansion.decoration_blocks": "Dimensional Expansion Decoration Blocks"
+	"itemGroup.dimensional_expansion.decoration_blocks": "Dimensional Expansion Decoration Blocks",
+
+	"tooltip.dimensional_expansion.weather_power_stone": "Ability to change weather.",
+	"tooltip.dimensional_expansion.time_power_stone": "Ability to change Time.",
+
+	"tooltip.dimensional_expansion.shift": "Hold SHIFT for more info"
 }

@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import net.killarexe.dimensional_expansion.common.blockentity.EndSignBlockEntity;
+import net.killarexe.dimensional_expansion.common.block.entity.EndSignBlockEntity;
 import net.killarexe.dimensional_expansion.core.init.DEWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.SoundType;
@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 

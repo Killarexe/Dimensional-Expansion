@@ -1,32 +1,23 @@
 package net.killarexe.dimensional_expansion;
 
 import com.mojang.blaze3d.platform.Window;
-import net.killarexe.dimensional_expansion.common.gui.overlay.DimensionalExpensionVersionOverlay;
-import net.killarexe.dimensional_expansion.common.gui.screen.WeatherChangerScreen;
+import net.killarexe.dimensional_expansion.common.screen.overlay.DimensionalExpensionVersionOverlay;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.event.DEEvents;
 import net.killarexe.dimensional_expansion.uitls.StrippingMap;
-import net.killarexe.dimensional_expansion.world.biome.EndForest;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 
 @Mod("dimensional_expansion")
@@ -78,8 +69,9 @@ public class DEMod
 
     private void commonSetup(final FMLCommonSetupEvent event){
         LOGGER.info("Dimensional Expansion Common Setup");
-        DEVillagerTypes.registerPOI(DEVillagerTypes.END_FORGER_POI.get());
-        DEVillagerTypes.registerPOI(DEVillagerTypes.END_FARMER_POI.get());
+        DEVillagerTypes.registerPOI(DEVillagerTypes.FORGER_POI.get());
+        DEVillagerTypes.registerPOI(DEVillagerTypes.FARMER_POI.get());
+        DEVillagerTypes.registerPOI(DEVillagerTypes.MINER_POI.get());
         WoodType.register(DEWoodTypes.END);
         event.enqueueWork(() ->{
             StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
@@ -91,13 +83,9 @@ public class DEMod
         final Window window = Minecraft.getInstance().getWindow();
         window.setTitle("Dimensional Expansion " + DEMod.VERSION);
 
-        MenuScreens.register(DEContainers.WEATHER_CHANGER_CONTAINER.get(), WeatherChangerScreen::new);
-
         Sheets.addWoodType(DEWoodTypes.END);
 
         BlockEntityRenderers.register(DEBlockEntities.END_SIGN.get(), SignRenderer::new);
-
-        EndForest.init();
 
         LOGGER.info("Set Dimensional Expansion Blocks Settings");
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_LEAVES.get(), RenderType.translucent());
@@ -106,6 +94,5 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.XP_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_ROSE.get(), RenderType.cutout());
-        //ItemBlockRenderTypes.setRenderLayer(DEBlocks.WEATHER_CHANGER.get(), RenderType.cutoutMipped());
     }
 }

@@ -9,14 +9,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec2;
@@ -28,7 +27,12 @@ import java.util.List;
 public class WeatherPowerStone extends Item {
 
     public WeatherPowerStone() {
-        super(new Properties().tab(DEItemGroups.MISC));
+        super(new Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
+    }
+
+    @Override
+    public int getUseDuration(ItemStack p_41454_) {
+        return 72000;
     }
 
     @Override
@@ -41,16 +45,23 @@ public class WeatherPowerStone extends Item {
     }
 
     @Override
+    public Rarity getRarity(ItemStack p_41461_) {
+        return Rarity.EPIC;
+    }
+
+    @Override
     public UseAnim getUseAnimation(ItemStack p_41452_) {
         return UseAnim.SPYGLASS;
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
-        Player player = context.getPlayer();
-        Level level = context.getLevel();
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack item = player.getItemInHand(hand);
         if(level instanceof ServerLevel serverLevel){
-            if(DEConfig.enableWeatherPowerStone.get()) {
+            if(DEConfig.enableWeatherPowerStone.get() && !player.getCooldowns().isOnCooldown(this)) {
+                setDamage(item, 1);
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS, 1f, 1f);
+                player.getCooldowns().addCooldown(this, 2000);
                 if (serverLevel.isRaining()) {
                     serverLevel.getServer().getCommands().performCommand(
                             new CommandSourceStack(
@@ -64,7 +75,7 @@ public class WeatherPowerStone extends Item {
                                     serverLevel.getServer(),
                                     null
                             ).withSuppressedOutput(), "/weather clear");
-                    return InteractionResult.SUCCESS;
+                    return InteractionResultHolder.success(item);
                 } else {
                     serverLevel.getServer().getCommands().performCommand(
                             new CommandSourceStack(
@@ -77,13 +88,13 @@ public class WeatherPowerStone extends Item {
                                     new TextComponent(""),
                                     serverLevel.getServer(),
                                     null
-                            ).withSuppressedOutput(), "/weather raining");
-                    return InteractionResult.SUCCESS;
+                            ).withSuppressedOutput(), "/weather rain");
+                    return InteractionResultHolder.success(item);
                 }
             }
-            return InteractionResult.PASS;
+            return InteractionResultHolder.pass(item);
         }
-        return InteractionResult.FAIL;
+        return InteractionResultHolder.fail(item);
     }
 
 }

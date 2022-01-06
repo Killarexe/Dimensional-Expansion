@@ -17,12 +17,14 @@ public class DEVillagerTypes {
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSION = DeferredRegister.create(ForgeRegistries.PROFESSIONS, DEMod.MODID);
 
     //PoiTypes
-    public static final RegistryObject<PoiType> END_FORGER_POI = createPoiType("end_forger_poi", DEBlocks.END_FORGE);
-    public static final RegistryObject<PoiType> END_FARMER_POI = createPoiType("end_farmer_poi", null);
+    public static final RegistryObject<PoiType> FORGER_POI = createPoiType("forger_poi", DEBlocks.FORGE);
+    public static final RegistryObject<PoiType> FARMER_POI = createPoiType("farmer_poi", DEBlocks.STORAGE);
+    public static final RegistryObject<PoiType> MINER_POI = createPoiType("miner_poi", DEBlocks.MINERAL_STORAGE);
 
     //Villager Types
-    public static final RegistryObject<VillagerProfession> END_FORGER = createProfession("end_forger", END_FORGER_POI, SoundEvents.ANVIL_LAND);
-    public static final RegistryObject<VillagerProfession> END_FARMER = createProfession("end_farmer", END_FARMER_POI, SoundEvents.COMPOSTER_FILL);
+    public static final RegistryObject<VillagerProfession> FORGER = createProfession("forger", FORGER_POI, SoundEvents.ANVIL_LAND);
+    public static final RegistryObject<VillagerProfession> FARMER = createProfession("farmer", FARMER_POI, SoundEvents.COMPOSTER_FILL);
+    public static final RegistryObject<VillagerProfession> MINER = createProfession("miner", MINER_POI, SoundEvents.STONE_BREAK);
 
     private static RegistryObject<PoiType> createPoiType(String name, RegistryObject<Block> targetBlock){
         RegistryObject<PoiType> type = POI_TYPE.register(name, () -> new PoiType(name, PoiType.getBlockStates(targetBlock.get()), 1, 1));

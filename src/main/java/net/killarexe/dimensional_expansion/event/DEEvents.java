@@ -51,7 +51,7 @@ public class DEEvents {
         List<VillagerTrades.ItemListing> tradesLevel3 = e.getTrades().get(3);
         List<VillagerTrades.ItemListing> tradesLevel2 = e.getTrades().get(2);
         List<VillagerTrades.ItemListing> tradesLevel1 = e.getTrades().get(1);
-        if(e.getType() == DEVillagerTypes.END_FORGER.get()){
+        if(e.getType() == DEVillagerTypes.FORGER.get()){
             addTrade(tradesLevel1, Items.DIAMOND, 1, Items.EMERALD, 32, Items.NETHERITE_INGOT, 1, 1, 10, 1);
             addTrade(tradesLevel1, Items.DIAMOND_SWORD, 1, Items.EMERALD, 32, Items.NETHERITE_SWORD, 1, 1, 10, 1);
             addTrade(tradesLevel1, Items.DIAMOND_PICKAXE, 1, Items.EMERALD, 32, Items.NETHERITE_PICKAXE, 1, 1, 10, 1);
@@ -107,6 +107,25 @@ public class DEEvents {
             addTrade(tradesLevel5, DEItems.SIMIX_LEGGINGS.get(), 1, Items.EMERALD, 52, DEItems.EMERTYST_LEGGINGS.get(), 1, 1, 30, 1);
             addTrade(tradesLevel5, DEItems.SIMIX_BOOTS.get(), 1, Items.EMERALD, 52, DEItems.EMERTYST_BOOTS.get(), 1, 1, 30, 1);
 
+        }else if(e.getType() == DEVillagerTypes.FARMER.get()){
+
+            
+
+        }else if(e.getType() == DEVillagerTypes.MINER.get()){
+
+            addTrade(tradesLevel1, Items.EMERALD, 1, Items.COAL, 16, 8, 30, 1);
+            addTrade(tradesLevel1, Items.EMERALD, 1, Items.CHARCOAL, 16, 8, 30, 1);
+            addTrade(tradesLevel1, Items.EMERALD, 8, Items.DIAMOND, 1, 3, 30, 1);
+            addTrade(tradesLevel2, Items.EMERALD, 4, DEItems.PALON_MIXED_COAL.get(), 1, 16, 30, 1);
+            addTrade(tradesLevel2, Items.EMERALD, 4, DEItems.PALON_NUGGET.get(), 1, 16, 30, 1);
+            addTrade(tradesLevel2, DEItems.PALON_PICKAXE.get(), 1, Items.EMERALD, 44, DEItems.BASSMITE_PICKAXE.get(), 1, 1, 18, 1);
+            addTrade(tradesLevel3, Items.EMERALD, 8, DEItems.BASSMITE_MIXED_COAL.get(), 1, 8, 30, 1);
+            addTrade(tradesLevel3, DEItems.BASSMITE_PICKAXE.get(), 1, Items.EMERALD, 52, DEItems.SIMIX_PICKAXE.get(), 1, 1, 22, 1);
+            addTrade(tradesLevel4, Items.EMERALD, 16, DEItems.SIMIX_MIXED_COAL.get(), 1, 4, 30, 1);
+            addTrade(tradesLevel4, Items.EMERALD, 8, DEItems.SIMIX_NUGGET.get(), 1, 16, 30, 1);
+            addTrade(tradesLevel4, DEItems.SIMIX_PICKAXE.get(), 1, Items.EMERALD, 52, DEItems.EMERTYST_PICKAXE.get(), 1, 1, 30, 1);
+            addTrade(tradesLevel5, Items.EMERALD, 4, Items.COMPASS, 1, 32, 30, 1);
+            addTrade(tradesLevel5, Items.EMERALD, 32, DEItems.EMERTYST_MIXED_COAL.get(), 1, 2, 30, 1);
         }
     }
 
