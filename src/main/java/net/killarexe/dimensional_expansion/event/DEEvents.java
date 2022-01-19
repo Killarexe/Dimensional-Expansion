@@ -1,10 +1,16 @@
 package net.killarexe.dimensional_expansion.event;
 
+import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -20,9 +26,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 
 import java.util.List;
 import java.util.Random;
@@ -126,6 +134,20 @@ public class DEEvents {
             addTrade(tradesLevel4, DEItems.SIMIX_PICKAXE.get(), 1, Items.EMERALD, 52, DEItems.EMERTYST_PICKAXE.get(), 1, 1, 30, 1);
             addTrade(tradesLevel5, Items.EMERALD, 4, Items.COMPASS, 1, 32, 30, 1);
             addTrade(tradesLevel5, Items.EMERALD, 32, DEItems.EMERTYST_MIXED_COAL.get(), 1, 2, 30, 1);
+        }
+    }
+
+    @SubscribeEvent
+    public static void openMainMenu(final ScreenEvent.InitScreenEvent.Post event) {
+        if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
+            final Window window = Minecraft.getInstance().getWindow();
+            window.setTitle("Dimensional Expansion " + DEMod.VERSION);
+            event.getScreen().renderables.add(new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".test_button"), new Button.OnPress() {
+                @Override
+                public void onPress(Button p_93751_) {
+                    DEMod.LOGGER.info("Hello, World!");
+                }
+            }));
         }
     }
 

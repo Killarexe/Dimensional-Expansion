@@ -111,5 +111,7 @@
 	"tooltip.dimensional_expansion.weather_power_stone": "Ability to change weather.",
 	"tooltip.dimensional_expansion.time_power_stone": "Ability to change Time.",
 
-	"tooltip.dimensional_expansion.shift": "Hold SHIFT for more info"
+	"tooltip.dimensional_expansion.shift": "Hold SHIFT for more info",
+
+	"button.dimensional_expansion.test_button": "Test"
 }

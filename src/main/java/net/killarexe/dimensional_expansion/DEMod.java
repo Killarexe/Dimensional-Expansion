@@ -59,6 +59,7 @@ public class DEMod
 
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::openMainMenu);
         MinecraftForge.EVENT_BUS.addListener(DimensionalExpensionVersionOverlay::render);
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
@@ -67,13 +68,13 @@ public class DEMod
         LOGGER.info("Init Dimensional Expension Complete!");
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event){
+    private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("Dimensional Expansion Common Setup");
         DEVillagerTypes.registerPOI(DEVillagerTypes.FORGER_POI.get());
         DEVillagerTypes.registerPOI(DEVillagerTypes.FARMER_POI.get());
         DEVillagerTypes.registerPOI(DEVillagerTypes.MINER_POI.get());
         WoodType.register(DEWoodTypes.END);
-        event.enqueueWork(() ->{
+        event.enqueueWork(() -> {
             StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
         });
     }
