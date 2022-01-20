@@ -46,11 +46,10 @@ public class DEBlocks {
     //public static final Block XP_CROPS = createCustomBlock("xp_crops", new XPCrops());
     //public static final Block HEALTH_CROPS = createCustomBlock("health_crops", new HealthCrops());
 
-    //public static final Block WEATHER_CHANGER = createCustomBlock("weather_changer", new WeatherChangerBlock(), DEItemGroups.DECORATION_BLOCKS);
-
+    public static final Block FORGE = createBlock("forge", Material.METAL, MapColor.BLACK, 3, 50,  BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
 
     public static void registerBlocks(){
-
+        DEMod.LOGGER.info("Register Dimensional Expansion Blocks!");
     }
     
     private static Block createBlock(String id, Material material, MapColor color, float hardness, float resistance, BlockSoundGroup sound, ItemGroup itemGroup){
@@ -158,4 +157,5 @@ public class DEBlocks {
         Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BlockItem(block, new FabricItemSettings().group(target.asItem().getGroup()).fireproof()));
         return block;
     }
+    get
 }
