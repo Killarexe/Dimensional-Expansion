@@ -50,7 +50,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> END_ROSE = createFlowerBlock("end_rose", MobEffects.LEVITATION, 10, Material.PLANT, MaterialColor.COLOR_MAGENTA, 0, 10, 0, SoundType.FLOWERING_AZALEA, DEItemGroups.DECORATION_BLOCKS);
 
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
-    public static final RegistryObject<Block> STORAGE = createBlock("storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
 
     public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", new XPCrops());

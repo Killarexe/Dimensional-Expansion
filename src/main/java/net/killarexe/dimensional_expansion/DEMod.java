@@ -1,12 +1,14 @@
 package net.killarexe.dimensional_expansion;
 
 import com.mojang.blaze3d.platform.Window;
-import net.killarexe.dimensional_expansion.common.screen.overlay.DimensionalExpensionVersionOverlay;
+import net.killarexe.dimensional_expansion.common.overlay.DimensionalExpensionVersionOverlay;
+import net.killarexe.dimensional_expansion.common.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.event.DEEvents;
 import net.killarexe.dimensional_expansion.uitls.StrippingMap;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -95,5 +97,7 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.XP_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_ROSE.get(), RenderType.cutout());
+
+        MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
     }
 }

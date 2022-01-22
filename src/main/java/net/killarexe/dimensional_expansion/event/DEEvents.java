@@ -32,6 +32,10 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Random;
 
@@ -142,10 +146,18 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            event.getScreen().renderables.add(new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".test_button"), new Button.OnPress() {
+            event.getScreen().renderables.add(new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".discord_button"), new Button.OnPress() {
                 @Override
                 public void onPress(Button p_93751_) {
-                    DEMod.LOGGER.info("Hello, World!");
+                    if(Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)){
+                        try {
+                            Desktop.getDesktop().browse(new URI("https://discord.com/invite/xYytpBTd3r"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (URISyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }));
         }

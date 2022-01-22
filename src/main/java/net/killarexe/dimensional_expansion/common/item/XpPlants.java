@@ -17,7 +17,7 @@ public class XpPlants extends Item {
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
         if(livingEntity instanceof Player){
             Player player = (Player)livingEntity;
-            player.giveExperiencePoints(player.experienceLevel * 20);
+            player.giveExperiencePoints(player.experienceLevel * 20 - player.experienceLevel / 2);
         }
         return super.finishUsingItem(itemStack, level, livingEntity);
     }
