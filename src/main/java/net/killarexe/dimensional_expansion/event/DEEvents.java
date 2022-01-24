@@ -7,8 +7,13 @@ import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
+import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.Entity;
@@ -146,20 +151,10 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            event.getScreen().renderables.add(new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".discord_button"), new Button.OnPress() {
-                @Override
-                public void onPress(Button p_93751_) {
-                    if(Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)){
-                        try {
-                            Desktop.getDesktop().browse(new URI("https://discord.com/invite/xYytpBTd3r"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (URISyntaxException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+            Button discordButton = new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".discord_button"), (button -> {
+                openLink("https://discord.gg/xYytpBTd3r");
             }));
+            event.getScreen().addRenderableWidget(discordButton);
         }
     }
 
@@ -187,6 +182,10 @@ public class DEEvents {
 
     private static void addTrade(List<VillagerTrades.ItemListing> trades, Item tradeItem1, int number1, Item receveItem, int number, int maxTrades, int xp, int priceMult){
         trades.add(new CustomTrade(new ItemStack(tradeItem1, number1), new ItemStack(receveItem, number), maxTrades, xp, priceMult));
+    }
+
+    private static void openLink(String url){
+        Util.getPlatform().openUri(url);
     }
 
     public static class CustomTrade implements VillagerTrades.ItemListing {
