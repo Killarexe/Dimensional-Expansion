@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion;
 
 import com.mojang.blaze3d.platform.Window;
+import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.overlay.DimensionalExpensionVersionOverlay;
 import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
@@ -12,13 +13,16 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkConstants;
 import org.apache.logging.log4j.*;
 
 
@@ -58,6 +62,8 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
+
+        ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
 
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
