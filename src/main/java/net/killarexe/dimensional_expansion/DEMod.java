@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion;
 
 import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.common.overlay.DimensionalExpensionVersionOverlay;
-import net.killarexe.dimensional_expansion.common.screen.EssenceExtractorScreen;
+import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.event.DEEvents;

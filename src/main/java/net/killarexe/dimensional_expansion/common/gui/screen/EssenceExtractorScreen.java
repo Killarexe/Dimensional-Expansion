@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.common.screen;
+package net.killarexe.dimensional_expansion.common.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

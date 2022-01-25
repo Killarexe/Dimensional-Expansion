@@ -1,9 +1,12 @@
-package net.killarexe.dimensional_expansion.common.screen;
+package net.killarexe.dimensional_expansion.common.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.core.config.DEConfig;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -13,6 +16,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class DEConfigScreen extends Screen {
 
     private Screen previousScreen;
+    private Checkbox showVersionCheckbox, moddedTitleScreenCheckbox;
 
     public DEConfigScreen(Screen previousScreen) {
         super(new TranslatableComponent("narrator.screen.title"));
@@ -21,12 +25,11 @@ public class DEConfigScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        this.renderBackground(pPoseStack);
+        this.drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
+        DEConfig.showVersion.set(showVersionCheckbox.selected());
+        DEConfig.moddedTitleScreen.set(moddedTitleScreenCheckbox.selected());
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-    }
-
-    @Override
-    public void renderBackground(PoseStack pPoseStack, int pVOffset) {
-        renderDirtBackground(pVOffset);
     }
 
     @Override
@@ -48,10 +51,16 @@ public class DEConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        Button cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".cancel_button"), (button -> {
+        Button cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".apply_button"), (button -> {
             onClose();
         }));
         addRenderableWidget(cancelButton);
+
+        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".show_version"), DEConfig.showVersion.get());
+        moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48 - 20, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_titlescreen"), DEConfig.moddedTitleScreen.get());
+        addRenderableWidget(showVersionCheckbox);
+        addRenderableWidget(moddedTitleScreenCheckbox);
+
         super.init();
     }
 

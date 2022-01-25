@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.event;
 
 import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.screen.DEConfigScreen;
+import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
@@ -10,14 +10,9 @@ import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.AbstractButton;
-import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ImageButton;
-import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -38,12 +33,7 @@ import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Random;
 
@@ -154,7 +144,7 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            Button configButton = new Button(event.getScreen().width / 2 -100, event.getScreen().height / 4 + 48 + 80, 16, 16, new TranslatableComponent("button." + DEMod.MODID + ".config_button"), (button -> {
+            Button configButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 80, 16, 16, 0, 80, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
                 event.getScreen().getMinecraft().setScreen(new DEConfigScreen(event.getScreen()));
             }));
             Button discordButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 40, 16, 16, 0, 0, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
