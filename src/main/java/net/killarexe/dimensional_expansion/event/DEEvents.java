@@ -144,17 +144,17 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            Button configButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 80, 16, 16, 0, 80, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
+            Button configButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 60, 16, 16, 0, 96, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
                 event.getScreen().getMinecraft().setScreen(new DEConfigScreen(event.getScreen()));
             }));
             Button discordButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 40, 16, 16, 0, 0, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
                 openLink("https://discord.gg/xYytpBTd3r");
             }));
             Button youtubeButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 20, 16, 16, 0, 64, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                openLink("https://discord.gg/xYytpBTd3r");
+                openLink("https://youtube.com/channel/UC7lHA5pMQMrTTeZg1yk2hXw");
             }));
             Button githubButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48, 16, 16, 0, 32, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                openLink("https://discord.gg/xYytpBTd3r");
+                openLink("https://github.com/Killarexe/Dimensional-Expansion");
             }));
             event.getScreen().addRenderableWidget(configButton);
             event.getScreen().addRenderableWidget(discordButton);
