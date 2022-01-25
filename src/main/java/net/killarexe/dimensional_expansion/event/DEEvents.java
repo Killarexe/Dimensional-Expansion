@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.event;
 
 import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.common.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
@@ -12,10 +13,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -151,10 +154,22 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            Button discordButton = new Button(325, 156, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".discord_button"), (button -> {
+            Button configButton = new Button(event.getScreen().width / 2 -100, event.getScreen().height / 4 + 48 + 80, 16, 16, new TranslatableComponent("button." + DEMod.MODID + ".config_button"), (button -> {
+                event.getScreen().getMinecraft().setScreen(new DEConfigScreen(event.getScreen()));
+            }));
+            Button discordButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 40, 16, 16, 0, 0, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
                 openLink("https://discord.gg/xYytpBTd3r");
             }));
+            Button youtubeButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 20, 16, 16, 0, 64, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
+                openLink("https://discord.gg/xYytpBTd3r");
+            }));
+            Button githubButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48, 16, 16, 0, 32, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
+                openLink("https://discord.gg/xYytpBTd3r");
+            }));
+            event.getScreen().addRenderableWidget(configButton);
             event.getScreen().addRenderableWidget(discordButton);
+            event.getScreen().addRenderableWidget(youtubeButton);
+            event.getScreen().addRenderableWidget(githubButton);
         }
     }
 
