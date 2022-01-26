@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion.event;
 import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
+import net.killarexe.dimensional_expansion.common.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
@@ -142,24 +143,7 @@ public class DEEvents {
     @SubscribeEvent
     public static void openMainMenu(final ScreenEvent.InitScreenEvent.Post event) {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
-            final Window window = Minecraft.getInstance().getWindow();
-            window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-            Button configButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 60, 16, 16, 0, 96, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                event.getScreen().getMinecraft().setScreen(new DEConfigScreen(event.getScreen()));
-            }));
-            Button discordButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 40, 16, 16, 0, 0, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                openLink("https://discord.gg/xYytpBTd3r");
-            }));
-            Button youtubeButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48 + 20, 16, 16, 0, 64, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                openLink("https://youtube.com/channel/UC7lHA5pMQMrTTeZg1yk2hXw");
-            }));
-            Button githubButton = new ImageButton(event.getScreen().width / 2 -200, event.getScreen().height / 4 + 48, 16, 16, 0, 32, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
-                openLink("https://github.com/Killarexe/Dimensional-Expansion");
-            }));
-            event.getScreen().addRenderableWidget(configButton);
-            event.getScreen().addRenderableWidget(discordButton);
-            event.getScreen().addRenderableWidget(youtubeButton);
-            event.getScreen().addRenderableWidget(githubButton);
+            event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));
         }
     }
 
@@ -185,12 +169,8 @@ public class DEEvents {
         trades.add(new CustomTrade(new ItemStack(tradeItem1, number1), new ItemStack(tradeItem2, number2), new ItemStack(receveItem, number), maxTrades, xp, priceMult));
     }
 
-    private static void addTrade(List<VillagerTrades.ItemListing> trades, Item tradeItem1, int number1, Item receveItem, int number, int maxTrades, int xp, int priceMult){
+    private static void addTrade(List<VillagerTrades.ItemListing> trades, Item tradeItem1, int number1, Item receveItem, int number, int maxTrades, int xp, int priceMult) {
         trades.add(new CustomTrade(new ItemStack(tradeItem1, number1), new ItemStack(receveItem, number), maxTrades, xp, priceMult));
-    }
-
-    private static void openLink(String url){
-        Util.getPlatform().openUri(url);
     }
 
     public static class CustomTrade implements VillagerTrades.ItemListing {
