@@ -111,7 +111,6 @@ public class DETitleScreen extends Screen {
             this.splash = this.minecraft.getSplashManager().getSplash();
         }
 
-        this.minecraft.getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
         preloadResources(this.minecraft.getTextureManager(), this.minecraft);
 
         this.copyrightWidth = this.font.width("Copyright Mojang AB. Do not distribute!");
@@ -370,6 +369,22 @@ public class DETitleScreen extends Screen {
             }
         }
 
+        if(githubButton.isHoveredOrFocused()){
+            this.drawString(pPoseStack, font, "Github", githubButton.x + 16, githubButton.y, 0xffffff);
+        }
+        if(discordButton.isHoveredOrFocused()){
+            this.drawString(pPoseStack, font, "Discord", discordButton.x + 16, discordButton.y, 0xffffff);
+        }
+        if(youtubeButton.isHoveredOrFocused()){
+            this.drawString(pPoseStack, font, "YouTube", youtubeButton.x + 16, youtubeButton.y, 0xffffff);
+        }
+        if(configButton.isHoveredOrFocused()){
+            this.drawString(pPoseStack, font, "Config", configButton.x + 16, configButton.y, 0xffffff);
+        }
+        this.drawString(pPoseStack, font, "Dimensional Expansion 2020-2022", 0, this.height - 10, 0xffffff);
+        this.drawString(pPoseStack, font, "Dimensional Expansion v" + DEMod.VERSION, 0, this.height - 20, 0xffffff);
+        this.drawString(pPoseStack, font, "Minecraft " + SharedConstants.getCurrentVersion().getName(), 0, this.height - 30, 0xffffff);
+        this.minecraft.getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
     }
 
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {

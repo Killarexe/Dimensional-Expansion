@@ -1,11 +1,11 @@
 package net.killarexe.dimensional_expansion.common.container;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEContainers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -14,7 +14,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import org.jetbrains.annotations.Nullable;
 
 public class EssenceExtractorContainer extends AbstractContainerMenu {
 
@@ -25,7 +24,7 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
     private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;
+    private static final int TE_INVENTORY_SLOT_COUNT = 1;
     private final BlockEntity blockEntity;
     private final Player player;
     private IItemHandler playerInv;
@@ -36,16 +35,15 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
         this.player = player;
         this.playerInv = new InvWrapper(playerInv);
         layoutPlayerInventorySlots(8, 86);
-        if(blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 80, 31));
-            });
-        }
+        blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            addSlot(new SlotItemHandler(h, 0, 176/2, 166/2));
+            DEMod.LOGGER.info("Added slot!");
+        });
     }
 
     @Override
     public boolean stillValid(Player player) {
-        return false;
+        return true;
     }
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {

@@ -20,9 +20,9 @@ public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtra
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBackground(pPoseStack);
+        this.renderBackground(pPoseStack);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        renderTooltip(pPoseStack, pMouseX, pMouseY);
+        this.renderTooltip(pPoseStack, pMouseX, pMouseY);
     }
 
     @Override
@@ -32,7 +32,12 @@ public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtra
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderTexture(0, GUI);
-        blit(poseStack, leftPos, topPos, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
+        this.blit(poseStack, leftPos, topPos, 0, -2, getXSize(), getYSize());
         RenderSystem.disableBlend();
+    }
+
+    @Override
+    public boolean isPauseScreen() {
+        return false;
     }
 }

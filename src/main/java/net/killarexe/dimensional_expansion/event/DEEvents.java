@@ -1,20 +1,17 @@
 package net.killarexe.dimensional_expansion.event;
 
-import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
+import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.screens.LoadingOverlay;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -30,7 +27,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.client.loading.ClientModLoader;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -141,9 +140,16 @@ public class DEEvents {
     }
 
     @SubscribeEvent
-    public static void openMainMenu(final ScreenEvent.InitScreenEvent.Post event) {
+    public static void onScreenPost(final ScreenEvent.InitScreenEvent.Post event) {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onOverlayPost(final RenderGameOverlayEvent.PostLayer event){
+        if(event.getOverlay() instanceof LoadingOverlay && DEConfig.moddedTitleScreen.get() && event.getType() == RenderGameOverlayEvent.ElementType.ALL){
+            Minecraft.getInstance().font.draw(event.getMatrixStack(), "Dimensional Expansion by Killar.exe", event.getWindow().getWidth()/2, event.getWindow().getHeight()/2, 0xffffff);
         }
     }
 

@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion;
 
 import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
-import net.killarexe.dimensional_expansion.common.overlay.DimensionalExpensionVersionOverlay;
+import net.killarexe.dimensional_expansion.common.gui.screen.DimensionalExpansionVersionOverlay;
 import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
@@ -65,13 +65,14 @@ public class DEMod
 
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
-        MinecraftForge.EVENT_BUS.addListener(DEEvents::openMainMenu);
-        MinecraftForge.EVENT_BUS.addListener(DimensionalExpensionVersionOverlay::render);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::onScreenPost);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::onOverlayPost);
+        MinecraftForge.EVENT_BUS.addListener(DimensionalExpansionVersionOverlay::render);
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        LOGGER.info("Init Dimensional Expension Complete!");
+        LOGGER.info("Init Dimensional Expansion Complete!");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -101,6 +102,7 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.XP_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_ROSE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(DEBlocks.ESSENCE_EXTRACTOR.get(), RenderType.cutout());
 
         MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
     }

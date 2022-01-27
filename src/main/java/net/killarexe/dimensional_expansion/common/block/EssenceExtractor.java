@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class EssenceExtractor extends BaseEntityBlock {
     public EssenceExtractor() {
-        super(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(6, 50).requiresCorrectToolForDrops().destroyTime(3).sound(SoundType.ANVIL));
+        super(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(6, 50).requiresCorrectToolForDrops().destroyTime(3).sound(SoundType.ANVIL).noOcclusion());
     }
 
     @Override
@@ -46,11 +46,6 @@ public class EssenceExtractor extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new EssenceExtractorBlockEntity(blockPos, blockState);
-    }
-
-    @Override
-    public boolean hasDynamicShape() {
-        return true;
     }
 
     private MenuProvider createContainerProvider(Level world, BlockPos pos){

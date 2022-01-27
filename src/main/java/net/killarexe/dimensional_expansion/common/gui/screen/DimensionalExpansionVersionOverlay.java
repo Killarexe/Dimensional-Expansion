@@ -1,11 +1,11 @@
-package net.killarexe.dimensional_expansion.common.overlay;
+package net.killarexe.dimensional_expansion.common.gui.screen;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
-public class DimensionalExpensionVersionOverlay {
+public class DimensionalExpansionVersionOverlay {
 
     public static void render(RenderGameOverlayEvent.Pre event){
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL && DEConfig.showVersion.get()) {

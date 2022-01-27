@@ -87,8 +87,10 @@
 	"item.dimensional_expansion.end_sign": "End Sign",
 	"block.dimensional_expansion.end_bookshelf": "End Bookshelf",
 
+	"item.dimensional_expansion.xp_essence": "Xp Essence",
 	"item.dimensional_expansion.xp_plants": "Xp Plants",
 	"item.dimensional_expansion.xp_seeds": "Xp Seeds",
+	"item.dimensional_expansion.heart_essence": "Heart Essence",
 	"item.dimensional_expansion.heart": "Heart",
 	"item.dimensional_expansion.heart_seeds": "Heart Seeds",
 	"item.dimensional_expansion.weather_power_stone": "Weather Power Stone",
@@ -97,6 +99,8 @@
 	"block.dimensional_expansion.end_rose": "End Rose",
 
 	"block.dimensional_expansion.forge": "Forge",
+	"block.dimensional_expansion.essence_extractor": "Essence Extractor",
+	"block.dimensional_expansion.mineral_storage": "Mineral Storage",
 
 	"entity.minecraft.villager.dimensional_expansion.forger": "Forger",
 	"entity.minecraft.villager.dimensional_expansion.farmer": "Farmer",
