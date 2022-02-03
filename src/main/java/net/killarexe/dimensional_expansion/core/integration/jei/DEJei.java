@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.integration.jei;
+package net.killarexe.dimensional_expansion.core.integration.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;

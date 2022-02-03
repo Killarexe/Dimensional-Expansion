@@ -1,108 +1,136 @@
 package net.killarexe.dimensional_expansion.common.container;
 
-import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
+import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEContainers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class EssenceExtractorContainer extends AbstractContainerMenu {
+    private final ContainerLevelAccess containerAccess;
+    public final ContainerData data;
 
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-    private static final int TE_INVENTORY_SLOT_COUNT = 1;
-    private final BlockEntity blockEntity;
-    private final Player player;
-    private IItemHandler playerInv;
+    // Client Constructor
+    public EssenceExtractorContainer(int id, Inventory playerInv) {
+        this(id, playerInv, new ItemStackHandler(2), BlockPos.ZERO, new SimpleContainerData(0));
+    }
 
-    public EssenceExtractorContainer(int pContainerId, Level world, BlockPos pos, Inventory playerInv, Player player) {
-        super(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), pContainerId);
-        this.blockEntity = world.getBlockEntity(pos);
-        this.player = player;
-        this.playerInv = new InvWrapper(playerInv);
-        layoutPlayerInventorySlots(8, 86);
-        blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-            addSlot(new SlotItemHandler(h, 0, 176/2, 166/2));
-            DEMod.LOGGER.info("Added slot!");
-        });
+    // Server constructor
+    public EssenceExtractorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
+        super(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), id);
+        this.containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
+        this.data = data;
+
+        final int slotSizePlus2 = 18, startX = 8, startY = 86, hotbarY = 144;
+
+        addSlot(new SlotItemHandler(slots, 0, 176/2+16, 37));
+        addSlot(new SlotItemHandler(slots, 1, 176/2-16, 37));
+
+
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 9; column++) {
+                addSlot(new Slot(playerInv, 9 + row * 9 + column, startX + column * slotSizePlus2,
+                        startY + row * slotSizePlus2));
+            }
+        }
+
+        for (int column = 0; column < 9; column++) {
+            addSlot(new Slot(playerInv, column, startX + column * slotSizePlus2, hotbarY));
+        }
+
+        addDataSlots(data);
+    }
+
+    @Override
+    public ItemStack quickMoveStack(Player player, int index) {
+        var retStack = ItemStack.EMPTY;
+        final Slot slot = getSlot(index);
+        if (slot.hasItem()) {
+            final ItemStack item = slot.getItem();
+            retStack = item.copy();
+            if (index < 1) {
+                if (!moveItemStackTo(item, 1, this.slots.size(), true))
+                    return ItemStack.EMPTY;
+            } else if (!moveItemStackTo(item, 0, 1, false))
+                return ItemStack.EMPTY;
+
+            if (item.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+        }
+
+        return retStack;
     }
 
     @Override
     public boolean stillValid(Player player) {
-        return true;
+        return stillValid(this.containerAccess, player, DEBlocks.ESSENCE_EXTRACTOR.get());
     }
 
-    private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
-        for (int i = 0; i < amount; i++) {
-            addSlot(new SlotItemHandler(handler, index, x, y));
-            x += dx;
-            index++;
+    public static MenuConstructor getServerContainer(EssenceExtractorBlockEntity be, BlockPos pos) {
+        return (id, playerInv, player) -> new EssenceExtractorContainer(id, playerInv, be.inventory, pos,
+                new EssenceExtractorContainerData(be, 0));
+    }
+
+    public static class EssenceExtractorContainerData extends SimpleContainerData{
+
+        private final EssenceExtractorBlockEntity be;
+
+        public EssenceExtractorContainerData(EssenceExtractorBlockEntity be, int amount) {
+            super(amount);
+            this.be = be;
         }
 
-        return index;
-    }
-
-    private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
-        for (int j = 0; j < verAmount; j++) {
-            index = addSlotRange(handler, index, x, y, horAmount, dx);
-            y += dy;
+        @Override
+        public int get(int key) {
+            return switch (key) {
+                case 0 -> this.be.getItemInSlot(0).getCount();
+                case 1 -> this.be.getItemInSlot(1).getCount();
+                default -> throw new UnsupportedOperationException(
+                        "There is no value corresponding to key: '" + key + "' in: '" + this.be + "'");
+            };
         }
 
-        return index;
-    }
+        @Override
+        public void set(int key, int value) {
+            ItemStack stack;
+            switch (key) {
+                case 0:
+                    stack = this.be.getItemInSlot(0);
+                    if (value > 0 && value < stack.getMaxStackSize()) {
+                        stack.setCount(value);
+                    } else if (value <= 0) {
+                        stack = ItemStack.EMPTY;
+                    } else if (value > stack.getMaxStackSize()) {
+                        stack.setCount(stack.getMaxStackSize());
+                    }
 
-    private void layoutPlayerInventorySlots(int leftCol, int topRow) {
-        addSlotBox(playerInv, 9, leftCol, topRow, 9, 18, 3, 18);
+                    this.be.inventory.setStackInSlot(0, stack);
+                    break;
+                case 1:
+                    stack = this.be.getItemInSlot(1);
+                    if (value > 1 && value < stack.getMaxStackSize()) {
+                        stack.setCount(value);
+                    } else if (value <= 1) {
+                        stack = ItemStack.EMPTY;
+                    } else if (value > stack.getMaxStackSize()) {
+                        stack.setCount(stack.getMaxStackSize());
+                    }
 
-        topRow += 58;
-        addSlotRange(playerInv, 0, leftCol, topRow, 9, 18);
-    }
-
-    // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
-    @Override
-    public ItemStack quickMoveStack(Player p_38941_, int index) {
-        Slot sourceSlot = slots.get(index);
-        if (sourceSlot == null || !sourceSlot.getItem().hasContainerItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
-
-        // Check if the slot clicked is one of the vanilla container slots
-        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+                    this.be.inventory.setStackInSlot(1, stack);
+                    break;
+                default:
+                    throw new UnsupportedOperationException(
+                            "There is no value corresponding to key: '" + key + "' in: '" + this.be + "'");
             }
-        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            // This is a TE slot so merge the stack into the players inventory
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;
-            }
-        } else {
-            System.out.println("Invalid slotIndex:" + index);
-            return ItemStack.EMPTY;
         }
-        // If stack size == 0 (the entire stack was moved) set slot contents to null
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-        sourceSlot.onTake(player, sourceStack);
-        return copyOfSourceStack;
     }
 }

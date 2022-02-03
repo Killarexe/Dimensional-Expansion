@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.data;
+package net.killarexe.dimensional_expansion.common.data;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;

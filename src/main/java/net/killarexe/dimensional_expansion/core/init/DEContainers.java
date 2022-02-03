@@ -18,12 +18,9 @@ public class DEContainers {
 
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, DEMod.MODID);
 
-    public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_CONTAINER = createContainer("essence_extractor_container",
-            () -> IForgeMenuType.create(((windowId, inv, data) -> {
-                BlockPos pos = data.readBlockPos();
-                Level world = inv.player.level;
-                return new EssenceExtractorContainer(windowId, world, pos, inv, inv.player);
-            })));
+    public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_CONTAINER = createContainer(
+            "essence_extractor_container",
+            () -> new MenuType<>(EssenceExtractorContainer::new));
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(@Nonnull String name, Supplier<? extends MenuType<T>> type){
         return CONTAINERS.register(name, type);

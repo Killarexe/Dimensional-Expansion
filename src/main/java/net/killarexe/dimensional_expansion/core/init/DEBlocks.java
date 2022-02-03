@@ -36,8 +36,8 @@ public class DEBlocks {
     public static final RegistryObject<Block> END_STRIPPED_LOG = createPillarBlock("end_stripped_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_PLANKS = createBlock("end_planks", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_SLAB = createSlabBlock("end_slab", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> END_FENCE = createFenceBlock("end_fence", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> END_FENCE_GATE = createFenceGateBlock("end_fence_gate", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> END_FENCE = createFenceBlock("end_fence", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> END_FENCE_GATE = createFenceGateBlock("end_fence_gate", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> END_BUTTON = createButtonBlock( "end_button", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, false, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_PRESSURE_PLATE = createPressurePlateBlock("end_pressure_plate", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, PressurePlateBlock.Sensitivity.EVERYTHING, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_DOOR = createDoorBlock("end_door", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);

@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,7 +25,8 @@ public class DEBiomes {
         return BIOMES.register(id, biome);
     }
 
-    public static void registerBiomes(){
+    public static void registerBiomes(IEventBus bus){
+        BIOMES.register(bus);
         END_FOREST_KEY = registerBiome("end_forest");
     }
 }

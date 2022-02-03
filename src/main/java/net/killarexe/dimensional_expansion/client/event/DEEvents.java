@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.event;
+package net.killarexe.dimensional_expansion.client.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.gui.screen.DETitleScreen;
@@ -6,7 +6,7 @@ import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
-import net.killarexe.dimensional_expansion.world.structure.ForgerHouse;
+import net.killarexe.dimensional_expansion.core.world.structure.*;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
@@ -119,7 +119,14 @@ public class DEEvents {
 
         }else if(e.getType() == DEVillagerTypes.FARMER.get()){
 
-            
+            addTrade(tradesLevel1, Items.EMERALD, 3, DEItems.XP_SEEDS.get(), 1, 16, 10, 1);
+            addTrade(tradesLevel1, Items.EMERALD, 3, DEItems.HEART_SEEDS.get(), 1, 16, 10, 1);
+
+            addTrade(tradesLevel2, Items.EMERALD, 6, DEItems.XP_PLANTS.get(), 1, 16, 12, 1);
+            addTrade(tradesLevel2, Items.EMERALD, 6, DEItems.HEART.get(), 1, 16, 12, 1);
+
+            addTrade(tradesLevel3, Items.EMERALD, 12, DEItems.XP_SEEDS.get(), 1, DEItems.XP_ESSENCE.get(), 1, 18, 12, 1);
+            addTrade(tradesLevel3, Items.EMERALD, 12, DEItems.HEART_SEEDS.get(), 1, DEItems.HEART_ESSENCE.get(), 1, 18, 12, 1);
 
         }else if(e.getType() == DEVillagerTypes.MINER.get()){
 
@@ -143,13 +150,6 @@ public class DEEvents {
     public static void onScreenPost(final ScreenEvent.InitScreenEvent.Post event) {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));
-        }
-    }
-
-    @SubscribeEvent
-    public static void onOverlayPost(final RenderGameOverlayEvent.PostLayer event){
-        if(event.getOverlay() instanceof LoadingOverlay && DEConfig.moddedTitleScreen.get() && event.getType() == RenderGameOverlayEvent.ElementType.ALL){
-            Minecraft.getInstance().font.draw(event.getMatrixStack(), "Dimensional Expansion by Killar.exe", event.getWindow().getWidth()/2, event.getWindow().getHeight()/2, 0xffffff);
         }
     }
 

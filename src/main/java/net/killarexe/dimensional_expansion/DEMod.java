@@ -1,13 +1,12 @@
 package net.killarexe.dimensional_expansion;
 
-import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.gui.screen.DimensionalExpansionVersionOverlay;
 import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.killarexe.dimensional_expansion.event.DEEvents;
-import net.killarexe.dimensional_expansion.uitls.StrippingMap;
+import net.killarexe.dimensional_expansion.client.event.DEEvents;
+import net.killarexe.dimensional_expansion.core.uitls.StrippingMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.*;
@@ -37,8 +36,7 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Sounds");
         DESounds.SOUNDS.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
-        DEBiomes.BIOMES.register(bus);
-        DEBiomes.registerBiomes();
+        DEBiomes.registerBiomes(bus);
         LOGGER.info("Init Dimensional Expansion Blocks");
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
@@ -60,41 +58,39 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
-
         ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
-
+        LOGGER.info("Init Dimensional Expansion Recipe Types");
+        DERecipeTypes.register(bus);
+        LOGGER.info("Set Dimensional Expansion Event Listener");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::onScreenPost);
-        MinecraftForge.EVENT_BUS.addListener(DEEvents::onOverlayPost);
         MinecraftForge.EVENT_BUS.addListener(DimensionalExpansionVersionOverlay::render);
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
-
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("Dimensional Expansion Common Setup");
+        Minecraft.getInstance().getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
         DEVillagerTypes.registerPOI(DEVillagerTypes.FORGER_POI.get());
         DEVillagerTypes.registerPOI(DEVillagerTypes.FARMER_POI.get());
         DEVillagerTypes.registerPOI(DEVillagerTypes.MINER_POI.get());
+        LOGGER.info("Register Dimensional Expansion WoodTypes");
         WoodType.register(DEWoodTypes.END);
-        event.enqueueWork(() -> {
-            StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
-        });
+        LOGGER.info("Put Dimensional Expansion Strippables");
+        StrippingMap.putStrippables(event);
     }
 
     private void clientSetup(final FMLClientSetupEvent event){
         LOGGER.info("Dimensional Expansion Client Setup");
-        final Window window = Minecraft.getInstance().getWindow();
-        window.setTitle("Dimensional Expansion " + DEMod.VERSION);
-
-        Sheets.addWoodType(DEWoodTypes.END);
-
+        Minecraft.getInstance().getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
+        LOGGER.info("Add Dimensional Expansion WoodTypes");
+        DEWoodTypes.setWoodTypes();
+        LOGGER.info("Set Dimensional Expansion Block Entity Renders");
         BlockEntityRenderers.register(DEBlockEntities.END_SIGN.get(), SignRenderer::new);
-
         LOGGER.info("Set Dimensional Expansion Blocks Settings");
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_LEAVES.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_DOOR.get(), RenderType.cutout());
@@ -103,7 +99,7 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.END_ROSE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.ESSENCE_EXTRACTOR.get(), RenderType.cutout());
-
+        LOGGER.info("Register Dimensional Expansion Container");
         MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
     }
 }

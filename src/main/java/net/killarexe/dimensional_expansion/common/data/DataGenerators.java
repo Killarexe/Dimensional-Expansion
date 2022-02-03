@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.data;
+package net.killarexe.dimensional_expansion.common.data;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.data.DataGenerator;
@@ -14,6 +14,6 @@ public class DataGenerators {
         DataGenerator generator = e.getGenerator();
 
         generator.addProvider(new DERecipeProvider(generator));
-        //generator.addProvider(new DELootTableProvider(generator));
+        generator.addProvider(new DELootTableProvider(generator));
     }
 }

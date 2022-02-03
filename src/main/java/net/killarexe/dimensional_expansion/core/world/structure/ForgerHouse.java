@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.world.structure;
+package net.killarexe.dimensional_expansion.core.world.structure;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.core.BlockPos;

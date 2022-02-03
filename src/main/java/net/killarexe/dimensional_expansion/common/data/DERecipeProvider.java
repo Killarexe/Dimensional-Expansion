@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.data;
+package net.killarexe.dimensional_expansion.common.data;
 
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
@@ -28,35 +28,35 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> r) {
-        //createSmelting(r, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createSmelting(r, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, BLASTING_RECIPE);
-        //createMaterialIngotRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
-        //createMaterialRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
-        //createOreBlockRecipe(r, PALON_BLOCK.get(), PALON_INGOT.get());
-        //createSmelting(r, BASSMITE_ORE.get(), BASSMITE_GEM.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createMaterialRecipe(r, BASSMITE_GEM.get(), BASSMITE_BLOCK.get());
-        //createOreBlockRecipe(r, BASSMITE_BLOCK.get(), BASSMITE_GEM.get());
-        //createSmelting(r, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createSmelting(r, RAW_SIMIX.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
-        //createMaterialRecipe(r, SIMIX_INGOT.get(), SIMIX_BLOCK.get());
-        //createMaterialRecipe(r, SIMIX_NUGGET.get(), SIMIX_INGOT.get());
-        //createOreBlockRecipe(r, SIMIX_BLOCK.get(), SIMIX_INGOT.get());
-        //createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);;
-        //createMaterialRecipe(r, EMERTYST_GEM.get(), EMERTYST_BLOCK.get());
-        //createOreBlockRecipe(r, EMERTYST_BLOCK.get(), EMERTYST_GEM.get());
+        createSmelting(r, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createSmelting(r, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, BLASTING_RECIPE);
+        createMaterialIngotRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
+        createMaterialRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
+        createOreBlockRecipe(r, PALON_BLOCK.get(), PALON_INGOT.get());
+        createSmelting(r, BASSMITE_ORE.get(), BASSMITE_GEM.get(), 0.1f, 200, BLASTING_RECIPE);
+        createMaterialRecipe(r, BASSMITE_GEM.get(), BASSMITE_BLOCK.get());
+        createOreBlockRecipe(r, BASSMITE_BLOCK.get(), BASSMITE_GEM.get());
+        createSmelting(r, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createSmelting(r, RAW_SIMIX.get(), SIMIX_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
+        createMaterialRecipe(r, SIMIX_INGOT.get(), SIMIX_BLOCK.get());
+        createMaterialRecipe(r, SIMIX_NUGGET.get(), SIMIX_INGOT.get());
+        createOreBlockRecipe(r, SIMIX_BLOCK.get(), SIMIX_INGOT.get());
+        createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);;
+        createMaterialRecipe(r, EMERTYST_GEM.get(), EMERTYST_BLOCK.get());
+        createOreBlockRecipe(r, EMERTYST_BLOCK.get(), EMERTYST_GEM.get());
         createMixRecipe(r, PALON_MIXED_COAL.get(), PALON_INGOT.get(), COAL);
         createMixRecipe(r, BASSMITE_MIXED_COAL.get(), BASSMITE_GEM.get(), COAL);
         createMixRecipe(r, SIMIX_MIXED_COAL.get(), SIMIX_INGOT.get(), COAL);
         createMixRecipe(r, EMERTYST_MIXED_COAL.get(), EMERTYST_GEM.get(), COAL);
 
-        //createSlabRecipe(r, END_SLAB.get(), END_PLANKS.get());
-        //createStairsRecipe(r, END_STAIRS.get(), END_PLANKS.get());
-        //createFenceRecipe(r, END_FENCE.get(), END_PLANKS.get());
-        //createFenceGateRecipe(r, END_FENCE_GATE.get(), END_PLANKS.get());
-        //createPressurePlateRecipe(r, END_PRESSURE_PLATE.get(), END_PLANKS.get());
-        //createButtonRecipe(r, END_BUTTON.get(), END_PLANKS.get());
-        //createDoorRecipe(r, END_DOOR.get(), END_PLANKS.get());
-        //createTrapDoorRecipe(r, END_TRAPDOOR.get(), END_PLANKS.get());
+        createSlabRecipe(r, END_SLAB.get(), END_PLANKS.get());
+        createStairsRecipe(r, END_STAIRS.get(), END_PLANKS.get());
+        createFenceRecipe(r, END_FENCE.get(), END_PLANKS.get());
+        createFenceGateRecipe(r, END_FENCE_GATE.get(), END_PLANKS.get());
+        createPressurePlateRecipe(r, END_PRESSURE_PLATE.get(), END_PLANKS.get());
+        createButtonRecipe(r, END_BUTTON.get(), END_PLANKS.get());
+        createDoorRecipe(r, END_DOOR.get(), END_PLANKS.get());
+        createTrapDoorRecipe(r, END_TRAPDOOR.get(), END_PLANKS.get());
         createSignRecipe(r, DEItems.END_SIGN.get(), END_PLANKS.get());
     }
 
