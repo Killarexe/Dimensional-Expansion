@@ -1,5 +1,5 @@
 {
-  "type": "essence_extractor",
+  "type": "dimensional_expansion:essence_extractor",
   "ingredients": [
     {
       "item": "dimensional_expansion:xp_seeds"

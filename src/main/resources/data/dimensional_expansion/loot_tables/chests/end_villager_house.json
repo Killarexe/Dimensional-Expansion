@@ -32,7 +32,7 @@
         {
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:dimaond_pickaxe",
+          "name": "minecraft:diamond_pickaxe",
           "functions": [
             {
               "function": "minecraft:enchant_randomly"

@@ -45,12 +45,10 @@ public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
 
     @Override
     public void tick() {
-        DEMod.LOGGER.info("Start ticking");
         super.tick();
         if(level.isClientSide()){
             return;
         }
         craft();
-        DEMod.LOGGER.info("End ticking");
     }
 }

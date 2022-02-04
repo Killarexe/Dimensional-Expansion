@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.core.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.killarexe.dimensional_expansion.core.world.structure.*;
@@ -12,12 +13,15 @@ import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.LoadingOverlay;
 import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -30,12 +34,15 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.client.loading.ClientModLoader;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.function.Supplier;
 
 public class DEEvents {
 
@@ -46,11 +53,9 @@ public class DEEvents {
 
     @SubscribeEvent
     public static void addFeatures(final BiomeLoadingEvent e){
-        addOre(e, NATURAL_END_STONE, DEBlocks.PALON_ORE.get().defaultBlockState(), 8, 54, 75, 1);
-        addOre(e, NATURAL_STONE, DEBlocks.BASSMITE_ORE.get().defaultBlockState(), 8, 0, 12, 1);
-        addOre(e, NATURAL_NETHERRACK, DEBlocks.SIMIX_ORE.get().defaultBlockState(), 8, 0, 14, 1);
-        addOre(e, NATURAL_DEEPSLATE, DEBlocks.EMERTYST_ORE.get().defaultBlockState(), 8, 16, 0, 1);
-        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.CONFIGURED_FEATURE.placed());
+        addOres(e);
+        addTrees(e);
+        addStructures(e);
     }
 
     @SubscribeEvent
@@ -151,6 +156,30 @@ public class DEEvents {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));
         }
+    }
+
+    private static void addTrees(final BiomeLoadingEvent e){
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
+        Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
+
+        if(types.contains(BiomeDictionary.Type.fromVanilla(Biome.BiomeCategory.THEEND))) {
+            List<Supplier<PlacedFeature>> base =
+                    e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
+            base.add(() -> DEFeatures.END_TREE_PLACED);
+        }
+    }
+
+    private static void addStructures(final BiomeLoadingEvent e){
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.CONFIGURED_FEATURE.placed());
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, FarmerHouse.CONFIGURED_FEATURE.placed());
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, MinerHouse.CONFIGURED_FEATURE.placed());
+    }
+
+    private static void addOres(final BiomeLoadingEvent e){
+        addOre(e, NATURAL_END_STONE, DEBlocks.PALON_ORE.get().defaultBlockState(), 8, 54, 75, 1);
+        addOre(e, NATURAL_STONE, DEBlocks.BASSMITE_ORE.get().defaultBlockState(), 8, 0, 12, 1);
+        addOre(e, NATURAL_NETHERRACK, DEBlocks.SIMIX_ORE.get().defaultBlockState(), 8, 0, 14, 1);
+        addOre(e, NATURAL_DEEPSLATE, DEBlocks.EMERTYST_ORE.get().defaultBlockState(), 8, 16, 0, 1);
     }
 
     private static void addOre(final BiomeLoadingEvent e, RuleTest rule, BlockState state, int veinsize, int minHeight, int maxHeight, int amount){

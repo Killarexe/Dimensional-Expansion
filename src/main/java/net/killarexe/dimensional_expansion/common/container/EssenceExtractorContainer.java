@@ -18,11 +18,11 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
 
     // Client Constructor
     public EssenceExtractorContainer(int id, Inventory playerInv) {
-        this(id, playerInv, new ItemStackHandler(2), BlockPos.ZERO, new SimpleContainerData(0));
+        this(id, playerInv, new ItemStackHandler(2), BlockPos.ZERO, new SimpleContainerData(2));
     }
 
     // Server constructor
-    public EssenceExtractorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
+    private EssenceExtractorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
         super(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), id);
         this.containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
         this.data = data;
@@ -76,8 +76,7 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
     }
 
     public static MenuConstructor getServerContainer(EssenceExtractorBlockEntity be, BlockPos pos) {
-        return (id, playerInv, player) -> new EssenceExtractorContainer(id, playerInv, be.inventory, pos,
-                new EssenceExtractorContainerData(be, 0));
+        return (id, playerInv, player) -> new EssenceExtractorContainer(id, playerInv, be.inventory, pos, new EssenceExtractorContainerData(be, 2));
     }
 
     public static class EssenceExtractorContainerData extends SimpleContainerData{

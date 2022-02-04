@@ -8,6 +8,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -83,11 +84,11 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
         @Override
         public EssenceExtractorRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
             ItemStack output = ShapedRecipe.itemStackFromJson(jsonObject);
-            CompoundTag ingredients = JsonUtils.readNBT(jsonObject, "ingredients");
+            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.of((ItemLike) ingredients));
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
             return new EssenceExtractorRecipe(resourceLocation, output, inputs);

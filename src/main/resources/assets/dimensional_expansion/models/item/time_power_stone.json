@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dimensional_expansion:item/time_power_stone"
+    "layer0": "minecraft:item/clock_00"
   }
 }
