@@ -37,10 +37,7 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
 
     @Override
     public boolean matches(Container container, Level level) {
-        if(recipeItems.get(0).test(container.getItem(0))){
-            return recipeItems.get(1).test(container.getItem(1));
-        }
-        return false;
+        return recipeItems.get(0).test(container.getItem(0));
     }
 
     @Override
@@ -83,9 +80,9 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
 
         @Override
         public EssenceExtractorRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(jsonObject);
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
             JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
@@ -97,7 +94,7 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
         @Nullable
         @Override
         public EssenceExtractorRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));

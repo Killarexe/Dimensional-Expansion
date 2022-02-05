@@ -36,14 +36,14 @@ public class MinerHouse extends Feature<NoneFeatureConfiguration> {
         ResourceKey<Level> dimensionType = featurePlaceContext.level().getLevel().dimension();
 
         if(template == null){
-            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":forger_house"));
+            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":miner_house"));
         }
 
         if(template == null){
             return false;
         }
 
-        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000){
+        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000/3){
             boolean isPlaced = false;
             int i = featurePlaceContext.origin().getX() + featurePlaceContext.random().nextInt(16);
             int k = featurePlaceContext.origin().getZ() + featurePlaceContext.random().nextInt(16);

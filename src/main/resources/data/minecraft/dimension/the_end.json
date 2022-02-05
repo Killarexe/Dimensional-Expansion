@@ -3,7 +3,7 @@
   "generator": {
     "type": "minecraft:noise",
     "seed": 7052007,
-    "settings": "dimensional_expansion:the_end",
+    "settings": "minecraft:the_end",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [

@@ -45,7 +45,7 @@ public class ForgerHouse extends Feature<NoneFeatureConfiguration> {
             return false;
         }
 
-        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000){
+        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000/3){
             boolean isPlaced = false;
             int i = featurePlaceContext.origin().getX() + featurePlaceContext.random().nextInt(16);
             int k = featurePlaceContext.origin().getZ() + featurePlaceContext.random().nextInt(16);

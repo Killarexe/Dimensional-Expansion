@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtractorContainer>{
 
-    private final ResourceLocation GUI = new ResourceLocation(DEMod.MODID, "textures/gui/essence_extractor_gui.png");
+    private final ResourceLocation GUI = new ResourceLocation(DEMod.MODID, "textures/gui/container/essence_extractor_gui.png");
 
     public EssenceExtractorScreen(EssenceExtractorContainer pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

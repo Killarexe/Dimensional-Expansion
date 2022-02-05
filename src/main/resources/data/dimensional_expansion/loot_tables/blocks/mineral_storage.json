@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dimensional_expansion:end_forge"
+          "name": "dimensional_expansion:mineral_storage"
         }
       ],
       "conditions": [

@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.common.container;
 
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
+import net.killarexe.dimensional_expansion.common.container.slot.ResultSlot;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEContainers;
 import net.minecraft.core.BlockPos;
@@ -29,9 +30,8 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
 
         final int slotSizePlus2 = 18, startX = 8, startY = 86, hotbarY = 144;
 
-        addSlot(new SlotItemHandler(slots, 0, 176/2+16, 37));
-        addSlot(new SlotItemHandler(slots, 1, 176/2-16, 37));
-
+        addSlot(new SlotItemHandler(slots, 0, 44, 37));
+        addSlot(new ResultSlot(slots, 1, 116, 37));
 
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {

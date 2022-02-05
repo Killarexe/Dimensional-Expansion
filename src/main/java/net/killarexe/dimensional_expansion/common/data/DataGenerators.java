@@ -13,7 +13,7 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent e){
         DataGenerator generator = e.getGenerator();
 
-        generator.addProvider(new DERecipeProvider(generator));
+        //generator.addProvider(new DERecipeProvider(generator));
         generator.addProvider(new DELootTableProvider(generator));
     }
 }

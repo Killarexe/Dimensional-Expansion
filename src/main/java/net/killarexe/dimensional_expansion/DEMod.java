@@ -100,5 +100,7 @@ public class DEMod
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.ESSENCE_EXTRACTOR.get(), RenderType.cutout());
         LOGGER.info("Register Dimensional Expansion Container");
         MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
+        LOGGER.info("Add Dimensional Expansion Items Properties");
+        DEItems.addItemsProperites();
     }
 }

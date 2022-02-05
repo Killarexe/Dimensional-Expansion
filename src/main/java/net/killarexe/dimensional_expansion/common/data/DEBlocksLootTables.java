@@ -37,12 +37,13 @@ public class DEBlocksLootTables extends BlockLoot {
         dropSelf(END_PRESSURE_PLATE.get());
         add(END_DOOR.get(), (block) -> {return createDoorTable(END_DOOR.get());});
         dropSelf(END_TRAPDOOR.get());
-        add(END_LEAVES.get(), (block) -> {return createLeavesDrops(END_LEAVES.get(), END_LEAVES.get(), 1);});
+        add(END_LEAVES.get(), (block) -> {return createLeavesDrops(END_LEAVES.get(), END_SAPLING.get(), 1);});
         dropSelf(END_STAIRS.get());
         dropSelf(END_BOOKSHELF.get());
         dropOther(DEBlocks.END_SIGN.get(), DEItems.END_SIGN.get());
         dropOther(END_WALL_SIGN.get(), DEItems.END_SIGN.get());
         dropSelf(END_ROSE.get());
+        dropSelf(END_SAPLING.get());
 
         LootItemCondition.Builder lBuilderXp = LootItemBlockStatePropertyCondition.hasBlockStateProperties(XP_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
         add(XP_CROPS.get(), (block) -> {return createCropDrops(XP_CROPS.get(), XP_PLANTS.get(), XP_SEEDS.get(), lBuilderXp); });

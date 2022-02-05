@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -34,16 +35,17 @@ public class FarmerHouse extends Feature<NoneFeatureConfiguration> {
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
         ResourceKey<Level> dimensionType = featurePlaceContext.level().getLevel().dimension();
+        Biome biomeType = featurePlaceContext.level().getBiome(featurePlaceContext.origin());
 
         if(template == null){
-            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":forger_house"));
+            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":farmer_house"));
         }
 
         if(template == null){
             return false;
         }
 
-        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000){
+        if(dimensionType == Level.END && (featurePlaceContext.random().nextInt(1000000) + 1) <= 1000/3){
             boolean isPlaced = false;
             int i = featurePlaceContext.origin().getX() + featurePlaceContext.random().nextInt(16);
             int k = featurePlaceContext.origin().getZ() + featurePlaceContext.random().nextInt(16);

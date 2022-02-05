@@ -27,28 +27,26 @@ public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
     private void craft(){
         SimpleContainer container = new SimpleContainer(inventory.getSlots());
         for(int i = 0; i < inventory.getSlots(); i++){
-            inventory.setStackInSlot(i, inventory.getStackInSlot(i));
+            container.setItem(i, inventory.getStackInSlot(i));
         }
         Optional<EssenceExtractorRecipe> recipe = level.getRecipeManager().getRecipeFor(DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_TYPE, container, level);
-        recipe.ifPresent(iRecipe -> {
-            ItemStack output = iRecipe.getResultItem();
-            ParticleUtils.spawnParticlesOnBlockFaces(level, worldPosition, DustParticleOptions.REDSTONE, UniformInt.of(getBlockPos().getX(), getBlockPos().getY()));
-            extract(output);
-        });
+        if(recipe.isPresent()){
+            ParticleUtils.spawnParticlesOnBlockFaces(level, worldPosition, ParticleTypes.COMPOSTER, UniformInt.of(3, 5));
+            extract(new ItemStack(recipe.get().getResultItem().getItem(), inventory.getStackInSlot(1).getCount() + 1));
+        }
     }
 
     private void extract(ItemStack output){
         inventory.extractItem(0, 1, false);
-        inventory.extractItem(1, 1, false);
-        inventory.insertItem(1, output, false);
+        inventory.setStackInSlot(1, output);
     }
 
     @Override
     public void tick() {
-        super.tick();
         if(level.isClientSide()){
             return;
         }
+        setChanged();
         craft();
     }
 }
