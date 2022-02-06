@@ -15,8 +15,8 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
 
-import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
+import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 import static net.minecraft.world.item.Items.*;
 import static net.minecraft.world.item.crafting.RecipeSerializer.*;
 

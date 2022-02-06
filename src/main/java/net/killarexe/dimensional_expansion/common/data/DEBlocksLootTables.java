@@ -11,19 +11,18 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
-import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
 
 public class DEBlocksLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
-        add(PALON_ORE.get(), (block) ->{return createOreDrop(PALON_ORE.get(), RAW_PALON.get());});
+        add(PALON_ORE.get(), (block) ->{return createOreDrop(PALON_ORE.get(), DEItems.RAW_PALON.get());});
         dropSelf(PALON_BLOCK.get());
-        add(BASSMITE_ORE.get(), (block) ->{return createOreDrop(BASSMITE_ORE.get(), BASSMITE_GEM.get());});
+        add(BASSMITE_ORE.get(), (block) ->{return createOreDrop(BASSMITE_ORE.get(), DEItems.BASSMITE_GEM.get());});
         dropSelf(BASSMITE_BLOCK.get());
-        add(SIMIX_ORE.get(), (block) ->{return createOreDrop(SIMIX_ORE.get(), RAW_SIMIX.get());});
+        add(SIMIX_ORE.get(), (block) ->{return createOreDrop(SIMIX_ORE.get(), DEItems.RAW_SIMIX.get());});
         dropSelf(SIMIX_BLOCK.get());
-        add(EMERTYST_ORE.get(), (block) ->{return createOreDrop(EMERTYST_ORE.get(), EMERTYST_GEM.get());});
+        add(EMERTYST_ORE.get(), (block) ->{return createOreDrop(EMERTYST_ORE.get(), DEItems.EMERTYST_GEM.get());});
         dropSelf(EMERTYST_BLOCK.get());
 
         dropSelf(END_GRASS_BLOCK.get());
@@ -46,9 +45,9 @@ public class DEBlocksLootTables extends BlockLoot {
         dropSelf(END_SAPLING.get());
 
         LootItemCondition.Builder lBuilderXp = LootItemBlockStatePropertyCondition.hasBlockStateProperties(XP_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
-        add(XP_CROPS.get(), (block) -> {return createCropDrops(XP_CROPS.get(), XP_PLANTS.get(), XP_SEEDS.get(), lBuilderXp); });
+        add(XP_CROPS.get(), (block) -> {return createCropDrops(XP_CROPS.get(), DEItems.XP_PLANTS.get(), DEItems.XP_SEEDS.get(), lBuilderXp); });
         LootItemCondition.Builder lBuilderHealth = LootItemBlockStatePropertyCondition.hasBlockStateProperties(HEALTH_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
-        add(HEALTH_CROPS.get(), (block) -> {return createCropDrops(HEALTH_CROPS.get(), HEART.get(), HEART_SEEDS.get(), lBuilderHealth); });
+        add(HEALTH_CROPS.get(), (block) -> {return createCropDrops(HEALTH_CROPS.get(), DEItems.HEART.get(), DEItems.HEART_SEEDS.get(), lBuilderHealth); });
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());

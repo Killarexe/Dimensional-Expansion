@@ -36,6 +36,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.LevelSummary;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.gui.ModListScreen;
 import net.minecraftforge.client.gui.NotificationModUpdateScreen;
 import net.minecraftforge.internal.BrandingControl;
@@ -51,6 +53,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
+@OnlyIn(Dist.CLIENT)
 public class DETitleScreen extends Screen {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String DEMO_LEVEL_ID = "Demo_World";

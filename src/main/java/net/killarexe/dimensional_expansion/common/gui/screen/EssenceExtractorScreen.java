@@ -9,7 +9,10 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtractorContainer>{
 
     private final ResourceLocation GUI = new ResourceLocation(DEMod.MODID, "textures/gui/container/essence_extractor_gui.png");

@@ -31,6 +31,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.client.loading.ClientModLoader;
@@ -152,6 +154,7 @@ public class DEEvents {
     }
 
     @SubscribeEvent
+    @OnlyIn(Dist.CLIENT)
     public static void onScreenPost(final ScreenEvent.InitScreenEvent.Post event) {
         if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
             event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));

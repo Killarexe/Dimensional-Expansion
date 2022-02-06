@@ -1,12 +1,14 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.common.block.*;
 import net.killarexe.dimensional_expansion.common.item.FuelItem;
 import net.killarexe.dimensional_expansion.common.item.TimePowerStone;
 import net.killarexe.dimensional_expansion.common.item.WeatherPowerStone;
 import net.killarexe.dimensional_expansion.common.item.XpPlants;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
+import net.killarexe.dimensional_expansion.core.world.feature.tree.EndTreeGrower;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -23,17 +25,25 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BannerPattern;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class DEItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DEMod.MODID);
 
+    //ITEMS
     public static final RegistryObject<Item> RAW_PALON = createItem("raw_palon", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> PALON_INGOT = createItem("palon_ingot", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> PALON_NUGGET = createItem("palon_nugget", DEItemGroups.MISC, true);
@@ -100,7 +110,37 @@ public class DEItems {
     public static final RegistryObject<Item> XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
 
+    //BLOCK ITEMS
+    //public static final RegistryObject<Item> PALON_ORE = ITEMS.register("palon_ore", () -> new BlockItem(DEBlocks.PALON_ORE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> PALON_BLOCK = ITEMS.register("palon_block", () -> new BlockItem(DEBlocks.PALON_BLOCK.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> BASSMITE_ORE = ITEMS.register("bassmite_ore", () -> new BlockItem(DEBlocks.BASSMITE_ORE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> BASSMITE_BLOCK = ITEMS.register("bassmite_block", () -> new BlockItem(DEBlocks.BASSMITE_BLOCK.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> SIMIX_ORE = ITEMS.register("simix_ore", () -> new BlockItem(DEBlocks.SIMIX_ORE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> SIMIX_BLOCK = ITEMS.register("simix_block", () -> new BlockItem(DEBlocks.SIMIX_BLOCK.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> EMERTYST_ORE = ITEMS.register("emertyst_ore", () -> new BlockItem(DEBlocks.EMERTYST_ORE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> EMERTYST_BLOCK = ITEMS.register("emertyst_block", () -> new BlockItem(DEBlocks.EMERTYST_BLOCK.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+//
+    //public static final RegistryObject<Item> END_GRASS_BLOCK = ITEMS.register("end_gra", () -> new BlockItem(DEBlocks.END_GRASS_BLOCK.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_LOG = ITEMS.register("end_log", () -> new BlockItem(DEBlocks.END_LOG.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_STRIPPED_LOG = ITEMS.register("end_stripped_log", () -> new BlockItem(DEBlocks.END_STRIPPED_LOG.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_PLANKS = ITEMS.register("end_planks", () -> new BlockItem(DEBlocks.END_PLANKS.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_SLAB = ITEMS.register("end_slab", () -> new BlockItem(DEBlocks.END_SLAB.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_FENCE = ITEMS.register("end_fence", () -> new BlockItem(DEBlocks.END_FENCE.get(), new Item.Properties().tab(DEItemGroups.DECORATION_BLOCKS)));
+    //public static final RegistryObject<Item> END_FENCE_GATE = ITEMS.register("end_fence_gate", () -> new BlockItem(DEBlocks.END_FENCE_GATE.get(), new Item.Properties().tab(DEItemGroups.DECORATION_BLOCKS)));
+    //public static final RegistryObject<Item> END_BUTTON = ITEMS.register("end_button", () -> new BlockItem(DEBlocks.END_BUTTON.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_PRESSURE_PLATE = ITEMS.register("end_pressure_plate", () -> new BlockItem(DEBlocks.END_PRESSURE_PLATE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_DOOR = ITEMS.register("end_door", () -> new BlockItem(DEBlocks.END_DOOR.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_TRAPDOOR = ITEMS.register("end_trapdoor", () -> new BlockItem(DEBlocks.END_TRAPDOOR.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_LEAVES = ITEMS.register("end_leaves", () -> new BlockItem(DEBlocks.END_LEAVES.get(), new Item.Properties().tab(DEItemGroups.DECORATION_BLOCKS)));
+    //public static final RegistryObject<Item> END_STAIRS = ITEMS.register("end_stairs", () -> new BlockItem(DEBlocks.END_STAIRS.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> END_BOOKSHELF = ITEMS.register("end_bookshelf", () -> new BlockItem(DEBlocks.END_BOOKSHELF.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
     public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.DECORATION_BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
+    //public static final RegistryObject<Item> END_ROSE = ITEMS.register("end_rose", () -> new BlockItem(DEBlocks.END_ROSE.get(), new Item.Properties().tab(DEItemGroups.DECORATION_BLOCKS)));
+    //public static final RegistryObject<Item> END_SAPLING = ITEMS.register("end_sapling", () -> new BlockItem(DEBlocks.END_SAPLING.get(), new Item.Properties().tab(DEItemGroups.DECORATION_BLOCKS)));
+//
+    //public static final RegistryObject<Item> FORGE = ITEMS.register("forge", () -> new BlockItem(DEBlocks.FORGE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> ESSENCE_EXTRACTOR = ITEMS.register("essence_extractor", () -> new BlockItem(DEBlocks.ESSENCE_EXTRACTOR.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
+    //public static final RegistryObject<Item> MINERAL_STORAGE = ITEMS.register("mineral_storage", () -> new BlockItem(DEBlocks.MINERAL_STORAGE.get(), new Item.Properties().tab(DEItemGroups.BUILDING_BLOCKS)));
 
     private static RegistryObject<Item> createItem(String id, CreativeModeTab itemGroup, boolean isFireProof){
         if(isFireProof){
@@ -159,22 +199,16 @@ public class DEItems {
         return ITEMS.register(id, () -> item);
     }
 
-    private static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup)));
-    }
-
-    private static RegistryObject<Item> createBlockItem(String id, Block block, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new BlockItem(block, new Item.Properties().tab(itemGroup)));
-    }
-
     private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
         return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void addItemsProperites(){
         addClockProperties(TIME_POWER_STONE.get());
     }
 
+    @OnlyIn(Dist.CLIENT)
     private static void addClockProperties(Item item){
         ItemProperties.register(item, new ResourceLocation("time"), new ClampedItemPropertyFunction() {
             private double rotation;
