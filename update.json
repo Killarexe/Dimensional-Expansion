@@ -9,7 +9,8 @@
   "1.18.1": {
     "0.2.5a": "Updated to 1.18.1",
     "0.3a": "Added Blocks, Items, Crops. Remove Enchantment, Potion. Update/Patch Loot Tables, Models, Lang file",
-    "0.4a": "NULL"
+    "0.4a": "Added Blocks, Items, Structures, LootTables, Jei Integration, Models, Biomes(Not Generated), Tree, Villager Jobs, etc..",
+    "0.4.1a": "Patched two critical bugs"
   },
 
   "promos": {
