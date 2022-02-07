@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.config;
+package net.killarexe.dimensional_expansion.common.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

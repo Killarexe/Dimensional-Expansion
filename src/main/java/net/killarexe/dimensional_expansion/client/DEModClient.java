@@ -2,8 +2,8 @@ package net.killarexe.dimensional_expansion.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.event.DEEvents;
-import net.killarexe.dimensional_expansion.common.gui.screen.DimensionalExpansionVersionOverlay;
-import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
+import net.killarexe.dimensional_expansion.client.gui.screen.DimensionalExpansionVersionOverlay;
+import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 

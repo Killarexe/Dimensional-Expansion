@@ -1,21 +1,12 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.common.gui.screen.DEConfigScreen;
-import net.killarexe.dimensional_expansion.common.gui.screen.DimensionalExpansionVersionOverlay;
-import net.killarexe.dimensional_expansion.common.gui.screen.EssenceExtractorScreen;
-import net.killarexe.dimensional_expansion.core.config.DEConfig;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.client.event.DEEvents;
-import net.killarexe.dimensional_expansion.core.uitls.StrippingMap;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.blockentity.*;
+import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;

@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.common.gui.screen;
+package net.killarexe.dimensional_expansion.client.gui.screen;
 
 import com.google.common.util.concurrent.Runnables;
 import com.mojang.blaze3d.platform.GlStateManager;

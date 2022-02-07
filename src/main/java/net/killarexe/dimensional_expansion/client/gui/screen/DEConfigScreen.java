@@ -1,10 +1,9 @@
-package net.killarexe.dimensional_expansion.common.gui.screen;
+package net.killarexe.dimensional_expansion.client.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.config.DEConfig;
-import net.minecraft.client.gui.Font;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.Screen;

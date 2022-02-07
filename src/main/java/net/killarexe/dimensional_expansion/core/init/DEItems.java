@@ -1,14 +1,12 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.block.*;
 import net.killarexe.dimensional_expansion.common.item.FuelItem;
 import net.killarexe.dimensional_expansion.common.item.TimePowerStone;
 import net.killarexe.dimensional_expansion.common.item.WeatherPowerStone;
 import net.killarexe.dimensional_expansion.common.item.XpPlants;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
-import net.killarexe.dimensional_expansion.core.world.feature.tree.EndTreeGrower;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -24,12 +22,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BannerPattern;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.DeferredRegister;
@@ -37,7 +30,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
-import java.util.function.Supplier;
 
 public class DEItems {
 

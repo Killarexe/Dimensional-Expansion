@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.uitls;
+package net.killarexe.dimensional_expansion.common.block;
 
 import com.google.common.collect.ImmutableMap;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;

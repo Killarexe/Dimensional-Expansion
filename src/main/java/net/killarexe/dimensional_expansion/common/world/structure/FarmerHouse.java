@@ -1,10 +1,11 @@
-package net.killarexe.dimensional_expansion.core.world.structure;
+package net.killarexe.dimensional_expansion.common.world.structure;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -19,26 +20,25 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.Set;
 
-
-public class ForgerHouse extends Feature<NoneFeatureConfiguration> {
-
-    public static final Feature FEATURE = (ForgerHouse)new ForgerHouse().setRegistryName(DEMod.MODID + ":forger_house");
+public class FarmerHouse extends Feature<NoneFeatureConfiguration> {
+    public static final Feature FEATURE = (FarmerHouse)new FarmerHouse().setRegistryName(DEMod.MODID + ":farmer_house");
     public static final ConfiguredFeature<?, ?> CONFIGURED_FEATURE = FEATURE.configured(FeatureConfiguration.NONE);
 
     public static final Set<ResourceLocation> GENERATE_BIOMES = Set.of(new ResourceLocation("minecraft:end_highlands"));
 
     private StructureTemplate template = null;
 
-    public ForgerHouse() {
+    public FarmerHouse() {
         super(NoneFeatureConfiguration.CODEC);
     }
 
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
         ResourceKey<Level> dimensionType = featurePlaceContext.level().getLevel().dimension();
+        Biome biomeType = featurePlaceContext.level().getBiome(featurePlaceContext.origin());
 
         if(template == null){
-            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":forger_house"));
+            template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":farmer_house"));
         }
 
         if(template == null){
@@ -53,10 +53,10 @@ public class ForgerHouse extends Feature<NoneFeatureConfiguration> {
             j -= 1;
             BlockPos spawnTo = new BlockPos(i, j, k);
             if(template.placeInWorld(featurePlaceContext.level(), spawnTo, spawnTo, new StructurePlaceSettings()
-            .setMirror(Mirror.NONE)
-            .setRotation(Rotation.NONE)
-            .addProcessor(BlockIgnoreProcessor.AIR)
-            .setIgnoreEntities(false), featurePlaceContext.random(), 1)){
+                    .setMirror(Mirror.NONE)
+                    .setRotation(Rotation.NONE)
+                    .addProcessor(BlockIgnoreProcessor.AIR)
+                    .setIgnoreEntities(false), featurePlaceContext.random(), 1)){
                 isPlaced = true;
             }
             return isPlaced;

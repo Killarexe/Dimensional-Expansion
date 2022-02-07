@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.world.feature.tree;
+package net.killarexe.dimensional_expansion.common.world.feature.tree;
 
 import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;

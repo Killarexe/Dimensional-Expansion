@@ -1,17 +1,15 @@
 package net.killarexe.dimensional_expansion.client.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.gui.screen.DETitleScreen;
-import net.killarexe.dimensional_expansion.core.config.DEConfig;
+import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
+import net.killarexe.dimensional_expansion.common.world.structure.FarmerHouse;
+import net.killarexe.dimensional_expansion.common.world.structure.ForgerHouse;
+import net.killarexe.dimensional_expansion.common.world.structure.MinerHouse;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
-import net.killarexe.dimensional_expansion.core.world.structure.*;
-import net.minecraft.SharedConstants;
-import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.LoadingOverlay;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -33,9 +31,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTes
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.client.loading.ClientModLoader;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
