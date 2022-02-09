@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.common.container;
+package net.killarexe.dimensional_expansion.common.blockentity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

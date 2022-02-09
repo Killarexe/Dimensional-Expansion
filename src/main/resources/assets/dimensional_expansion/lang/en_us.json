@@ -86,22 +86,45 @@
 	"block.dimensional_expansion.end_wall_sign": "End Wall Sign",
 	"item.dimensional_expansion.end_sign": "End Sign",
 	"block.dimensional_expansion.end_bookshelf": "End Bookshelf",
+	"block.dimensional_expansion.end_sapling": "End Sapling",
 
+	"item.dimensional_expansion.xp_essence": "Xp Essence",
 	"item.dimensional_expansion.xp_plants": "Xp Plants",
 	"item.dimensional_expansion.xp_seeds": "Xp Seeds",
+	"item.dimensional_expansion.heart_essence": "Heart Essence",
 	"item.dimensional_expansion.heart": "Heart",
 	"item.dimensional_expansion.heart_seeds": "Heart Seeds",
+	"item.dimensional_expansion.weather_power_stone": "Weather Power Stone",
+	"item.dimensional_expansion.time_power_stone": "Time Power Stone",
 
 	"block.dimensional_expansion.end_rose": "End Rose",
 
-	"block.dimensional_expansion.weather_changer": "Weather Changer",
-	"block.dimensional_expansion.end_forge": "End Forge",
+	"block.dimensional_expansion.forge": "Forge",
+	"block.dimensional_expansion.essence_extractor": "Essence Extractor",
+	"block.dimensional_expansion.mineral_storage": "Mineral Storage",
 
-	"entity.minecraft.villager.dimensional_expansion.end_forger": "End Forger",
+	"entity.minecraft.villager.dimensional_expansion.forger": "Forger",
+	"entity.minecraft.villager.dimensional_expansion.farmer": "Farmer",
+	"entity.minecraft.villager.dimensional_expansion.miner": "Miner",
 
 	"itemGroup.dimensional_expansion.building_blocks": "Dimensional Expansion Blocks",
 	"itemGroup.dimensional_expansion.combat": "Dimensional Expansion Combat",
 	"itemGroup.dimensional_expansion.tools": "Dimensional Expansion Tools",
 	"itemGroup.dimensional_expansion.misc": "Dimensional Expansion Misc",
-	"itemGroup.dimensional_expansion.decoration_blocks": "Dimensional Expansion Decoration Blocks"
+	"itemGroup.dimensional_expansion.decoration_blocks": "Dimensional Expansion Decoration Blocks",
+
+	"tooltip.dimensional_expansion.weather_power_stone": "Ability to change weather.",
+	"tooltip.dimensional_expansion.time_power_stone": "Ability to change Time.",
+
+	"tooltip.dimensional_expansion.shift": "Hold SHIFT for more info",
+
+	"config.dimensional_expansion.title": "Dimensional Expansion Config",
+	"config.dimensional_expansion.client": "Dimensional Expansion Config Client",
+	"config.dimensional_expansion.server": "Dimensional Expansion Config Server",
+	"button.dimensional_expansion.cancel_button": "Cancel",
+	"button.dimensional_expansion.apply_button": "Apply",
+	"checkbox.dimensional_expansion.show_version": "Show Version",
+	"checkbox.dimensional_expansion.modded_title_screen": "Modded Title Screen (Recommended to false with multiple mods)",
+	"checkbox.dimensional_expansion.enable_weather_power_stone": "Enable Weather Power Stone",
+	"checkbox.dimensional_expansion.enable_time_power_stone": "Enable Time Power Stone"
 }

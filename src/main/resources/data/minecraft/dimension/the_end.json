@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:the_end",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 7052007,
+    "settings": "minecraft:end",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:end_barrens",
+          "parameters": {
+            "temperature": 0.89,
+            "humidity": 0.1,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0.35,
+            "depth": 0,
+            "offset": 0.01
+          }
+        },
+        {
+          "biome": "minecraft:end_highlands",
+          "parameters": {
+            "temperature": 0.63,
+            "humidity": 0.6,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.27
+          }
+        },
+        {
+          "biome": "minecraft:end_midlands",
+          "parameters": {
+            "temperature": 0.44,
+            "humidity": 0.2,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.1
+          }
+        },
+        {
+          "biome": "dimensional_expansion:end_forest",
+          "parameters": {
+            "temperature": 0.1,
+            "humidity": 0.3,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.01
+          }
+        },
+        {
+          "biome": "dimensional_expansion:end_desert",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0.3,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.2
+          }
+        },
+        {
+          "biome": "dimensional_expansion:end_jungle",
+          "parameters": {
+            "temperature": 0.11,
+            "humidity": 0.25,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.01
+          }
+        }
+      ]
+    }
+  }
+}

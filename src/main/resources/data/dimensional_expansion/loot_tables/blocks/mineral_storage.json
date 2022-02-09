@@ -7,13 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:copy_name",
-              "source": "block_entity"
-            }
-          ],
-          "name": "dimensional_expansion:weather_changer"
+          "name": "dimensional_expansion:mineral_storage"
         }
       ],
       "conditions": [

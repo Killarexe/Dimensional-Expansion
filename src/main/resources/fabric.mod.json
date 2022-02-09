@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.killarexe.dimensional_expansion.DEMod"
+    ],
+    "client": [
+      "net.killarexe.dimensional_expansion.client.DEModClient"
     ]
   },
   "mixins": [

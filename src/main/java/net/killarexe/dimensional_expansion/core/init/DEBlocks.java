@@ -38,7 +38,6 @@ public class DEBlocks {
     public static final Block END_TRAPDOOR = createTrapDoorBlock("end_trapdoor", Material.WOOD, MapColor.BLACK,5, 10, BlockSoundGroup.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final Block END_LEAVES = createLeavesBlock("end_leaves", Material.LEAVES, MapColor.BLACK,0, 50, BlockSoundGroup.GRASS, DEItemGroups.DECORATION_BLOCKS);
     public static final Block END_STAIRS = createStairBlock("end_stairs", END_PLANKS, DEItemGroups.BUILDING_BLOCKS);
-    public static final Block END_FORGE = createBlock("end_forge", Material.METAL, MapColor.BLACK, 3, 50, BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final Block END_BOOKSHELF = createCustomBlock("end_bookshelf", new EndBookshelf(), DEItemGroups.BUILDING_BLOCKS);
     public static final Block END_SIGN = createCustomBlock("end_sign", new EndStandingSignBlock());
     public static final Block END_WALL_SIGN = createCustomBlock("end_wall_sign", new EndWallSignBlock());
@@ -49,7 +48,7 @@ public class DEBlocks {
 
     public static final Block FORGE = createBlock("forge", Material.METAL, MapColor.BLACK, 3, 50,  BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final Block MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MapColor.BLACK, 3, 50,  BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
-    public static final Block ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);
+    public static final Block ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", new EssenceExtractor());
 
     //TODO: Find a way to create a SignType
     //public static final SignType END = null;
@@ -147,7 +146,7 @@ public class DEBlocks {
         return block;
     }
 
-    private static Block createCustomBlock( String id, Block block, ItemGroup itemGroup){
+    private static Block createCustomBlock(String id, Block block, ItemGroup itemGroup){
         Block cBlock = Registry.register(Registry.BLOCK, new Identifier(DEMod.MODID, id), block);
         Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BlockItem(cBlock, new FabricItemSettings().group(itemGroup).fireproof()));
         return cBlock;

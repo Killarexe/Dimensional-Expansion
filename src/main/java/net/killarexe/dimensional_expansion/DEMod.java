@@ -2,11 +2,7 @@ package net.killarexe.dimensional_expansion;
 
 import net.fabricmc.api.ModInitializer;
 import net.killarexe.dimensional_expansion.core.config.DEConfigs;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEFeatures;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.client.MinecraftClient;
+import net.killarexe.dimensional_expansion.core.init.*;
 import org.apache.logging.log4j.*;
 
 public class DEMod implements ModInitializer {
@@ -17,10 +13,10 @@ public class DEMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        MinecraftClient.getInstance().getWindow().setTitle("Dimensional Expansion v" + VERSION);
         DEConfigs.registerConfigs();
         DEItems.registerItems();
         DEBlocks.registerBlocks();
+        DEContainers.registerContainers();
         DEBlockEntities.registerBlockEntities();
         DEFeatures.registerFeatures();
     }

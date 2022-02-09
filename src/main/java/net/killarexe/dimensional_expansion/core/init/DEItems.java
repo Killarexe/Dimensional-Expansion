@@ -80,6 +80,8 @@ public class DEItems {
     public static final Item XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
     public static final Item HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
 
+    public static final Item END_SIGN = createSignItem("end_sign", DEBlocks.END_SIGN, DEBlocks.END_WALL_SIGN, DEItemGroups.DECORATION_BLOCKS);
+
 
     public static void registerItems(){
         DEMod.LOGGER.info("Register Dimensional Expansion Items!");
@@ -136,16 +138,9 @@ public class DEItems {
         return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new HorseArmorItem(armorValue, ToolMaterialID,  new FabricItemSettings().group(itemGroup)));
     }
 
-    private static Item createCustomItem(String id, Item item){
-        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), item);
+    private static Item createSignItem(String id, Block stand, Block wall, ItemGroup group){
+        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new SignItem(new FabricItemSettings().group(group).maxCount(16), stand, wall));
     }
 
-    private static Item createBlockItem(String id, Block block, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BlockItem(block, new FabricItemSettings().group(itemGroup)));
-    }
-
-    private static Item createBannerPatternItem(String id, BannerPattern pattern, ItemGroup itemGroup){
-        return Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BannerPatternItem(pattern, new FabricItemSettings().group(itemGroup)));
-    }
 
 }

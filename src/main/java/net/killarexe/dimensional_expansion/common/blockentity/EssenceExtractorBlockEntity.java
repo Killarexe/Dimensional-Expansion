@@ -1,19 +1,23 @@
 package net.killarexe.dimensional_expansion.common.blockentity;
 
-import net.killarexe.dimensional_expansion.common.container.ImplementedInventory;
 import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.Set;
+public class EssenceExtractorBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
-public class EssenceExtractorBlockEntity extends BlockEntity implements ImplementedInventory {
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
     public EssenceExtractorBlockEntity(BlockPos pos, BlockState state) {
         super(DEBlockEntities.ESSENCE_EXTRACTOR_BLOCK_ENTITY, pos, state);
@@ -25,72 +29,25 @@ public class EssenceExtractorBlockEntity extends BlockEntity implements Implemen
     }
 
     @Override
-    public int size() {
-        return ImplementedInventory.super.size();
+    public Text getDisplayName() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+        return null;
     }
 
     @Override
-    public boolean isEmpty() {
-        return ImplementedInventory.super.isEmpty();
+    public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+        Inventories.readNbt(nbt, this.inventory);
     }
 
     @Override
-    public ItemStack getStack(int slot) {
-        return ImplementedInventory.super.getStack(slot);
-    }
-
-    @Override
-    public ItemStack removeStack(int slot, int count) {
-        return ImplementedInventory.super.removeStack(slot, count);
-    }
-
-    @Override
-    public ItemStack removeStack(int slot) {
-        return ImplementedInventory.super.removeStack(slot);
-    }
-
-    @Override
-    public void setStack(int slot, ItemStack stack) {
-        ImplementedInventory.super.setStack(slot, stack);
-    }
-
-    @Override
-    public int getMaxCountPerStack() {
-        return ImplementedInventory.super.getMaxCountPerStack();
-    }
-
-    @Override
-    public void clear() {
-        ImplementedInventory.super.clear();
-    }
-
-    @Override
-    public boolean canPlayerUse(PlayerEntity player) {
-        return ImplementedInventory.super.canPlayerUse(player);
-    }
-
-    @Override
-    public void onOpen(PlayerEntity player) {
-        ImplementedInventory.super.onOpen(player);
-    }
-
-    @Override
-    public void onClose(PlayerEntity player) {
-        ImplementedInventory.super.onClose(player);
-    }
-
-    @Override
-    public boolean isValid(int slot, ItemStack stack) {
-        return ImplementedInventory.super.isValid(slot, stack);
-    }
-
-    @Override
-    public int count(Item item) {
-        return ImplementedInventory.super.count(item);
-    }
-
-    @Override
-    public boolean containsAny(Set<Item> items) {
-        return ImplementedInventory.super.containsAny(items);
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        Inventories.readNbt(nbt, this.inventory);
     }
 }
