@@ -73,14 +73,6 @@ public class DEItems {
     public static final Item EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DEItemGroups.COMBAT);
     public static final Item EMERTYST_MIXED_COAL = createItem("emertyst_mixed_coal", DEItemGroups.MISC, true);
 
-    public static final Item XP_SEEDS = createItem("xp_seeds", DEItemGroups.MISC, false);
-    public static final Item HEART_SEEDS = createItem("heart_seeds", DEItemGroups.MISC, false);
-    public static final Item XP_PLANTS = createItem("xp_plants", DEItemGroups.MISC, false);
-    public static final Item HEART = createItem("heart", DEItemGroups.MISC, false);
-    public static final Item XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
-    public static final Item HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
-
-
     public static void registerItems(){
         DEMod.LOGGER.info("Register Dimensional Expansion Items!");
         FuelRegistry registry = FuelRegistry.INSTANCE;

@@ -11,7 +11,6 @@ import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
 
 public class DEBlocks {
@@ -40,19 +39,14 @@ public class DEBlocks {
     public static final Block END_STAIRS = createStairBlock("end_stairs", END_PLANKS, DEItemGroups.BUILDING_BLOCKS);
     public static final Block END_FORGE = createBlock("end_forge", Material.METAL, MapColor.BLACK, 3, 50, BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final Block END_BOOKSHELF = createCustomBlock("end_bookshelf", new EndBookshelf(), DEItemGroups.BUILDING_BLOCKS);
-    public static final Block END_SIGN = createCustomBlock("end_sign", new EndStandingSignBlock());
-    public static final Block END_WALL_SIGN = createCustomBlock("end_wall_sign", new EndWallSignBlock());
+    //public static final Block END_SIGN = createCustomBlock("end_sign", new EndStandingSignBlock());
+    //public static final Block END_WALL_SIGN = createCustomBlock("end_wall_sign", new EndWallSignBlock());
     public static final Block END_ROSE = createFlowerBlock("end_rose", StatusEffects.LEVITATION, 10, Material.PLANT, MapColor.MAGENTA, 0, 10,  BlockSoundGroup.FLOWERING_AZALEA, DEItemGroups.DECORATION_BLOCKS);
 
-    public static final Block XP_CROPS = createCustomBlock("xp_crops", new XPCrops());
-    public static final Block HEALTH_CROPS = createCustomBlock("health_crops", new HealthCrops());
+    //public static final Block XP_CROPS = createCustomBlock("xp_crops", new XPCrops());
+    //public static final Block HEALTH_CROPS = createCustomBlock("health_crops", new HealthCrops());
 
     public static final Block FORGE = createBlock("forge", Material.METAL, MapColor.BLACK, 3, 50,  BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
-    public static final Block MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MapColor.BLACK, 3, 50,  BlockSoundGroup.ANVIL, DEItemGroups.DECORATION_BLOCKS);
-    public static final Block ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);
-
-    //TODO: Find a way to create a SignType
-    //public static final SignType END = null;
 
     public static void registerBlocks(){
         DEMod.LOGGER.info("Register Dimensional Expansion Blocks!");
@@ -163,4 +157,5 @@ public class DEBlocks {
         Registry.register(Registry.ITEM, new Identifier(DEMod.MODID, id), new BlockItem(block, new FabricItemSettings().group(target.asItem().getGroup()).fireproof()));
         return block;
     }
+    get
 }

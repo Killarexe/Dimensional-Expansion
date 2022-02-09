@@ -4,7 +4,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.world.poi.PointOfInterestType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.gen.Invoker;
+
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Predicate;
 
 @Mixin(PointOfInterestType.class)
 public interface DEPoiTypeAccessor {

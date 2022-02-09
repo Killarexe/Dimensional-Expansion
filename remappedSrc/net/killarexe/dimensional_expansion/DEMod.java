@@ -6,7 +6,6 @@ import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.*;
 
 public class DEMod implements ModInitializer {
@@ -17,7 +16,6 @@ public class DEMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        MinecraftClient.getInstance().getWindow().setTitle("Dimensional Expansion v" + VERSION);
         DEConfigs.registerConfigs();
         DEItems.registerItems();
         DEBlocks.registerBlocks();
