@@ -17,7 +17,9 @@ public class DEMod implements ModInitializer {
         DEItems.registerItems();
         DEBlocks.registerBlocks();
         DEContainers.registerContainers();
+        DERecipeTypes.registerRecipeTypes();
         DEBlockEntities.registerBlockEntities();
         DEFeatures.registerFeatures();
+        //DEVillagerTypes.registerVillagerTypes();
     }
 }

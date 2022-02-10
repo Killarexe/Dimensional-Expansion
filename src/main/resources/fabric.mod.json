@@ -23,6 +23,10 @@
     ],
     "client": [
       "net.killarexe.dimensional_expansion.client.DEModClient"
+    ],
+    "rei": [
+      "net.killarexe.dimensional_expansion.client.integration.rei.DEModREIClientPlugin",
+      "net.killarexe.dimensional_expansion.server.integration.rei.DEModREIServerPlugin"
     ]
   },
   "mixins": [

@@ -36,7 +36,7 @@ public class EssenceExtractor extends Block implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return BlockEntityProvider.super.getTicker(world, state, type);
+        return world.isClient ? null : (world1, pos, state1, blockEntity) -> ((EssenceExtractorBlockEntity) blockEntity).tick();
     }
 
     @Override

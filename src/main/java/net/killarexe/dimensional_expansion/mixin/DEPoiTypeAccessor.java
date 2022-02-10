@@ -5,6 +5,7 @@ import net.minecraft.world.poi.PointOfInterestType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.Map;
+import java.util.Set;
 
 @Mixin(PointOfInterestType.class)
 public interface DEPoiTypeAccessor {
@@ -12,4 +13,5 @@ public interface DEPoiTypeAccessor {
     public static Map<BlockState, PointOfInterestType> getBLOCK_STATE_TO_POINT_OF_INTEREST_TYPE(){
         throw new AssertionError();
     };
+
 }

@@ -27,4 +27,8 @@ public class DEModClient implements ClientModInitializer {
     private void registerScreens(){
         ScreenRegistry.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER, EssenceExtractorScreen::new);
     }
+
+    private void setBlockEntitiesRenderer(){
+
+    }
 }

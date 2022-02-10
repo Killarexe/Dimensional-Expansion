@@ -29,7 +29,7 @@ public class DEVillagerTypes {
     }
 
     private static PointOfInterestType createPoi(String id, Block block){
-        PointOfInterestType poiType = Registry.register(Registry.POINT_OF_INTEREST_TYPE, new Identifier(DEMod.MODID, id), null);
+        PointOfInterestType poiType = Registry.register(Registry.POINT_OF_INTEREST_TYPE, new Identifier(DEMod.MODID, id), PointOfInterestType.ARMORER);
         DEPoiTypeAccessor.getBLOCK_STATE_TO_POINT_OF_INTEREST_TYPE().put(block.getDefaultState(), poiType);
         return poiType;
     }

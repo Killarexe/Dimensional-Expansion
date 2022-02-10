@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion.common.data.recipes;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -55,7 +56,7 @@ public class EssenceExtractorRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -78,6 +79,13 @@ public class EssenceExtractorRecipe implements Recipe<Inventory> {
     }
 
     public static class Serializer implements RecipeSerializer<EssenceExtractorRecipe>{
+
+        private Serializer() {
+        }
+
+        public static final Serializer INSTANCE = new Serializer();
+
+        public static final Identifier ID = new Identifier(DEMod.MODID, "essence_extractor");
 
         @Override
         public EssenceExtractorRecipe read(Identifier id, JsonObject json) {
