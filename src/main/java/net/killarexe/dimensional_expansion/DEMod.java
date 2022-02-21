@@ -1,10 +1,13 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.client.event.DEEvents;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.core.init.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,9 +16,10 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.*;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 @Mod(DEMod.MODID)
@@ -23,7 +27,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.4.1a";
+    public static final String VERSION = "0.5a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -71,5 +75,11 @@ public class DEMod
         WoodType.register(DEWoodTypes.END);
         LOGGER.info("Put Dimensional Expansion Strippables");
         StrippingMap.putStrippables(event);
+        event.enqueueWork(() ->{
+            ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
+            ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
+
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), () -> DEBlocks.POTTED_END_ROSE.get());
+        });
     }
 }

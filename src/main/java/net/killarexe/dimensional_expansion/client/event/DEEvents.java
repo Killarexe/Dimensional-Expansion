@@ -2,24 +2,20 @@ package net.killarexe.dimensional_expansion.client.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.world.structure.FarmerHouse;
 import net.killarexe.dimensional_expansion.common.world.structure.ForgerHouse;
 import net.killarexe.dimensional_expansion.common.world.structure.MinerHouse;
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -32,15 +28,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
-import java.util.function.Supplier;
 
 public class DEEvents {
 
@@ -158,14 +151,6 @@ public class DEEvents {
     }
 
     private static void addTrees(final BiomeLoadingEvent e){
-        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
-        Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
-
-        if(types.contains(BiomeDictionary.Type.fromVanilla(Biome.BiomeCategory.THEEND))) {
-            List<Supplier<PlacedFeature>> base =
-                    e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
-            base.add(() -> DEFeatures.END_TREE_PLACED);
-        }
     }
 
     private static void addStructures(final BiomeLoadingEvent e){

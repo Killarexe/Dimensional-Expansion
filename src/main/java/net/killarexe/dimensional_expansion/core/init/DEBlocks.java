@@ -19,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
 public class DEBlocks {
 
@@ -50,6 +51,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> END_SIGN = createCustomBlock("end_sign", new EndStandingSignBlock());
     public static final RegistryObject<Block> END_WALL_SIGN = createCustomBlock("end_wall_sign", new EndWallSignBlock());
     public static final RegistryObject<Block> END_ROSE = createFlowerBlock("end_rose", MobEffects.LEVITATION, 10, Material.PLANT, MaterialColor.COLOR_MAGENTA, 0, 10, 0, SoundType.FLOWERING_AZALEA, DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> POTTED_END_ROSE = createFlowerPotBlock("potted_end_rose", () -> END_ROSE.get());
     public static final RegistryObject<Block> END_SAPLING = createSaplingBlock("end_sapling", new EndTreeGrower(), Material.LEAVES, MaterialColor.COLOR_BLACK,0, 50, 1, SoundType.GRASS, DEItemGroups.DECORATION_BLOCKS);
 
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
@@ -151,6 +153,11 @@ public class DEBlocks {
     private static RegistryObject<Block> createFlowerBlock(@Nonnull String id, MobEffect effect, int duration, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
         RegistryObject<Block> block = BLOCK.register(id, () -> new FlowerBlock(effect, duration, BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion().instabreak().dynamicShape()));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup).fireResistant()));
+        return block;
+    }
+
+    private static RegistryObject<Block> createFlowerPotBlock(String id, Supplier<Block> flowerBlock){
+        RegistryObject<Block> block = BLOCK.register(id, () -> new FlowerPotBlock(null, flowerBlock, BlockBehaviour.Properties.copy(Blocks.POTTED_ACACIA_SAPLING)));
         return block;
     }
 
