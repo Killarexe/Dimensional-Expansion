@@ -24,7 +24,7 @@ import java.util.List;
 public class WeatherPowerStone extends Item {
 
     public WeatherPowerStone() {
-        super(new Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
+        super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
     }
 
     @Override

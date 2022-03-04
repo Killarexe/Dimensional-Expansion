@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.killarexe.dimensional_expansion.common.container.EssenceExtractorContainer;
 import net.minecraft.core.BlockPos;
@@ -43,7 +44,7 @@ public class EssenceExtractor extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final EssenceExtractorBlockEntity be) {
             final MenuProvider container = new SimpleMenuProvider(EssenceExtractorContainer.getServerContainer(be, pos), EssenceExtractorBlockEntity.TITLE);
-            LOGGER.info(be.inventory.getSlots());
+            DEMod.LOGGER.info(be.inventory.getSlots());
             NetworkHooks.openGui((ServerPlayer) player, container, pos);
         }
 

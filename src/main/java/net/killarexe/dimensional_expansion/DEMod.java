@@ -1,9 +1,9 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.client.event.DEEvents;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;

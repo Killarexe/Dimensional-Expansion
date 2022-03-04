@@ -1,21 +1,22 @@
-package net.killarexe.dimensional_expansion.client.event;
+package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.world.structure.FarmerHouse;
 import net.killarexe.dimensional_expansion.common.world.structure.ForgerHouse;
 import net.killarexe.dimensional_expansion.common.world.structure.MinerHouse;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
-import net.minecraft.client.gui.screens.TitleScreen;
+import net.killarexe.dimensional_expansion.core.init.*;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -25,15 +26,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class DEEvents {
 
@@ -142,21 +142,20 @@ public class DEEvents {
         }
     }
 
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public static void onScreenPost(final ScreenEvent.InitScreenEvent.Post event) {
-        if (event.getScreen() instanceof TitleScreen && DEConfig.moddedTitleScreen.get()) {
-            event.getScreen().getMinecraft().setScreen(new DETitleScreen(true));
+    private static void addTrees(final BiomeLoadingEvent e){
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
+        Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
+        if(types.contains(DEBiomes.END_FOREST_KEY)){
+            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
+            base.add(DEFeatures.END_TREE_PLACED);
+            //base.add(DEFeatures.END_ROSE_PLACED);
         }
     }
 
-    private static void addTrees(final BiomeLoadingEvent e){
-    }
-
     private static void addStructures(final BiomeLoadingEvent e){
-        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.CONFIGURED_FEATURE.placed());
-        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, FarmerHouse.CONFIGURED_FEATURE.placed());
-        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, MinerHouse.CONFIGURED_FEATURE.placed());
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.CONFIGURED_FEATURE);
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, FarmerHouse.CONFIGURED_FEATURE);
+        e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, MinerHouse.CONFIGURED_FEATURE);
     }
 
     private static void addOres(final BiomeLoadingEvent e){
@@ -167,9 +166,10 @@ public class DEEvents {
     }
 
     private static void addOre(final BiomeLoadingEvent e, RuleTest rule, BlockState state, int veinsize, int minHeight, int maxHeight, int amount){
-        e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
-                Feature.ORE.configured(new OreConfiguration(rule, state, veinsize))
-                        .placed(rareOrePlacement(amount, HeightRangePlacement.uniform(VerticalAnchor.absolute(minHeight), VerticalAnchor.absolute(maxHeight)))));
+        e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, PlacementUtils.register("ore_placed",
+                FeatureUtils.register("ore", Feature.ORE,
+                new OreConfiguration(rule, state, veinsize)),
+                rareOrePlacement(amount, HeightRangePlacement.uniform(VerticalAnchor.absolute(minHeight), VerticalAnchor.absolute(maxHeight)))));
     }
 
     private static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {

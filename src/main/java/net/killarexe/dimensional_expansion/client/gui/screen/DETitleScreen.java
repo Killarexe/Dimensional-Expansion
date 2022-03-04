@@ -204,7 +204,7 @@ public class DETitleScreen extends Screen {
             if (flag) {
                 this.minecraft.loadLevel("Demo_World");
             } else {
-                RegistryAccess.RegistryHolder registryaccess$registryholder = RegistryAccess.builtin();
+                RegistryAccess.Frozen registryaccess$registryholder = RegistryAccess.BUILTIN.get();
                 this.minecraft.createLevel("Demo_World", MinecraftServer.DEMO_SETTINGS, registryaccess$registryholder, WorldGenSettings.demoSettings(registryaccess$registryholder));
             }
 

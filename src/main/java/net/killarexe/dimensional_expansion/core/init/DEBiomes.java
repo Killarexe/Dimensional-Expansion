@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class DEBiomes {
 
-    public static ResourceKey<Biome> END_FOREST_KEY;
+    public static ResourceKey<Biome> END_FOREST_KEY, END_DESERT_KEY, END_JUNGLE_KEY;
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, DEMod.MODID);
 
@@ -28,5 +28,7 @@ public class DEBiomes {
     public static void registerBiomes(IEventBus bus){
         BIOMES.register(bus);
         END_FOREST_KEY = registerBiome("end_forest");
+        END_DESERT_KEY = registerBiome("end_desert");
+        END_JUNGLE_KEY = registerBiome("end_jungle");
     }
 }

@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.client.event.DEEvents;
+import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DimensionalExpansionVersionOverlay;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPCManager;
@@ -22,7 +22,7 @@ public class DEModClient {
 
 
     public static void clientFeatrues(IEventBus bus, IEventBus forgeEventBus){
-        forgeEventBus.addListener(DEEvents::onScreenPost);
+        forgeEventBus.addListener(DEEventsClient::onScreenPost);
         forgeEventBus.addListener(DimensionalExpansionVersionOverlay::render);
         bus.addListener(DEModClient::clientSetup);
     }

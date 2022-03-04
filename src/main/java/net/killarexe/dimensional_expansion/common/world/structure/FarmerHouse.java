@@ -2,18 +2,19 @@ package net.killarexe.dimensional_expansion.common.world.structure;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -22,7 +23,7 @@ import java.util.Set;
 
 public class FarmerHouse extends Feature<NoneFeatureConfiguration> {
     public static final Feature FEATURE = (FarmerHouse)new FarmerHouse().setRegistryName(DEMod.MODID + ":farmer_house");
-    public static final ConfiguredFeature<?, ?> CONFIGURED_FEATURE = FEATURE.configured(FeatureConfiguration.NONE);
+    public static final Holder<PlacedFeature> CONFIGURED_FEATURE = FeatureUtils.register(DEMod.MODID + ":farmer_house", FEATURE, FeatureConfiguration.NONE);
 
     public static final Set<ResourceLocation> GENERATE_BIOMES = Set.of(new ResourceLocation("minecraft:end_highlands"));
 
@@ -35,7 +36,6 @@ public class FarmerHouse extends Feature<NoneFeatureConfiguration> {
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
         ResourceKey<Level> dimensionType = featurePlaceContext.level().getLevel().dimension();
-        Biome biomeType = featurePlaceContext.level().getBiome(featurePlaceContext.origin());
 
         if(template == null){
             template = featurePlaceContext.level().getLevel().getStructureManager().getOrCreate(new ResourceLocation(DEMod.MODID + ":farmer_house"));

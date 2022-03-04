@@ -1,16 +1,16 @@
 {
-  "sea_level": 24,
+  "sea_level": 0,
   "disable_mob_generation": true,
-  "noise_caves_enabled": true,
-  "noodle_caves_enabled": true,
+  "noise_caves_enabled": false,
+  "noodle_caves_enabled": false,
   "aquifers_enabled": false,
   "ore_veins_enabled": false,
-  "legacy_random_source": false,
+  "legacy_random_source": true,
   "default_block": {
     "Name": "minecraft:end_stone"
   },
   "default_fluid": {
-    "Name": "minecraft:void_air"
+    "Name": "minecraft:air"
   },
   "noise": {
     "min_y": 0,
@@ -56,10 +56,12 @@
         "then_run": {
           "type": "minecraft:condition",
           "if_true": {
-            "type": "minecraft:noise_threshold",
-            "noise": "minecraft:surface",
-            "min_threshold": 0.35,
-            "max_threshold": 0.5
+            "type": "minecraft:y_above",
+            "anchor": {
+              "absolute": 47
+            },
+            "surface_depth_multiplier": 2,
+            "add_stone_depth": false
           },
           "then_run": {
             "type": "minecraft:block",
@@ -80,9 +82,9 @@
   "structures": {
     "structures": {
       "minecraft:endcity": {
-        "spacing": 10,
-        "separation": 5,
-        "salt": 0
+        "spacing": 20,
+        "separation": 11,
+        "salt": 10387313
       }
     }
   }
