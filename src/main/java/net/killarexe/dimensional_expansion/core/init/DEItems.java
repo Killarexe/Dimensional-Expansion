@@ -30,6 +30,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class DEItems {
 
@@ -92,12 +93,12 @@ public class DEItems {
     public static final RegistryObject<Item> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DEItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DEItemGroups.MISC, true);
 
-    public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", new WeatherPowerStone());
-    public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", new TimePowerStone());
+    public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
+    public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
 
     public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
-    public static final RegistryObject<Item> XP_PLANTS = createCustomItem("xp_plants", new XpPlants());
+    public static final RegistryObject<Item> XP_PLANTS = createCustomItem("xp_plants", () -> new XpPlants());
     public static final RegistryObject<Item> HEART = createFoodItem("heart", 2, 2, MobEffects.HEALTH_BOOST, 1, 1, 1,DEItemGroups.MISC, false);
     public static final RegistryObject<Item> XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
@@ -157,8 +158,8 @@ public class DEItems {
         return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
     }
 
-    private static RegistryObject<Item> createCustomItem(String id, Item item){
-        return ITEMS.register(id, () -> item);
+    private static <T extends Item> RegistryObject<T> createCustomItem(String id, Supplier<T> item){
+        return ITEMS.register(id, item);
     }
 
     private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){

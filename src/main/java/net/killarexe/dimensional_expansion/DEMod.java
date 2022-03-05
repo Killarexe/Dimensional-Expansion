@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
+import net.killarexe.dimensional_expansion.client.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -55,8 +57,10 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
+        ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
         LOGGER.info("Init Dimensional Expansion Recipe Types");
-        DERecipeTypes.register(bus);
+        DERecipeTypes.RECIPE_SERIALIZERS.register(bus);
+        //Registry.register(Registry.RECIPE_TYPE, EssenceExtractorRecipe.TYPE_ID, DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_TYPE);
         LOGGER.info("Set Dimensional Expansion Event Listener");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addNewTrade);
