@@ -125,7 +125,7 @@ public class DETitleScreen extends Screen {
             this.createDemoMenuOptions(j, 24);
         } else {
             this.createNormalMenuOptions(j, 24);
-            modButton = (Button)this.addRenderableWidget(new Button(this.width / 2 - 100, j + 48, 98, 20, new TranslatableComponent("fml.menu.mods"), (p_96791_) -> {
+            modButton = this.addRenderableWidget(new Button(this.width / 2 - 100, j + 48, 98, 20, new TranslatableComponent("fml.menu.mods"), (p_96791_) -> {
                 this.minecraft.setScreen(new ModListScreen(this));
             }));
         }
@@ -173,13 +173,13 @@ public class DETitleScreen extends Screen {
                 p_169456_.accept(this.text);
             }
         };
-        ((Button)this.addRenderableWidget(new Button(this.width / 2 - 100, pY + pRowHeight * 1, 200, 20, new TranslatableComponent("menu.multiplayer"), (p_96776_) -> {
+        this.addRenderableWidget(new Button(this.width / 2 - 100, pY + pRowHeight * 1, 200, 20, new TranslatableComponent("menu.multiplayer"), (p_96776_) -> {
             Screen screen = this.minecraft.options.skipMultiplayerWarning ? new JoinMultiplayerScreen(this) : new SafetyScreen(this);
-            this.minecraft.setScreen((Screen)screen);
-        }, button$ontooltip))).active = flag;
-        ((Button)this.addRenderableWidget(new Button(this.width / 2 + 2, pY + pRowHeight * 2, 98, 20, new TranslatableComponent("menu.online"), (p_96771_) -> {
+            this.minecraft.setScreen(screen);
+        }, button$ontooltip)).active = flag;
+        this.addRenderableWidget(new Button(this.width / 2 + 2, pY + pRowHeight * 2, 98, 20, new TranslatableComponent("menu.online"), (p_96771_) -> {
             this.realmsButtonClicked();
-        }, button$ontooltip))).active = flag;
+        }, button$ontooltip)).active = flag;
         configButton = new ImageButton(this.width / 2 -200, this.height / 4 + 48 + 60, 16, 16, 0, 96, new ResourceLocation(DEMod.MODID, "textures/gui/widgets.png"), (button -> {
             this.getMinecraft().setScreen(new DEConfigScreen(this));
         }));
@@ -209,7 +209,7 @@ public class DETitleScreen extends Screen {
             }
 
         }));
-        this.resetDemoButton = (Button)this.addRenderableWidget(new Button(this.width / 2 - 100, pY + pRowHeight * 1, 200, 20, new TranslatableComponent("menu.resetdemo"), (p_169441_) -> {
+        this.resetDemoButton = this.addRenderableWidget(new Button(this.width / 2 - 100, pY + pRowHeight * 1, 200, 20, new TranslatableComponent("menu.resetdemo"), (p_169441_) -> {
             LevelStorageSource levelstoragesource = this.minecraft.getLevelSource();
 
             try {
@@ -218,7 +218,7 @@ public class DETitleScreen extends Screen {
                 try {
                     LevelSummary levelsummary = levelstoragesource$levelstorageaccess.getSummary();
                     if (levelsummary != null) {
-                        this.minecraft.setScreen(new ConfirmScreen(this::confirmDemo, new TranslatableComponent("selectWorld.deleteQuestion"), new TranslatableComponent("selectWorld.deleteWarning", new Object[]{levelsummary.getLevelName()}), new TranslatableComponent("selectWorld.deleteButton"), CommonComponents.GUI_CANCEL));
+                        this.minecraft.setScreen(new ConfirmScreen(this::confirmDemo, new TranslatableComponent("selectWorld.deleteQuestion"), new TranslatableComponent("selectWorld.deleteWarning", levelsummary.getLevelName()), new TranslatableComponent("selectWorld.deleteButton"), CommonComponents.GUI_CANCEL));
                     }
                 } catch (Throwable var7) {
                     if (levelstoragesource$levelstorageaccess != null) {
@@ -320,7 +320,7 @@ public class DETitleScreen extends Screen {
             blit(pPoseStack, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
             if (this.splash != null) {
                 pPoseStack.pushPose();
-                pPoseStack.translate((double)(this.width / 2 + 90), 70.0D, 0.0D);
+                pPoseStack.translate(this.width / 2 + 90, 70.0D, 0.0D);
                 pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(-20.0F));
                 float f2 = 1.8F - Mth.abs(Mth.sin((float)(Util.getMillis() % 1000L) / 1000.0F * 6.2831855F) * 0.1F);
                 f2 = f2 * 100.0F / (float)(this.font.width(this.splash) + 32);
@@ -337,7 +337,7 @@ public class DETitleScreen extends Screen {
             }
 
             if (Minecraft.checkModStatus().shouldReportAsModified()) {
-                s = s + I18n.get("menu.modded", new Object[0]);
+                s = s + I18n.get("menu.modded");
             }
 
             BrandingControl.forEachAboveCopyrightLine((brdline, brd) -> {
@@ -373,20 +373,20 @@ public class DETitleScreen extends Screen {
         }
 
         if(githubButton.isHoveredOrFocused()){
-            this.drawString(pPoseStack, font, "Github", githubButton.x + 16, githubButton.y, 0xffffff);
+            drawString(pPoseStack, font, "Github", githubButton.x + 16, githubButton.y, 0xffffff);
         }
         if(discordButton.isHoveredOrFocused()){
-            this.drawString(pPoseStack, font, "Discord", discordButton.x + 16, discordButton.y, 0xffffff);
+            drawString(pPoseStack, font, "Discord", discordButton.x + 16, discordButton.y, 0xffffff);
         }
         if(youtubeButton.isHoveredOrFocused()){
-            this.drawString(pPoseStack, font, "YouTube", youtubeButton.x + 16, youtubeButton.y, 0xffffff);
+            drawString(pPoseStack, font, "YouTube", youtubeButton.x + 16, youtubeButton.y, 0xffffff);
         }
         if(configButton.isHoveredOrFocused()){
-            this.drawString(pPoseStack, font, "Config", configButton.x + 16, configButton.y, 0xffffff);
+            drawString(pPoseStack, font, "Config", configButton.x + 16, configButton.y, 0xffffff);
         }
-        this.drawString(pPoseStack, font, "Dimensional Expansion 2020-2022", 0, this.height - 10, 0xffffff);
-        this.drawString(pPoseStack, font, "Dimensional Expansion v" + DEMod.VERSION, 0, this.height - 20, 0xffffff);
-        this.drawString(pPoseStack, font, "Minecraft " + SharedConstants.getCurrentVersion().getName(), 0, this.height - 30, 0xffffff);
+        drawString(pPoseStack, font, "Dimensional Expansion 2020-2022", 0, this.height - 10, 0xffffff);
+        drawString(pPoseStack, font, "Dimensional Expansion v" + DEMod.VERSION, 0, this.height - 20, 0xffffff);
+        drawString(pPoseStack, font, "Minecraft " + SharedConstants.getCurrentVersion().getName(), 0, this.height - 30, 0xffffff);
         this.minecraft.getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
     }
 

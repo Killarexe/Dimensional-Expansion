@@ -28,7 +28,7 @@ public enum DEItemTier implements Tier {
 	private final int enchantmentValue;
 	private final LazyLoadedValue<Ingredient> repairIngredient;
 
-	private DEItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
+	DEItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
 		this.level = p_43332_;
 		this.uses = p_43333_;
 		this.speed = p_43334_;

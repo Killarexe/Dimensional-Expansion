@@ -1,11 +1,10 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
-import net.killarexe.dimensional_expansion.core.init.DERecipeTypes;
 import net.killarexe.dimensional_expansion.common.data.recipes.EssenceExtractorRecipe;
+import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.*;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.ParticleUtils;
@@ -29,7 +28,7 @@ public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
         for(int i = 0; i < inventory.getSlots(); i++){
             container.setItem(i, inventory.getStackInSlot(i));
         }
-        Optional<EssenceExtractorRecipe> recipe = level.getRecipeManager().getRecipeFor(DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_TYPE, container, level);
+        Optional<EssenceExtractorRecipe> recipe = level.getRecipeManager().getRecipeFor(EssenceExtractorRecipe.Type.INSTANCE, container, level);
         if(recipe.isPresent()){
             ParticleUtils.spawnParticlesOnBlockFaces(level, worldPosition, ParticleTypes.COMPOSTER, UniformInt.of(3, 5));
             extract(new ItemStack(recipe.get().getResultItem().getItem(), inventory.getStackInSlot(1).getCount() + 1));

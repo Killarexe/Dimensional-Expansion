@@ -179,7 +179,7 @@ public class DEItems {
             private long lastUpdateTick;
 
             public float unclampedCall(ItemStack p_174665_, @Nullable ClientLevel p_174666_, @Nullable LivingEntity p_174667_, int p_174668_) {
-                Entity entity = (Entity) (p_174667_ != null ? p_174667_ : p_174665_.getEntityRepresentation());
+                Entity entity = p_174667_ != null ? p_174667_ : p_174665_.getEntityRepresentation();
                 if (entity == null) {
                     return 0.0F;
                 } else {
@@ -192,7 +192,7 @@ public class DEItems {
                     } else {
                         double d0;
                         if (p_174666_.dimensionType().natural()) {
-                            d0 = (double) p_174666_.getTimeOfDay(1.0F);
+                            d0 = p_174666_.getTimeOfDay(1.0F);
                         } else {
                             d0 = Math.random();
                         }

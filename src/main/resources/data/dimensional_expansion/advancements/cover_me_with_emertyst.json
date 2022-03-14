@@ -13,18 +13,16 @@
         "items": [
           {
             "items": [
-              {
-                "item": "dimensional_expansion:emertyst_helmet"
-              },
-              {
-                "item": "dimensional_expansion:emertyst_chestplate"
-              },
-              {
-                "item": "dimensional_expansion:emertyst_leggings"
-              },
-              {
-                "item": "dimensional_expansion:emertyst_boots"
-              }
+              "dimensional_expansion:emertyst_helmet"
+            ],
+            "items": [
+              "dimensional_expansion:emertyst_chestplate"
+            ],
+            "items": [
+              "dimensional_expansion:emertyst_leggings"
+            ],
+            "items": [
+              "dimensional_expansion:emertyst_boots"
             ],
             "count": {
               "min": 1,

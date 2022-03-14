@@ -15,10 +15,11 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
 
-import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
-import static net.minecraft.world.item.Items.*;
-import static net.minecraft.world.item.crafting.RecipeSerializer.*;
+import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
+import static net.minecraft.world.item.Items.COAL;
+import static net.minecraft.world.item.Items.STICK;
+import static net.minecraft.world.item.crafting.RecipeSerializer.BLASTING_RECIPE;
 
 public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
 
@@ -41,7 +42,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createMaterialRecipe(r, SIMIX_INGOT.get(), SIMIX_BLOCK.get());
         createMaterialRecipe(r, SIMIX_NUGGET.get(), SIMIX_INGOT.get());
         createOreBlockRecipe(r, SIMIX_BLOCK.get(), SIMIX_INGOT.get());
-        createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);;
+        createSmelting(r, EMERTYST_ORE.get(), EMERTYST_GEM.get(), 0.1f, 200, BLASTING_RECIPE);
         createMaterialRecipe(r, EMERTYST_GEM.get(), EMERTYST_BLOCK.get());
         createOreBlockRecipe(r, EMERTYST_BLOCK.get(), EMERTYST_GEM.get());
         createMixRecipe(r, PALON_MIXED_COAL.get(), PALON_INGOT.get(), COAL);

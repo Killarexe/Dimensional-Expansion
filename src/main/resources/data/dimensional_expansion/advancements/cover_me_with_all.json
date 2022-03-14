@@ -13,18 +13,16 @@
         "items": [
           {
             "items": [
-              {
-                "item": "dimensional_expansion:emertyst_helmet"
-              },
-              {
-                "item": "dimensional_expansion:simix_chestplate"
-              },
-              {
-                "item": "dimensional_expansion:bassmite_leggings"
-              },
-              {
-                "item": "dimensional_expansion:palon_boots"
-              }
+              "dimensional_expansion:emertyst_helmet"
+            ],
+            "items": [
+              "dimensional_expansion:simix_chestplate"
+            ],
+            "items": [
+              "dimensional_expansion:bassmite_leggings"
+            ],
+            "items": [
+              "dimensional_expansion:palon_boots"
             ],
             "count": {
               "min": 1,

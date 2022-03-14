@@ -3,10 +3,7 @@ package net.killarexe.dimensional_expansion.common.item;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.commands.CommandSource;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -16,10 +13,10 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec2;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Random;
 
 public class WeatherPowerStone extends Item {
 
@@ -57,35 +54,13 @@ public class WeatherPowerStone extends Item {
         if(level instanceof ServerLevel serverLevel){
             if(DEConfig.enableWeatherPowerStone.get() && !player.getCooldowns().isOnCooldown(this)) {
                 setDamage(item, 1);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS, 1f, 1f);
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
                 player.getCooldowns().addCooldown(this, 2000);
                 if (serverLevel.isRaining()) {
-                    serverLevel.getServer().getCommands().performCommand(
-                            new CommandSourceStack(
-                                    CommandSource.NULL,
-                                    player.position(),
-                                    Vec2.ZERO,
-                                    serverLevel,
-                                    4,
-                                    "",
-                                    new TextComponent(""),
-                                    serverLevel.getServer(),
-                                    null
-                            ).withSuppressedOutput(), "/weather clear");
+                    serverLevel.setWeatherParameters(0, 0, false, false);
                     return InteractionResultHolder.success(item);
                 } else {
-                    serverLevel.getServer().getCommands().performCommand(
-                            new CommandSourceStack(
-                                    CommandSource.NULL,
-                                    player.position(),
-                                    Vec2.ZERO,
-                                    serverLevel,
-                                    4,
-                                    "",
-                                    new TextComponent(""),
-                                    serverLevel.getServer(),
-                                    null
-                            ).withSuppressedOutput(), "/weather rain");
+                    serverLevel.setWeatherParameters(0, 6000, true, false);
                     return InteractionResultHolder.success(item);
                 }
             }

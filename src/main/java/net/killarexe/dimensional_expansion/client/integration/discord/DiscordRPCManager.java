@@ -19,7 +19,7 @@ public class DiscordRPCManager {
         setSmallLogoText(smallLogoText);
         DiscordRPC lib = DiscordRPC.INSTANCE;
         DiscordEventHandlers handlers = new DiscordEventHandlers();
-        handlers.ready = (user) -> DEMod.LOGGER.info("Dimensional Expansion Discord RPC Ready!");;
+        handlers.ready = (user) -> DEMod.LOGGER.info("Dimensional Expansion Discord RPC Ready!");
         lib.Discord_Initialize(appId, handlers, true, "");
         DiscordRichPresence presence = new DiscordRichPresence();
         presence.startTimestamp = System.currentTimeMillis() / 1000; // epoch second

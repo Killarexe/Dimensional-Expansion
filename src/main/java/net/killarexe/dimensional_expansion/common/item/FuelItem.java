@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 public class FuelItem extends Item {
 
-    private int burnTime;
+    private final int burnTime;
 
     public FuelItem(Properties p_41383_, int burnTime) {
         super(p_41383_);

@@ -6,7 +6,6 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.recipes.EssenceExtractorRecipe;
-import net.killarexe.dimensional_expansion.core.init.DERecipeTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -30,7 +29,7 @@ public class DEJei implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
         registration.addRecipes(
-                rm.getAllRecipesFor(DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_TYPE)
+                rm.getAllRecipesFor(EssenceExtractorRecipe.Type.INSTANCE)
                         .stream()
                         .filter(r -> r instanceof EssenceExtractorRecipe)
                         .collect(Collectors.toList()),

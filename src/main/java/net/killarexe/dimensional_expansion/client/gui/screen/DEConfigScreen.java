@@ -17,8 +17,8 @@ import net.minecraftforge.common.MinecraftForge;
 @OnlyIn(Dist.CLIENT)
 public class DEConfigScreen extends Screen {
 
-    private Screen previousScreen;
-    private Checkbox showVersionCheckbox, moddedTitleScreenCheckbox;
+    private final Screen previousScreen;
+    private Checkbox showVersionCheckbox, moddedTitleScreenCheckbox, debugModCheckBox;
 
     public DEConfigScreen(Screen previousScreen) {
         super(new TranslatableComponent("narrator.screen.title"));
@@ -28,7 +28,7 @@ public class DEConfigScreen extends Screen {
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
-        this.drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
+        drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
         //this.drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".client"), width/2, height/2 - 20, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
@@ -42,9 +42,9 @@ public class DEConfigScreen extends Screen {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         float f = 32.0F;
         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR);
-        bufferbuilder.vertex(0.0D, (double)this.height, 0.0D).uv(0.0F, (float)this.height / 32.0F + (float)pVOffset).color(64, 64, 64, 255).endVertex();
-        bufferbuilder.vertex((double)this.width, (double)this.height, 0.0D).uv((float)this.width / 32.0F, (float)this.height / 32.0F + (float)pVOffset).color(64, 64, 64, 255).endVertex();
-        bufferbuilder.vertex((double)this.width, 0.0D, 0.0D).uv((float)this.width / 32.0F, (float)pVOffset).color(64, 64, 64, 255).endVertex();
+        bufferbuilder.vertex(0.0D, this.height, 0.0D).uv(0.0F, (float)this.height / 32.0F + (float)pVOffset).color(64, 64, 64, 255).endVertex();
+        bufferbuilder.vertex(this.width, this.height, 0.0D).uv((float)this.width / 32.0F, (float)this.height / 32.0F + (float)pVOffset).color(64, 64, 64, 255).endVertex();
+        bufferbuilder.vertex(this.width, 0.0D, 0.0D).uv((float)this.width / 32.0F, (float)pVOffset).color(64, 64, 64, 255).endVertex();
         bufferbuilder.vertex(0.0D, 0.0D, 0.0D).uv(0.0F, (float)pVOffset).color(64, 64, 64, 255).endVertex();
         tesselator.end();
         MinecraftForge.EVENT_BUS.post(new ScreenEvent.BackgroundDrawnEvent(this, new PoseStack()));
@@ -61,10 +61,12 @@ public class DEConfigScreen extends Screen {
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48 + 20, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".show_version"), DEConfig.showVersion.get());
-        moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_title_screen"), DEConfig.moddedTitleScreen.get());
+        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".show_version"), DEConfig.showVersion.get());
+        moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_title_screen"), DEConfig.moddedTitleScreen.get());
+        debugModCheckBox = new Checkbox(this.width / 2 -200, this.height / 4 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".debug_mod"), DEConfig.debugMod.get());
         addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(moddedTitleScreenCheckbox);
+        addRenderableWidget(debugModCheckBox);
 
         super.init();
     }

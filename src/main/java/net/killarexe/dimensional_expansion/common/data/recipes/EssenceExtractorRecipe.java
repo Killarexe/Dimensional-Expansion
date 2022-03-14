@@ -2,29 +2,23 @@ package net.killarexe.dimensional_expansion.common.data.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DERecipeTypes;
 import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.util.JsonUtils;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.jetbrains.annotations.Nullable;
 
-public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
+public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
 
+    public static final ResourceLocation TYPE_ID = new ResourceLocation(DEMod.MODID, "essence_extractor");
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
@@ -36,7 +30,7 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
     }
 
     @Override
-    public boolean matches(Container container, Level level) {
+    public boolean matches(SimpleContainer container, Level level) {
         return recipeItems.get(0).test(container.getItem(0));
     }
 
@@ -46,8 +40,13 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
     }
 
     @Override
-    public ItemStack assemble(Container container) {
+    public ItemStack assemble(SimpleContainer container) {
         return output;
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int i, int i1) {
+        return true;
     }
 
     @Override
@@ -65,18 +64,28 @@ public class EssenceExtractorRecipe implements IEssenceExtractorRecipe{
         return DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_SERIALIZER.get();
     }
 
+    @Override
+    public RecipeType<?> getType() {
+        return Type.INSTANCE;
+    }
+
     public ItemStack getIcon(){
         return new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get());
     }
 
-    public static class EssenceExtractorRecipeType implements RecipeType<EssenceExtractorRecipe> {
+    public static class Type implements RecipeType<EssenceExtractorRecipe> {
+        private Type(){}
+        public static final Type INSTANCE = new Type();
+        public static final String ID = TYPE_ID.toString();
         @Override
         public String toString() {
-            return EssenceExtractorRecipe.TYPE_ID.toString();
+            return ID;
         }
     }
 
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<EssenceExtractorRecipe>{
+
+        public static final Serializer INSTANCE = new Serializer();
 
         @Override
         public EssenceExtractorRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
