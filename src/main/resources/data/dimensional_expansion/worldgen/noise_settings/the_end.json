@@ -1,8 +1,6 @@
 {
   "sea_level": 0,
   "disable_mob_generation": true,
-  "noise_caves_enabled": false,
-  "noodle_caves_enabled": false,
   "aquifers_enabled": false,
   "ore_veins_enabled": false,
   "legacy_random_source": true,
@@ -17,7 +15,6 @@
     "height": 128,
     "size_horizontal": 2,
     "size_vertical": 1,
-    "island_noise_override": true,
     "sampling": {
       "xz_scale": 2,
       "y_scale": 1,
@@ -82,24 +79,27 @@
     "type": "minecraft:sequence",
     "sequence": [
       {
+        "type": "minecraft:block",
+        "result_state": {
+          "Name": "minecraft:end_stone"
+        }
+      },
+      {
         "type": "minecraft:condition",
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
             "dimensional_expansion:end_forest",
-            "dimensional_expansion:end_desert",
             "dimensional_expansion:end_jungle"
           ]
         },
         "then_run": {
           "type": "minecraft:condition",
           "if_true": {
-            "type": "minecraft:y_above",
-            "anchor": {
-              "absolute": 47
-            },
-            "surface_depth_multiplier": 2,
-            "add_stone_depth": false
+            "type": "minecraft:noise_threshold",
+            "noise": "minecraft:surface",
+            "min_threshold": -0.15,
+            "max_threshold": 0.15
           },
           "then_run": {
             "type": "minecraft:block",
@@ -108,22 +108,7 @@
             }
           }
         }
-      },
-      {
-        "type": "minecraft:block",
-        "result_state": {
-          "Name": "minecraft:end_stone"
-        }
       }
     ]
-  },
-  "structures": {
-    "structures": {
-      "minecraft:endcity": {
-        "spacing": 20,
-        "separation": 11,
-        "salt": 10387313
-      }
-    }
   }
 }

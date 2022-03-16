@@ -1,84 +1,74 @@
 package net.killarexe.dimensional_expansion.common.world.structure;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.core.init.DEBiomes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.Level;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.structure.BuiltinStructureSets;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Optional;
+import java.util.function.Predicate;
 
-public class MinerHouse extends Feature<NoneFeatureConfiguration> {
-
-    public static Feature FEATURE = new MinerHouse();
-    public static Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> CONFIGURED_FEATURE;
-    public static Holder<PlacedFeature> PLACED_FEATURE;
-    public static final Set<ResourceLocation> GENERATE_BIOMES = Set.of(Biomes.END_BARRENS.location());
-    private final Set<ResourceKey<Level>> GENERATE_DIMENSIONS = Set.of(Level.END);
-    private final List<Block> BASE_BLOCKS;
-    private StructureTemplate structureTemplate;
+public class MinerHouse extends StructureFeature<JigsawConfiguration> {
 
     public MinerHouse() {
-        super(NoneFeatureConfiguration.CODEC);
-        CONFIGURED_FEATURE = FeatureUtils.register(DEMod.MODID + ":miner_house", FEATURE, FeatureConfiguration.NONE);
-        PLACED_FEATURE = PlacementUtils.register(DEMod.MODID + ":miner_house_placed", CONFIGURED_FEATURE, List.of());
-        BASE_BLOCKS = List.of(Blocks.END_STONE, DEBlocks.END_GRASS_BLOCK.get());
+        super(JigsawConfiguration.CODEC, MinerHouse::createPiecesGenerator);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        if (!GENERATE_DIMENSIONS.contains(context.level().getLevel().dimension()))
-            return false;
+    public GenerationStep.Decoration step() {
+        return GenerationStep.Decoration.SURFACE_STRUCTURES;
+    }
 
-        if(!GENERATE_BIOMES.contains(context.level().getLevel().getBiome(context.origin()))){
-            return false;
+    @Override
+    public boolean canGenerate(RegistryAccess p_197172_, ChunkGenerator p_197173_, BiomeSource source, StructureManager p_197175_, long p_197176_, ChunkPos p_197177_, JigsawConfiguration p_197178_, LevelHeightAccessor p_197179_, Predicate<Holder<Biome>> p_197180_) {
+        if(source.equals(Biomes.END_MIDLANDS) || source.equals(Biomes.END_BARRENS) || source.equals(Biomes.END_HIGHLANDS) ||
+                source.equals(DEBiomes.END_FOREST_KEY) || source.equals(DEBiomes.END_DESERT_KEY) || source.equals(DEBiomes.END_JUNGLE_KEY)){
+            return true;
         }
+        return false;
+    }
 
-        if (structureTemplate == null)
-            structureTemplate = context.level().getLevel().getStructureManager()
-                    .getOrCreate(new ResourceLocation(DEMod.MODID, "miner_house"));
+    private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+        ChunkPos chunkpos = context.chunkPos();
+        return !context.chunkGenerator().hasFeatureChunkInRange(BuiltinStructureSets.OCEAN_MONUMENTS, context.seed(), chunkpos.x, chunkpos.z, 10);
+    }
 
-        if (structureTemplate == null)
-            return false;
-
-        boolean anyPlaced = false;
-        if ((context.random().nextInt(1000000) + 1) <= 100000) {
-            int i = context.origin().getX() + context.random().nextInt(16);
-            int k = context.origin().getZ() + context.random().nextInt(16);
-            int j = context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG, i, k);
-            if (BASE_BLOCKS.contains(context.level().getBlockState(new BlockPos(i, j, k)).getBlock()))
-                return false;
-            BlockPos spawnTo = new BlockPos(i, j, k);
-            StructurePlaceSettings settings = new StructurePlaceSettings()
-                    .setMirror(Mirror.values()[context.random().nextInt(2)])
-                    .setRotation(Rotation.values()[context.random().nextInt(3)])
-                    .setRandom(context.random())
-                    .addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR)
-                    .setIgnoreEntities(false);
-            if (structureTemplate.placeInWorld(context.level(), spawnTo, spawnTo, settings, context.random(), 2))
-                anyPlaced = true;
+    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+        if (!MinerHouse.isFeatureChunk(context)) {
+            return Optional.empty();
         }
+        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(0);
+        int topLandY = context.chunkGenerator().getFirstFreeHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+        blockpos = blockpos.above(topLandY);
 
-        return anyPlaced;
+        Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator =
+                JigsawPlacement.addPieces(
+                        context,
+                        PoolElementStructurePiece::new,
+                        blockpos,
+                        false,
+                        false
+                );
+        if(structurePiecesGenerator.isPresent()) {
+            DEMod.LOGGER.debug("Rundown House at {}", blockpos);
+        }
+        return structurePiecesGenerator;
     }
 }

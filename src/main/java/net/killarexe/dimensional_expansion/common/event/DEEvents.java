@@ -1,12 +1,10 @@
 package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.world.structure.FarmerHouse;
-import net.killarexe.dimensional_expansion.common.world.structure.ForgerHouse;
-import net.killarexe.dimensional_expansion.common.world.structure.MinerHouse;
 import net.killarexe.dimensional_expansion.core.init.DEFeatures;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
@@ -17,6 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -33,7 +32,6 @@ public class DEEvents {
         DEMod.LOGGER.info("Adding Dimensional Expansion Biomes Features...");
         BiomeFeatures.addOres(e);
         //BiomeFeatures.addDecorations(e);
-        //BiomeFeatures.addStructures(e);
         DEMod.LOGGER.info("Dimensional Expansion Biomes Features Complete!");
     }
 
@@ -43,26 +41,21 @@ public class DEEvents {
             DEMod.LOGGER.info("Adding Dimensional Expansion Decoration...");
             ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
             Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
+            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 
             if (types.contains(BiomeDictionary.Type.END)) {
-                e.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DEFeatures.END_ROSE_PLACED);
-                e.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DEFeatures.END_TREE_PLACED);
+                base.add(DEFeatures.Placed.END_ROSE_PLACED);
+                base.add(DEFeatures.Placed.END_TREE_PLACED);
             }
-        }
-
-        private static void addStructures(final BiomeLoadingEvent e) {
-            DEMod.LOGGER.info("Adding Dimensional Expansion Structures...");
-            e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ForgerHouse.PLACED_FEATURE);
-            e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, FarmerHouse.PLACED_FEATURE);
-            e.getGeneration().addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, MinerHouse.PLACED_FEATURE);
         }
 
         private static void addOres(final BiomeLoadingEvent e) {
             DEMod.LOGGER.info("Adding Dimensional Expansion Ores Veins...");
-            e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DEFeatures.PALON_ORE_PLACED);
-            e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DEFeatures.BASSMITE_ORE_PLACED);
-            e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DEFeatures.SIMIX_ORE_PLACED);
-            e.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DEFeatures.EMERTYST_ORE_PLACED);
+            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
+            base.add(DEFeatures.Placed.PALON_ORE_PLACED);
+            base.add(DEFeatures.Placed.BASSMITE_ORE_PLACED);
+            base.add(DEFeatures.Placed.SIMIX_ORE_PLACED);
+            base.add(DEFeatures.Placed.EMERTYST_ORE_PLACED);
         }
     }
 

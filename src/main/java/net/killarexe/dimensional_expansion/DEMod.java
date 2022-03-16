@@ -41,6 +41,8 @@ public class DEMod
         DEBiomes.registerBiomes(bus);
         LOGGER.info("Init Dimensional Expansion Blocks");
         DEBlocks.BLOCK.register(bus);
+        LOGGER.info("Init Dimensional Expansion Structures");
+        DEFeatures.STRUCTURE_FEATURES.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
         DEItems.ITEMS.register(bus);
         LOGGER.info("Init Dimensional Expansion Recipe Types");

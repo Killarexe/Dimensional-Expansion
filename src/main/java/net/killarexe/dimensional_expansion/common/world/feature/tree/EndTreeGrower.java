@@ -10,6 +10,6 @@ import java.util.Random;
 public class EndTreeGrower extends AbstractTreeGrower {
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random pRandom, boolean pLargeHive) {
-        return DEFeatures.END_TREE;
+        return DEFeatures.Raw.END_TREE;
     }
 }
