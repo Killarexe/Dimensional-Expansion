@@ -125,6 +125,7 @@
 	"button.dimensional_expansion.apply_button": "Apply",
 	"checkbox.dimensional_expansion.show_version": "Show Version",
 	"checkbox.dimensional_expansion.modded_title_screen": "Modded Title Screen (Recommended to false with multiple mods)",
+	"checkbox.dimensional_expansion.enable_time_power_stone": "Enable Time Power Stone",
 	"checkbox.dimensional_expansion.enable_weather_power_stone": "Enable Weather Power Stone",
-	"checkbox.dimensional_expansion.enable_time_power_stone": "Enable Time Power Stone"
+	"checkbox.dimensional_expansion.debug_mod": "Enable Debug Mod"
 }

@@ -31,7 +31,7 @@ public class DEEvents {
     public static void addFeatures(final BiomeLoadingEvent e){
         DEMod.LOGGER.info("Adding Dimensional Expansion Biomes Features...");
         BiomeFeatures.addOres(e);
-        //BiomeFeatures.addDecorations(e);
+        BiomeFeatures.addDecorations(e);
         DEMod.LOGGER.info("Dimensional Expansion Biomes Features Complete!");
     }
 

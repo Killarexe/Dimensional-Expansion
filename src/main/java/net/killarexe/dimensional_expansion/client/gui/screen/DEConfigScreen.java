@@ -74,6 +74,7 @@ public class DEConfigScreen extends Screen {
     private void apply(){
         DEConfig.showVersion.set(showVersionCheckbox.selected());
         DEConfig.moddedTitleScreen.set(moddedTitleScreenCheckbox.selected());
+        DEConfig.debugMod.set(debugModCheckBox.selected());
         onClose();
     }
 

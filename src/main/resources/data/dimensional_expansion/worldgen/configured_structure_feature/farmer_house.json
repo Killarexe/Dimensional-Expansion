@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:village",
+  "config": {
+    "start_pool": "dimensional_expansion:farmer_house",
+    "size": 1
+  },
+  "biomes": "#dimensional_expansion:has_structure/end_houses_biomes",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}
