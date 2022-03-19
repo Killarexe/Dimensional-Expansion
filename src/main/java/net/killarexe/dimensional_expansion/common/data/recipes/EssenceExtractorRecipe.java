@@ -73,6 +73,10 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
         return new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get());
     }
 
+    public NonNullList<Ingredient> getRecipeItems() {
+        return recipeItems;
+    }
+
     public static class Type implements RecipeType<EssenceExtractorRecipe> {
         private Type(){}
         public static final Type INSTANCE = new Type();

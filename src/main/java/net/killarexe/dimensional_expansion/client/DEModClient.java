@@ -48,6 +48,7 @@ public class DEModClient {
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.HEALTH_CROPS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.ESSENCE_EXTRACTOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_ROSE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_SAPLING.get(), RenderType.cutout());
         LOGGER.info("Register Dimensional Expansion Container");
         MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
         LOGGER.info("Add Dimensional Expansion Items Properties");

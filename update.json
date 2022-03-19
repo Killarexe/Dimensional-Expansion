@@ -13,7 +13,8 @@
     "0.4.1a": "Patched two critical bugs"
   },
   "1.18.2": {
-    "0.5a": "Updated to 1.18.2, Patched Generation, Added Debug Mod"
+    "0.5a": "Updated to 1.18.2, Patched Generation, Added Debug Mod",
+    "0.5.1a": "Patch JEI Integration"
   },
 
   "promos": {
@@ -23,7 +24,7 @@
     "1.17.1-recommended": "0.2a",
     "1.18.1-latest": "0.4.1a",
     "1.18.1-recommended": "0.4.1a",
-    "1.18.2-latest": "0.5a",
-    "1.18.2-recommended": "0.5a"
+    "1.18.2-latest": "0.5.1a",
+    "1.18.2-recommended": "0.5.1a"
   }
 }

@@ -19,7 +19,7 @@ public class DEInfoOverlay {
                 if(DEConfig.debugMod.get()) {
                     Minecraft.getInstance().font.draw(event.getMatrixStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
                     Minecraft.getInstance().font.draw(event.getMatrixStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
-                    Minecraft.getInstance().font.draw(event.getMatrixStack(), "FPS " + Minecraft.getInstance().fpsString, posX, posY + 10, 255);
+                    Minecraft.getInstance().font.draw(event.getMatrixStack(), "FPS " + Minecraft.getInstance().fpsString, posX, posY + 30, 255);
                     DiscordRPCManager.setLogoText("FPS: " + Minecraft.getInstance().fpsString);
                 }
             }

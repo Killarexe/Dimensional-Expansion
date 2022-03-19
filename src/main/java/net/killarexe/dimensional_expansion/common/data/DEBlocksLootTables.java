@@ -43,6 +43,8 @@ public class DEBlocksLootTables extends BlockLoot {
         dropOther(END_WALL_SIGN.get(), DEItems.END_SIGN.get());
         dropSelf(END_ROSE.get());
         dropSelf(END_SAPLING.get());
+        dropPottedContents(POTTED_END_ROSE.get());
+        dropPottedContents(POTTED_END_SAPLING.get());
 
         LootItemCondition.Builder lBuilderXp = LootItemBlockStatePropertyCondition.hasBlockStateProperties(XP_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
         add(XP_CROPS.get(), (block) -> {return createCropDrops(XP_CROPS.get(), DEItems.XP_PLANTS.get(), DEItems.XP_SEEDS.get(), lBuilderXp); });

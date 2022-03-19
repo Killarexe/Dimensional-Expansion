@@ -30,7 +30,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.5a";
+    public static final String VERSION = "0.5.1a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -87,6 +87,7 @@ public class DEMod
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), () -> DEBlocks.POTTED_END_ROSE.get());
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), () -> DEBlocks.POTTED_END_SAPLING.get());
         });
     }
 }
