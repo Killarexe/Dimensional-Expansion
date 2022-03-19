@@ -22,6 +22,7 @@ public final class DEConfig {
 
     public static final ForgeConfigSpec.ConfigValue<Boolean> enableWeatherPowerStone;
     public static final ForgeConfigSpec.ConfigValue<Boolean> enableTimePowerStone;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> enableWarpPowerStone;
 
     static{
         CLIENT_BUILDER.push("Config for Dimensional Expansion Client");
@@ -34,6 +35,7 @@ public final class DEConfig {
         SERVER_BUILDER.push("Config for Dimensional Expansion Server");
         enableWeatherPowerStone = SERVER_BUILDER.comment("Enable Weather power stone. By Default is true").define("Enable Weather Power Stone", true);
         enableTimePowerStone = SERVER_BUILDER.comment("Enable Time power stone. By Default is true").define("Enable Time Power Stone", true);
+        enableWarpPowerStone = SERVER_BUILDER.comment("Enable Warp power stone. By Default is true").define("Enable Warp Power Stone", true);
         SERVER_BUILDER.pop();
         SERVER_SPEC = SERVER_BUILDER.build();
     }

@@ -54,6 +54,8 @@ public class DEBlocks {
     public static final RegistryObject<Block> POTTED_END_ROSE = createFlowerPotBlock("potted_end_rose", () -> END_ROSE.get());
     public static final RegistryObject<Block> END_SAPLING = createSaplingBlock("end_sapling", new EndTreeGrower(), Material.LEAVES, MaterialColor.COLOR_BLACK,0, 50, 1, SoundType.GRASS, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> POTTED_END_SAPLING = createFlowerPotBlock("potted_end_sapling", () -> END_SAPLING.get());
+    public static final RegistryObject<Block> END_SAND = createFallingBlock("end_sand", Material.SAND, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.SAND, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> END_SANDSTONE = createBlock("end_sandstone", Material.STONE, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
 
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);

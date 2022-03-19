@@ -1,0 +1,11 @@
+{
+  "type": "dimensional_expansion:essence_extractor",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_pearl"
+    }
+  ],
+  "output": {
+    "item": "dimensional_expansion:pearl_essence"
+  }
+}

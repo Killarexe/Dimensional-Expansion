@@ -51,10 +51,10 @@ public class TimePowerStone extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack item = player.getItemInHand(hand);
-        if(level instanceof ServerLevel serverLevel){
-            if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
+        if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
+            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
+            if(level instanceof ServerLevel serverLevel){
                 setDamage(item, 1);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
                 player.getCooldowns().addCooldown(this, 2000);
                 if (serverLevel.isDay()) {
                     serverLevel.setDayTime(1000);

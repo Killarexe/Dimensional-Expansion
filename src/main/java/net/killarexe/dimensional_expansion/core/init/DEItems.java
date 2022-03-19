@@ -1,10 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.item.FuelItem;
-import net.killarexe.dimensional_expansion.common.item.TimePowerStone;
-import net.killarexe.dimensional_expansion.common.item.WeatherPowerStone;
-import net.killarexe.dimensional_expansion.common.item.XpPlants;
+import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -95,6 +92,7 @@ public class DEItems {
 
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
     public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
+    public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
 
     public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
@@ -102,6 +100,7 @@ public class DEItems {
     public static final RegistryObject<Item> HEART = createFoodItem("heart", 2, 2, MobEffects.HEALTH_BOOST, 1, 1, 1,DEItemGroups.MISC, false);
     public static final RegistryObject<Item> XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
+    public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
     public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.DECORATION_BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
 

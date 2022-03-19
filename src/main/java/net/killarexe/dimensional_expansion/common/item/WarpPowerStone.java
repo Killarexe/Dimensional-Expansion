@@ -18,21 +18,20 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class WeatherPowerStone extends Item {
+public class WarpPowerStone extends Item{
 
-    public WeatherPowerStone() {
+    public WarpPowerStone() {
         super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
     }
 
     @Override
-    public int getUseDuration(ItemStack p_41454_) {
-        return 72000;
+    public int getUseDuration(ItemStack p_41454_) {return 72000;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.weather_power_stone"));
+            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.warp_power_stone"));
         }else{
             tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.shift"));
         }
@@ -53,19 +52,13 @@ public class WeatherPowerStone extends Item {
         ItemStack item = player.getItemInHand(hand);
         if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            if(level instanceof ServerLevel serverLevel){
+            if(level instanceof ServerLevel serverLevel) {
+                setDamage(item, 1);
                 player.getCooldowns().addCooldown(this, 2000);
-                if (serverLevel.isRaining()) {
-                    serverLevel.setWeatherParameters(0, 0, false, false);
-                    return InteractionResultHolder.success(item);
-                } else {
-                    serverLevel.setWeatherParameters(0, 6000, true, false);
-                    return InteractionResultHolder.success(item);
-                }
+                player.respawn();
+                return InteractionResultHolder.pass(item);
             }
-            return InteractionResultHolder.pass(item);
         }
         return InteractionResultHolder.fail(item);
     }
-
 }
