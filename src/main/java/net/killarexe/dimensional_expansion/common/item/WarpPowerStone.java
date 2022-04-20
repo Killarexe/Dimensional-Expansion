@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion.common.item;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -52,10 +53,10 @@ public class WarpPowerStone extends Item{
         ItemStack item = player.getItemInHand(hand);
         if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            if(level instanceof ServerLevel serverLevel) {
+            if(player instanceof LocalPlayer localPlayer) {
                 setDamage(item, 1);
                 player.getCooldowns().addCooldown(this, 2000);
-                player.respawn();
+                localPlayer.respawn();
                 return InteractionResultHolder.pass(item);
             }
         }

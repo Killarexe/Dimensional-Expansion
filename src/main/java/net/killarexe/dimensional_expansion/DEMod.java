@@ -54,6 +54,8 @@ public class DEMod
         DEEnchantments.ENCHANTMENT.register(bus);
         LOGGER.info("Init Dimensional Expansion Block Entities");
         DEBlockEntities.BLOCK_ENTITIES.register(bus);
+        LOGGER.info("Init Dimensional Expansion Entities");
+        DEEntities.ENTITY.register(bus);
         LOGGER.info("Init Dimensional Expansion Containers");
         DEContainers.CONTAINERS.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");

@@ -1,2 +1,22 @@
 {
+  "dw": {
+    "category": "record",
+    "subtitle": "music.dimensional_expansion.dw.subtitle",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:dw",
+        "stream": true
+      }
+    ]
+  },
+  "bjm": {
+    "category": "record",
+    "subtitle": "music.dimensional_expansion.bjm.subtitle",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:bjm",
+        "stream": true
+      }
+    ]
+  }
 }

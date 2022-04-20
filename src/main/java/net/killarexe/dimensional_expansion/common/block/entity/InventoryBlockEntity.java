@@ -10,13 +10,16 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class InventoryBlockEntity extends BlockEntity {
+public class InventoryBlockEntity extends BlockEntity{
+
     public final int size;
     protected int timer;
     protected boolean requiresUpdate;
@@ -48,6 +51,7 @@ public class InventoryBlockEntity extends BlockEntity {
     }
 
     public ItemStack getItemInSlot(int slot) {
+        this.requiresUpdate = true;
         return this.handler.map(inv -> inv.getStackInSlot(slot)).orElse(ItemStack.EMPTY);
     }
 
@@ -102,10 +106,12 @@ public class InventoryBlockEntity extends BlockEntity {
 
     public void update() {
         requestModelDataUpdate();
-        setChanged();
-        if (this.level != null) {
-            this.level.setBlockAndUpdate(this.worldPosition, getBlockState());
+        if (level != null) {
+            BlockState state = level.getBlockState(worldPosition);
+            level.setBlockAndUpdate(worldPosition, state);
+            level.sendBlockUpdated(worldPosition, state, state, 3);
         }
+        setChanged();
     }
 
     @Override

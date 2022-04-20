@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.*;
 import net.killarexe.dimensional_expansion.common.world.feature.tree.EndTreeGrower;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -25,14 +26,14 @@ public class DEBlocks {
 
     public static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, DEMod.MODID);
 
-    public static final RegistryObject<Block> PALON_ORE = createOreBlock("palon_ore", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK,4, 10, 4, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_LIGHT_GRAY,5, 20, 5, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> PALON_ORE = createOreBlock("palon_ore", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, UniformInt.of(0, 0), SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_LIGHT_GRAY, 5, 20, 5, UniformInt.of(2, 6), SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLUE,5, 20, 5, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED,6, 30, 6, SoundType.NETHERRACK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED,6, 30, 6, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_GRAY,7, 40, 7, SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA,7, 40, 7, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED, 6, 30, 6, UniformInt.of(0, 0), SoundType.NETHERRACK, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED, 6, 30, 6, SoundType.NETHERITE_BLOCK, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_GRAY, 7, 40, 7, UniformInt.of(4, 10), SoundType.STONE, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA, 7, 40, 7, SoundType.AMETHYST, DEItemGroups.BUILDING_BLOCKS);
 
     public static final RegistryObject<Block> END_GRASS_BLOCK = createBlock("end_grass_block", Material.DIRT, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.GRASS, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_LOG = createPillarBlock("end_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
@@ -60,6 +61,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
+    public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block", () -> new DisplayBlock(), DEItemGroups.DECORATION_BLOCKS);
 
     public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", () -> new XPCrops());
     public static final RegistryObject<Block> HEALTH_CROPS = createCustomBlock("health_crops", () -> new HealthCrops());
@@ -76,8 +78,8 @@ public class DEBlocks {
         return block;
     }
 
-    private static RegistryObject<Block> createOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
-        RegistryObject<Block> block = BLOCK.register(id, () -> new OreBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
+    private static RegistryObject<Block> createOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, UniformInt xpDrop, SoundType sound, CreativeModeTab itemGroup){
+        RegistryObject<Block> block = BLOCK.register(id, () -> new OreBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound), xpDrop));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup).fireResistant()));
         return block;
     }
@@ -113,7 +115,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<Block> createStairBlock(@Nonnull String id, RegistryObject<Block> baseBlock, CreativeModeTab itemGroup){
-        RegistryObject<Block> block = BLOCK.register(id, () -> new StairBlock(baseBlock.get().defaultBlockState(), BlockBehaviour.Properties.copy(baseBlock.get())));
+        RegistryObject<Block> block = BLOCK.register(id, () -> new StairBlock(() -> baseBlock.get().defaultBlockState(), BlockBehaviour.Properties.copy(baseBlock.get())));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup).fireResistant()));
         return block;
     }
