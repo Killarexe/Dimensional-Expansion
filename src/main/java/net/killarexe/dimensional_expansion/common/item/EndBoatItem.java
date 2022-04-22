@@ -43,7 +43,7 @@ public class EndBoatItem extends Item {
             if (!list.isEmpty()) {
                 Vec3 vec3d1 = pPlayer.getEyePosition(1.0F);
                 for(Entity entity : list) {
-                    AABB axisalignedbb = entity.getBoundingBox().inflate((double)entity.getPickRadius());
+                    AABB axisalignedbb = entity.getBoundingBox().inflate(entity.getPickRadius());
                     if (axisalignedbb.contains(vec3d1)) {
                         return InteractionResultHolder.pass(itemstack);
                     }

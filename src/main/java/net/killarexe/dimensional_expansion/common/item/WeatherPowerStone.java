@@ -54,7 +54,7 @@ public class WeatherPowerStone extends Item {
         if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
             if(level instanceof ServerLevel serverLevel){
-                player.getCooldowns().addCooldown(this, 2000);
+                player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
                 if (serverLevel.isRaining()) {
                     serverLevel.setWeatherParameters(0, 0, false, false);
                     return InteractionResultHolder.success(item);

@@ -1,9 +1,7 @@
 package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEFeatures;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
+import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -14,7 +12,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -46,6 +46,10 @@ public class DEEvents {
             if (types.contains(BiomeDictionary.Type.END)) {
                 base.add(DEFeatures.Placed.END_ROSE_PLACED);
                 base.add(DEFeatures.Placed.END_TREE_PLACED);
+                /*SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(
+                        SurfaceRules.ifTrue(SurfaceRules.waterBlockCheck(-1, 0),
+                                SurfaceRules.state(DEBlocks.END_GRASS_BLOCK.get().defaultBlockState())), SurfaceRules.state(Blocks.END_STONE.defaultBlockState())
+                );*/
             }
         }
 

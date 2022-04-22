@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.client.gui.screen.DEConfigScreen;
+import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;

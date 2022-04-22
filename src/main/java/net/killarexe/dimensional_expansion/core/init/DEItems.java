@@ -95,6 +95,8 @@ public class DEItems {
     public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
     public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
 
+    public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
+
     public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> XP_PLANTS = createCustomItem("xp_plants", () -> new XpPlants());

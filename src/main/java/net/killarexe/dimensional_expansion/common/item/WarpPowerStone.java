@@ -4,9 +4,12 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.PlayerRespawnLogic;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -53,10 +56,11 @@ public class WarpPowerStone extends Item{
         ItemStack item = player.getItemInHand(hand);
         if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            if(player instanceof LocalPlayer localPlayer) {
+            if(player instanceof ServerPlayer serverPlayer) {
                 setDamage(item, 1);
-                player.getCooldowns().addCooldown(this, 2000);
-                localPlayer.respawn();
+                player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
+                BlockPos respawnPos = serverPlayer.getRespawnPosition();
+                player.setPos(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
                 return InteractionResultHolder.pass(item);
             }
         }

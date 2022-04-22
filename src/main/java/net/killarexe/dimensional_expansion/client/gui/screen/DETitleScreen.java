@@ -8,6 +8,7 @@ import com.mojang.math.Vector3f;
 import com.mojang.realmsclient.RealmsMainScreen;
 import com.mojang.realmsclient.gui.screens.RealmsNotificationsScreen;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;

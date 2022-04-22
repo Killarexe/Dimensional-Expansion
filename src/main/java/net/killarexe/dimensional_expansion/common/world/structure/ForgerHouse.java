@@ -39,11 +39,8 @@ public class ForgerHouse extends StructureFeature<JigsawConfiguration> {
 
     @Override
     public boolean canGenerate(RegistryAccess p_197172_, ChunkGenerator p_197173_, BiomeSource source, StructureManager p_197175_, long p_197176_, ChunkPos p_197177_, JigsawConfiguration p_197178_, LevelHeightAccessor p_197179_, Predicate<Holder<Biome>> p_197180_) {
-        if(source.equals(Biomes.END_MIDLANDS) || source.equals(Biomes.END_BARRENS) || source.equals(Biomes.END_HIGHLANDS) ||
-                source.equals(DEBiomes.END_FOREST_KEY) || source.equals(DEBiomes.END_DESERT_KEY) || source.equals(DEBiomes.END_JUNGLE_KEY)){
-            return true;
-        }
-        return false;
+        return source.equals(Biomes.END_MIDLANDS) || source.equals(Biomes.END_BARRENS) || source.equals(Biomes.END_HIGHLANDS) ||
+                source.equals(DEBiomes.END_FOREST_KEY) || source.equals(DEBiomes.END_DESERT_KEY) || source.equals(DEBiomes.END_JUNGLE_KEY);
     }
 
     private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
@@ -67,9 +64,6 @@ public class ForgerHouse extends StructureFeature<JigsawConfiguration> {
                         false,
                         false
                 );
-        if(structurePiecesGenerator.isPresent()) {
-            DEMod.LOGGER.debug("Rundown House at {}", blockpos);
-        }
         return structurePiecesGenerator;
     }
 }

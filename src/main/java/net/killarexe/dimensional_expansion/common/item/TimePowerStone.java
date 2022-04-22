@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -55,14 +56,13 @@ public class TimePowerStone extends Item {
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
             if(level instanceof ServerLevel serverLevel){
                 setDamage(item, 1);
-                player.getCooldowns().addCooldown(this, 2000);
+                player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
                 if (serverLevel.isDay()) {
                     serverLevel.setDayTime(1000);
-                    return InteractionResultHolder.success(item);
                 } else {
                     serverLevel.setDayTime(13000);
-                    return InteractionResultHolder.success(item);
                 }
+                return InteractionResultHolder.success(item);
             }
             return InteractionResultHolder.pass(item);
         }

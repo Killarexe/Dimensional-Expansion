@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.client.gui.screen;
+package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
@@ -12,13 +12,13 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.client.gui.widget.ForgeSlider;
 import net.minecraftforge.common.MinecraftForge;
 
 @OnlyIn(Dist.CLIENT)
 public class DEConfigScreen extends Screen {
-
     private final Screen previousScreen;
-    private Checkbox showVersionCheckbox, moddedTitleScreenCheckbox, debugModCheckBox;
+    private Button clientButton, commonButton, cancelButton, applyButton;
 
     public DEConfigScreen(Screen previousScreen) {
         super(new TranslatableComponent("narrator.screen.title"));
@@ -29,7 +29,6 @@ public class DEConfigScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
         drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
-        //this.drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".client"), width/2, height/2 - 20, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
@@ -52,37 +51,34 @@ public class DEConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        Button cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".cancel_button"), (button -> {
+        cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".cancel_button"), (button -> {
             onClose();
         }));
-        Button applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".apply_button"), (button -> {
-            apply();
+        applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".apply_button"), (button -> {
+            onClose();
         }));
+
+        clientButton = new Button(this.width / 2 - 75, this.height / 4 + 60, 150, 20, new TranslatableComponent("button." + DEMod.MODID + ".client_button"), (button -> {
+            minecraft.setScreen(new DEClientConfigScreen(this));
+        }));
+        commonButton = new Button(this.width / 2 - 75, this.height / 4 + 0, 150, 20, new TranslatableComponent("button." + DEMod.MODID + ".common_button"), (button -> {
+            minecraft.setScreen(new DECommonConfigScreen(this));
+        }));
+
+        addRenderableWidget(clientButton);
+        addRenderableWidget(commonButton);
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
-
-        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".show_version"), DEConfig.showVersion.get());
-        moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_title_screen"), DEConfig.moddedTitleScreen.get());
-        debugModCheckBox = new Checkbox(this.width / 2 -200, this.height / 4 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".debug_mod"), DEConfig.debugMod.get());
-        addRenderableWidget(showVersionCheckbox);
-        addRenderableWidget(moddedTitleScreenCheckbox);
-        addRenderableWidget(debugModCheckBox);
 
         super.init();
     }
 
-    private void apply(){
-        DEConfig.showVersion.set(showVersionCheckbox.selected());
-        DEConfig.moddedTitleScreen.set(moddedTitleScreenCheckbox.selected());
-        DEConfig.debugMod.set(debugModCheckBox.selected());
-        onClose();
-    }
-
     @Override
     public void onClose() {
+        super.onClose();
         if(previousScreen != null){
             minecraft.setScreen(previousScreen);
         }
-        super.onClose();
     }
+
 }

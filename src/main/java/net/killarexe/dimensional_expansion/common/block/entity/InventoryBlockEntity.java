@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -8,6 +9,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
@@ -118,6 +120,13 @@ public class InventoryBlockEntity extends BlockEntity{
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         tag.put("Inventory", this.inventory.serializeNBT());
+    }
+
+    public int getLightLevel(){
+        return LightTexture.pack(
+                this.getLevel().getBrightness(LightLayer.BLOCK, this.getBlockPos()),
+                this.getLevel().getBrightness(LightLayer.SKY, this.getBlockPos())
+        );
     }
 
     private ItemStackHandler createInventory() {
