@@ -44,7 +44,6 @@ public class EssenceExtractor extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final EssenceExtractorBlockEntity be) {
             final MenuProvider container = new SimpleMenuProvider(EssenceExtractorContainer.getServerContainer(be, pos), EssenceExtractorBlockEntity.TITLE);
-            DEMod.LOGGER.info(be.inventory.getSlots());
             NetworkHooks.openGui((ServerPlayer) player, container, pos);
         }
 

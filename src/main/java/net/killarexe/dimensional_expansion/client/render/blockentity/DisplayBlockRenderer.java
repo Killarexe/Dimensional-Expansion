@@ -30,7 +30,6 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
             return;
 
         int lightLevel = pBlockEntity.getLightLevel();
-        DEMod.LOGGER.info(lightLevel);
 
         renderItem(pBlockEntity.getItemInSlot(0), new Vector3d(0.5, 1.5, 0.5),
                 Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, lightLevel, 0.8f);

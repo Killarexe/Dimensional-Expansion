@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
+import net.killarexe.dimensional_expansion.common.data.generation.recipes.EssenceExtractorRecipeBuilder;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -7,7 +8,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
@@ -17,8 +17,7 @@ import java.util.function.Consumer;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
-import static net.minecraft.world.item.Items.COAL;
-import static net.minecraft.world.item.Items.STICK;
+import static net.minecraft.world.item.Items.*;
 import static net.minecraft.world.item.crafting.RecipeSerializer.BLASTING_RECIPE;
 
 public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -59,6 +58,10 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createDoorRecipe(r, END_DOOR.get(), END_PLANKS.get());
         createTrapDoorRecipe(r, END_TRAPDOOR.get(), END_PLANKS.get());
         createSignRecipe(r, DEItems.END_SIGN.get(), END_PLANKS.get());
+        
+        new EssenceExtractorRecipeBuilder(ENDER_PEARL, PEARL_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
+        new EssenceExtractorRecipeBuilder(HEART_SEEDS.get(), HEART_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
+        new EssenceExtractorRecipeBuilder(XP_SEEDS.get(), XP_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
     }
 
     private void createDoorRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem){
@@ -125,7 +128,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     }
 
     private void createFenceRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem){
-        ShapedRecipeBuilder.shaped(resultItem, 3).define('#', requireItem).define('/', Items.STICK)
+        ShapedRecipeBuilder.shaped(resultItem, 3).define('#', requireItem).define('/', STICK)
                 .pattern("#/#")
                 .pattern("#/#")
                 .pattern("   ")
@@ -134,7 +137,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     }
 
     private void createFenceGateRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem){
-        ShapedRecipeBuilder.shaped(resultItem, 3).define('#', requireItem).define('/', Items.STICK)
+        ShapedRecipeBuilder.shaped(resultItem, 3).define('#', requireItem).define('/', STICK)
                 .pattern("/#/")
                 .pattern("/#/")
                 .pattern("   ")

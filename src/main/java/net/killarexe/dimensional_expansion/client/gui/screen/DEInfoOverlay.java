@@ -31,9 +31,10 @@ public class DEInfoOverlay {
                     }
                 }
             }
-            if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getMainHandItem().getItem() instanceof CoordLinker coordLinker){
+            if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getMainHandItem().is(DEItems.COORD_LINKER.get())){
                 int posX = Minecraft.getInstance().getWindow().getWidth() - 100;
                 int posY = 10;
+                CoordLinker coordLinker = (CoordLinker)Minecraft.getInstance().player.getMainHandItem().getItem();
                 Minecraft.getInstance().font.draw(event.getMatrixStack(), "Overworld: " + coordLinker.getOverworldPos().toShortString(), posX, posY, 0xffffff);
                 Minecraft.getInstance().font.draw(event.getMatrixStack(), "Nether: " + coordLinker.getNetherPos().toShortString(), posX, posY + 10, 0xffffff);
             }

@@ -46,10 +46,6 @@ public class DEEvents {
             if (types.contains(BiomeDictionary.Type.END)) {
                 base.add(DEFeatures.Placed.END_ROSE_PLACED);
                 base.add(DEFeatures.Placed.END_TREE_PLACED);
-                /*SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(
-                        SurfaceRules.ifTrue(SurfaceRules.waterBlockCheck(-1, 0),
-                                SurfaceRules.state(DEBlocks.END_GRASS_BLOCK.get().defaultBlockState())), SurfaceRules.state(Blocks.END_STONE.defaultBlockState())
-                );*/
             }
         }
 
