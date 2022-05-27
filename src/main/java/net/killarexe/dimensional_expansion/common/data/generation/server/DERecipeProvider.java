@@ -155,11 +155,11 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     }
 
     private void createMaterialIngotRecipe(Consumer<FinishedRecipe> r, ItemLike nuggetItem, ItemLike resultItem){
-        ShapedRecipeBuilder.shaped(nuggetItem).define('#', resultItem)
+        ShapedRecipeBuilder.shaped(resultItem).define('#', nuggetItem)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .unlockedBy("has_material", has(resultItem))
+                .unlockedBy("has_material", has(nuggetItem))
                 .save(r);
     }
 
@@ -181,7 +181,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(r);
     }
 
-    private void createCustomRecipe(Consumer<FinishedRecipe> r,
+    /*private void createCustomRecipe(Consumer<FinishedRecipe> r,
                                     ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3,
                                     ItemLike requireItem4, ItemLike requireItem5, ItemLike requireItem6,
                                     ItemLike requireItem7, ItemLike requireItem8, ItemLike requireItem9,
@@ -195,7 +195,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("789")
                 .unlockedBy("has_material", has(resultItem))
                 .save(r);
-    }
+    }*/
 
     private void createSmelting(Consumer<FinishedRecipe> r, ItemLike smeltItem, ItemLike resultItem, float time, int xp, SimpleCookingSerializer<?> type){
         SimpleCookingRecipeBuilder.cooking(Ingredient.of(new ItemStack(smeltItem)), resultItem, time, xp, type);

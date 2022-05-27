@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.world.structure;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBiomes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;

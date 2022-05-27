@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
@@ -32,9 +33,9 @@ public class WeatherPowerStone extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.weather_power_stone"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".weather_power_stone"));
         }else{
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.shift"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".shift"));
         }
     }
 

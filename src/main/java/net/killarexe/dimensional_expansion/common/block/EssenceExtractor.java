@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.killarexe.dimensional_expansion.common.container.EssenceExtractorContainer;
 import net.minecraft.core.BlockPos;

@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import com.google.common.collect.ImmutableMap;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -11,8 +10,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.function.Function;
 
 public class XPCrops extends CropBlock {
 

@@ -1,8 +1,8 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
+import net.killarexe.dimensional_expansion.uitls.DEMath;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -13,7 +13,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -51,14 +50,10 @@ public class CoordLinker extends Item {
             return;
         }else if (Level.OVERWORLD.equals(dimension)) {
             overworldPos = pEntity.getOnPos();
-            int x = overworldPos.getX() / 8;
-            int z = overworldPos.getZ() / 8;
-            netherPos = new BlockPos(x, pLevel.getHeight(Heightmap.Types.WORLD_SURFACE_WG, x, z), z);
+            netherPos = DEMath.overworldPosToNetherPos(overworldPos);
         } else if (Level.NETHER.equals(dimension)) {
             netherPos = pEntity.getOnPos();
-            int x = netherPos.getX() * 8;
-            int z = netherPos.getZ() * 8;
-            overworldPos = new BlockPos(x, pLevel.getHeight(Heightmap.Types.WORLD_SURFACE_WG, x, z), z);
+            overworldPos = DEMath.netherPosToOverworldPos(netherPos);
         }
     }
 

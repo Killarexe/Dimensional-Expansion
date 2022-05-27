@@ -14,6 +14,7 @@ public class DEEnUsProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+    	/*BLOCKS*/
         add(DEBlocks.PALON_ORE.get(), "Palon Ore");
         add(DEBlocks.PALON_BLOCK.get(), "Palon Block");
         add(DEBlocks.BASSMITE_ORE.get(), "Bassmite Ore");
@@ -25,7 +26,7 @@ public class DEEnUsProvider extends LanguageProvider {
 
         add(DEBlocks.END_GRASS_BLOCK.get(), "End Grass Block");
         add(DEBlocks.END_LOG.get(), "End Log");
-        add(DEBlocks.END_STRIPPED_LOG.get(), "End Stripped Log");
+        add(DEBlocks.STRIPPED_END_LOG.get(), "End Stripped Log");
         add(DEBlocks.END_PLANKS.get(), "End Planks");
         add(DEBlocks.END_SLAB.get(), "End Slab");
         add(DEBlocks.END_FENCE.get(), "End Fence");
@@ -37,8 +38,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.END_LEAVES.get(), "End Leaves");
         add(DEBlocks.END_STAIRS.get(), "End Stairs");
         add(DEBlocks.END_BOOKSHELF.get(), "End Bookshelf");
-        add(DEBlocks.END_SIGN.get(), "End Sign");
-        add(DEBlocks.END_WALL_SIGN.get(), "End Wall Sign");
         add(DEBlocks.END_ROSE.get(), "End Rose");
         add(DEBlocks.POTTED_END_ROSE.get(), "Potted End Rose");
         add(DEBlocks.END_SAPLING.get(), "End Sapling");
@@ -54,6 +53,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.XP_CROPS.get(), "Xp Crops");
         add(DEBlocks.HEALTH_CROPS.get(), "Health Crops");
 
+        /*ITEMS*/
         add(DEItems.RAW_PALON.get(), "Raw Palon");
         add(DEItems.PALON_INGOT.get(), "Palon Ingot");
         add(DEItems.PALON_NUGGET.get(), "Palon Nugget");
@@ -115,6 +115,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.WARP_POWER_STONE.get(), "Warp Power Stone");
 
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
+        add(DEItems.REMOTE_TELEPORTER.get(), "Remote Teleporter");
 
         add(DEItems.XP_SEEDS.get(), "Xp Seeds");
         add(DEItems.HEART_SEEDS.get(), "Heart Seeds");
@@ -130,6 +131,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.BJM_DISC.get(), "VHL Disc");
         add(DEItems.DW_DISC.get(), "SM Disc");
 
+        /*Screens*/
         add("config." + DEMod.MODID + ".title", "Dimensional Expansion Config");
         add("config." + DEMod.MODID + ".client", "Dimensional Expansion Client Config");
         add("config." + DEMod.MODID + ".common", "Dimensional Expansion Common Config");
@@ -143,5 +145,11 @@ public class DEEnUsProvider extends LanguageProvider {
         add("checkbox." + DEMod.MODID + ".coord_linker", "Coord Linker Overlay");
         add("checkbox." + DEMod.MODID + ".modded_title_screen", "Modded Title Screen");
         add("checkbox." + DEMod.MODID + ".debug_mod", "Debug Mod");
+        
+        /*Tooltips*/
+        add("tooltip." + DEMod.MODID + ".remote_telepoter", "Give you an effect of Remote for 30 seconds.");
+        add("tooltip." + DEMod.MODID + ".time_power_stone", "Change between day and night.");
+        add("tooltip." + DEMod.MODID + ".warp_power_stone", "Teleport you at spawn point. (Need to set a spawn point)");
+        add("tooltip." + DEMod.MODID + ".weather_power_stone", "Switch between raing and sun.");
     }
 }

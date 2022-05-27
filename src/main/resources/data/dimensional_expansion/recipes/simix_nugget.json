@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "   ",
-        " # ",
-        "   "
-    ],
-    "key": {
-        "#": {
-            "item": "dimensional_expansion:simix_ingot"
-        }
-    },
-    "result": {
-        "item": "dimensional_expansion:simix_nugget",
-        "count": 9
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " # ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:simix_ingot"
     }
+  },
+  "result": {
+    "item": "dimensional_expansion:simix_nugget",
+    "count": 9
+  }
 }

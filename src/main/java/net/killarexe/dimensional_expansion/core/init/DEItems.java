@@ -94,9 +94,9 @@ public class DEItems {
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
     public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
     public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
-    public static final RegistryObject<Item> POWER_GAUNTLET = createCustomItem("power_gauntlet", () -> new PowerGauntlet());
 
     public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
+    public static final RegistryObject<Item> REMOTE_TELEPORTER = createCustomItem("remote_teleporter", () -> new RemoteTeleporter());
 
     public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
     public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
@@ -165,12 +165,13 @@ public class DEItems {
         return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
     }
 
+    @SuppressWarnings("unused")
+	private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
+        return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
+    }
+    
     private static <T extends Item> RegistryObject<T> createCustomItem(String id, Supplier<T> item){
         return ITEMS.register(id, item);
-    }
-
-    private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
     }
 
     @OnlyIn(Dist.CLIENT)

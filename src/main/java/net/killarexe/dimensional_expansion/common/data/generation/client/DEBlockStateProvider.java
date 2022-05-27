@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.data.generation.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -27,19 +26,42 @@ public class DEBlockStateProvider extends BlockStateProvider {
         simpleBlock(EMERTYST_BLOCK.get());
 
         logBlock((RotatedPillarBlock)END_LOG.get());
-        logBlock((RotatedPillarBlock)END_STRIPPED_LOG.get());
-        slabBlock((SlabBlock)END_SLAB.get(), END_SLAB.get().getRegistryName(), END_PLANKS.get().getRegistryName());
+        logBlock((RotatedPillarBlock)STRIPPED_END_LOG.get());
+        slabBlock((SlabBlock)END_SLAB.get(), END_SLAB.get().getRegistryName(), blockTexture(END_PLANKS.get()));
         simpleBlock(END_PLANKS.get());
-        fenceBlock((FenceBlock) END_FENCE.get(), END_PLANKS.get().getRegistryName());
-        fenceGateBlock((FenceGateBlock) END_FENCE_GATE.get(), END_PLANKS.get().getRegistryName());
-        buttonBlock((ButtonBlock) END_BUTTON.get(), END_PLANKS.get().getRegistryName());
-        pressurePlateBlock((PressurePlateBlock)END_PRESSURE_PLATE.get(), END_PLANKS.get().getRegistryName());
-        doorBlock((DoorBlock)END_DOOR.get(), new ResourceLocation(END_DOOR.get().getRegistryName() + "_bottom"),
-        		new ResourceLocation(END_DOOR.get().getRegistryName() + "_top"));
-        trapdoorBlock((TrapDoorBlock)END_TRAPDOOR.get(), END_TRAPDOOR.get().getRegistryName(), true);
+        fenceBlock((FenceBlock) END_FENCE.get(), blockTexture(END_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) END_FENCE_GATE.get(), blockTexture(END_PLANKS.get()));
+        buttonBlock((ButtonBlock) END_BUTTON.get(), blockTexture(END_PLANKS.get()));
+        pressurePlateBlock((PressurePlateBlock)END_PRESSURE_PLATE.get(), blockTexture(END_PLANKS.get()));
+        doorBlock((DoorBlock)END_DOOR.get(), new ResourceLocation(blockTexture(END_DOOR.get()) + "_bottom"),
+        		new ResourceLocation(blockTexture(END_DOOR.get()) + "_top"));
+        trapdoorBlock((TrapDoorBlock)END_TRAPDOOR.get(), blockTexture(END_TRAPDOOR.get()), true);
         simpleBlock(END_LEAVES.get());
-        stairsBlock((StairBlock)END_STAIRS.get(), END_PLANKS.get().getRegistryName());
+        stairsBlock((StairBlock)END_STAIRS.get(), blockTexture(END_PLANKS.get()));
         simpleBlock(END_SAND.get());
-        simpleBlock(END_SANDSTONE.get());
+        models().cubeBottomTop(END_SANDSTONE.get().getRegistryName().getPath(),
+        		blockTexture(END_SANDSTONE.get()),
+        		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_bottom"),
+        		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_top")
+        );
+        
+        models().cube(FORGE.get().getRegistryName().getPath(),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_front"),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
+        		new ResourceLocation(blockTexture(FORGE.get()) + "_side")
+        );
+        models().cubeBottomTop(MINERAL_STORAGE.get().getRegistryName().getPath(),
+        		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_side"),
+        		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_bottom"),
+        		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_top")
+        );
+        models().cubeBottomTop(DISPLAY_BLOCK.get().getRegistryName().getPath(),
+        		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
+        		blockTexture(Blocks.END_STONE),
+        		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_top")
+        );
     }
 }

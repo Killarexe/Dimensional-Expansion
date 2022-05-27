@@ -13,7 +13,7 @@ public class StrippingMap {
 
     public static void putStrippables(final FMLCommonSetupEvent event){
         event.enqueueWork(() -> {
-            StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
+            StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.STRIPPED_END_LOG.get());
         });
     }
 }

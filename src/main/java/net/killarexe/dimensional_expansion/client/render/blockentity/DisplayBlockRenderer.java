@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.client.render.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.*;
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -29,7 +28,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         if (pBlockEntity.getItemInSlot(0).equals(ItemStack.EMPTY) || pBlockEntity.getItemInSlot(0).getItem().equals(Items.AIR))
             return;
 
-        int lightLevel = pBlockEntity.getLightLevel();
+		int lightLevel = pPackedLight;
 
         renderItem(pBlockEntity.getItemInSlot(0), new Vector3d(0.5, 1.5, 0.5),
                 Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, lightLevel, 0.8f);

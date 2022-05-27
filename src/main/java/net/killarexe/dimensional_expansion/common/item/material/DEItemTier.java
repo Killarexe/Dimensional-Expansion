@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("deprecation")
 public enum DEItemTier implements Tier {
 	PALON(5, 3592, 17.0f, 7f, 25, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());

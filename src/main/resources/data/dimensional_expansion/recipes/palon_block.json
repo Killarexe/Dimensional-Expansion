@@ -1,17 +1,16 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "###",
-        "###",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "dimensional_expansion:palon_ingot"
-        }
-    },
-    "result": {
-        "item": "dimensional_expansion:palon_block",
-        "count": 1
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:palon_ingot"
     }
+  },
+  "result": {
+    "item": "dimensional_expansion:palon_block"
+  }
 }

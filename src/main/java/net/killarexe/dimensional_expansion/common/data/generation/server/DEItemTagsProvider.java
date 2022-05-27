@@ -25,7 +25,7 @@ public class DEItemTagsProvider extends ItemTagsProvider {
         tag(Tags.Items.GEMS).add(DEItems.BASSMITE_GEM.get(), DEItems.EMERTYST_GEM.get());
 
         tag(ItemTags.DIRT).add(DEBlocks.END_GRASS_BLOCK.get().asItem());
-        tag(ItemTags.LOGS).add(DEBlocks.END_LOG.get().asItem(), DEBlocks.END_STRIPPED_LOG.get().asItem());
+        tag(ItemTags.LOGS).add(DEBlocks.END_LOG.get().asItem(), DEBlocks.STRIPPED_END_LOG.get().asItem());
         tag(ItemTags.PLANKS).add(DEBlocks.END_PLANKS.get().asItem());
         tag(ItemTags.LEAVES).add(DEBlocks.END_LEAVES.get().asItem());
         tag(ItemTags.SIGNS).add(DEItems.END_SIGN.get());

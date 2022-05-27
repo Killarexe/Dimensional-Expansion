@@ -27,7 +27,8 @@ public class DEJei implements IModPlugin {
         registration.addRecipeCategories(new EssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
-    @Override
+	@Override
+	@SuppressWarnings("resource")
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
         List<EssenceExtractorRecipe> recipes = rm.getAllRecipesFor(EssenceExtractorRecipe.Type.INSTANCE);

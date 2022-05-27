@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "dimensional_expansion:block/simix_block" }
-	}
+  "variants": {
+    "": {
+      "model": "dimensional_expansion:block/simix_block"
+    }
+  }
 }

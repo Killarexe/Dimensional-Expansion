@@ -12,6 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 
+@SuppressWarnings("deprecation")
 public enum DEArmorMaterial implements ArmorMaterial {
 	PALON(DEMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());

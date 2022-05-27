@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 public class PowerGauntlet extends Item {
 
     public PowerGauntlet() {
-        super(new Properties().stacksTo(1).fireResistant().tab(DEItemGroups.MISC));
+        super(new Properties().stacksTo(1).fireResistant());
     }
 
     @Override
@@ -21,6 +21,7 @@ public class PowerGauntlet extends Item {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
         if(pLevel.isClientSide){
             Minecraft.getInstance().setScreen(new PowerGauntletScreen());
+            return InteractionResultHolder.success(item);
         }
         return InteractionResultHolder.fail(item);
     }

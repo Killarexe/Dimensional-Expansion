@@ -37,7 +37,7 @@ public class DEBlocks {
 
     public static final RegistryObject<Block> END_GRASS_BLOCK = createBlock("end_grass_block", Material.DIRT, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.GRASS, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_LOG = createPillarBlock("end_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> END_STRIPPED_LOG = createPillarBlock("end_stripped_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> STRIPPED_END_LOG = createPillarBlock("stripped_end_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_PLANKS = createBlock("end_planks", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_SLAB = createSlabBlock("end_slab", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BUILDING_BLOCKS);
     public static final RegistryObject<Block> END_FENCE = createFenceBlock("end_fence", Material.WOOD, MaterialColor.COLOR_BLACK,5, 10, 1, SoundType.WOOD, DEItemGroups.DECORATION_BLOCKS);
@@ -62,7 +62,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.DECORATION_BLOCKS);
     public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block", () -> new DisplayBlock(), DEItemGroups.DECORATION_BLOCKS);
-
+    
     public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", () -> new XPCrops());
     public static final RegistryObject<Block> HEALTH_CROPS = createCustomBlock("health_crops", () -> new HealthCrops());
 
@@ -177,7 +177,8 @@ public class DEBlocks {
         return cBlock;
     }
 
-    private static RegistryObject<Block> copy(@Nonnull String id, @Nonnull RegistryObject<Block> target){
+    @SuppressWarnings("unused")
+	private static RegistryObject<Block> copy(@Nonnull String id, @Nonnull RegistryObject<Block> target){
         RegistryObject<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.copy(target.get())));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(target.get().asItem().getItemCategory()).fireResistant()));
         return block;

@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "dimensional_expansion:block/palon_block" }
-	}
+  "variants": {
+    "": {
+      "model": "dimensional_expansion:block/palon_block"
+    }
+  }
 }

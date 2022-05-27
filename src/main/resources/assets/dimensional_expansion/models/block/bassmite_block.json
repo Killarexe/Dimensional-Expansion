@@ -1,6 +1,6 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "dimensional_expansion:block/bassmite_block"
-	}
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dimensional_expansion:block/bassmite_block"
+  }
 }

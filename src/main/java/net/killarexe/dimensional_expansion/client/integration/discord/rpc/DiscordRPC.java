@@ -39,7 +39,8 @@ public interface DiscordRPC extends Library
     /**
      * Library instance.
      */
-    DiscordRPC INSTANCE = Native.loadLibrary("discord-rpc", DiscordRPC.class);
+    @SuppressWarnings("deprecation")
+	DiscordRPC INSTANCE = Native.loadLibrary("discord-rpc", DiscordRPC.class);
 
     /**
      * Used to decline a request via {@link #Discord_Respond(String, int)}

@@ -16,7 +16,8 @@ import net.minecraftforge.versions.forge.ForgeVersion;
 @OnlyIn(Dist.CLIENT)
 public class DEInfoOverlay {
 
-    public static void render(RenderGameOverlayEvent.Pre event){
+    @SuppressWarnings("resource")
+	public static void render(RenderGameOverlayEvent.Pre event){
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
             if(DEConfig.showVersion.get()){
                 int posX = 10;
@@ -31,7 +32,7 @@ public class DEInfoOverlay {
                     }
                 }
             }
-            if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getMainHandItem().is(DEItems.COORD_LINKER.get())){
+            if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getItemInHand(Minecraft.getInstance().player.getUsedItemHand()).equals(new ItemStack(DEItems.COORD_LINKER.get()))){
                 int posX = Minecraft.getInstance().getWindow().getWidth() - 100;
                 int posY = 10;
                 CoordLinker coordLinker = (CoordLinker)Minecraft.getInstance().player.getMainHandItem().getItem();

@@ -27,7 +27,7 @@ public class DEBlocksLootTables extends BlockLoot {
 
         dropSelf(END_GRASS_BLOCK.get());
         dropSelf(END_LOG.get());
-        dropSelf(END_STRIPPED_LOG.get());
+        dropSelf(STRIPPED_END_LOG.get());
         dropSelf(END_PLANKS.get());
         add(END_SLAB.get(), (block) -> {return createSlabItemTable(END_SLAB.get());});
         dropSelf(END_FENCE.get());
@@ -43,6 +43,8 @@ public class DEBlocksLootTables extends BlockLoot {
         dropOther(END_WALL_SIGN.get(), DEItems.END_SIGN.get());
         dropSelf(END_ROSE.get());
         dropSelf(END_SAPLING.get());
+        dropSelf(END_SAND.get());
+        dropSelf(END_SANDSTONE.get());
         dropPottedContents(POTTED_END_ROSE.get());
         dropPottedContents(POTTED_END_SAPLING.get());
 

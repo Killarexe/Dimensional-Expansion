@@ -78,9 +78,9 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.WEATHER_POWER_STONE.get());
     	oneLayerItem(DEItems.TIME_POWER_STONE.get());
     	oneLayerItem(DEItems.WARP_POWER_STONE.get());
-    	oneLayerItem(DEItems.POWER_GAUNTLET.get());
     	
     	oneLayerItem(DEItems.COORD_LINKER.get());
+    	oneLayerItem(DEItems.REMOTE_TELEPORTER.get());
     	
     	oneLayerItem(DEItems.XP_SEEDS.get());
     	oneLayerItem(DEItems.HEART_SEEDS.get());
@@ -108,7 +108,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         
         simpleBlockItem(DEBlocks.END_GRASS_BLOCK.get().asItem());
         simpleBlockItem(DEBlocks.END_LOG.get().asItem());
-        simpleBlockItem(DEBlocks.END_STRIPPED_LOG.get().asItem());
+        simpleBlockItem(DEBlocks.STRIPPED_END_LOG.get().asItem());
         simpleBlockItem(DEBlocks.END_PLANKS.get().asItem());
         simpleBlockItem(DEBlocks.END_SLAB.get().asItem());
         simpleBlockItem(DEBlocks.END_FENCE.get().asItem());
@@ -132,7 +132,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     }
 
     private void simpleBlockItem(Item item){
-        getBuilder(item.getRegistryName().toString()).parent(getExistingFile(mcLoc("block/" + item.getRegistryName().getPath())));
+        getBuilder(item.getRegistryName().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MODID, item.getRegistryName().getPath())));
     }
 
     private void oneLayerItem(ItemLike item, ResourceLocation texture, boolean handheld){

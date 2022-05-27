@@ -1,13 +1,12 @@
 package net.killarexe.dimensional_expansion.common.item;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.PlayerRespawnLogic;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -35,9 +34,9 @@ public class WarpPowerStone extends Item{
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.warp_power_stone"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".warp_power_stone"));
         }else{
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.shift"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".shift"));
         }
     }
 
@@ -60,10 +59,13 @@ public class WarpPowerStone extends Item{
                 setDamage(item, 1);
                 player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
                 BlockPos respawnPos = serverPlayer.getRespawnPosition();
-                player.setPos(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
-                return InteractionResultHolder.pass(item);
+                if(respawnPos == null && level instanceof ServerLevel serverLevel) {
+                	respawnPos = serverLevel.getSharedSpawnPos();
+                }
+                serverPlayer.teleportTo(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
+                return InteractionResultHolder.success(item);
             }
         }
-        return InteractionResultHolder.fail(item);
+        return InteractionResultHolder.sidedSuccess(item, true);
     }
 }

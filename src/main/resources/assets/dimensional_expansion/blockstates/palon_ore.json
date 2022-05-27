@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "dimensional_expansion:block/palon_ore" }
-	}
+  "variants": {
+    "": {
+      "model": "dimensional_expansion:block/palon_ore"
+    }
+  }
 }

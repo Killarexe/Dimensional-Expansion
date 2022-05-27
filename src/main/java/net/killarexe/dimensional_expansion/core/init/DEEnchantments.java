@@ -10,7 +10,8 @@ public class DEEnchantments {
 
     public static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, DEMod.MODID);
 
-    private static RegistryObject<Enchantment> createEnchantment(String name, Enchantment enchantment){
+    @SuppressWarnings("unused")
+	private static RegistryObject<Enchantment> createEnchantment(String name, Enchantment enchantment){
         return ENCHANTMENT.register(name, () -> enchantment);
     }
 }

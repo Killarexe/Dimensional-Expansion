@@ -85,9 +85,11 @@ public class DEMod
         LOGGER.info("Put Dimensional Expansion Strippables");
         StrippingMap.putStrippables(event);
         event.enqueueWork(() ->{
+        	LOGGER.info("Put Dimensional Expansion Compostables");
             ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
-
+            
+            LOGGER.info("Put Dimensional Expansion Flower Pots");
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), () -> DEBlocks.POTTED_END_ROSE.get());
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), () -> DEBlocks.POTTED_END_SAPLING.get());
         });

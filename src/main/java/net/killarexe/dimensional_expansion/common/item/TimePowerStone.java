@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
@@ -12,7 +13,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,9 +33,9 @@ public class TimePowerStone extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.time_power_stone"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".time_power_stone"));
         }else{
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.shift"));
+            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".shift"));
         }
     }
 
@@ -46,7 +46,7 @@ public class TimePowerStone extends Item {
 
     @Override
     public UseAnim getUseAnimation(ItemStack p_41452_) {
-        return UseAnim.SPYGLASS;
+        return UseAnim.CROSSBOW;
     }
 
     @Override
@@ -64,9 +64,9 @@ public class TimePowerStone extends Item {
                 }
                 return InteractionResultHolder.success(item);
             }
-            return InteractionResultHolder.pass(item);
+            return InteractionResultHolder.fail(item);
         }
-        return InteractionResultHolder.fail(item);
+        return InteractionResultHolder.success(item);
     }
 
 }

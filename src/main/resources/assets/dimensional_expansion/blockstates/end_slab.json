@@ -1,13 +1,13 @@
 {
   "variants": {
+    "type=top": {
+      "model": "dimensional_expansion:block/end_slab_top"
+    },
     "type=bottom": {
       "model": "dimensional_expansion:block/end_slab"
     },
     "type=double": {
-      "model": "dimensional_expansion:block/end_planks"
-    },
-    "type=top": {
-      "model": "dimensional_expansion:block/end_slab_top"
+      "model": "dimensional_expansion:block/end_slab"
     }
   }
 }
