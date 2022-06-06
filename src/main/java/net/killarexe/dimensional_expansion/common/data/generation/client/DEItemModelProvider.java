@@ -8,6 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -97,42 +100,50 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.DW_DISC.get());
     	
         //Block Items
-        simpleBlockItem(DEBlocks.PALON_ORE.get().asItem());
-        simpleBlockItem(DEBlocks.PALON_BLOCK.get().asItem());
-        simpleBlockItem(DEBlocks.BASSMITE_ORE.get().asItem());
-        simpleBlockItem(DEBlocks.BASSMITE_BLOCK.get().asItem());
-        simpleBlockItem(DEBlocks.SIMIX_ORE.get().asItem());
-        simpleBlockItem(DEBlocks.SIMIX_BLOCK.get().asItem());
-        simpleBlockItem(DEBlocks.EMERTYST_ORE.get().asItem());
-        simpleBlockItem(DEBlocks.EMERTYST_BLOCK.get().asItem());
+        simpleBlockItem(DEBlocks.PALON_ORE.get());
+        simpleBlockItem(DEBlocks.PALON_BLOCK.get());
+        simpleBlockItem(DEBlocks.BASSMITE_ORE.get());
+        simpleBlockItem(DEBlocks.BASSMITE_BLOCK.get());
+        simpleBlockItem(DEBlocks.SIMIX_ORE.get());
+        simpleBlockItem(DEBlocks.SIMIX_BLOCK.get());
+        simpleBlockItem(DEBlocks.EMERTYST_ORE.get());
+        simpleBlockItem(DEBlocks.EMERTYST_BLOCK.get());
         
-        simpleBlockItem(DEBlocks.END_GRASS_BLOCK.get().asItem());
-        simpleBlockItem(DEBlocks.END_LOG.get().asItem());
-        simpleBlockItem(DEBlocks.STRIPPED_END_LOG.get().asItem());
-        simpleBlockItem(DEBlocks.END_PLANKS.get().asItem());
-        simpleBlockItem(DEBlocks.END_SLAB.get().asItem());
-        simpleBlockItem(DEBlocks.END_FENCE.get().asItem());
-        simpleBlockItem(DEBlocks.END_FENCE_GATE.get().asItem());
-        simpleBlockItem(DEBlocks.END_BUTTON.get().asItem());
-        simpleBlockItem(DEBlocks.END_PRESSURE_PLATE.get().asItem());
+        simpleBlockItem(DEBlocks.END_GRASS_BLOCK.get());
+        simpleBlockItem(DEBlocks.END_LOG.get());
+        simpleBlockItem(DEBlocks.STRIPPED_END_LOG.get());
+        simpleBlockItem(DEBlocks.END_PLANKS.get());
+        simpleBlockItem(DEBlocks.END_SLAB.get());
+        inventoryItem((FenceBlock) DEBlocks.END_FENCE.get());
+        simpleBlockItem(DEBlocks.END_FENCE_GATE.get());
+        inventoryItem(DEBlocks.END_BUTTON.get());
+        simpleBlockItem(DEBlocks.END_PRESSURE_PLATE.get());
         oneLayerItem(DEBlocks.END_DOOR.get());
-        simpleBlockItem(DEBlocks.END_TRAPDOOR.get().asItem());
-        simpleBlockItem(DEBlocks.END_LEAVES.get().asItem());
-        simpleBlockItem(DEBlocks.END_STAIRS.get().asItem());
-        simpleBlockItem(DEBlocks.END_BOOKSHELF.get().asItem());
+        trapDoorItem((TrapDoorBlock) DEBlocks.END_TRAPDOOR.get());
+        simpleBlockItem(DEBlocks.END_LEAVES.get());
+        simpleBlockItem(DEBlocks.END_STAIRS.get());
+        simpleBlockItem(DEBlocks.END_BOOKSHELF.get());
         oneLayerItem(DEBlocks.END_ROSE.get());
         oneLayerItem(DEBlocks.END_SAPLING.get());
-        simpleBlockItem(DEBlocks.END_SAND.get().asItem());
-        simpleBlockItem(DEBlocks.END_SANDSTONE.get().asItem());
+        simpleBlockItem(DEBlocks.END_SAND.get());
+        simpleBlockItem(DEBlocks.END_SANDSTONE.get());
         
-        simpleBlockItem(DEBlocks.FORGE.get().asItem());
-        simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR.get().asItem());
-        simpleBlockItem(DEBlocks.MINERAL_STORAGE.get().asItem());
-        simpleBlockItem(DEBlocks.DISPLAY_BLOCK.get().asItem());
+        simpleBlockItem(DEBlocks.FORGE.get());
+        simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR.get());
+        simpleBlockItem(DEBlocks.MINERAL_STORAGE.get());
+        simpleBlockItem(DEBlocks.DISPLAY_BLOCK.get());
     }
 
-    private void simpleBlockItem(Item item){
-        getBuilder(item.getRegistryName().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MODID, item.getRegistryName().getPath())));
+    private void simpleBlockItem(Block block){
+        getBuilder(block.getRegistryName().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MODID, "block/" + block.getRegistryName().getPath())));
+    }
+    
+    private void inventoryItem(Block block) {
+    	getBuilder(block.getRegistryName().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MODID, "block/" + block.getRegistryName().getPath() + "_inventory")));
+    }
+    
+    private void trapDoorItem(TrapDoorBlock block) {
+    	getBuilder(block.getRegistryName().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MODID, "block/" + block.getRegistryName().getPath() + "_bottom")));
     }
 
     private void oneLayerItem(ItemLike item, ResourceLocation texture, boolean handheld){

@@ -106,7 +106,7 @@ public class DEItems {
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
-    public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.DECORATION_BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
+    public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
     public static final RegistryObject<Item> END_BOAT = ITEMS.register("end_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), EndBoatEntity.Type.END));
 
     public static final RegistryObject<Item> BJM_DISC = createDiscItem("bjm_disc", 7, DESounds.BJM, DEItemGroups.MISC);

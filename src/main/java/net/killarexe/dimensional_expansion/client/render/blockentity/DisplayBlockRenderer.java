@@ -28,26 +28,25 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         if (pBlockEntity.getItemInSlot(0).equals(ItemStack.EMPTY) || pBlockEntity.getItemInSlot(0).getItem().equals(Items.AIR))
             return;
 
-		int lightLevel = pPackedLight;
-
         renderItem(pBlockEntity.getItemInSlot(0), new Vector3d(0.5, 1.5, 0.5),
-                Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, lightLevel, 0.8f);
+                Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, pPackedLight, 0.8f);
 
         TextComponent label = new TextComponent(pBlockEntity.getItemInSlot(0).getHoverName().getString());
 
-        renderLabel(pPoseStack, pBufferSource, lightLevel, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        renderLabel(pPoseStack, pBufferSource, pPackedLight, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
     }
 
     private void renderItem(ItemStack stack, Vector3d translation, Quaternion rotation, PoseStack matrixStack,
-                            MultiBufferSource buffer, int combinedOverlay, int lightLevel, float scale) {
+                            MultiBufferSource buffer, int combinedOverlay, int combinedLight, float scale) {
         matrixStack.pushPose();
         matrixStack.translate(translation.x, translation.y, translation.z);
         matrixStack.mulPose(rotation);
         matrixStack.scale(scale, scale, scale);
 
-        BakedModel model = mc.getItemRenderer().getModel(stack, null, null, 0);
-        mc.getItemRenderer().render(stack, ItemTransforms.TransformType.GROUND, true, matrixStack, buffer,
-                lightLevel, combinedOverlay, model);
+        mc.getItemRenderer().renderStatic(
+                Minecraft.getInstance().player, stack, ItemTransforms.TransformType.FIXED, false,
+                matrixStack, buffer, Minecraft.getInstance().level, combinedLight, combinedOverlay, 0
+        );
         matrixStack.popPose();
     }
 

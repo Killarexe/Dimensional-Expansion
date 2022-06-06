@@ -1,13 +1,15 @@
 {
-  "temperature": 0.5,
-  "downfall": 0.5,
+  "temperature": 0.7,
+  "downfall": 0.3,
   "precipitation": "none",
   "category": "the_end",
   "effects": {
-    "sky_color": 0,
+    "sky_color": 7153604,
     "fog_color": 10518688,
-    "water_color": 4159204,
+    "water_color": 10518688,
     "water_fog_color": 329011,
+    "grass_color": 6893474,
+    "foliage_color": 5904299,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,

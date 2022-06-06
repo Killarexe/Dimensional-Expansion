@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:emertyst_gem"
+    }
+  },
+  "result": {
+    "item": "dimensional_expansion:emertyst_block"
+  }
+}

@@ -13,7 +13,7 @@ public class DEItemGroups {
         }
     };
 
-    public static final CreativeModeTab BUILDING_BLOCKS = new CreativeModeTab(DEMod.MODID+".building_blocks") {
+    public static final CreativeModeTab BLOCKS = new CreativeModeTab(DEMod.MODID+".blocks") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(DEBlocks.PALON_BLOCK.get());
@@ -31,13 +31,6 @@ public class DEItemGroups {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(DEItems.PALON_PICKAXE.get());
-        }
-    };
-
-    public static final CreativeModeTab DECORATION_BLOCKS = new CreativeModeTab(DEMod.MODID+".decoration_blocks") {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(DEBlocks.BASSMITE_BLOCK.get());
         }
     };
 }

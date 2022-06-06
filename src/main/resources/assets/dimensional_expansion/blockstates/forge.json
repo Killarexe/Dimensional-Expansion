@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "dimensional_expansion:block/forge" }
+    "": {
+      "model": "dimensional_expansion:block/forge"
+    }
   }
 }

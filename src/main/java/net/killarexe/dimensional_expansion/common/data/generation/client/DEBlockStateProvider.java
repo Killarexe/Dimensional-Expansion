@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
@@ -39,29 +40,29 @@ public class DEBlockStateProvider extends BlockStateProvider {
         simpleBlock(END_LEAVES.get());
         stairsBlock((StairBlock)END_STAIRS.get(), blockTexture(END_PLANKS.get()));
         simpleBlock(END_SAND.get());
-        models().cubeBottomTop(END_SANDSTONE.get().getRegistryName().getPath(),
+        getVariantBuilder(END_SANDSTONE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(END_SANDSTONE.get().getRegistryName().getPath(),
         		blockTexture(END_SANDSTONE.get()),
         		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_top")
-        );
+        )));
         
-        models().cube(FORGE.get().getRegistryName().getPath(),
+        getVariantBuilder(FORGE.get()).partialState().setModels(new ConfiguredModel(models().cube(FORGE.get().getRegistryName().getPath(),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_front"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_side")
-        );
-        models().cubeBottomTop(MINERAL_STORAGE.get().getRegistryName().getPath(),
+        )));
+        getVariantBuilder(MINERAL_STORAGE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(MINERAL_STORAGE.get().getRegistryName().getPath(),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_side"),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_top")
-        );
-        models().cubeBottomTop(DISPLAY_BLOCK.get().getRegistryName().getPath(),
+        )));
+        getVariantBuilder(DISPLAY_BLOCK.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.get().getRegistryName().getPath(),
         		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
         		blockTexture(Blocks.END_STONE),
         		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_top")
-        );
+        )));
     }
 }

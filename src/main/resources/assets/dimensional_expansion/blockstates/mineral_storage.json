@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "dimensional_expansion:block/mineral_storage" }
+    "": {
+      "model": "dimensional_expansion:block/mineral_storage"
+    }
   }
 }
