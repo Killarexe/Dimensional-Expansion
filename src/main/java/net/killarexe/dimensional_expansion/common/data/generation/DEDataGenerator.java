@@ -14,7 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-@Mod.EventBusSubscriber(modid = DEMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = DEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEDataGenerator {
 
     @SubscribeEvent
@@ -23,19 +23,17 @@ public class DEDataGenerator {
         ExistingFileHelper helper = e.getExistingFileHelper();
 
         if(e.includeClient()){
-            generator.addProvider(new DEBlockStateProvider(generator, helper));
-            generator.addProvider(new DEItemModelProvider(generator, helper));
-            generator.addProvider(new DEEnUsProvider(generator));
+            generator.addProvider(true, new DEBlockStateProvider(generator, helper));
+            generator.addProvider(true, new DEItemModelProvider(generator, helper));
+            generator.addProvider(true, new DEEnUsProvider(generator));
         }
 
         if(e.includeServer()){
-            //Data Pack Generation
-
             DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(generator, helper);
-            generator.addProvider(blockTagsProvider);
-            generator.addProvider(new DEItemTagsProvider(generator, blockTagsProvider, helper));
-            generator.addProvider(new DERecipeProvider(generator));
-            generator.addProvider(new DELootTableProvider(generator));
+            generator.addProvider(true, blockTagsProvider);
+            generator.addProvider(true, new DEItemTagsProvider(generator, blockTagsProvider, helper));
+            generator.addProvider(true, new DERecipeProvider(generator));
+            generator.addProvider(true, new DELootTableProvider(generator));
         }
     }
 }

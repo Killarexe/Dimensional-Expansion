@@ -6,7 +6,8 @@ import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.SimpleContainer;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
 
-    public static final Component TITLE = new TranslatableComponent("block." + DEMod.MODID + ".essence_extractor");
+    public static final Component TITLE = MutableComponent.create(new TranslatableContents("block." + DEMod.MOD_ID + ".essence_extractor"));
 
     public EssenceExtractorBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(DEBlockEntities.ESSENCE_EXTRACTOR.get(), pWorldPosition, pBlockState, 2);

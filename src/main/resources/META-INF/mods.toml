@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[41,)"
 license="Creative Commons Attribution-NonCommercial 3.0"
 [[mods]]
 modId="dimensional_expansion"
@@ -13,13 +13,13 @@ updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[40,)" #mandatory
+    versionRange="[41,)" #mandatory
     ordering="NONE"
     side="BOTH"
 # Here's another dependency
 [[dependencies.dimensional_expansion]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,1.19)"
+    versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"

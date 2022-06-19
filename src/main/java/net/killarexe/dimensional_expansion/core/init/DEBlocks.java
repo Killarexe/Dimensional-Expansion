@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 
 public class DEBlocks {
 
-    public static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, DEMod.MODID);
+    public static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, DEMod.MOD_ID);
 
     public static final RegistryObject<Block> PALON_ORE = createOreBlock("palon_ore", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, UniformInt.of(0, 0), SoundType.STONE, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.NETHERITE_BLOCK, DEItemGroups.BLOCKS);
@@ -79,7 +79,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<Block> createOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, UniformInt xpDrop, SoundType sound, CreativeModeTab itemGroup){
-        RegistryObject<Block> block = BLOCK.register(id, () -> new OreBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound), xpDrop));
+        RegistryObject<Block> block = BLOCK.register(id, () -> new DropExperienceBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound), xpDrop));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup).fireResistant()));
         return block;
     }
@@ -162,7 +162,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<Block> createFlowerPotBlock(String id, Supplier<Block> flowerBlock){
-        RegistryObject<Block> block = BLOCK.register(id, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT.delegate.get(), flowerBlock, BlockBehaviour.Properties.copy(Blocks.POTTED_ACACIA_SAPLING)));
+        RegistryObject<Block> block = BLOCK.register(id, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flowerBlock, BlockBehaviour.Properties.copy(Blocks.POTTED_ACACIA_SAPLING)));
         return block;
     }
 

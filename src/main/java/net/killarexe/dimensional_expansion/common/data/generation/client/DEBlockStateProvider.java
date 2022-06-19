@@ -12,7 +12,7 @@ import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
 public class DEBlockStateProvider extends BlockStateProvider {
     public DEBlockStateProvider(DataGenerator generator, ExistingFileHelper helper) {
-        super(generator, DEMod.MODID, helper);
+        super(generator, DEMod.MOD_ID, helper);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class DEBlockStateProvider extends BlockStateProvider {
 
         logBlock((RotatedPillarBlock)END_LOG.get());
         logBlock((RotatedPillarBlock)STRIPPED_END_LOG.get());
-        slabBlock((SlabBlock)END_SLAB.get(), END_SLAB.get().getRegistryName(), blockTexture(END_PLANKS.get()));
+        slabBlock((SlabBlock)END_SLAB.get(), END_SLAB.getId(), blockTexture(END_PLANKS.get()));
         simpleBlock(END_PLANKS.get());
         fenceBlock((FenceBlock) END_FENCE.get(), blockTexture(END_PLANKS.get()));
         fenceGateBlock((FenceGateBlock) END_FENCE_GATE.get(), blockTexture(END_PLANKS.get()));
@@ -40,13 +40,13 @@ public class DEBlockStateProvider extends BlockStateProvider {
         simpleBlock(END_LEAVES.get());
         stairsBlock((StairBlock)END_STAIRS.get(), blockTexture(END_PLANKS.get()));
         simpleBlock(END_SAND.get());
-        getVariantBuilder(END_SANDSTONE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(END_SANDSTONE.get().getRegistryName().getPath(),
+        getVariantBuilder(END_SANDSTONE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(END_SANDSTONE.getId().getPath(),
         		blockTexture(END_SANDSTONE.get()),
         		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(END_SANDSTONE.get()) + "_top")
         )));
         
-        getVariantBuilder(FORGE.get()).partialState().setModels(new ConfiguredModel(models().cube(FORGE.get().getRegistryName().getPath(),
+        getVariantBuilder(FORGE.get()).partialState().setModels(new ConfiguredModel(models().cube(FORGE.getId().getPath(),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_front"),
@@ -54,12 +54,12 @@ public class DEBlockStateProvider extends BlockStateProvider {
         		new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
         		new ResourceLocation(blockTexture(FORGE.get()) + "_side")
         )));
-        getVariantBuilder(MINERAL_STORAGE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(MINERAL_STORAGE.get().getRegistryName().getPath(),
+        getVariantBuilder(MINERAL_STORAGE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(MINERAL_STORAGE.getId().getPath(),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_side"),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_top")
         )));
-        getVariantBuilder(DISPLAY_BLOCK.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.get().getRegistryName().getPath(),
+        getVariantBuilder(DISPLAY_BLOCK.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.getId().getPath(),
         		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
         		blockTexture(Blocks.END_STONE),
         		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_top")

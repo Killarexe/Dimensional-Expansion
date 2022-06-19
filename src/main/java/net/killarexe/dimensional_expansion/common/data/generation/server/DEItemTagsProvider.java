@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class DEItemTagsProvider extends ItemTagsProvider {
 
     public DEItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper helper) {
-        super(generator, blockTagsProvider, DEMod.MODID, helper);
+        super(generator, blockTagsProvider, DEMod.MOD_ID, helper);
     }
 
     @Override

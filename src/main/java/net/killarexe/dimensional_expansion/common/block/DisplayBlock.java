@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.common.block;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
 import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -55,9 +54,6 @@ public class DisplayBlock extends Block implements EntityBlock {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final DisplayBlockEntity entity) {
             if (!player.isCrouching()) {
                 entity.appendItem(player.getItemInHand(hand));
-            } else {
-                player.displayClientMessage(
-                        new TextComponent("Current count is " + entity.getItemInSlot(0).getCount() + "!"), false);
             }
         }
 

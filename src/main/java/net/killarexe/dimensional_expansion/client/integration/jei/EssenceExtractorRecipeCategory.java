@@ -19,15 +19,15 @@ import java.util.List;
 
 public class EssenceExtractorRecipeCategory implements IRecipeCategory<EssenceExtractorRecipe> {
 
-    public final static ResourceLocation UID = new ResourceLocation(DEMod.MODID, "essence_extractor");
-    public final static ResourceLocation TEXTURE = new ResourceLocation(DEMod.MODID, "textures/gui/jei/essence_extractor_gui.png");
+    public final static ResourceLocation UID = new ResourceLocation(DEMod.MOD_ID, "essence_extractor");
+    public final static ResourceLocation TEXTURE = new ResourceLocation(DEMod.MOD_ID, "textures/gui/jei/essence_extractor_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;
 
     public EssenceExtractorRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get()));
     }
 
     @Override
@@ -52,17 +52,11 @@ public class EssenceExtractorRecipeCategory implements IRecipeCategory<EssenceEx
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, EssenceExtractorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(VanillaTypes.ITEM, List.of(recipe.getIngredients().get(0).getItems()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(VanillaTypes.ITEM_STACK, List.of(recipe.getIngredients().get(0).getItems()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
     }
 
-    @Override
     public ResourceLocation getUid() {
         return UID;
-    }
-
-    @Override
-    public Class<? extends EssenceExtractorRecipe> getRecipeClass() {
-        return EssenceExtractorRecipe.class;
     }
 }

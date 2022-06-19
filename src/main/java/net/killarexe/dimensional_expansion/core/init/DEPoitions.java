@@ -11,8 +11,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DEPoitions {
 
-    public static final DeferredRegister<MobEffect> EFFECT = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, DEMod.MODID);
-    public static final DeferredRegister<Potion> POTION = DeferredRegister.create(ForgeRegistries.POTIONS, DEMod.MODID);
+    public static final DeferredRegister<MobEffect> EFFECT = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, DEMod.MOD_ID);
+    public static final DeferredRegister<Potion> POTION = DeferredRegister.create(ForgeRegistries.POTIONS, DEMod.MOD_ID);
 
     /*EFFECTS*/
     public static final RegistryObject<MobEffect> REMOTE_EFFECT = createEffect("remote", new Remote());

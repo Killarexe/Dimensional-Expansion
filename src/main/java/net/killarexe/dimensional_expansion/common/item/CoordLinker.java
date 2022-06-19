@@ -5,8 +5,8 @@ import net.killarexe.dimensional_expansion.uitls.DEMath;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
@@ -30,9 +30,9 @@ public class CoordLinker extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TextComponent("Overworld: " + overworldPos.toShortString() + " Nether: " + netherPos.toShortString()));
+            tooltip.add(MutableComponent.create(new TranslatableContents("Overworld: " + overworldPos.toShortString() + " Nether: " + netherPos.toShortString())));
         }else{
-            tooltip.add(new TranslatableComponent("tooltip.dimensional_expansion.shift"));
+            tooltip.add(MutableComponent.create(new TranslatableContents("tooltip.dimensional_expansion.shift")));
         }
     }
 

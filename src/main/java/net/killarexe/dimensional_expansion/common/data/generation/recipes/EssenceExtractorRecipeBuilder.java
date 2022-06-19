@@ -88,7 +88,7 @@ public class EssenceExtractorRecipeBuilder implements RecipeBuilder{
 			pJson.add("ingredients", jsonArray);
 			
 			JsonObject jsonObject = new JsonObject();
-			jsonObject.addProperty("item", this.output.getRegistryName().toString());
+			jsonObject.addProperty("item", this.output.toString());
 			if(this.count > 1) {
 				jsonObject.addProperty("count", this.count);
 			}
@@ -97,7 +97,7 @@ public class EssenceExtractorRecipeBuilder implements RecipeBuilder{
 
 		@Override
 		public ResourceLocation getId() {
-			return new ResourceLocation(DEMod.MODID, this.output.getRegistryName().getPath() + "_from_extractor");
+			return new ResourceLocation(DEMod.MOD_ID, this.output.toString() + "_from_extractor");
 		}
 
 		@Override

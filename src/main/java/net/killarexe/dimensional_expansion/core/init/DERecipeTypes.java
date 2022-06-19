@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DERecipeTypes {
 
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, DEMod.MODID);
+    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, DEMod.MOD_ID);
 
     public static final RegistryObject<RecipeSerializer<EssenceExtractorRecipe>> ESSENCE_EXTRACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register(
             "essence_extractor", () -> EssenceExtractorRecipe.Serializer.INSTANCE);

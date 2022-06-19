@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public class DEBlockEntities {
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES= DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, DEMod.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES= DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, DEMod.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<EndSignBlockEntity>> END_SIGN = register("end_sign", () -> BlockEntityType.Builder.of(EndSignBlockEntity::new, DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
     public static final RegistryObject<BlockEntityType<EssenceExtractorBlockEntity>> ESSENCE_EXTRACTOR = register("essence_extractor", () -> BlockEntityType.Builder.of(EssenceExtractorBlockEntity::new, DEBlocks.ESSENCE_EXTRACTOR.get()));

@@ -14,19 +14,19 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
 public enum DEArmorMaterial implements ArmorMaterial {
-	PALON(DEMod.MODID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	PALON(DEMod.MOD_ID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
 	}),
 
-	EMERTYST(DEMod.MODID + ":emertyst",124, new int[] {10, 22, 28, 10}, 48, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	EMERTYST(DEMod.MOD_ID + ":emertyst",124, new int[] {10, 22, 28, 10}, 48, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	}),
 
-	BASSMITE(DEMod.MODID + ":bassmite",64, new int[] {7, 13, 16, 7}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	BASSMITE(DEMod.MOD_ID + ":bassmite",64, new int[] {7, 13, 16, 7}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
 
-	SIMIX(DEMod.MODID + ":simix",67, new int[] {10, 16, 19, 10}, 29, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	SIMIX(DEMod.MOD_ID + ":simix",67, new int[] {10, 16, 19, 10}, 29, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.SIMIX_INGOT.get());
 	});
 

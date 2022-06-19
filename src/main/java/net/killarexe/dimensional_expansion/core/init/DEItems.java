@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -32,7 +33,7 @@ import java.util.function.Supplier;
 
 public class DEItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DEMod.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DEMod.MOD_ID);
 
     //ITEMS
     public static final RegistryObject<Item> RAW_PALON = createItem("raw_palon", DEItemGroups.MISC, true);
@@ -162,11 +163,11 @@ public class DEItems {
     }
 
     private static RegistryObject<Item> createHorseArmorItem(String id, int armorValue, String tierID, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MODID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
+        return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
     }
 
     @SuppressWarnings("unused")
-	private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
+	private static RegistryObject<Item> createBannerPatternItem(String id, TagKey<BannerPattern> pattern, CreativeModeTab itemGroup){
         return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
     }
     

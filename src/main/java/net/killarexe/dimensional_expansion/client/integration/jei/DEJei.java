@@ -19,7 +19,7 @@ public class DEJei implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(DEMod.MODID, "jei_plugin");
+        return new ResourceLocation(DEMod.MOD_ID, "jei_plugin");
     }
 
     @Override

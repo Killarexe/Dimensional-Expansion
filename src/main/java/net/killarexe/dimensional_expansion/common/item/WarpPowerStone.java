@@ -1,12 +1,8 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -16,28 +12,12 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 import java.util.Random;
 
-public class WarpPowerStone extends Item{
+public class WarpPowerStone extends PowerStone{
 
     public WarpPowerStone() {
-        super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
-    }
-
-    @Override
-    public int getUseDuration(ItemStack p_41454_) {return 72000;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".warp_power_stone"));
-        }else{
-            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".shift"));
-        }
+        super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32), "warp_power_stone");
     }
 
     @Override
@@ -50,22 +30,20 @@ public class WarpPowerStone extends Item{
         return UseAnim.SPYGLASS;
     }
 
+
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack item = player.getItemInHand(hand);
-        if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
-            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            if(player instanceof ServerPlayer serverPlayer) {
-                setDamage(item, 1);
-                player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
-                BlockPos respawnPos = serverPlayer.getRespawnPosition();
-                if(respawnPos == null && level instanceof ServerLevel serverLevel) {
-                	respawnPos = serverLevel.getSharedSpawnPos();
-                }
-                serverPlayer.teleportTo(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
-                return InteractionResultHolder.success(item);
+    public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
+        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
+        if(player instanceof ServerPlayer serverPlayer) {
+            setDamage(item, 1);
+            player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
+            BlockPos respawnPos = serverPlayer.getRespawnPosition();
+            if(respawnPos == null && level instanceof ServerLevel serverLevel) {
+                respawnPos = serverLevel.getSharedSpawnPos();
             }
+            serverPlayer.teleportTo(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
+            return InteractionResultHolder.success(item);
         }
-        return InteractionResultHolder.sidedSuccess(item, true);
+        return InteractionResultHolder.sidedSuccess(item, false);
     }
 }

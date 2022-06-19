@@ -5,7 +5,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,7 +16,7 @@ public class PowerGauntletScreen extends Screen {
     private ImageButton weather, time, warp;
 
     public PowerGauntletScreen() {
-        super(new TranslatableComponent("screen." + DEMod.MODID + ".power_gauntlet_screen"));
+        super(Component.translatable("screen." + DEMod.MOD_ID + ".power_gauntlet_screen"));
     }
 
     @Override
@@ -29,19 +29,19 @@ public class PowerGauntletScreen extends Screen {
         weather = new ImageButton(
                 width/2, height/2, 16,
                 16, 0, 0,
-                height/2, new ResourceLocation(DEMod.MODID, "textures/item/palon_ingot.png"),
+                height/2, new ResourceLocation(DEMod.MOD_ID, "textures/item/palon_ingot.png"),
                 256, 256, (pButton -> {weather();})
         );
         time = new ImageButton(
                 width/2, height/2, 16,
                 16, 0, 0,
-                height/2, new ResourceLocation(DEMod.MODID, "textures/item/palon_ingot.png"),
+                height/2, new ResourceLocation(DEMod.MOD_ID, "textures/item/palon_ingot.png"),
                 256, 256, (pButton -> {time();})
         );
         warp = new ImageButton(
                 width/2, height/2, 16,
                 16, 0, 0,
-                height/2, new ResourceLocation(DEMod.MODID, "textures/item/palon_ingot.png"),
+                height/2, new ResourceLocation(DEMod.MOD_ID, "textures/item/palon_ingot.png"),
                 256, 256, (pButton -> {warp();})
         );
         addRenderableWidget(weather);

@@ -6,7 +6,8 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ScreenEvent;
@@ -18,14 +19,14 @@ public class DEConfigScreen extends Screen {
     private Button clientButton, commonButton, cancelButton, applyButton;
 
     public DEConfigScreen(Screen previousScreen) {
-        super(new TranslatableComponent("narrator.screen.title"));
+        super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
         this.previousScreen = previousScreen;
     }
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
-        drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
+        drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".title")), width/2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
@@ -47,17 +48,17 @@ public class DEConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".cancel_button"), (button -> {
+        cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {
             onClose();
         }));
-        applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, new TranslatableComponent("button." + DEMod.MODID + ".apply_button"), (button -> {
+        applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {
             onClose();
         }));
 
-        clientButton = new Button(this.width / 2 - 75, this.height / 4 + 60, 150, 20, new TranslatableComponent("button." + DEMod.MODID + ".client_button"), (button -> {
+        clientButton = new Button(this.width / 2 - 75, this.height / 4 + 60, 150, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".client_button")), (button -> {
             minecraft.setScreen(new DEClientConfigScreen(this));
         }));
-        commonButton = new Button(this.width / 2 - 75, this.height / 4 + 0, 150, 20, new TranslatableComponent("button." + DEMod.MODID + ".common_button"), (button -> {
+        commonButton = new Button(this.width / 2 - 75, this.height / 4 + 0, 150, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".common_button")), (button -> {
             minecraft.setScreen(new DECommonConfigScreen(this));
         }));
 

@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -31,7 +31,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         renderItem(pBlockEntity.getItemInSlot(0), new Vector3d(0.5, 1.5, 0.5),
                 Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, pPackedLight, 0.8f);
 
-        TextComponent label = new TextComponent(pBlockEntity.getItemInSlot(0).getHoverName().getString());
+        Component label = Component.literal(pBlockEntity.getItemInSlot(0).getHoverName().getString());
 
         renderLabel(pPoseStack, pBufferSource, pPackedLight, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
     }
@@ -50,7 +50,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         matrixStack.popPose();
     }
 
-    private void renderLabel(PoseStack stack, MultiBufferSource buffer, int lightLevel, Vector3d corner, TextComponent text, int color) {
+    private void renderLabel(PoseStack stack, MultiBufferSource buffer, int lightLevel, Vector3d corner, Component text, int color) {
 
         Font font = mc.font;
 

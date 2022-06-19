@@ -8,7 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DEEnchantments {
 
-    public static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, DEMod.MODID);
+    public static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, DEMod.MOD_ID);
 
     @SuppressWarnings("unused")
 	private static RegistryObject<Enchantment> createEnchantment(String name, Enchantment enchantment){

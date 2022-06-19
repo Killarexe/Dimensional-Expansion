@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DEEntities {
 
-    public static final DeferredRegister<EntityType<?>> ENTITY = DeferredRegister.create(ForgeRegistries.ENTITIES, DEMod.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY = DeferredRegister.create(ForgeRegistries.ENTITIES, DEMod.MOD_ID);
 
     public static final RegistryObject<EntityType<EndBoatEntity>> END_BOAT = ENTITY.register("end_boat",
             () -> EntityType.Builder.<EndBoatEntity>of(EndBoatEntity::new, MobCategory.MISC)

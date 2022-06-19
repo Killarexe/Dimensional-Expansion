@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public class DEContainers {
 
-    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, DEMod.MODID);
+    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, DEMod.MOD_ID);
 
     public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_CONTAINER = createContainer(
             "essence_extractor_container",

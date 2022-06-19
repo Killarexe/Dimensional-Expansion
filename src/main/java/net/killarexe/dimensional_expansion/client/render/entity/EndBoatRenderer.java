@@ -19,13 +19,15 @@ public class EndBoatRenderer extends BoatRenderer {
     private final Map<EndBoatEntity.Type, Pair<ResourceLocation, BoatModel>> boatResources;
 
     public EndBoatRenderer(EntityRendererProvider.Context context) {
-        super(context);
+        super(context, false);
         shadowRadius = 0.8f;
         boatResources = Stream.of(EndBoatEntity.Type.values())
                 .collect(ImmutableMap.toImmutableMap((p_173938_) -> p_173938_, (type) ->
-                        Pair.of(new ResourceLocation(DEMod.MODID, "textures/entity/boat" + type.getName() + ".png"),
+                        Pair.of(new ResourceLocation(DEMod.MOD_ID, "textures/entity/boat" + type.getName() + ".png"),
                                 new BoatModel(context.bakeLayer(new ModelLayerLocation(
-                                        new ResourceLocation("minecraft", "boat/oak"), "main"))))));
+                                                        new ResourceLocation("minecraft", "boat/oak"),
+                                                        "main")), false
+                                ))));
     }
 
     @Override

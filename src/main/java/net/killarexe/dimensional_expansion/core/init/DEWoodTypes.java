@@ -10,7 +10,7 @@ public class DEWoodTypes {
     public static final WoodType END = createWoodType("end");
 
     private static WoodType createWoodType(String id){
-        return WoodType.register(WoodType.create(new ResourceLocation(DEMod.MODID, id).toString()));
+        return WoodType.register(WoodType.create(new ResourceLocation(DEMod.MOD_ID, id).toString()));
     }
 
     public static void setWoodTypes(){

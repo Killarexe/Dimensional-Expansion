@@ -2,60 +2,19 @@ package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
 public class DEEvents {
-
-    @SubscribeEvent
-    public static void addFeatures(final BiomeLoadingEvent e){
-        DEMod.LOGGER.info("Adding Dimensional Expansion Biomes Features...");
-        BiomeFeatures.addOres(e);
-        BiomeFeatures.addDecorations(e);
-        DEMod.LOGGER.info("Dimensional Expansion Biomes Features Complete!");
-    }
-
-    private static class BiomeFeatures {
-
-        private static void addDecorations(final BiomeLoadingEvent e) {
-            DEMod.LOGGER.info("Adding Dimensional Expansion Decoration...");
-            ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
-            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
-            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
-
-            if (types.contains(BiomeDictionary.Type.END)) {
-                base.add(DEFeatures.Placed.END_ROSE_PLACED);
-                base.add(DEFeatures.Placed.END_TREE_PLACED);
-            }
-        }
-
-        private static void addOres(final BiomeLoadingEvent e) {
-            DEMod.LOGGER.info("Adding Dimensional Expansion Ores Veins...");
-            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
-            base.add(DEFeatures.Placed.PALON_ORE_PLACED);
-            base.add(DEFeatures.Placed.BASSMITE_ORE_PLACED);
-            base.add(DEFeatures.Placed.SIMIX_ORE_PLACED);
-            base.add(DEFeatures.Placed.EMERTYST_ORE_PLACED);
-        }
-    }
 
     @SubscribeEvent
     public static void addVillagerFeatures(VillagerTradesEvent e){
@@ -188,7 +147,8 @@ public class DEEvents {
                 this.priceMultiplier = priceMult;
             }
 
-            public MerchantOffer getOffer(Entity p_35771_, Random p_35772_) {
+            @Override
+            public MerchantOffer getOffer(Entity p_219693_, RandomSource p_219694_) {
                 if (tradeItem2 == null) {
                     return new MerchantOffer(tradeItem1, reciveItem, this.maxUses, this.villagerXp, this.priceMultiplier);
                 }

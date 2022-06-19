@@ -13,12 +13,11 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.jetbrains.annotations.Nullable;
 
 public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
 
-    public static final ResourceLocation TYPE_ID = new ResourceLocation(DEMod.MODID, "essence_extractor");
+    public static final ResourceLocation TYPE_ID = new ResourceLocation(DEMod.MOD_ID, "essence_extractor");
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
@@ -87,7 +86,7 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
         }
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<EssenceExtractorRecipe>{
+    public static class Serializer implements RecipeSerializer<EssenceExtractorRecipe>{
 
         public static final Serializer INSTANCE = new Serializer();
 

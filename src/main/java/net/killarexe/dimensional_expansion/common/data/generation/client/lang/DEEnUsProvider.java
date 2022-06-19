@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.common.data.generation.client.lang;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -10,7 +9,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 public class DEEnUsProvider extends LanguageProvider {
 
     public DEEnUsProvider(DataGenerator generator) {
-        super(generator, DEMod.MODID, "en_us");
+        super(generator, DEMod.MOD_ID, "en_us");
     }
 
     @Override
@@ -133,31 +132,31 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.DW_DISC.get(), "SM Disc");
         
         /*ItemGroups*/
-        add("itemGroup." + DEMod.MODID + ".combat", "DE Combat");
-        add("itemGroup." + DEMod.MODID + ".tools", "DE Tools");
-        add("itemGroup." + DEMod.MODID + ".misc", "DE Misc");
-        add("itemGroup." + DEMod.MODID + ".blocks", "DE Blocks");
+        add("itemGroup." + DEMod.MOD_ID + ".combat", "DE Combat");
+        add("itemGroup." + DEMod.MOD_ID + ".tools", "DE Tools");
+        add("itemGroup." + DEMod.MOD_ID + ".misc", "DE Misc");
+        add("itemGroup." + DEMod.MOD_ID + ".blocks", "DE Blocks");
 
         /*Screens*/
-        add("config." + DEMod.MODID + ".title", "Dimensional Expansion Config");
-        add("config." + DEMod.MODID + ".client", "Dimensional Expansion §3Client §fConfig");
-        add("config." + DEMod.MODID + ".common", "Dimensional Expansion §6Common §fConfig");
+        add("config." + DEMod.MOD_ID + ".title", "Dimensional Expansion Config");
+        add("config." + DEMod.MOD_ID + ".client", "Dimensional Expansion §3Client §fConfig");
+        add("config." + DEMod.MOD_ID + ".common", "Dimensional Expansion §6Common §fConfig");
 
-        add("button." + DEMod.MODID + ".cancel_button", "§4Cancel");
-        add("button." + DEMod.MODID + ".apply_button", "§2Apply");
-        add("button." + DEMod.MODID + ".client_button", "§3Client §fConfig");
-        add("button." + DEMod.MODID + ".common_button", "§6Common §fConfig");
+        add("button." + DEMod.MOD_ID + ".cancel_button", "§4Cancel");
+        add("button." + DEMod.MOD_ID + ".apply_button", "§2Apply");
+        add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
+        add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
 
-        add("checkbox." + DEMod.MODID + ".show_version", "Show Version");
-        add("checkbox." + DEMod.MODID + ".coords_linker", "Coord Linker Overlay");
-        add("checkbox." + DEMod.MODID + ".modded_title_screen", "Modded Title Screen");
-        add("checkbox." + DEMod.MODID + ".debug_mod", "Debug Mod");
+        add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
+        add("checkbox." + DEMod.MOD_ID + ".coords_linker", "Coord Linker Overlay");
+        add("checkbox." + DEMod.MOD_ID + ".modded_title_screen", "Modded Title Screen");
+        add("checkbox." + DEMod.MOD_ID + ".debug_mod", "Debug Mod");
         
         /*Tooltips*/
-        add("tooltip." + DEMod.MODID + ".shift", "Hold §eSHIFT §ffor more info.");
-        add("tooltip." + DEMod.MODID + ".remote_teleporter", "Give you an effect of Remote for 30 seconds.");
-        add("tooltip." + DEMod.MODID + ".time_power_stone", "Change between day and night.");
-        add("tooltip." + DEMod.MODID + ".warp_power_stone", "Teleport you at spawn point. §4(Need to set a spawn point)");
-        add("tooltip." + DEMod.MODID + ".weather_power_stone", "Switch between raing and sun.");
+        add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");
+        add("tooltip." + DEMod.MOD_ID + ".remote_teleporter", "Give you an effect of Remote for 30 seconds.");
+        add("tooltip." + DEMod.MOD_ID + ".time_power_stone", "Change between day and night.");
+        add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point. §4(Need to set a spawn point)");
+        add("tooltip." + DEMod.MOD_ID + ".weather_power_stone", "Switch between raing and sun.");
     }
 }

@@ -5,7 +5,6 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,24 +18,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class TimePowerStone extends Item {
+public class TimePowerStone extends PowerStone {
 
     public TimePowerStone() {
-        super(new Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32));
-    }
-
-    @Override
-    public int getUseDuration(ItemStack p_41454_) {
-        return 72000;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".time_power_stone"));
-        }else{
-            tooltip.add(new TranslatableComponent("tooltip." + DEMod.MODID + ".shift"));
-        }
+        super(new Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32), "time_power_stone");
     }
 
     @Override
@@ -49,24 +34,19 @@ public class TimePowerStone extends Item {
         return UseAnim.CROSSBOW;
     }
 
+
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack item = player.getItemInHand(hand);
-        if(DEConfig.enableTimePowerStone.get() && !player.getCooldowns().isOnCooldown(this)){
-            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            if(level instanceof ServerLevel serverLevel){
-                setDamage(item, 1);
-                player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
-                if (serverLevel.isDay()) {
-                    serverLevel.setDayTime(1000);
-                } else {
-                    serverLevel.setDayTime(13000);
-                }
-                return InteractionResultHolder.success(item);
+    public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
+        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
+        if(level instanceof ServerLevel serverLevel){
+            if (serverLevel.isDay()) {
+                serverLevel.setDayTime(1000);
+            } else {
+                serverLevel.setDayTime(13000);
             }
-            return InteractionResultHolder.fail(item);
+            return InteractionResultHolder.success(item);
         }
-        return InteractionResultHolder.success(item);
+        return InteractionResultHolder.fail(item);
     }
 
 }
