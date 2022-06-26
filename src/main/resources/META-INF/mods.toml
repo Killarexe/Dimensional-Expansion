@@ -6,7 +6,7 @@ modId="dimensional_expansion"
 version="0.6a"
 displayName="Dimensional Expansion Mod"
 logoFile="pack.png"
-credits="This Mod made bt Killar.exe"
+credits="This Mod made by Killar.exe"
 authors="Killar.exe" #optional
 description='''Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes and more!'''
 updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
@@ -20,6 +20,6 @@ updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion
 [[dependencies.dimensional_expansion]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,)"
+    versionRange="[1.19, 1.20)"
     ordering="NONE"
     side="BOTH"
