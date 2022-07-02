@@ -19,6 +19,6 @@ public class EndTreeGrower extends AbstractTreeGrower {
 
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
-        return DEFeatures.END_TREE;
+        return DEFeatures.Configured.END_TREE;
     }
 }

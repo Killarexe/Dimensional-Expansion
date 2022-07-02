@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ConfigGuiHandler;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -57,6 +58,10 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Villager Professions");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
         DEVillagerTypes.POI_TYPE.register(bus);
+        LOGGER.info("Init Dimensional Expansion Biomes");
+        DEBiomes.BIOMES.register(bus);
+        LOGGER.info("Init Dimensional Expansion Biome Modifiers");
+        DEBiomeModifiers.BIOME_MODIFIERS.register(bus);
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");

@@ -28,11 +28,7 @@ public class DisplayBlock extends Block implements EntityBlock {
     @Override
     public void attack(BlockState state, Level level, BlockPos pos, Player player) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final DisplayBlockEntity entity) {
-            if (player.isCrouching()) {
-                entity.prependStack(player);
-            } else {
-                entity.prependItem(player);
-            }
+            entity.prependItem(player);
         }
     }
 

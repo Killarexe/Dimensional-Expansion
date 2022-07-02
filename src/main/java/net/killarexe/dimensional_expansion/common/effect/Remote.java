@@ -17,14 +17,12 @@ public class Remote extends MobEffect{
 	@Override
 	public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
 		super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-		System.out.println("Saved!");
 		savedPos = pLivingEntity.blockPosition();
 	}
 	
 	@Override
 	public void removeAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
 		super.removeAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-		System.out.println("Used!");
 		pLivingEntity.teleportTo(savedPos.getX(), savedPos.getY(), savedPos.getZ());
 	}
 }

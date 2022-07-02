@@ -4,10 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEBlockStateProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEItemModelProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.lang.DEEnUsProvider;
-import net.killarexe.dimensional_expansion.common.data.generation.server.DEBlockTagsProvider;
-import net.killarexe.dimensional_expansion.common.data.generation.server.DEItemTagsProvider;
-import net.killarexe.dimensional_expansion.common.data.generation.server.DELootTableProvider;
-import net.killarexe.dimensional_expansion.common.data.generation.server.DERecipeProvider;
+import net.killarexe.dimensional_expansion.common.data.generation.server.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,6 +31,7 @@ public class DEDataGenerator {
             generator.addProvider(true, new DEItemTagsProvider(generator, blockTagsProvider, helper));
             generator.addProvider(true, new DERecipeProvider(generator));
             generator.addProvider(true, new DELootTableProvider(generator));
+            generator.addProvider(true, new DEBiomeTagsProvider(generator, helper));
         }
     }
 }

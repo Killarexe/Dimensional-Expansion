@@ -52,7 +52,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
             stack.shrink(stack.getCount());
         }
 
-        if (increment || copy.getCount() == 1) {
+        if (increment || copy.getCount() >= 1) {
             copy.shrink(1);
         }
 
