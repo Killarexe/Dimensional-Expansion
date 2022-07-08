@@ -1,0 +1,5 @@
+{
+  "type": "dimensional_expansion:ore_modifier",
+  "biomes": "#minecraft:is_end",
+  "feature": "dimensional_expansion:palon_ore"
+}

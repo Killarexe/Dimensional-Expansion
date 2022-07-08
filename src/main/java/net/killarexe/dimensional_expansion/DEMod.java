@@ -65,7 +65,10 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
-        ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
+        ModLoadingContext.get().registerExtensionPoint(
+                ConfigGuiHandler.ConfigGuiFactory.class,
+                () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen))
+        );
         LOGGER.info("Set Dimensional Expansion Event Listener");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
@@ -85,7 +88,10 @@ public class DEMod
         	LOGGER.info("Put Dimensional Expansion Compostables");
             ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
-            
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_LEAVES.get(), 0.3f);
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_ROSE.get(), 0.3f);
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_SAPLING.get(), 0.3f);
+
             LOGGER.info("Put Dimensional Expansion Flower Pots");
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), DEBlocks.POTTED_END_ROSE);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), DEBlocks.POTTED_END_SAPLING);

@@ -1,0 +1,5 @@
+{
+  "type": "dimensional_expansion:ore_modifier",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "dimensional_expansion:bassmite_ore"
+}
