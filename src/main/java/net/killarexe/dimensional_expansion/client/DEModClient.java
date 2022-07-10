@@ -36,7 +36,7 @@ public class DEModClient {
 
     private static void clientSetup(final FMLClientSetupEvent event){
         LOGGER.info("Dimensional Expansion Client Setup");
-        Minecraft.getInstance().getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);
+        Minecraft.getInstance().getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup...");
         LOGGER.info("Add Dimensional Expansion WoodTypes");
         DEWoodTypes.setWoodTypes();
         LOGGER.info("Set Dimensional Expansion Block Entity Renders");

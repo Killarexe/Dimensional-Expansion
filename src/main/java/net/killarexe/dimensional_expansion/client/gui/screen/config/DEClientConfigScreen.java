@@ -16,7 +16,7 @@ public class DEClientConfigScreen extends Screen {
 
     private final Screen previousScreen;
     private Button cancelButton, applyButton;
-    private Checkbox showVersionCheckbox, coordLinkerOverlayCheckbox, debugModCheckBox;
+    private Checkbox moddedScreensCheckbox, showVersionCheckbox, coordLinkerOverlayCheckbox, debugModCheckBox;
 
     public DEClientConfigScreen(Screen previousScreen) {
         super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));

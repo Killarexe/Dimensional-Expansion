@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion;
 
+import com.mojang.blaze3d.platform.Window;
 import net.killarexe.dimensional_expansion.client.DEModClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
@@ -7,13 +8,13 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.server.DEModServer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ConfigGuiHandler;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -36,32 +37,41 @@ public class DEMod
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        Window window = Minecraft.getInstance().getWindow();
         LOGGER.info("Init Dimensional Expansion Sounds");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Sounds...");
         DESounds.SOUNDS.register(bus);
         LOGGER.info("Init Dimensional Expansion Blocks");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Blocks...");
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Items...");
         DEItems.ITEMS.register(bus);
         LOGGER.info("Init Dimensional Expansion Recipe Types");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Recipe Types...");
         DERecipeTypes.RECIPE_SERIALIZERS.register(bus);
         LOGGER.info("Init Dimensional Potions Items");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Potions...");
         DEPoitions.EFFECT.register(bus);
         DEPoitions.POTION.register(bus);
         LOGGER.info("Init Dimensional Enchantments");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Enchantments...");
         DEEnchantments.ENCHANTMENT.register(bus);
         LOGGER.info("Init Dimensional Expansion Block Entities");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Blocks Entities...");
         DEBlockEntities.BLOCK_ENTITIES.register(bus);
         LOGGER.info("Init Dimensional Expansion Entities");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Entities...");
         DEEntities.ENTITY.register(bus);
         LOGGER.info("Init Dimensional Expansion Containers");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Containers...");
         DEContainers.CONTAINERS.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
+        window.setTitle("Init Dimensional Expansion " + DEMod.VERSION + " Villager Professions...");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
         DEVillagerTypes.POI_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
-        LOGGER.info("Init Dimensional Expansion Biome Modifiers");
-        DEBiomeModifiers.BIOME_MODIFIERS.register(bus);
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
@@ -76,6 +86,7 @@ public class DEMod
         bus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
+        window.setTitle("Dimensional Expansion " + DEMod.VERSION);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

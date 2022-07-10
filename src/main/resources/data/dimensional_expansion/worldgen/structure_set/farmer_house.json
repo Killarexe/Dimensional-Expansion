@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "dimensional_expansion:farmer_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 14357605,
+    "spacing": 64,
+    "separation": 16
+  }
+}

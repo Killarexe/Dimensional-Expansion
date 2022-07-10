@@ -1,5 +1,0 @@
-{
-  "type": "dimensional_expansion:ore_modifier",
-  "biomes": "#minecraft:is_nether",
-  "feature": "dimensional_expansion:simix_ore"
-}

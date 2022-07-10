@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "dimensional_expansion:forger_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 14357607,
+    "spacing": 64,
+    "separation": 16
+  }
+}
