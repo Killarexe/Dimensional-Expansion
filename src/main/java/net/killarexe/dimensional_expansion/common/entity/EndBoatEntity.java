@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
-import net.killarexe.dimensional_expansion.core.init.DEEntities;
+import net.killarexe.dimensional_expansion.core.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -17,7 +17,7 @@ public class EndBoatEntity extends Boat {
     public static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(EndBoatEntity.class, EntityDataSerializers.INT);
 
     public EndBoatEntity(Level level, double x, double y, double z) {
-        this(DEEntities.END_BOAT.get(), level);
+        this(DEEntityTypes.END_BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "dimensional_expansion:block/end_sandstone",
     "bottom": "dimensional_expansion:block/end_sandstone_bottom",
+    "side": "dimensional_expansion:block/end_sandstone",
     "top": "dimensional_expansion:block/end_sandstone_top"
   }
 }

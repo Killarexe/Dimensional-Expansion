@@ -3,7 +3,7 @@ package net.killarexe.dimensional_expansion.common.container;
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.killarexe.dimensional_expansion.common.container.slot.ResultSlot;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEContainers;
+import net.killarexe.dimensional_expansion.core.init.DEMenuTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -24,7 +24,7 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
 
     // Server constructor
     private EssenceExtractorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
-        super(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), id);
+        super(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), id);
         this.containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
         this.data = data;
 

@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
+import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -15,7 +15,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     private static final int LIMIT = 1;
 
     public DisplayBlockEntity(BlockPos pos, BlockState state) {
-        super(DEBlockEntities.DISPLAY_BLOCK.get(), pos, state, 1);
+        super(DEBlockEntityTypes.DISPLAY_BLOCK.get(), pos, state, 1);
     }
 
     public boolean appendItem(ItemStack stack) {

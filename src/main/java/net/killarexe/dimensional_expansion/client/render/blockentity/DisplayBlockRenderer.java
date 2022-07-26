@@ -20,7 +20,6 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
     private final Minecraft mc = Minecraft.getInstance();
 
     public DisplayBlockRenderer(BlockEntityRendererProvider.Context context){
-
     }
 
     @Override
@@ -44,7 +43,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         matrixStack.scale(scale, scale, scale);
 
         mc.getItemRenderer().renderStatic(
-                Minecraft.getInstance().player, stack, ItemTransforms.TransformType.FIXED, false,
+                Minecraft.getInstance().player, stack, ItemTransforms.TransformType.FIXED, true,
                 matrixStack, buffer, Minecraft.getInstance().level, combinedLight, combinedOverlay, 0
         );
         matrixStack.popPose();

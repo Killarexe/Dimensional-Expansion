@@ -43,7 +43,7 @@ public class DEConfigScreen extends Screen {
         bufferbuilder.vertex(this.width, 0.0D, 0.0D).uv((float)this.width / 32.0F, (float)pVOffset).color(64, 64, 64, 255).endVertex();
         bufferbuilder.vertex(0.0D, 0.0D, 0.0D).uv(0.0F, (float)pVOffset).color(64, 64, 64, 255).endVertex();
         tesselator.end();
-        MinecraftForge.EVENT_BUS.post(new ScreenEvent.BackgroundDrawnEvent(this, new PoseStack()));
+        MinecraftForge.EVENT_BUS.post(new ScreenEvent.BackgroundRendered(this, new PoseStack()));
     }
 
     @Override

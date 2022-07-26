@@ -8,11 +8,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class DEEntities {
+public class DEEntityTypes {
 
-    public static final DeferredRegister<EntityType<?>> ENTITY = DeferredRegister.create(ForgeRegistries.ENTITIES, DEMod.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, DEMod.MOD_ID);
 
-    public static final RegistryObject<EntityType<EndBoatEntity>> END_BOAT = ENTITY.register("end_boat",
+    public static final RegistryObject<EntityType<EndBoatEntity>> END_BOAT = ENTITY_TYPES.register("end_boat",
             () -> EntityType.Builder.<EndBoatEntity>of(EndBoatEntity::new, MobCategory.MISC)
                     .fireImmune()
                     .sized(1.375F, 0.5625F)

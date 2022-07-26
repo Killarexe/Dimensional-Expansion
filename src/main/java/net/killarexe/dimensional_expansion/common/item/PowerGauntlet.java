@@ -1,6 +1,8 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.client.gui.screen.PowerGauntletScreen;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -18,7 +20,7 @@ public class PowerGauntlet extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
-        if(pLevel.isClientSide){
+        if(pLevel.isClientSide && !pPlayer.getCooldowns().isOnCooldown(this) && DEConfig.enablePowerStones.get()){
             Minecraft.getInstance().setScreen(new PowerGauntletScreen());
             return InteractionResultHolder.success(item);
         }

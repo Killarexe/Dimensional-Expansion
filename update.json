@@ -17,7 +17,7 @@
     "0.5.1a": "Patch JEI Integration"
   },
   "1.19": {
-    "0.6a": "No Changelog"
+    "0.6a": "IMPORTANT: Forge is required above 41.0.94! Ported to 1.19, Added blocks, items, Patched server crash"
   },
 
   "promos": {

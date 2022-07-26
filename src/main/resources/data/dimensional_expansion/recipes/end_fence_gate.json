@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "/#/",
-    "/#/",
-    "   "
-  ],
   "key": {
     "#": {
       "item": "dimensional_expansion:end_planks"
@@ -13,8 +8,13 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "/#/",
+    "/#/",
+    "   "
+  ],
   "result": {
-    "item": "dimensional_expansion:end_fence_gate",
-    "count": 3
+    "count": 3,
+    "item": "dimensional_expansion:end_fence_gate"
   }
 }

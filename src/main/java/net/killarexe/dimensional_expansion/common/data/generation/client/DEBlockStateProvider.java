@@ -34,8 +34,8 @@ public class DEBlockStateProvider extends BlockStateProvider {
         fenceGateBlock((FenceGateBlock) END_FENCE_GATE.get(), blockTexture(END_PLANKS.get()));
         buttonBlock((ButtonBlock) END_BUTTON.get(), blockTexture(END_PLANKS.get()));
         pressurePlateBlock((PressurePlateBlock)END_PRESSURE_PLATE.get(), blockTexture(END_PLANKS.get()));
-        doorBlock((DoorBlock)END_DOOR.get(), "end", new ResourceLocation("end_" + blockTexture(END_DOOR.get()) + "_bottom"),
-        		new ResourceLocation("end_" + blockTexture(END_DOOR.get()) + "_top"));
+        doorBlock((DoorBlock)END_DOOR.get(), new ResourceLocation(blockTexture(END_DOOR.get()) + "_bottom"),
+        		new ResourceLocation(blockTexture(END_DOOR.get()) + "_top"));
         trapdoorBlock((TrapDoorBlock)END_TRAPDOOR.get(), blockTexture(END_TRAPDOOR.get()), true);
         simpleBlock(END_LEAVES.get());
         stairsBlock((StairBlock)END_STAIRS.get(), blockTexture(END_PLANKS.get()));

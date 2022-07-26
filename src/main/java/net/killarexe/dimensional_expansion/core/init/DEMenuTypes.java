@@ -11,15 +11,15 @@ import net.minecraftforge.registries.RegistryObject;
 import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
-public class DEContainers {
+public class DEMenuTypes {
 
-    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, DEMod.MOD_ID);
+    public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, DEMod.MOD_ID);
 
-    public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_CONTAINER = createContainer(
+    public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_MENU_TYPE = createContainer(
             "essence_extractor_container",
             () -> new MenuType<>(EssenceExtractorContainer::new));
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(@Nonnull String name, Supplier<? extends MenuType<T>> type){
-        return CONTAINERS.register(name, type);
+        return MENU_TYPES.register(name, type);
     }
 }

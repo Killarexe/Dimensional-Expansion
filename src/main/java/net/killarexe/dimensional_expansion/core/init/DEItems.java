@@ -95,7 +95,7 @@ public class DEItems {
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
     public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
     public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
-
+    public static final RegistryObject<Item> POWER_GAUNTLET = createCustomItem("power_gauntlet", () -> new PowerGauntlet());
     public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
     public static final RegistryObject<Item> REMOTE_TELEPORTER = createCustomItem("remote_teleporter", () -> new RemoteTeleporter());
 

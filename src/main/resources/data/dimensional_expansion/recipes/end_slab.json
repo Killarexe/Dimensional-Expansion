@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "   ",
-    "###",
-    "   "
-  ],
   "key": {
     "#": {
       "item": "dimensional_expansion:end_planks"
     }
   },
+  "pattern": [
+    "   ",
+    "###",
+    "   "
+  ],
   "result": {
-    "item": "dimensional_expansion:end_slab",
-    "count": 6
+    "count": 6,
+    "item": "dimensional_expansion:end_slab"
   }
 }

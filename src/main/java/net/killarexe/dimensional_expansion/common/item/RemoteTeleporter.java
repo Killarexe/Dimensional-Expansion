@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 public class RemoteTeleporter extends PowerStone{
 
 	public RemoteTeleporter() {
-		super(new Item.Properties().stacksTo(1).durability(16).tab(DEItemGroups.TOOLS), "remote_teleporter");
+		super(new Item.Properties().stacksTo(1).durability(16), "remote_teleporter");
 	}
 	
 	@Override

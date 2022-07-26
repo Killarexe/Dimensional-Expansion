@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "   ",
-    " 12",
-    "   "
-  ],
   "key": {
     "1": {
       "item": "dimensional_expansion:palon_ingot"
@@ -13,8 +8,13 @@
       "item": "minecraft:coal"
     }
   },
+  "pattern": [
+    "   ",
+    " 12",
+    "   "
+  ],
   "result": {
-    "item": "dimensional_expansion:palon_mixed_coal",
-    "count": 9
+    "count": 9,
+    "item": "dimensional_expansion:palon_mixed_coal"
   }
 }

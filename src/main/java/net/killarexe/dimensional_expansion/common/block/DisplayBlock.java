@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block;
 
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
+import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -41,7 +41,7 @@ public class DisplayBlock extends Block implements EntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return DEBlockEntities.DISPLAY_BLOCK.get().create(pos, state);
+        return DEBlockEntityTypes.DISPLAY_BLOCK.get().create(pos, state);
     }
 
     @Override

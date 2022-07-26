@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
+import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
@@ -14,6 +14,6 @@ public class EndSignBlockEntity extends SignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return DEBlockEntities.END_SIGN.get();
+        return DEBlockEntityTypes.END_SIGN.get();
     }
 }

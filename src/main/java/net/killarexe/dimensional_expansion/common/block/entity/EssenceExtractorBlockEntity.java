@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.common.block.entity;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.recipes.EssenceExtractorRecipe;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntities;
+import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -21,7 +21,7 @@ public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
     public static final Component TITLE = MutableComponent.create(new TranslatableContents("block." + DEMod.MOD_ID + ".essence_extractor"));
 
     public EssenceExtractorBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(DEBlockEntities.ESSENCE_EXTRACTOR.get(), pWorldPosition, pBlockState, 2);
+        super(DEBlockEntityTypes.ESSENCE_EXTRACTOR.get(), pWorldPosition, pBlockState, 2);
     }
 
     private void craft(){
