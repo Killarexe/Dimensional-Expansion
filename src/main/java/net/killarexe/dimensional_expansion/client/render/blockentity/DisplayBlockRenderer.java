@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -27,6 +26,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         if (pBlockEntity.getItemInSlot(0).equals(ItemStack.EMPTY) || pBlockEntity.getItemInSlot(0).getItem().equals(Items.AIR))
             return;
 
+        pPackedLight = 240;
         renderItem(pBlockEntity.getItemInSlot(0), new Vector3d(0.5, 1.5, 0.5),
                 Vector3f.YN.rotation(0), pPoseStack, pBufferSource, pPackedOverlay, pPackedLight, 0.8f);
 
@@ -37,14 +37,15 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
 
     private void renderItem(ItemStack stack, Vector3d translation, Quaternion rotation, PoseStack matrixStack,
                             MultiBufferSource buffer, int combinedOverlay, int combinedLight, float scale) {
+    	Minecraft minecraft = Minecraft.getInstance();
         matrixStack.pushPose();
         matrixStack.translate(translation.x, translation.y, translation.z);
         matrixStack.mulPose(rotation);
         matrixStack.scale(scale, scale, scale);
 
         mc.getItemRenderer().renderStatic(
-                Minecraft.getInstance().player, stack, ItemTransforms.TransformType.FIXED, true,
-                matrixStack, buffer, Minecraft.getInstance().level, combinedLight, combinedOverlay, 0
+                minecraft.player, stack, ItemTransforms.TransformType.FIXED, false,
+                matrixStack, buffer, minecraft.level, combinedLight, combinedOverlay, 0
         );
         matrixStack.popPose();
     }

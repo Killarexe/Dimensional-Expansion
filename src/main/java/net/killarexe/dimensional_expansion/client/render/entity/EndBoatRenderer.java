@@ -23,7 +23,7 @@ public class EndBoatRenderer extends BoatRenderer {
         shadowRadius = 0.8f;
         boatResources = Stream.of(EndBoatEntity.Type.values())
                 .collect(ImmutableMap.toImmutableMap((p_173938_) -> p_173938_, (type) ->
-                        Pair.of(new ResourceLocation(DEMod.MOD_ID, "textures/entity/boat" + type.getName() + ".png"),
+                        Pair.of(new ResourceLocation(DEMod.MOD_ID, "textures/entity/boat/" + type.getName() + ".png"),
                                 new BoatModel(context.bakeLayer(new ModelLayerLocation(
                                                         new ResourceLocation("minecraft", "boat/oak"),
                                                         "main")), false

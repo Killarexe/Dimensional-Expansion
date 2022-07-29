@@ -62,7 +62,6 @@ import static net.minecraftforge.fml.VersionChecker.Status.BETA_OUTDATED;
 @OnlyIn(Dist.CLIENT)
 public class DETitleScreen extends Screen {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final String DEMO_LEVEL_ID = "Demo_World";
     public static final Component COPYRIGHT_TEXT = Component.literal("Copyright Mojang AB. Do not distribute!");
     public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation("textures/gui/title/background/panorama"));
     private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
@@ -125,7 +124,6 @@ public class DETitleScreen extends Screen {
 
         int i = this.font.width(COPYRIGHT_TEXT);
         int j = this.width - i - 2;
-        int k = 24;
         int l = this.height / 4 + 48;
         Button modButton = null;
         if (this.minecraft.isDemo()) {
@@ -305,9 +303,7 @@ public class DETitleScreen extends Screen {
 
         float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
         this.panorama.render(p_96742_, Mth.clamp(f, 0.0F, 1.0F));
-        int i = 274;
         int j = this.width / 2 - 137;
-        int k = 30;
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         RenderSystem.enableBlend();

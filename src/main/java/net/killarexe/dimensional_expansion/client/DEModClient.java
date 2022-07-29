@@ -69,11 +69,15 @@ public class DEModClient {
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_ROSE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_SAPLING.get(), RenderType.cutout());
         LOGGER.info("Register Dimensional Expansion Container");
+        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Containers");
         MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
         LOGGER.info("Add Dimensional Expansion Items Properties");
+        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Items Properties");
         DEItems.addItemsProperites();
+        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Discord RPC");
+        String botId = DEUtils.isDev() ? "805057676282560543" : "945425580210389012";
         DiscordRPCManager.start(
-                "945425580210389012",
+                botId,
                 "Playing Dimensional Expansion v" + DEMod.VERSION,
                 "Minecraft: " + SharedConstants.getCurrentVersion().getName(),
                 "logo",

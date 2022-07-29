@@ -1,23 +1,15 @@
 package net.killarexe.dimensional_expansion.core.init;
 
-import com.google.common.base.Suppliers;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.registries.DeferredRegister;
@@ -55,5 +47,9 @@ public class DEConfiguredFeatures {
 
     private static RegistryObject<ConfiguredFeature<?, ?>> registerOreFeature(String name, RuleTest rule, RegistryObject<Block> target, int blocksPerVeins){
         return FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(List.of(OreConfiguration.target(rule, target.get().defaultBlockState())), blocksPerVeins)));
+    }
+    
+    private static RegistryObject<ConfiguredFeature<?, ?>> registerFlowerFeature(String name, int tries, int xSpread, int ySpread, RegistryObject<PlacedFeature> feature){
+    	return FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchConfiguration(tries, xSpread, ySpread, feature.getHolder().get())));
     }
 }

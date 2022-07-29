@@ -4,7 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -59,16 +58,16 @@ public class PowerGauntletScreen extends Screen {
 
     private void weather(){
     	DEItems.WEATHER_POWER_STONE.get().use(minecraft.level, minecraft.player, minecraft.player.getUsedItemHand());
-        Minecraft.getInstance().player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
+        minecraft.player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
     }
     
     private void time() {
         DEItems.TIME_POWER_STONE.get().use(minecraft.level, minecraft.player, minecraft.player.getUsedItemHand());
-        Minecraft.getInstance().player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
+        minecraft.player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
     }
     
     private void warp() {
         DEItems.WARP_POWER_STONE.get().use(minecraft.level, minecraft.player, minecraft.player.getUsedItemHand());
-        Minecraft.getInstance().player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
+        minecraft.player.getCooldowns().addCooldown(DEItems.POWER_GAUNTLET.get(), DEConfig.powerStoneDelay.get() * 20);
     }
 }

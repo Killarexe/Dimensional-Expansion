@@ -3,21 +3,15 @@ package net.killarexe.dimensional_expansion.core.init;
 import com.google.common.collect.ImmutableSet;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.*;
 
 import javax.annotation.Nullable;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Set;
 import java.util.function.Predicate;
 
 public class DEVillagerTypes {
@@ -52,6 +46,7 @@ public class DEVillagerTypes {
     private static RegistryObject<VillagerProfession> createProfession(String name, Predicate<Holder<PoiType>> type_1, Predicate<Holder<PoiType>> type_2, @Nullable SoundEvent sound) {
         return createProfession(name, type_1, type_2, ImmutableSet.of(), ImmutableSet.of(), sound);
     }
+    @SuppressWarnings("unused")
     private static RegistryObject<VillagerProfession> createProfession(String name, ResourceKey<PoiType> poi, ImmutableSet<Item> items, ImmutableSet<Block> blocks, @Nullable SoundEvent sound) {
         return createProfession(name, (type_1) -> type_1.is(poi), (type_2) -> type_2.is(poi), items, blocks, sound);
     }

@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.world.feature.tree;
 
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEConfiguredFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.util.RandomSource;

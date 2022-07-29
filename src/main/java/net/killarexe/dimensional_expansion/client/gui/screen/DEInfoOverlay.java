@@ -7,7 +7,6 @@ import net.killarexe.dimensional_expansion.common.item.CoordLinker;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;

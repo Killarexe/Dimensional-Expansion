@@ -5,7 +5,6 @@ import net.killarexe.dimensional_expansion.common.world.biome.EndForest;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.*;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.registries.DeferredRegister;

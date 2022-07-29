@@ -24,7 +24,7 @@ public class DEPlacedFeatures {
     public static final RegistryObject<PlacedFeature> BASSMITE_ORE = registerPlacedFeature(
             "bassmite_ore_placed",
             DEConfiguredFeatures.BASSMITE_ORE.getHolder().get(),
-            commonOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(24)))
+            commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(64), VerticalAnchor.aboveBottom(90)))
     );
 
     public static final RegistryObject<PlacedFeature> SIMIX_ORE = registerPlacedFeature(
@@ -36,7 +36,7 @@ public class DEPlacedFeatures {
     public static final RegistryObject<PlacedFeature> EMERTYST_ORE = registerPlacedFeature(
             "emertyst_ore_placed",
             DEConfiguredFeatures.EMERTYST_ORE.getHolder().get(),
-            commonOrePlacement(6, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-64), VerticalAnchor.aboveBottom(0)))
+            commonOrePlacement(6, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))
     );
 
     private static RegistryObject<PlacedFeature> registerPlacedFeature(String name, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers){

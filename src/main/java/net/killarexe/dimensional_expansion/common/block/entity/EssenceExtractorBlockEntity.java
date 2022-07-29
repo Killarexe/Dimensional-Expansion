@@ -30,7 +30,7 @@ public class EssenceExtractorBlockEntity extends InventoryBlockEntity{
             container.setItem(i, inventory.getStackInSlot(i));
         }
         Optional<EssenceExtractorRecipe> recipe = level.getRecipeManager().getRecipeFor(EssenceExtractorRecipe.Type.INSTANCE, container, level);
-        if(recipe.isPresent()){
+        if(recipe.isPresent() && inventory.getStackInSlot(1).getCount() != 64){
             ParticleUtils.spawnParticlesOnBlockFaces(level, worldPosition, ParticleTypes.COMPOSTER, UniformInt.of(3, 5));
             extract(new ItemStack(recipe.get().getResultItem().getItem(), inventory.getStackInSlot(1).getCount() + 1));
         }

@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.client.gui.screen.PowerGauntletScreen;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

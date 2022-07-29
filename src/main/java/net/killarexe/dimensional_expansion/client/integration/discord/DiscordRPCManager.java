@@ -4,7 +4,10 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.integration.discord.rpc.DiscordEventHandlers;
 import net.killarexe.dimensional_expansion.client.integration.discord.rpc.DiscordRPC;
 import net.killarexe.dimensional_expansion.client.integration.discord.rpc.DiscordRichPresence;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class DiscordRPCManager {
     
     private static String appId, details, state, logoId, logoText, smallLogo, smallLogoText;

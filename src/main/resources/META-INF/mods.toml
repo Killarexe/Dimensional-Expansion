@@ -8,7 +8,7 @@ displayName="Dimensional Expansion Mod"
 logoFile="pack.png"
 credits="This Mod made by Killar.exe and with the help of the community and 9è_Docteur."
 authors="Killar.exe" #optional
-description='''Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes(In a future version), Structures and more!'''
+description='''Dimensional Expansion is a mod made by Killar.exe...'''
 updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory

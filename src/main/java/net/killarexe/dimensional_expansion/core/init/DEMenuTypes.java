@@ -8,7 +8,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public class DEMenuTypes {
@@ -19,7 +18,7 @@ public class DEMenuTypes {
             "essence_extractor_container",
             () -> new MenuType<>(EssenceExtractorContainer::new));
 
-    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(@Nonnull String name, Supplier<? extends MenuType<T>> type){
+    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(String name, Supplier<? extends MenuType<T>> type){
         return MENU_TYPES.register(name, type);
     }
 }

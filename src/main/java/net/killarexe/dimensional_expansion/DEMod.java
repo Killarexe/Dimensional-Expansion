@@ -6,7 +6,6 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.server.DEModServer;
-import net.killarexe.dimensional_expansion.uitls.DEUtils;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -64,8 +63,9 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
-        LOGGER.info("Set Dimensional Expansion Event Listener");
+        LOGGER.info("Set Dimensional Expansion Event Listeners");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::diggingEvent);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
