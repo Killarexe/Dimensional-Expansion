@@ -8,8 +8,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.registries.DeferredRegister;
@@ -49,7 +47,7 @@ public class DEConfiguredFeatures {
         return FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(List.of(OreConfiguration.target(rule, target.get().defaultBlockState())), blocksPerVeins)));
     }
     
-    private static RegistryObject<ConfiguredFeature<?, ?>> registerFlowerFeature(String name, int tries, int xSpread, int ySpread, RegistryObject<PlacedFeature> feature){
+    /*private static RegistryObject<ConfiguredFeature<?, ?>> registerFlowerFeature(String name, int tries, int xSpread, int ySpread, RegistryObject<PlacedFeature> feature){
     	return FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchConfiguration(tries, xSpread, ySpread, feature.getHolder().get())));
-    }
+    }*/
 }

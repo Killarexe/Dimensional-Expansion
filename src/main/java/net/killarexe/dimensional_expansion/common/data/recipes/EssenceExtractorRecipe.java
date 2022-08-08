@@ -108,6 +108,7 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
         public EssenceExtractorRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
+	    friendlyByteBuf.readInt();
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
             }

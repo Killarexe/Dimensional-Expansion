@@ -7,6 +7,7 @@ import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
+import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -178,6 +179,7 @@ public class DEItems {
     @OnlyIn(Dist.CLIENT)
     public static void addItemsProperites(){
         addClockProperties(TIME_POWER_STONE.get());
+        addCompassProperties(COORD_LINKER.get());
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -225,6 +227,17 @@ public class DEItems {
                 return this.rotation;
             }
         });
+    }
+    
+    @OnlyIn(Dist.CLIENT)
+    private static void addCompassProperties(Item item) {
+    	ItemProperties.register(
+    			item,
+    			new ResourceLocation("angle"),
+    			new CompassItemPropertyFunction((p_234992_, p_234993_, p_234994_) -> {
+    				return CompassItem.getSpawnPosition(p_234992_);
+    			})
+    	);
     }
 
 }

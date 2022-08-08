@@ -71,7 +71,7 @@ public class DETitleScreen extends Screen {
     @Nullable
     private String splash;
     private Button resetDemoButton;
-    private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation("textures/gui/title/minecraft.png");
+    private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation(DEMod.MOD_ID, "textures/gui/title/minecraft.png");
     private static final ResourceLocation MINECRAFT_EDITION = new ResourceLocation("textures/gui/title/edition.png");
     private Screen realmsNotificationsScreen;
     private final PanoramaRenderer panorama = new PanoramaRenderer(CUBE_MAP);
@@ -90,7 +90,7 @@ public class DETitleScreen extends Screen {
     public DETitleScreen(boolean p_96733_) {
         super(Component.translatable("narrator.screen.title"));
         this.fading = p_96733_;
-        this.minceraftEasterEgg = (double)RandomSource.create().nextFloat() < 1.0E-4D;
+        this.minceraftEasterEgg = false;
     }
 
     private boolean realmsNotificationsEnabled() {
@@ -325,7 +325,7 @@ public class DETitleScreen extends Screen {
                     this.blit(poseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
                 });
             } else {
-                this.blitOutlineBlack(j, 30, (p_210862_, p_210863_) -> {
+                this.blitOutlineBlack(j	+ 16, 22, (p_210862_, p_210863_) -> {
                     this.blit(poseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 44);
                     this.blit(poseStack, p_210862_ + 155, p_210863_, 0, 45, 155, 44);
                 });

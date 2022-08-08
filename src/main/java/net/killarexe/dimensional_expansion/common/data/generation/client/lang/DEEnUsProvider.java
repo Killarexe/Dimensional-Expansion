@@ -129,7 +129,9 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.END_BOAT.get(), "End Boat");
 
         add(DEItems.BJM_DISC.get(), "VHL Disc");
+        add(DEItems.BJM_DISC.get().getDescriptionId() + ".desc", "A Disc...");
         add(DEItems.DW_DISC.get(), "SM Disc");
+        add(DEItems.DW_DISC.get().getDescriptionId() + ".desc", "A Disc...");
         
         /*ItemGroups*/
         add("itemGroup." + DEMod.MOD_ID + ".combat", "DE Combat");
@@ -149,7 +151,7 @@ public class DEEnUsProvider extends LanguageProvider {
 
         add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
         add("checkbox." + DEMod.MOD_ID + ".coords_linker", "Coord Linker Overlay");
-        add("checkbox." + DEMod.MOD_ID + ".modded_title_screen", "Modded Title Screen");
+        add("checkbox." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
         add("checkbox." + DEMod.MOD_ID + ".debug_mod", "Debug Mod");
         
         /*Tooltips*/

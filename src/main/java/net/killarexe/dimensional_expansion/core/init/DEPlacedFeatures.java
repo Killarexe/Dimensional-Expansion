@@ -51,7 +51,8 @@ public class DEPlacedFeatures {
         return orePlacement(CountPlacement.of(p_195344_), p_195345_);
     }
 
-    private static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
+    @SuppressWarnings("unused")
+	private static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
         return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
     }
 }

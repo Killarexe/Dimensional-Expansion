@@ -12,5 +12,4 @@ public class DEModServer {
         LOGGER.info("Running Dimensional Expansion Server.");
     }
 
-    
 }
