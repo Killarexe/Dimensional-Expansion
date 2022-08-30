@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "dimensional_expansion:end_log",
-    "dimensional_expansion:end_stripped_log",
+    "dimensional_expansion:stripped_end_log",
     "dimensional_expansion:end_planks",
     "dimensional_expansion:end_slab",
     "dimensional_expansion:end_fence",

@@ -19,11 +19,10 @@ public class PowerGauntlet extends Item {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
         if(pLevel.isClientSide && !pPlayer.getCooldowns().isOnCooldown(this) && DEConfig.enablePowerStones.get()){
-            Minecraft.getInstance().setScreen(new PowerGauntletScreen());
+            //Minecraft.getInstance().setScreen(new PowerGauntletScreen());
             return InteractionResultHolder.success(item);
         }
         return InteractionResultHolder.fail(item);

@@ -64,8 +64,8 @@ public class DEMod
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
         LOGGER.info("Set Dimensional Expansion Event Listeners");
-        MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::diggingEvent);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
@@ -74,10 +74,10 @@ public class DEMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Dimensional Expansion Common Setup");
-        LOGGER.info("Register Dimensional Expansion WoodTypes");
-        WoodType.register(DEWoodTypes.END);
         event.enqueueWork(() ->{
+        	LOGGER.info("Dimensional Expansion Common Setup");
+            LOGGER.info("Register Dimensional Expansion WoodTypes");
+            WoodType.register(DEWoodTypes.END);
             LOGGER.info("Put Dimensional Expansion Strippables");
             StrippingMap.putStrippables();
         	LOGGER.info("Put Dimensional Expansion Compostables");

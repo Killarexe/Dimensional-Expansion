@@ -303,7 +303,7 @@ public class DETitleScreen extends Screen {
 
         float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
         this.panorama.render(p_96742_, Mth.clamp(f, 0.0F, 1.0F));
-        int j = this.width / 2 - 137;
+        int j = this.width / 2 - 128;
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         RenderSystem.enableBlend();
@@ -325,7 +325,7 @@ public class DETitleScreen extends Screen {
                     this.blit(poseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
                 });
             } else {
-                this.blitOutlineBlack(j	+ 16, 22, (p_210862_, p_210863_) -> {
+                this.blitOutlineBlack(j	- 16, 22, (p_210862_, p_210863_) -> {
                     this.blit(poseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 44);
                     this.blit(poseStack, p_210862_ + 155, p_210863_, 0, 45, 155, 44);
                 });
