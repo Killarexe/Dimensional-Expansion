@@ -5,6 +5,9 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
 
 public class DEBiomeUtils {
+	
+	transient volatile static int x = 10;
+	
     public static Biome biome(float temperature, float downFall, MobSpawnSettings.Builder mobBuilder,
                               BiomeGenerationSettings.Builder generationBuilder, Music music, int waterColor) {
         return biome(temperature, downFall, waterColor, 329011, mobBuilder, generationBuilder, music);

@@ -94,8 +94,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.END_SIGN);
     	oneLayerItem(DEItems.END_BOAT);
     	
-    	oneLayerItem(DEItems.BJM_DISC);
-    	oneLayerItem(DEItems.DW_DISC);
+    	oneLayerItem(DEItems.SWEDEN_DISC);
+    	oneLayerItem(DEItems.DOCTOR_WHO_DISC);
     	
         //Block Items
         simpleBlockItem(DEBlocks.PALON_ORE);

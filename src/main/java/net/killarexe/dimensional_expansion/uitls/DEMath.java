@@ -7,6 +7,10 @@ public class DEMath {
 		return seconds * 20;
 	}
 	
+	public static int rgbToHex(int r, int g, int b) {
+        return (r << 16) | (g << 8) | b;
+    }
+	
 	public static Vec3i overworldPosToNetherPos(Vec3i position) {
 		return new Vec3i(position.getX() / 8, position.getY(), position.getZ() / 8);
 	}

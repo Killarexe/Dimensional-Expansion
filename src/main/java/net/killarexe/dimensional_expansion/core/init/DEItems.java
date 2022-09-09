@@ -5,6 +5,7 @@ import net.killarexe.dimensional_expansion.common.entity.EndBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
+import net.killarexe.dimensional_expansion.uitls.DEMath;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
@@ -111,8 +112,8 @@ public class DEItems {
     public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
     public static final RegistryObject<Item> END_BOAT = ITEMS.register("end_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), EndBoatEntity.Type.END));
 
-    public static final RegistryObject<Item> BJM_DISC = createDiscItem("bjm_disc", 7, DESounds.BJM, DEItemGroups.MISC);
-    public static final RegistryObject<Item> DW_DISC = createDiscItem("dw_disc", 3, DESounds.DW, DEItemGroups.MISC);
+    public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.DOCTOR_WHO, DEItemGroups.MISC, 0);
+    public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.SWEDEN_REMIX, DEItemGroups.MISC, 0);
 
     private static RegistryObject<Item> createItem(String id, CreativeModeTab itemGroup, boolean isFireProof){
         if(isFireProof){
@@ -159,8 +160,8 @@ public class DEItems {
         return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().tab(itemGroup).fireResistant()));
     }
 
-    private static RegistryObject<Item> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().tab(itemGroup).stacksTo(1)));
+    private static RegistryObject<Item> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, CreativeModeTab itemGroup, int seconds){
+        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().tab(itemGroup).stacksTo(1), DEMath.secondsToTicks(seconds)));
     }
 
     private static RegistryObject<Item> createHorseArmorItem(String id, int armorValue, String tierID, CreativeModeTab itemGroup){

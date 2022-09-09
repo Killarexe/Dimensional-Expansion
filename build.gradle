@@ -2,6 +2,7 @@ plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 version = '0.6a'
@@ -25,10 +26,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'examplemod'
+            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
 
             mods {
-                examplemod {
+                dimensional_expansion {
                     source sourceSets.main
                 }
             }
@@ -41,10 +42,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'examplemod'
+            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
 
             mods {
-                examplemod {
+                dimensional_expansion {
                     source sourceSets.main
                 }
             }
@@ -57,10 +58,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'examplemod'
+            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
 
             mods {
-                examplemod {
+                dimensional_expansion {
                     source sourceSets.main
                 }
             }
@@ -76,7 +77,7 @@ minecraft {
             args '--mod', 'dimensional_expansion', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                dimensional_expansion {
                     source sourceSets.main
                 }
             }
@@ -106,7 +107,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     // at runtime, use the full JEI
-    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 }
 
 jar {

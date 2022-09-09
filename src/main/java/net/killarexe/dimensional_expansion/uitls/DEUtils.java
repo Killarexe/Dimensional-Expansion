@@ -7,10 +7,6 @@ public class DEUtils {
         Minecraft.getInstance().getWindow().setTitle(title);
     }
 
-    public static int rgbToHex(int r, int g, int b) {
-        return (r << 16) | (g << 8) | b;
-    }
-
     public static boolean isDev(){
         return Minecraft.getInstance().getLaunchedVersion().equalsIgnoreCase("MOD_DEV");
     }

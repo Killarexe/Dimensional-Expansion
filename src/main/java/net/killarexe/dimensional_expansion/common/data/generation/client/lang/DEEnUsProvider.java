@@ -128,10 +128,11 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.END_SIGN.get(), "End Sign");
         add(DEItems.END_BOAT.get(), "End Boat");
 
-        add(DEItems.BJM_DISC.get(), "VHL Disc");
-        add(DEItems.BJM_DISC.get().getDescriptionId() + ".desc", "A Disc...");
-        add(DEItems.DW_DISC.get(), "SM Disc");
-        add(DEItems.DW_DISC.get().getDescriptionId() + ".desc", "A Disc...");
+        /*Discs*/
+        add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
+        add(DEItems.SWEDEN_DISC.get().getDescriptionId() + ".desc", "Sweden in the 90's by Killar.exe");
+        add(DEItems.DOCTOR_WHO_DISC.get(), "Doctor Who Disc");
+        add(DEItems.DOCTOR_WHO_DISC.get().getDescriptionId() + ".desc", "Doctor Who by Killar.exe");
         
         /*ItemGroups*/
         add("itemGroup." + DEMod.MOD_ID + ".combat", "DE Combat");
