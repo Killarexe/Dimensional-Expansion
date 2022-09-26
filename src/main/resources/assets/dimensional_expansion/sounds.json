@@ -1,20 +1,20 @@
 {
   "dw": {
     "category": "record",
-    "subtitle": "music.dimensional_expansion.dw.subtitle",
+    "subtitle": "music.dimensional_expansion.doctor_who.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:dw",
+        "name": "dimensional_expansion:doctor_who",
         "stream": true
       }
     ]
   },
   "bjm": {
     "category": "record",
-    "subtitle": "music.dimensional_expansion.bjm.subtitle",
+    "subtitle": "music.dimensional_expansion.sweden_remix.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:bjm",
+        "name": "dimensional_expansion:sweden_remix",
         "stream": true
       }
     ]
