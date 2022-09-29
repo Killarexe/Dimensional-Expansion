@@ -39,7 +39,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         		pBlockEntity.getLevel(),pBlockEntity.getBlockPos().above(),
         		0.8f
         );
-        renderLabel(pPoseStack, pBufferSource, pPackedLight, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
     }
 
     private void renderItem(ItemStack stack, Vector3d translation, Quaternion rotation,PoseStack matrixStack,
@@ -68,7 +68,6 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         float offset = (float) (-font.width(text) / 2);
         stack.pushPose();
         Matrix4f matrix = stack.last().pose();
-
         stack.translate(corner.x, corner.y + .4f, corner.z);
         stack.scale(scale, scale, scale);
         stack.mulPose(Vector3f.YP.rotationDegrees(-mc.player.getYRot()));

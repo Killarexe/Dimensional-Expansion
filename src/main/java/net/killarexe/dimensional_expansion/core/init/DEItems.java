@@ -83,7 +83,7 @@ public class DEItems {
 
     public static final RegistryObject<Item> EMERTYST_GEM = createItem("emertyst_gem", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> EMERTYST_SWORD = createSwordItem("emertyst_sword", DEItemTier.EMERTYST, 3, DEItemGroups.COMBAT);
-    public static final RegistryObject<Item> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", DEItemTier.EMERTYST, 6, DEItemGroups.TOOLS);
+    public static final RegistryObject<Item> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", DEItemTier.EMERTYST, 5, DEItemGroups.TOOLS);
     public static final RegistryObject<Item> EMERTYST_AXE = createAxeItem("emertyst_axe", DEItemTier.EMERTYST, 6, DEItemGroups.COMBAT);
     public static final RegistryObject<Item> EMERTYST_SHOVEL = createShovelItem("emertyst_shovel", DEItemTier.EMERTYST, 1.5f, DEItemGroups.TOOLS);
     public static final RegistryObject<Item> EMERTYST_HOE = createHoeItem("emertyst_hoe", DEItemTier.EMERTYST, 0, DEItemGroups.TOOLS);
@@ -112,8 +112,8 @@ public class DEItems {
     public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
     public static final RegistryObject<Item> END_BOAT = ITEMS.register("end_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), EndBoatEntity.Type.END));
 
-    public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.DOCTOR_WHO, DEItemGroups.MISC, 0);
-    public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.SWEDEN_REMIX, DEItemGroups.MISC, 0);
+    public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DEItemGroups.MISC, 0);
+    public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DEItemGroups.MISC, 0);
 
     private static RegistryObject<Item> createItem(String id, CreativeModeTab itemGroup, boolean isFireProof){
         if(isFireProof){

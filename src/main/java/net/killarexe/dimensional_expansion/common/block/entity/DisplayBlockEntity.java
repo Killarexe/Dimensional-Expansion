@@ -19,29 +19,29 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     }
 
     public boolean appendItem(ItemStack stack) {
-        final ItemStack current = getItemInSlot(0);
+    	final ItemStack current = getItemInSlot(0);
         final int currentCount = current.getCount();
         if (current.getCount() < 0 || current.isEmpty()) {
             current.setCount(0);
         }
-
+        
         if (!current.isEmpty() && !ItemStack.isSame(stack, current))
             return false;
-
+        
         if (stack.getCount() < 0) {
             stack.setCount(0);
             return false;
         }
-
+        
         if (current.getCount() >= LIMIT)
             return false;
-
+        
         boolean increment = false;
         if (current.isEmpty() || current.getCount() == 0) {
             insertItem(0, new ItemStack(stack.getItem(), 1));
             increment = true;
         }
-
+        
         final var copy = new ItemStack(stack.getItem(), getItemInSlot(0).getCount());
         if (current.getCount() + stack.getCount() > LIMIT) {
             final int available = LIMIT - copy.getCount();
@@ -51,17 +51,18 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
             copy.grow(stack.getCount());
             stack.shrink(stack.getCount());
         }
-
-        if (increment || copy.getCount() >= 1) {
+        
+        if (increment) {
             copy.shrink(1);
+            stack.shrink(1);
         }
-
+        
         if (currentCount != copy.getCount()) {
             this.inventory.setStackInSlot(0, copy);
             update();
             return true;
         }
-
+        
         return false;
     }
 

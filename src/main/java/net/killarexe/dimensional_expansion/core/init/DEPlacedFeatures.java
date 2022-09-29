@@ -18,13 +18,13 @@ public class DEPlacedFeatures {
     public static final RegistryObject<PlacedFeature> PALON_ORE = registerPlacedFeature(
             "palon_ore_placed",
             DEConfiguredFeatures.PALON_ORE.getHolder().get(),
-            commonOrePlacement(1, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(46), VerticalAnchor.aboveBottom(72)))
+            rareOrePlacement(1, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(46), VerticalAnchor.aboveBottom(72)))
     );
 
     public static final RegistryObject<PlacedFeature> BASSMITE_ORE = registerPlacedFeature(
             "bassmite_ore_placed",
             DEConfiguredFeatures.BASSMITE_ORE.getHolder().get(),
-            commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(64), VerticalAnchor.aboveBottom(90)))
+            commonOrePlacement(2, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(64), VerticalAnchor.aboveBottom(90)))
     );
 
     public static final RegistryObject<PlacedFeature> SIMIX_ORE = registerPlacedFeature(
@@ -51,7 +51,6 @@ public class DEPlacedFeatures {
         return orePlacement(CountPlacement.of(p_195344_), p_195345_);
     }
 
-    @SuppressWarnings("unused")
 	private static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
         return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
     }

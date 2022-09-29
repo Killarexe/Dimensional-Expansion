@@ -44,9 +44,7 @@ public class DisplayBlock extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand,
                                  BlockHitResult result) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final DisplayBlockEntity entity) {
-            if (!player.isCrouching()) {
-                entity.appendItem(player.getItemInHand(hand));
-            }
+        	entity.appendItem(player.getItemInHand(hand));
         }
 
         return InteractionResult.SUCCESS;

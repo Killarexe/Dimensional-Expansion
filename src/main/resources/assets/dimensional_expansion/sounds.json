@@ -1,5 +1,5 @@
 {
-  "dw": {
+  "doctor_who": {
     "category": "record",
     "subtitle": "music.dimensional_expansion.doctor_who.subtitle",
     "sounds": [
@@ -9,7 +9,7 @@
       }
     ]
   },
-  "bjm": {
+  "sweden_remix": {
     "category": "record",
     "subtitle": "music.dimensional_expansion.sweden_remix.subtitle",
     "sounds": [
