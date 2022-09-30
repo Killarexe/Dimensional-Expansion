@@ -10,9 +10,15 @@ It's available on [CurseForge.](https://www.curseforge.com/minecraft/mc-mods/dim
 Also You can find a Trello bord [here](https://trello.com/b/kfmjAh6g/dimensional-expansion)
 
 ## Wiki:
-You can chek the wiki [here](https://github.com/Killarexe/Dimensional-Expansion/wiki)
+You can chek the wiki [here](https://github.com/Killarexe/Dimensional-Expansion/wiki).
+
+## How to add as a library
+[![](https://jitpack.io/v/Killarexe/Dimensional-Expansion.svg)](https://jitpack.io/#Killarexe/Dimensional-Expansion)
+
+On the wiki you can find a *simple* tutorial how to add Dimensional Expansion as a dependency just [here](https://github.com/Killarexe/Dimensional-Expansion/wiki/Setup-as-a-dependency).
 
 ## My Projects:
 You can see my other projects in [github profile](https://github.com/Killarexe).
+
 ## Licence
 Here is the [![Github License](https://img.shields.io/github/license/Killarexe/Dimensional-Expansion.svg)]()
