@@ -1,6 +1,8 @@
 [![](https://github.com/Killarexe/Dimensional-Expansion/raw/main/src/main/resources/logo.png)]()
 ===========
-
+[![Github Repo Size](https://img.shields.io/github/repo-size/Killarexe/Dimensional-Expansion)]()
+[![Github Repo Issues](https://img.shields.io/github/issues/Killarexe/Dimensional-Expansion)]()
+[![Github Repo Stars](https://img.shields.io/github/stars/Killarexe/Dimensional-Expansion)]()
 ## What is Dimensional Expansion?
 Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes and more!
 
