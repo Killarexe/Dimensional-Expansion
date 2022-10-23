@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "dimensional_expansion:block/sulfur_stone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "dimensional_expansion:block/sulfur_stone_pressure_plate_down"
+    }
+  }
+}

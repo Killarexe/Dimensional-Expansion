@@ -91,8 +91,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.HEART_ESSENCE);
     	oneLayerItem(DEItems.PEARL_ESSENCE);
     	
-    	oneLayerItem(DEItems.END_SIGN);
-    	oneLayerItem(DEItems.END_BOAT);
+    	oneLayerItem(DEItems.PURPLEHEART_SIGN);
+    	oneLayerItem(DEItems.PURPLEHEART_BOAT);
     	
     	oneLayerItem(DEItems.SWEDEN_DISC);
     	oneLayerItem(DEItems.DOCTOR_WHO_DISC);
@@ -107,24 +107,32 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.EMERTYST_ORE);
         simpleBlockItem(DEBlocks.EMERTYST_BLOCK);
         
-        simpleBlockItem(DEBlocks.END_GRASS_BLOCK);
-        simpleBlockItem(DEBlocks.END_LOG);
-        simpleBlockItem(DEBlocks.STRIPPED_END_LOG);
-        simpleBlockItem(DEBlocks.END_PLANKS);
-        simpleBlockItem(DEBlocks.END_SLAB);
-        inventoryItem(DEBlocks.END_FENCE);
-        simpleBlockItem(DEBlocks.END_FENCE_GATE);
-        inventoryItem(DEBlocks.END_BUTTON);
-        simpleBlockItem(DEBlocks.END_PRESSURE_PLATE);
-        oneLayerItem(DEBlocks.END_DOOR);
-        trapDoorItem(DEBlocks.END_TRAPDOOR);
-        simpleBlockItem(DEBlocks.END_LEAVES);
-        simpleBlockItem(DEBlocks.END_STAIRS);
-        simpleBlockItem(DEBlocks.END_BOOKSHELF);
-        oneLayerItem(DEBlocks.END_ROSE);
-        oneLayerItem(DEBlocks.END_SAPLING);
-        simpleBlockItem(DEBlocks.END_SAND);
-        simpleBlockItem(DEBlocks.END_SANDSTONE);
+        simpleBlockItem(DEBlocks.ORIGIN_GRASS_BLOCK);
+        simpleBlockItem(DEBlocks.PURPLEHEART_LOG);
+        simpleBlockItem(DEBlocks.STRIPPED_PURPLEHEART_LOG);
+        simpleBlockItem(DEBlocks.PURPLEHEART_PLANKS);
+        simpleBlockItem(DEBlocks.PURPLEHEART_SLAB);
+        inventoryItem(DEBlocks.PURPLEHEART_FENCE);
+        simpleBlockItem(DEBlocks.PURPLEHEART_FENCE_GATE);
+        inventoryItem(DEBlocks.PURPLEHEART_BUTTON);
+        simpleBlockItem(DEBlocks.PURPLEHEART_PRESSURE_PLATE);
+        oneLayerItem(DEBlocks.PURPLEHEART_DOOR);
+        trapDoorItem(DEBlocks.PURPLEHEART_TRAPDOOR);
+        simpleBlockItem(DEBlocks.PURPLEHEART_LEAVES);
+        simpleBlockItem(DEBlocks.PURPLEHEART_STAIRS);
+        simpleBlockItem(DEBlocks.PURPLEHEART_BOOKSHELF);
+        oneLayerItem(DEBlocks.PURPLE_ROSE);
+        oneLayerItem(DEBlocks.PURPLEHEART_SAPLING);
+        simpleBlockItem(DEBlocks.SULFUR_STONE);
+        simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE);
+        simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE_SLAB);
+        simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE_STAIRS);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_PRESSURE_PLATE);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
+        inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);	
+        simpleBlockItem(DEBlocks.BLUE_SAND);
+        simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
         
         simpleBlockItem(DEBlocks.FORGE);
         simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);

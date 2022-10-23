@@ -7,13 +7,13 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class DEWoodTypes {
 
-    public static final WoodType END = createWoodType("end");
+    public static final WoodType PURPLEHEART = createWoodType("purpleheart");
 
     private static WoodType createWoodType(String id){
         return WoodType.register(WoodType.create(new ResourceLocation(DEMod.MOD_ID, id).toString()));
     }
 
     public static void setWoodTypes(){
-        Sheets.addWoodType(DEWoodTypes.END);
+        Sheets.addWoodType(DEWoodTypes.PURPLEHEART);
     }
 }

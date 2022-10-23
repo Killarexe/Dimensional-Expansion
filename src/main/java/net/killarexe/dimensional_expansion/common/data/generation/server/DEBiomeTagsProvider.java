@@ -16,6 +16,6 @@ public class DEBiomeTagsProvider extends BiomeTagsProvider {
 
     @Override
     protected void addTags() {
-        this.tag(BiomeTags.IS_END).add(DEBiomes.END_FOREST.get());
+        
     }
 }

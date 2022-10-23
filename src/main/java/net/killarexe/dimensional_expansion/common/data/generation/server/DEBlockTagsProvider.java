@@ -20,15 +20,53 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
                 DEBlocks.SIMIX_ORE.get(), DEBlocks.EMERTYST_ORE.get());
         tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(DEBlocks.PALON_ORE.get(), DEBlocks.PALON_BLOCK.get());
 
-        tag(BlockTags.DIRT).add(DEBlocks.END_GRASS_BLOCK.get());
-        tag(BlockTags.LOGS).add(DEBlocks.END_LOG.get(), DEBlocks.STRIPPED_END_LOG.get());
-        tag(BlockTags.PLANKS).add(DEBlocks.END_PLANKS.get());
-        tag(BlockTags.LEAVES).add(DEBlocks.END_LEAVES.get());
-        tag(BlockTags.SIGNS).add(DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get());
-        tag(BlockTags.STANDING_SIGNS).add(DEBlocks.END_SIGN.get());
-        tag(BlockTags.WALL_SIGNS).add(DEBlocks.END_WALL_SIGN.get());
-        tag(BlockTags.SMALL_FLOWERS).add(DEBlocks.END_ROSE.get());
-        tag(BlockTags.SAPLINGS).add(DEBlocks.END_SAPLING.get());
-        tag(BlockTags.FLOWER_POTS).add(DEBlocks.POTTED_END_ROSE.get(), DEBlocks.POTTED_END_SAPLING.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+        		DEBlocks.PALON_ORE.get(),
+        		DEBlocks.PALON_BLOCK.get(),
+        		DEBlocks.BASSMITE_ORE.get(),
+        		DEBlocks.BASSMITE_BLOCK.get(),
+        		DEBlocks.SIMIX_ORE.get(),
+        		DEBlocks.SIMIX_BLOCK.get(),
+        		DEBlocks.EMERTYST_ORE.get(),
+        		DEBlocks.EMERTYST_BLOCK.get(),
+        		DEBlocks.SULFUR_STONE.get(),
+        		DEBlocks.SULFUR_COBBLESTONE.get(),
+        		DEBlocks.SULFUR_COBBLESTONE_SLAB.get(),
+        		DEBlocks.SULFUR_COBBLESTONE_STAIRS.get(),
+        		DEBlocks.SULFUR_STONE_BUTTON.get(),
+        		DEBlocks.SULFUR_STONE_PRESSURE_PLATE.get(),
+        		DEBlocks.SULFUR_STONE_SLAB.get(),
+        		DEBlocks.SULFUR_STONE_STAIRS.get(),
+        		DEBlocks.MINERAL_STORAGE.get(),
+        		DEBlocks.FORGE.get()
+        );
+        
+        tag(BlockTags.MINEABLE_WITH_AXE).add(
+        		DEBlocks.PURPLEHEART_BOOKSHELF.get(),
+        		DEBlocks.PURPLEHEART_BUTTON.get(),
+        		DEBlocks.PURPLEHEART_DOOR.get(),
+        		DEBlocks.PURPLEHEART_FENCE.get(),
+        		DEBlocks.PURPLEHEART_FENCE_GATE.get(),
+        		DEBlocks.PURPLEHEART_LOG.get(),
+        		DEBlocks.PURPLEHEART_PLANKS.get(),
+        		DEBlocks.PURPLEHEART_PRESSURE_PLATE.get(),
+        		DEBlocks.PURPLEHEART_SIGN.get(),
+        		DEBlocks.PURPLEHEART_SLAB.get(),
+        		DEBlocks.PURPLEHEART_STAIRS.get(),
+        		DEBlocks.PURPLEHEART_TRAPDOOR.get(),
+        		DEBlocks.PURPLEHEART_WALL_SIGN.get(),
+        		DEBlocks.STRIPPED_PURPLEHEART_LOG.get()
+        );
+        
+        tag(BlockTags.DIRT).add(DEBlocks.ORIGIN_GRASS_BLOCK.get());
+        tag(BlockTags.LOGS).add(DEBlocks.PURPLEHEART_LOG.get(), DEBlocks.STRIPPED_PURPLEHEART_LOG.get());
+        tag(BlockTags.PLANKS).add(DEBlocks.PURPLEHEART_PLANKS.get());
+        tag(BlockTags.LEAVES).add(DEBlocks.PURPLEHEART_LEAVES.get());
+        tag(BlockTags.SIGNS).add(DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get());
+        tag(BlockTags.STANDING_SIGNS).add(DEBlocks.PURPLEHEART_SIGN.get());
+        tag(BlockTags.WALL_SIGNS).add(DEBlocks.PURPLEHEART_WALL_SIGN.get());
+        tag(BlockTags.SMALL_FLOWERS).add(DEBlocks.PURPLE_ROSE.get());
+        tag(BlockTags.SAPLINGS).add(DEBlocks.PURPLEHEART_SAPLING.get());
+        tag(BlockTags.FLOWER_POTS).add(DEBlocks.POTTED_PURPLE_ROSE.get(), DEBlocks.POTTED_PURPLEHEART_SAPLING.get());
     }
 }

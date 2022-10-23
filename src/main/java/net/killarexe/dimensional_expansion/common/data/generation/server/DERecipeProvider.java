@@ -49,15 +49,15 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createMixRecipe(r, SIMIX_MIXED_COAL.get(), SIMIX_INGOT.get(), COAL);
         createMixRecipe(r, EMERTYST_MIXED_COAL.get(), EMERTYST_GEM.get(), COAL);
 
-        createSlabRecipe(r, END_SLAB.get(), END_PLANKS.get());
-        createStairsRecipe(r, END_STAIRS.get(), END_PLANKS.get());
-        createFenceRecipe(r, END_FENCE.get(), END_PLANKS.get());
-        createFenceGateRecipe(r, END_FENCE_GATE.get(), END_PLANKS.get());
-        createPressurePlateRecipe(r, END_PRESSURE_PLATE.get(), END_PLANKS.get());
-        createButtonRecipe(r, END_BUTTON.get(), END_PLANKS.get());
-        createDoorRecipe(r, END_DOOR.get(), END_PLANKS.get());
-        createTrapDoorRecipe(r, END_TRAPDOOR.get(), END_PLANKS.get());
-        createSignRecipe(r, DEItems.END_SIGN.get(), END_PLANKS.get());
+        createSlabRecipe(r, PURPLEHEART_SLAB.get(), PURPLEHEART_PLANKS.get());
+        createStairsRecipe(r, PURPLEHEART_STAIRS.get(), PURPLEHEART_PLANKS.get());
+        createFenceRecipe(r, PURPLEHEART_FENCE.get(), PURPLEHEART_PLANKS.get());
+        createFenceGateRecipe(r, PURPLEHEART_FENCE_GATE.get(), PURPLEHEART_PLANKS.get());
+        createPressurePlateRecipe(r, PURPLEHEART_PRESSURE_PLATE.get(), PURPLEHEART_PLANKS.get());
+        createButtonRecipe(r, PURPLEHEART_BUTTON.get(), PURPLEHEART_PLANKS.get());
+        createDoorRecipe(r, PURPLEHEART_DOOR.get(), PURPLEHEART_PLANKS.get());
+        createTrapDoorRecipe(r, PURPLEHEART_TRAPDOOR.get(), PURPLEHEART_PLANKS.get());
+        createSignRecipe(r, DEItems.PURPLEHEART_SIGN.get(), PURPLEHEART_PLANKS.get());
         
         new EssenceExtractorRecipeBuilder(ENDER_PEARL, PEARL_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
         new EssenceExtractorRecipeBuilder(HEART_SEEDS.get(), HEART_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));

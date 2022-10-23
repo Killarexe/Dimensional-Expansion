@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.common.entity.EndBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.OriginBoatEntity;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -21,9 +21,9 @@ import java.util.function.Predicate;
 public class EndBoatItem extends Item {
 
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::canBeCollidedWith);
-    private final EndBoatEntity.Type type;
+    private final OriginBoatEntity.Type type;
 
-    public EndBoatItem(Properties pProperties, EndBoatEntity.Type type) {
+    public EndBoatItem(Properties pProperties, OriginBoatEntity.Type type) {
         super(pProperties);
         this.type = type;
     }
@@ -48,7 +48,7 @@ public class EndBoatItem extends Item {
                 }
             }
             if (raytraceresult.getType() == HitResult.Type.BLOCK) {
-                EndBoatEntity boatentity = new EndBoatEntity(pLevel, raytraceresult.getLocation().x, raytraceresult.getLocation().y, raytraceresult.getLocation().z);
+                OriginBoatEntity boatentity = new OriginBoatEntity(pLevel, raytraceresult.getLocation().x, raytraceresult.getLocation().y, raytraceresult.getLocation().z);
                 boatentity.setDEBoatType(this.type);
                 boatentity.setYRot(pPlayer.getYRot());
                 if (!pLevel.noCollision(boatentity, boatentity.getBoundingBox().inflate(-0.1D))) {

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dimensional_expansion:block/stripped_purpleheart_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dimensional_expansion:block/stripped_purpleheart_log"
+    },
+    "axis=z": {
+      "model": "dimensional_expansion:block/stripped_purpleheart_log_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.entity.EndBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.OriginBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
@@ -109,8 +109,8 @@ public class DEItems {
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
-    public static final RegistryObject<Item> END_SIGN = ITEMS.register("end_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
-    public static final RegistryObject<Item> END_BOAT = ITEMS.register("end_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), EndBoatEntity.Type.END));
+    public static final RegistryObject<Item> PURPLEHEART_SIGN = ITEMS.register("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()));
+    public static final RegistryObject<Item> PURPLEHEART_BOAT = ITEMS.register("purpleheart_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), OriginBoatEntity.Type.END));
 
     public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DEItemGroups.MISC, 0);
     public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DEItemGroups.MISC, 0);

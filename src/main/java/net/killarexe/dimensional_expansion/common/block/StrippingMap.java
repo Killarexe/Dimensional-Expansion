@@ -11,6 +11,6 @@ public class StrippingMap {
     }
 
     public static void putStrippables(){
-        StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.STRIPPED_END_LOG.get());
+        StrippingMap.putStrippable(DEBlocks.PURPLEHEART_LOG.get(), DEBlocks.STRIPPED_PURPLEHEART_LOG.get());
     }
 }

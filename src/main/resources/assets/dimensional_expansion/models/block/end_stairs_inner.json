@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "dimensional_expansion:block/end_planks",
-    "side": "dimensional_expansion:block/end_planks",
-    "top": "dimensional_expansion:block/end_planks"
-  }
-}

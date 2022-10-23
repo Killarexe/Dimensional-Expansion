@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
-import net.killarexe.dimensional_expansion.common.block.entity.EndSignBlockEntity;
+import net.killarexe.dimensional_expansion.common.block.entity.PurpleheartSignBlockEntity;
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,7 +17,7 @@ public class DEBlockEntityTypes {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, DEMod.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<EndSignBlockEntity>> END_SIGN = register("end_sign", () -> BlockEntityType.Builder.of(EndSignBlockEntity::new, DEBlocks.END_SIGN.get(), DEBlocks.END_WALL_SIGN.get()));
+    public static final RegistryObject<BlockEntityType<PurpleheartSignBlockEntity>> PURPLEHEART_SIGN = register("purpleheart_sign", () -> BlockEntityType.Builder.of(PurpleheartSignBlockEntity::new, DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()));
     public static final RegistryObject<BlockEntityType<EssenceExtractorBlockEntity>> ESSENCE_EXTRACTOR = register("essence_extractor", () -> BlockEntityType.Builder.of(EssenceExtractorBlockEntity::new, DEBlocks.ESSENCE_EXTRACTOR.get()));
     public static final RegistryObject<BlockEntityType<DisplayBlockEntity>> DISPLAY_BLOCK = register("display_block", () -> BlockEntityType.Builder.of(DisplayBlockEntity::new, DEBlocks.DISPLAY_BLOCK.get()));
 

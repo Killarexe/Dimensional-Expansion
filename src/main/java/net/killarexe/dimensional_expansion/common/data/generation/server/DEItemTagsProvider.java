@@ -24,12 +24,12 @@ public class DEItemTagsProvider extends ItemTagsProvider {
         tag(Tags.Items.INGOTS).add(DEItems.PALON_INGOT.get(), DEItems.SIMIX_INGOT.get());
         tag(Tags.Items.GEMS).add(DEItems.BASSMITE_GEM.get(), DEItems.EMERTYST_GEM.get());
 
-        tag(ItemTags.DIRT).add(DEBlocks.END_GRASS_BLOCK.get().asItem());
-        tag(ItemTags.LOGS).add(DEBlocks.END_LOG.get().asItem(), DEBlocks.STRIPPED_END_LOG.get().asItem());
-        tag(ItemTags.PLANKS).add(DEBlocks.END_PLANKS.get().asItem());
-        tag(ItemTags.LEAVES).add(DEBlocks.END_LEAVES.get().asItem());
-        tag(ItemTags.SIGNS).add(DEItems.END_SIGN.get());
-        tag(ItemTags.SMALL_FLOWERS).add(DEBlocks.END_ROSE.get().asItem());
-        tag(ItemTags.SAPLINGS).add(DEBlocks.END_SAPLING.get().asItem());
+        tag(ItemTags.DIRT).add(DEBlocks.ORIGIN_GRASS_BLOCK.get().asItem());
+        tag(ItemTags.LOGS).add(DEBlocks.PURPLEHEART_LOG.get().asItem(), DEBlocks.STRIPPED_PURPLEHEART_LOG.get().asItem());
+        tag(ItemTags.PLANKS).add(DEBlocks.PURPLEHEART_PLANKS.get().asItem());
+        tag(ItemTags.LEAVES).add(DEBlocks.PURPLEHEART_LEAVES.get().asItem());
+        tag(ItemTags.SIGNS).add(DEItems.PURPLEHEART_SIGN.get());
+        tag(ItemTags.SMALL_FLOWERS).add(DEBlocks.PURPLE_ROSE.get().asItem());
+        tag(ItemTags.SAPLINGS).add(DEBlocks.PURPLEHEART_SAPLING.get().asItem());
     }
 }

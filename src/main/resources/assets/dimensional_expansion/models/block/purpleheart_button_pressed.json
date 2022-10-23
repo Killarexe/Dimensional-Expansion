@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "dimensional_expansion:block/purpleheart_planks"
+  }
+}

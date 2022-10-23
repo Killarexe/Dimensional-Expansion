@@ -1,19 +1,18 @@
 {
-  "replace": false,
   "values": [
-    "dimensional_expansion:end_log",
-    "dimensional_expansion:stripped_end_log",
-    "dimensional_expansion:end_planks",
-    "dimensional_expansion:end_slab",
-    "dimensional_expansion:end_fence",
-    "dimensional_expansion:end_fence_gate",
-    "dimensional_expansion:end_button",
-    "dimensional_expansion:end_pressure_plate",
-    "dimensional_expansion:end_door",
-    "dimensional_expansion:end_stairs",
-    "dimensional_expansion:end_trapdoor",
-    "dimensional_expansion:end_bookshelf",
-    "dimensional_expansion:end_sign",
-    "dimensional_expansion:end_wall_sign"
+    "dimensional_expansion:purpleheart_bookshelf",
+    "dimensional_expansion:purpleheart_button",
+    "dimensional_expansion:purpleheart_door",
+    "dimensional_expansion:purpleheart_fence",
+    "dimensional_expansion:purpleheart_fence_gate",
+    "dimensional_expansion:purpleheart_log",
+    "dimensional_expansion:purpleheart_planks",
+    "dimensional_expansion:purpleheart_pressure_plate",
+    "dimensional_expansion:purpleheart_sign",
+    "dimensional_expansion:purpleheart_slab",
+    "dimensional_expansion:purpleheart_stairs",
+    "dimensional_expansion:purpleheart_trapdoor",
+    "dimensional_expansion:purpleheart_wall_sign",
+    "dimensional_expansion:stripped_purpleheart_log"
   ]
 }

@@ -24,26 +24,29 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.EMERTYST_ORE.get(), "Emertyst Ore");
         add(DEBlocks.EMERTYST_BLOCK.get(), "Emertyst Block");
 
-        add(DEBlocks.END_GRASS_BLOCK.get(), "End Grass Block");
-        add(DEBlocks.END_LOG.get(), "End Log");
-        add(DEBlocks.STRIPPED_END_LOG.get(), "End Stripped Log");
-        add(DEBlocks.END_PLANKS.get(), "End Planks");
-        add(DEBlocks.END_SLAB.get(), "End Slab");
-        add(DEBlocks.END_FENCE.get(), "End Fence");
-        add(DEBlocks.END_FENCE_GATE.get(), "End Fence Gate");
-        add(DEBlocks.END_BUTTON.get(), "End Button");
-        add(DEBlocks.END_PRESSURE_PLATE.get(), "End Pressure Plate");
-        add(DEBlocks.END_DOOR.get(), "End Door");
-        add(DEBlocks.END_TRAPDOOR.get(), "End Trapdoor");
-        add(DEBlocks.END_LEAVES.get(), "End Leaves");
-        add(DEBlocks.END_STAIRS.get(), "End Stairs");
-        add(DEBlocks.END_BOOKSHELF.get(), "End Bookshelf");
-        add(DEBlocks.END_ROSE.get(), "End Rose");
-        add(DEBlocks.POTTED_END_ROSE.get(), "Potted End Rose");
-        add(DEBlocks.END_SAPLING.get(), "End Sapling");
-        add(DEBlocks.POTTED_END_SAPLING.get(), "Potted End Sapling");
-        add(DEBlocks.END_SAND.get(), "End Sand");
-        add(DEBlocks.END_SANDSTONE.get(), "End Sandstone");
+        add(DEBlocks.ORIGIN_GRASS_BLOCK.get(), "Origin Grass Block");
+        add(DEBlocks.PURPLEHEART_LOG.get(), "Origin Log");
+        add(DEBlocks.STRIPPED_PURPLEHEART_LOG.get(), "Origin Stripped Log");
+        add(DEBlocks.PURPLEHEART_PLANKS.get(), "Origin Planks");
+        add(DEBlocks.PURPLEHEART_SLAB.get(), "Origin Slab");
+        add(DEBlocks.PURPLEHEART_FENCE.get(), "Origin Fence");
+        add(DEBlocks.PURPLEHEART_FENCE_GATE.get(), "Origin Fence Gate");
+        add(DEBlocks.PURPLEHEART_BUTTON.get(), "Origin Button");
+        add(DEBlocks.PURPLEHEART_PRESSURE_PLATE.get(), "Origin Pressure Plate");
+        add(DEBlocks.PURPLEHEART_DOOR.get(), "Origin Door");
+        add(DEBlocks.PURPLEHEART_TRAPDOOR.get(), "Origin Trapdoor");
+        add(DEBlocks.PURPLEHEART_LEAVES.get(), "Origin Leaves");
+        add(DEBlocks.PURPLEHEART_STAIRS.get(), "Origin Stairs");
+        add(DEBlocks.PURPLEHEART_BOOKSHELF.get(), "Origin Bookshelf");
+        add(DEBlocks.PURPLE_ROSE.get(), "Origin Rose");
+        add(DEBlocks.POTTED_PURPLE_ROSE.get(), "Potted Origin Rose");
+        add(DEBlocks.PURPLEHEART_SAPLING.get(), "Origin Sapling");
+        add(DEBlocks.POTTED_PURPLEHEART_SAPLING.get(), "Potted Origin Sapling");
+        add(DEBlocks.BLUE_SAND.get(), "Origin Sand");
+        add(DEBlocks.BLUE_SANDSTONE.get(), "Origin Sandstone");
+        add(DEBlocks.SULFUR_STONE.get(), "Origin Stone");
+        add(DEBlocks.SULFUR_STONE_BUTTON.get(), "Origin Stone Button");
+        add(DEBlocks.SULFUR_COBBLESTONE.get(), "Origin Cobblestone");
 
         add(DEBlocks.FORGE.get(), "Forge");
         add(DEBlocks.ESSENCE_EXTRACTOR.get(), "Essence Extractor");
@@ -125,8 +128,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.HEART_ESSENCE.get(), "Heart Essence");
         add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
 
-        add(DEItems.END_SIGN.get(), "End Sign");
-        add(DEItems.END_BOAT.get(), "End Boat");
+        add(DEItems.PURPLEHEART_SIGN.get(), "Origin Sign");
+        add(DEItems.PURPLEHEART_BOAT.get(), "Origin Boat");
 
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");

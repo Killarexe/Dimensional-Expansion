@@ -28,7 +28,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "dimensional_expansion";
-    public static final String VERSION = "0.6.1a";
+    public static final String VERSION = "0.7a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -77,18 +77,18 @@ public class DEMod
         event.enqueueWork(() ->{
        		LOGGER.info("Dimensional Expansion Common Setup");
             LOGGER.info("Register Dimensional Expansion WoodTypes");
-            WoodType.register(DEWoodTypes.END);
+            WoodType.register(DEWoodTypes.PURPLEHEART);
             LOGGER.info("Put Dimensional Expansion Strippables");
             StrippingMap.putStrippables();
         	LOGGER.info("Put Dimensional Expansion Compostables");
             ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
-            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_LEAVES.get(), 0.6f);
-            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_ROSE.get(), 0.4f);
-            ComposterBlock.COMPOSTABLES.put(DEBlocks.END_SAPLING.get(), 0.6f);
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.6f);
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.4f);
+            ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.6f);
             LOGGER.info("Put Dimensional Expansion Flower Pots");
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), DEBlocks.POTTED_END_ROSE);
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), DEBlocks.POTTED_END_SAPLING);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
         });
     }
 }

@@ -7,7 +7,7 @@ import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScr
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPCManager;
 import net.killarexe.dimensional_expansion.client.render.blockentity.DisplayBlockRenderer;
-import net.killarexe.dimensional_expansion.client.render.entity.EndBoatRenderer;
+import net.killarexe.dimensional_expansion.client.render.entity.OriginBoatRenderer;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.uitls.DEUtils;
@@ -50,11 +50,11 @@ public class DEModClient {
 	        DEWoodTypes.setWoodTypes();
 	        LOGGER.info("Set Dimensional Expansion Block Entity Renders");
 	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + "Block Entity Renders");
-	        BlockEntityRenderers.register(DEBlockEntityTypes.END_SIGN.get(), SignRenderer::new);
+	        BlockEntityRenderers.register(DEBlockEntityTypes.PURPLEHEART_SIGN.get(), SignRenderer::new);
 	        BlockEntityRenderers.register(DEBlockEntityTypes.DISPLAY_BLOCK.get(), DisplayBlockRenderer::new);
 	        LOGGER.info("Set Dimensional Expansion Entity Renders");
 	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Entity Renders");
-	        EntityRenderers.register(DEEntityTypes.END_BOAT.get(), EndBoatRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.END_BOAT.get(), OriginBoatRenderer::new);
 	        LOGGER.info("Register Dimensional Expansion Container");
 	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Containers");
 	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);

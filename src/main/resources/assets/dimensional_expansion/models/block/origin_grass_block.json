@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "dimensional_expansion:block/origin_dirt",
+    "side": "dimensional_expansion:block/origin_grass_block_side",
+    "top": "dimensional_expansion:block/origin_grass_block_top"
+  }
+}
