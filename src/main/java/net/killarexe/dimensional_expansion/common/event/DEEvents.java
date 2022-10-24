@@ -29,7 +29,7 @@ public class DEEvents {
         VillagerFeatures.addTrades(e);
     }
     
-    public static void diggingEvent(BlockEvent.BreakEvent e) {
+    public static void diggingEvent(BlockEvent.BreakEvent e){
     	if(EnchantmentHelper.getEnchantmentLevel(DEEnchantments.SMELT.get(), e.getPlayer()) > 0 && e != null && e.isCancelable() && e.getResult() != Result.DENY && !e.getPlayer().isCreative()) {
     		e.setCanceled(true);
     		BlockPos pos = e.getPos();

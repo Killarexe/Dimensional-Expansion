@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "dimensional_expansion:block/purple_rose"
+  },
+  "render_type": "cutout"
+}

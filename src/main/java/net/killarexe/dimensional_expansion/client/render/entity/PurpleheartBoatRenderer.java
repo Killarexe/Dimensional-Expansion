@@ -3,7 +3,7 @@ package net.killarexe.dimensional_expansion.client.render.entity;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.entity.OriginBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.PurpleheartBoatEntity;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.BoatRenderer;
@@ -14,14 +14,14 @@ import net.minecraft.world.entity.vehicle.Boat;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class OriginBoatRenderer extends BoatRenderer {
+public class PurpleheartBoatRenderer extends BoatRenderer {
 
-    private final Map<OriginBoatEntity.Type, Pair<ResourceLocation, BoatModel>> boatResources;
+    private final Map<PurpleheartBoatEntity.Type, Pair<ResourceLocation, BoatModel>> boatResources;
 
-    public OriginBoatRenderer(EntityRendererProvider.Context context) {
+    public PurpleheartBoatRenderer(EntityRendererProvider.Context context) {
         super(context, false);
         shadowRadius = 0.8f;
-        boatResources = Stream.of(OriginBoatEntity.Type.values())
+        boatResources = Stream.of(PurpleheartBoatEntity.Type.values())
                 .collect(ImmutableMap.toImmutableMap((p_173938_) -> p_173938_, (type) ->
                         Pair.of(new ResourceLocation(DEMod.MOD_ID, "textures/entity/boat/" + type.getName() + ".png"),
                                 new BoatModel(context.bakeLayer(new ModelLayerLocation(
@@ -32,7 +32,7 @@ public class OriginBoatRenderer extends BoatRenderer {
 
     @Override
     public ResourceLocation getTextureLocation(Boat pEntity) {
-        if(pEntity instanceof OriginBoatEntity boat){
+        if(pEntity instanceof PurpleheartBoatEntity boat){
             return boatResources.get(boat.getDEBoatType()).getFirst();
         }
         return new ResourceLocation("minecraft", "boat/oak");
@@ -40,7 +40,7 @@ public class OriginBoatRenderer extends BoatRenderer {
 
     @Override
     public Pair<ResourceLocation, BoatModel> getModelWithLocation(Boat boat) {
-        if(boat instanceof OriginBoatEntity entity){
+        if(boat instanceof PurpleheartBoatEntity entity){
             return boatResources.get(entity.getDEBoatType());
         }
         return null;

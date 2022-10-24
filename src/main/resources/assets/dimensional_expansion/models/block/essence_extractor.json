@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench",
 	"parent": "dimensional_expansion:essence_extractor",
 	"textures": {
-		"0": "dimensional_expansion:block/end_log",
-		"1": "dimensional_expansion:block/end_planks",
+		"0": "dimensional_expansion:block/purpleheart_log",
+		"1": "dimensional_expansion:block/purpleheart_planks",
 		"2": "dimensional_expansion:block/forge_top",
-		"particle": "dimensional_expansion:block/end_log"
+		"particle": "dimensional_expansion:block/purpleheart_log"
 	},
 	"elements": [
 		{

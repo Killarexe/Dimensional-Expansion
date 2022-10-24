@@ -37,7 +37,7 @@ public class DEBlocks {
 
     public static final RegistryObject<Block> ORIGIN_GRASS_BLOCK = createBlock("origin_grass_block", Material.DIRT, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.GRASS, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> ORIGIN_DIRT = createBlock("origin_dirt", Material.DIRT, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.GRASS, DEItemGroups.BLOCKS);
-    public static final RegistryObject<Block> ORIGIN_GRASS = createGrassBlock("origin_grass", Material.GRASS, MaterialColor.COLOR_BLACK, 0, 0, 0, SoundType.GRASS, DEItemGroups.BLOCKS);
+    public static final RegistryObject<Block> ORIGIN_GRASS = createGrassBlock("origin_grass", Material.GRASS, MaterialColor.COLOR_BLACK, SoundType.GRASS, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> PURPLEHEART_LOG = createPillarBlock("purpleheart_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> STRIPPED_PURPLEHEART_LOG = createPillarBlock("stripped_purpleheart_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> PURPLEHEART_PLANKS = createBlock("purpleheart_planks", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DEItemGroups.BLOCKS);
@@ -176,8 +176,8 @@ public class DEBlocks {
         return block;
     }
     
-    private static RegistryObject<Block> createGrassBlock(String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
-    	RegistryObject<Block> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
+    private static RegistryObject<Block> createGrassBlock(String id, Material material, MaterialColor color, SoundType sound, CreativeModeTab itemGroup){
+    	RegistryObject<Block> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
     	DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup)));
     	return block;
     }

@@ -2,5 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "dimensional_expansion:block/purpleheart_leaves"
-  }
+  },
+  "render_type": "cutout"
 }
