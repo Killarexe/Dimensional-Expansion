@@ -60,6 +60,7 @@ public class DEMod
         DEVillagerTypes.POI_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
+        DEDimensions.register();
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");

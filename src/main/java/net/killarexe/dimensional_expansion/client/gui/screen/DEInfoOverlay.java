@@ -9,6 +9,7 @@ import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
@@ -28,14 +29,14 @@ public class DEInfoOverlay {
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + getFPS(Minecraft.getInstance()), posX, posY + 30, getFPSColor(Minecraft.getInstance()));
-                    DiscordRPCManager.setLogoText("FPS: " + Minecraft.getInstance().fpsString);
+                    DiscordRPCManager.setLogoText("FPS: " + getFPS(Minecraft.getInstance()));
                 }
             }
         }
-        if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getMainHandItem().is(DEItems.COORD_LINKER.get())){
+        if(DEConfig.coordLinkerOverlay.get() && Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).is(DEItems.COORD_LINKER.get())){
             int posX = Minecraft.getInstance().getWindow().getWidth() - 100;
             int posY = 10;
-            CoordLinker coordLinker = (CoordLinker)Minecraft.getInstance().player.getMainHandItem().getItem();
+            CoordLinker coordLinker = (CoordLinker)Minecraft.getInstance().player.getItemInHand(InteractionHand.MAIN_HAND).getItem();
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Overworld: " + coordLinker.getOverworldPos().toShortString(), posX, posY, 0xffffff);
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Nether: " + coordLinker.getNetherPos().toShortString(), posX, posY + 10, 0xffffff);
         }
