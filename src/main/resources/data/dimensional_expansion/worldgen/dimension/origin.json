@@ -1,5 +1,5 @@
 {
-	"type": "minecraft:overworld",
+	"type": "dimensional_expansion:origin",
 	"generator": {
 		"type": "minecraft:noise",
 		"settings": "dimensional_expansion:origin",
