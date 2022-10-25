@@ -1,5 +1,5 @@
 {
-  "homepage": "https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion/files",
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion",
   "1.16.4": {
     "0.1a": "Added Villager Trades, Added Ores, Added Items, Added Item Groups, Added Blocks, Added Ores Generation, Added Craft, Final Version"
   },
@@ -20,7 +20,8 @@
     "0.6a": "IMPORTANT: Forge is required above 41.0.94! Ported to 1.19, Added blocks, items, Patched server crash"
   },
   "1.19.2":{
-  	"0.6.1a": "Ported to 1.19.2."
+  	"0.6.1a": "Ported to 1.19.2.",
+  	"0.7a": "Total mod rework"
   },
 
   "promos": {

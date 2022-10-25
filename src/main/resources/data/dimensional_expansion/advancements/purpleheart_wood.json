@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "dimensional_expansion:purpleheart_log"
+    },
+    "title": "Purple Wood!?",
+    "description": "A wired wood..."
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:purpleheart_log"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "recipes": [
+      "dimensional_expansion:purpleheart_planks",
+      "dimensional_expansion:purpleheart_fence",
+      "dimensional_expansion:purpleheart_fencegate",
+      "dimensional_expansion:purpleheart_slab",
+      "dimensional_expansion:purpleheart_button",
+      "dimensional_expansion:purpleheart_door",
+      "dimensional_expansion:purpleheart_sign",
+      "dimensional_expansion:purpleheart_trapdoor",
+      "dimensional_expansion:purpleheart_pressure_plate",
+      "dimensional_expansion:purpleheart_stairs"
+    ]
+  },
+  "parent": "dimensional_expansion:the_origin"
+}

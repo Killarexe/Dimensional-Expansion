@@ -34,7 +34,6 @@ public class DEModClient {
     public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
         forgeEventBus.addListener(DEEventsClient::onScreenPost);
         forgeEventBus.addListener(DEInfoOverlay::render);
-        forgeEventBus.addListener(DEEventsClient::onPlayerJoinEvent);
         bus.addListener(DEModClient::clientSetup);
     }
 

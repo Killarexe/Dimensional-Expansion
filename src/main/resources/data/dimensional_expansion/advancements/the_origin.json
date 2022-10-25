@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "dimensional_expansion:origin_grass_block"
+		},
+		"title": {
+			"translate": "advancements.dimensional_expansion.the_origin.title"
+		},
+		"description": {
+			"translate": "advancements.dimensional_expansion.the_origin.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "dimensional_expansion:dimensional_expansion",
+	"criteria": {
+		"entered_end": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"to": "dimensional_expansion:origin"
+			}
+		}
+	}
+}

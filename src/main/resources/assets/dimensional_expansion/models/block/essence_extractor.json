@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "dimensional_expansion:essence_extractor",
+	"parent": "dimensional_expansion:block/essence_extractor",
 	"textures": {
 		"0": "dimensional_expansion:block/purpleheart_log",
 		"1": "dimensional_expansion:block/purpleheart_planks",

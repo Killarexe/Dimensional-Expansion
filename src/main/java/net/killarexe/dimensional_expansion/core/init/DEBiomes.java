@@ -6,19 +6,23 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.*;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class DEBiomes {
 
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, DEMod.MOD_ID);
 
+    public static final ResourceKey<Biome> PURPLEHEART_FOREST = registerBiome("purpleheart_forest", BiomeType.WARM, 10, false);
+    public static final ResourceKey<Biome> ORIGIN_DESERT = registerBiome("origin_forest", BiomeType.DESERT, 10, false);
 
-    private static ResourceKey<Biome> registerBiome(String name, int weight){
+    private static ResourceKey<Biome> registerBiome(String name, BiomeManager.BiomeType type, int weight, boolean addToOverworld){
         ResourceKey<Biome> biome = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DEMod.MOD_ID, name));
-        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(biome, weight));
-        BiomeManager.addAdditionalOverworldBiomes(biome);
+        BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight));
+        if(addToOverworld) {
+        	BiomeManager.addAdditionalOverworldBiomes(biome);
+        }
         return biome;
     }
 }
