@@ -5,6 +5,7 @@ import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPC
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.item.CoordLinker;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -26,7 +27,7 @@ public class DEInfoOverlay {
                 if(DEConfig.debugMod.get()) {
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
-                    Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + getFPS(Minecraft.getInstance()), posX, posY + 30, 255);
+                    Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + getFPS(Minecraft.getInstance()), posX, posY + 30, getFPSColor(Minecraft.getInstance()));
                     DiscordRPCManager.setLogoText("FPS: " + Minecraft.getInstance().fpsString);
                 }
             }
@@ -38,6 +39,16 @@ public class DEInfoOverlay {
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Overworld: " + coordLinker.getOverworldPos().toShortString(), posX, posY, 0xffffff);
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Nether: " + coordLinker.getNetherPos().toShortString(), posX, posY + 10, 0xffffff);
         }
+    }
+    
+    private static int getFPSColor(Minecraft mc) {
+    	int fps = Integer.parseInt(getFPS(mc));
+    	if(fps > 60) {
+    		fps = 60;
+    	}else if(fps <= 0) {
+    		fps = 1;
+    	}
+    	return DEMath.rgbToHex(256 - ((256/60) * fps), (256/60) * fps, 0);
     }
 
     private static String getFPS(Minecraft mc) {
