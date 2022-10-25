@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
-import net.killarexe.dimensional_expansion.uitls.DEMath;
+import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;

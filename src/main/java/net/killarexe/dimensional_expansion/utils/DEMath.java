@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.uitls;
+package net.killarexe.dimensional_expansion.utils;
 
 import net.minecraft.core.Vec3i;
 

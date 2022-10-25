@@ -5,7 +5,7 @@ import net.killarexe.dimensional_expansion.common.entity.PurpleheartBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
 import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
-import net.killarexe.dimensional_expansion.uitls.DEMath;
+import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;

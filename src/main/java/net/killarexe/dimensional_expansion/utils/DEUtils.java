@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.uitls;
+package net.killarexe.dimensional_expansion.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

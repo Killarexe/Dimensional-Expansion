@@ -10,7 +10,7 @@ import net.killarexe.dimensional_expansion.client.render.blockentity.DisplayBloc
 import net.killarexe.dimensional_expansion.client.render.entity.PurpleheartBoatRenderer;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.killarexe.dimensional_expansion.uitls.DEUtils;
+import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;

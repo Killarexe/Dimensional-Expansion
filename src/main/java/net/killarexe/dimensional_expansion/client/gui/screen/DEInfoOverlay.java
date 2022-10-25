@@ -7,6 +7,7 @@ import net.killarexe.dimensional_expansion.common.item.CoordLinker;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
@@ -25,7 +26,7 @@ public class DEInfoOverlay {
                 if(DEConfig.debugMod.get()) {
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
-                    Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + Minecraft.getInstance().fpsString, posX, posY + 30, 255);
+                    Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + getFPS(Minecraft.getInstance()), posX, posY + 30, 255);
                     DiscordRPCManager.setLogoText("FPS: " + Minecraft.getInstance().fpsString);
                 }
             }
@@ -37,5 +38,15 @@ public class DEInfoOverlay {
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Overworld: " + coordLinker.getOverworldPos().toShortString(), posX, posY, 0xffffff);
             Minecraft.getInstance().font.draw(event.getPoseStack(), "Nether: " + coordLinker.getNetherPos().toShortString(), posX, posY + 10, 0xffffff);
         }
+    }
+
+    private static String getFPS(Minecraft mc) {
+        return formatText(mc.fpsString.split("\\s+")[0]);
+    }
+
+    private static String formatText(String text) {
+        Component fpsString = Component.literal(text);
+        return fpsString.getString();
+
     }
 }

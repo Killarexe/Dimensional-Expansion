@@ -3,7 +3,7 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.uitls.DEUtils;
+import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.Screen;
