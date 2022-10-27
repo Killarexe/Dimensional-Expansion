@@ -1,8 +1,8 @@
 {
-	"type": "minecraft:overworld",
+	"type": "dimensional_expansion:origin",
 	"generator": {
 		"type": "minecraft:noise",
-		"settings": "minecraft:overworld",
+		"settings": "dimensional_expansion:origin",
 		"biome_source": {
 			"type": "minecraft:multi_noise",
 			"biomes": [
@@ -10,7 +10,7 @@
 					"biome": "dimensional_expansion:purpleheart_forest",
 					"parameters": {
 						"temperature": 0,
-						"humidity": 0,
+						"humidity": 1,
 						"continentalness": 0,
 						"erosion": 0,
 						"weirdness": 0,
@@ -21,7 +21,7 @@
 				{
 					"biome": "dimensional_expansion:origin_desert",
 					"parameters": {
-						"temperature": 0,
+						"temperature": 1,
 						"humidity": 0,
 						"continentalness": 0,
 						"erosion": 0,

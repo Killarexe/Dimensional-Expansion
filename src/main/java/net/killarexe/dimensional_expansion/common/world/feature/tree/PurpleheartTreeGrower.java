@@ -18,7 +18,7 @@ public class PurpleheartTreeGrower extends AbstractTreeGrower {
 
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
-        return FeatureUtils.register("end_tree", Feature.TREE,
+        return FeatureUtils.register("purpleheart_tree", Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DEBlocks.PURPLEHEART_LOG.get()),
                         new StraightTrunkPlacer(5, 6, 3),
