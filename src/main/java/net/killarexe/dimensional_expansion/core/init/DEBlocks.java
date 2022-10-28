@@ -68,6 +68,9 @@ public class DEBlocks {
     public static final RegistryObject<Block> BLUE_SAND = createFallingBlock("blue_sand", Material.SAND, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.SAND, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> BLUE_SANDSTONE = createBlock("blue_sandstone", Material.STONE, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DEItemGroups.BLOCKS);
 
+    public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal", () -> new OriginPortalBlock());
+    public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_grame", Material.METAL, MaterialColor.CLAY, 0, 0, 0, SoundType.METAL, DEItemGroups.BLOCKS);
+    
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.BLOCKS);

@@ -35,7 +35,7 @@ public class TimePowerStone extends PowerStone {
         if(level instanceof ServerLevel serverLevel){
             if (serverLevel.isDay()) {
                 serverLevel.setDayTime(1000);
-            } else {
+            } else if(serverLevel.isNight()){
                 serverLevel.setDayTime(13000);
             }
             return InteractionResultHolder.success(item);

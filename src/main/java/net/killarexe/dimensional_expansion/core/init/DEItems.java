@@ -97,7 +97,6 @@ public class DEItems {
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
     public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
     public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
-    public static final RegistryObject<Item> POWER_GAUNTLET = createCustomItem("power_gauntlet", () -> new PowerGauntlet());
     public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
     public static final RegistryObject<Item> REMOTE_TELEPORTER = createCustomItem("remote_teleporter", () -> new RemoteTeleporter());
 
@@ -109,6 +108,8 @@ public class DEItems {
     public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
+    public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = createItem("origin_portal_key", DEItemGroups.MISC, false);
+    
     public static final RegistryObject<Item> PURPLEHEART_SIGN = ITEMS.register("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DEItemGroups.BLOCKS), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()));
     public static final RegistryObject<Item> PURPLEHEART_BOAT = ITEMS.register("purpleheart_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC).fireResistant(), PurpleheartBoatEntity.Type.PURPLEHEART));
 

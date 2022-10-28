@@ -78,7 +78,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.WEATHER_POWER_STONE);
     	oneLayerItem(DEItems.TIME_POWER_STONE);
     	oneLayerItem(DEItems.WARP_POWER_STONE);
-    	oneLayerItem(DEItems.POWER_GAUNTLET);
     	
     	oneLayerItem(DEItems.COORD_LINKER);
     	oneLayerItem(DEItems.REMOTE_TELEPORTER);

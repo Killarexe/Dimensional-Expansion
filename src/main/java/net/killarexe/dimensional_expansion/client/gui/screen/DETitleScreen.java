@@ -295,7 +295,7 @@ public class DETitleScreen extends Screen {
         this.minecraft.setScreen(new RealmsMainScreen(this));
     }
 
-    public void render(PoseStack poseStack, int p_96740_, int p_96741_, float p_96742_) {
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float p_96742_) {
         if (this.fadeInStart == 0L && this.fading) {
             this.fadeInStart = Util.getMillis();
         }
@@ -380,16 +380,16 @@ public class DETitleScreen extends Screen {
             }
 
             if(github.isHoveredOrFocused()){
-                drawString(poseStack, font, "Github", github.x + 16, github.y, 0xffffff);
+                renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.github"), mouseX, mouseY);
             }
             if(discord.isHoveredOrFocused()){
-                drawString(poseStack, font, "Discord", discord.x + 16, discord.y, 0xffffff);
+            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.discord"), mouseX, mouseY);
             }
             if(youtube.isHoveredOrFocused()){
-                drawString(poseStack, font, "YouTube", youtube.x + 16, youtube.y, 0xffffff);
+            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.youtube"), mouseX, mouseY);
             }
             if(config.isHoveredOrFocused()){
-                drawString(poseStack, font, "Config", config.x + 16, config.y, 0xffffff);
+            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.config"), mouseX, mouseY);
             }
 
             net.minecraftforge.internal.BrandingControl.forEachLine(true, true, (brdline, brd) ->
@@ -407,11 +407,11 @@ public class DETitleScreen extends Screen {
                 }
             }
 
-            super.render(poseStack, p_96740_, p_96741_, p_96742_);
+            super.render(poseStack, mouseX, mouseY, p_96742_);
             if (this.realmsNotificationsEnabled() && f1 >= 1.0F) {
-                this.realmsNotificationsScreen.render(poseStack, p_96740_, p_96741_, p_96742_);
+                this.realmsNotificationsScreen.render(poseStack, mouseX, mouseY, p_96742_);
             }
-            if (f1 >= 1.0f) modUpdateNotification.render(poseStack, p_96740_, p_96741_, p_96742_);
+            if (f1 >= 1.0f) modUpdateNotification.render(poseStack, mouseX, mouseY, p_96742_);
 
         }
     }

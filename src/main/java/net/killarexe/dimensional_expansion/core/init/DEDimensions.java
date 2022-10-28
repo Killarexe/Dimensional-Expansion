@@ -8,9 +8,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 
 public class DEDimensions {
-    public static final ResourceKey<Level> ORIGIN_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DEMod.MOD_ID, "origin"));
+    public static final ResourceKey<Level> ORIGIN = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DEMod.MOD_ID, "origin"));
 
-    public static final ResourceKey<DimensionType> ORIGIN_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, ORIGIN_KEY.registry());
+    public static final ResourceKey<DimensionType> ORIGIN_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, ORIGIN.registry());
 
     public static void register(){
         DEMod.LOGGER.info("Init Dimensional Expansion Dimensions");
