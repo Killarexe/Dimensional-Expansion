@@ -3,9 +3,11 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,8 +27,16 @@ public class DEConfigScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    	DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Config screen");
         this.renderBackground(pPoseStack);
         drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".title")), width/2, 10, 0xffffff);
+        if(clientButton.isHoveredOrFocused()) {
+        	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".client_button_desc"), pMouseX, pMouseY);
+        }
+        if(commonButton.isHoveredOrFocused()) {
+        	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".common_button_desc"), pMouseX, pMouseY);
+        }
+        
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 

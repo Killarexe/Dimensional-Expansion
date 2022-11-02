@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
+import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
@@ -74,7 +75,7 @@ public class DETitleScreen extends Screen {
     private static final ResourceLocation MINECRAFT_EDITION = new ResourceLocation("textures/gui/title/edition.png");
     private Screen realmsNotificationsScreen;
     private final PanoramaRenderer panorama = new PanoramaRenderer(CUBE_MAP);
-    private final boolean fading;
+    public final boolean fading;
     private long fadeInStart;
     @Nullable
     private WarningLabel warningLabel;
@@ -296,6 +297,7 @@ public class DETitleScreen extends Screen {
     }
 
     public void render(PoseStack poseStack, int mouseX, int mouseY, float p_96742_) {
+    	DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Title screen");
         if (this.fadeInStart == 0L && this.fading) {
             this.fadeInStart = Util.getMillis();
         }
@@ -324,14 +326,14 @@ public class DETitleScreen extends Screen {
                     this.blit(poseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
                 });
             } else {
-                this.blitOutlineBlack(j	- 16, 22, (p_210862_, p_210863_) -> {
-                    this.blit(poseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 44);
-                    this.blit(poseStack, p_210862_ + 155, p_210863_, 0, 45, 155, 44);
+                this.blitOutlineBlack(j, 15, (p_210862_, p_210863_) -> {
+                    this.blit(poseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 88);
+                    this.blit(poseStack, p_210862_ + 155, p_210863_, 155, 0, 102, 88);
                 });
             }
 
-            RenderSystem.setShaderTexture(0, MINECRAFT_EDITION);
-            blit(poseStack, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
+            //RenderSystem.setShaderTexture(0, MINECRAFT_EDITION);
+            //blit(poseStack, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
             if (this.warningLabel != null) {
                 this.warningLabel.render(poseStack, l);
             }
@@ -364,7 +366,7 @@ public class DETitleScreen extends Screen {
                 float f2 = 1.8F - Mth.abs(Mth.sin((float)(Util.getMillis() % 1000L) / 1000.0F * ((float)Math.PI * 2F)) * 0.1F);
                 f2 = f2 * 100.0F / (float)(this.font.width(this.splash) + 32);
                 poseStack.scale(f2, f2, f2);
-                drawCenteredString(poseStack, this.font, this.splash, 0, -8, 16776960 | l);
+                drawCenteredString(poseStack, this.font, this.splash, 0, 0, 16776960 | l);
                 poseStack.popPose();
             }
 

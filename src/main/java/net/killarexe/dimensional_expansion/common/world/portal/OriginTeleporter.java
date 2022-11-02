@@ -148,6 +148,7 @@ public class OriginTeleporter implements ITeleporter{
 			for(int l2 = 0; l2 < 3; ++l2) {
 				blockpos$mutableblockpos.setWithOffset(blockpos, k2 * direction.getStepX(), l2, k2 * direction.getStepZ());
 				this.level.setBlock(blockpos$mutableblockpos, blockstate, 18);
+				this.level.getPoiManager().add(blockpos$mutableblockpos, poi);
 			}
 		}
 		return Optional.of(new BlockUtil.FoundRectangle(blockpos.immutable(), 2, 3));

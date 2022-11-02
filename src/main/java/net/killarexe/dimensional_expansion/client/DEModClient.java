@@ -12,7 +12,6 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.SharedConstants;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -40,7 +39,7 @@ public class DEModClient {
     private static void clientSetup(final FMLClientSetupEvent event){
     	event.enqueueWork(() ->{
 	        LOGGER.info("Dimensional Expansion Client Setup");
-	        Minecraft.getInstance().getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup...");
+	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup...");
 	        ModLoadingContext.get().registerExtensionPoint(
 	                ConfigScreenHandler.ConfigScreenFactory.class,
 	                () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> new DEConfigScreen(screen))
@@ -74,6 +73,7 @@ public class DEModClient {
 		                ""
 		        );
 	        }
+	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup Complete!");
     	});
     }
 }

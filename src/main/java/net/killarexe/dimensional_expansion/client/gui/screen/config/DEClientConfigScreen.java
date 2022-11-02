@@ -2,10 +2,10 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -17,7 +17,7 @@ public class DEClientConfigScreen extends Screen {
 
     private final Screen previousScreen;
     private Button cancelButton, applyButton;
-    private Checkbox moddedScreensCheckbox, showVersionCheckbox, coordLinkerOverlayCheckbox, debugModCheckBox;
+    private SwitchButton moddedScreensCheckbox, showVersionCheckbox, coordLinkerOverlayCheckbox, debugModCheckBox;
 
     public DEClientConfigScreen(Screen previousScreen) {
         super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
@@ -27,6 +27,7 @@ public class DEClientConfigScreen extends Screen {
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(pPoseStack);
+        DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
         drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".client")), width / 2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
@@ -42,10 +43,10 @@ public class DEClientConfigScreen extends Screen {
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        moddedScreensCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 8, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".modded_screens")), DEConfig.moddedScreens.get());
-        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".show_version")), DEConfig.showVersion.get());
-        coordLinkerOverlayCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".coords_linker")), DEConfig.coordLinkerOverlay.get());
-        debugModCheckBox = new Checkbox(this.width / 2 -200, this.height / 4 - 12, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".debug_mod")), DEConfig.debugMod.get());
+        moddedScreensCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 8, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".modded_screens")), DEConfig.moddedScreens.get());
+        showVersionCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 78, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".show_version")), DEConfig.showVersion.get());
+        coordLinkerOverlayCheckbox = new SwitchButton(this.width / 2 -200, this.height / 4 + 48, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".coords_linker")), DEConfig.coordLinkerOverlay.get());
+        debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".debug_mod")), DEConfig.debugMod.get());
         addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(coordLinkerOverlayCheckbox);
         addRenderableWidget(moddedScreensCheckbox);
@@ -56,10 +57,10 @@ public class DEClientConfigScreen extends Screen {
     }
 
     private void apply(){
-        DEConfig.showVersion.set(showVersionCheckbox.selected());
-        DEConfig.coordLinkerOverlay.set(coordLinkerOverlayCheckbox.selected());
-        DEConfig.moddedScreens.set(moddedScreensCheckbox.selected());
-        DEConfig.debugMod.set(debugModCheckBox.selected());
+        DEConfig.showVersion.set(showVersionCheckbox.isEnabled());
+        DEConfig.coordLinkerOverlay.set(coordLinkerOverlayCheckbox.isEnabled());
+        DEConfig.moddedScreens.set(moddedScreensCheckbox.isEnabled());
+        DEConfig.debugMod.set(debugModCheckBox.isEnabled());
         onClose();
     }
 
