@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dimensional_expansion:item/simix_helmet"
+  }
+}

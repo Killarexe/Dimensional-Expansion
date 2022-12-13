@@ -88,6 +88,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.RAW_SIMIX.get(), "Raw Simix");
         add(DEItems.SIMIX_INGOT.get(), "Simix Ingot");
         add(DEItems.SIMIX_NUGGET.get(), "Simix Nugget");
+        add(DEItems.SIMIX_HAMMER.get(), "Simix Hammer");
         add(DEItems.SIMIX_SWORD.get(), "Simix Sword");
         add(DEItems.SIMIX_PICKAXE.get(), "Simix Pickaxe");
         add(DEItems.SIMIX_AXE.get(), "Simix Axe Axe");
@@ -112,6 +113,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.EMERTYST_BOOTS.get(), "Emertyst Boots");
         add(DEItems.EMERTYST_HORSE_ARMOR.get(), "Emertyst Horse Armor");
         add(DEItems.EMERTYST_MIXED_COAL.get(), "Emertyst Mixed Coal");
+        
+        add(DEItems.ALLOY_CRYSTAL.get(), "Alloy Crystal");
 
         add(DEItems.WEATHER_POWER_STONE.get(), "Weather Power Stone");
         add(DEItems.TIME_POWER_STONE.get(), "Time Power Stone");
@@ -127,6 +130,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.XP_ESSENCE.get(), "Xp Essence");
         add(DEItems.HEART_ESSENCE.get(), "Heart Essence");
         add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
+        
+        add(DEItems.ORIGIN_PORTAL_KEY.get(), "Origin Portal Key");
 
         add(DEItems.PURPLEHEART_SIGN.get(), "Origin Sign");
         add(DEItems.PURPLEHEART_BOAT.get(), "Origin Boat");
@@ -152,6 +157,9 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".apply_button", "§2Apply");
         add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
         add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
+        
+        add("button." + DEMod.MOD_ID + ".client_button_desc", "");
+        add("button." + DEMod.MOD_ID + ".common_button_desc", "");
 
         add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
         add("checkbox." + DEMod.MOD_ID + ".coords_linker", "Coord Linker Overlay");

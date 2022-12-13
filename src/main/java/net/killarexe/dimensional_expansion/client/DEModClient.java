@@ -38,7 +38,7 @@ public class DEModClient {
 
     private static void clientSetup(final FMLClientSetupEvent event){
     	event.enqueueWork(() ->{
-	        LOGGER.info("Dimensional Expansion Client Setup");
+	        LOGGER.info("Dimensional Expansion Client Setup...");
 	        DEUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup...");
 	        ModLoadingContext.get().registerExtensionPoint(
 	                ConfigScreenHandler.ConfigScreenFactory.class,

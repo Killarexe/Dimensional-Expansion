@@ -9,16 +9,16 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
 public enum DEItemTier implements Tier {
-	PALON(5, 3592, 17.0f, 7f, 25, () -> {
+	PALON(5, 3592, 10.0f, 5f, 15, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
 	}),
-	BASSMITE(6, 4092, 19.0f, 9f, 30, () -> {
+	BASSMITE(6, 4092, 11.0f, 6f, 16, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
-	SIMIX(7, 5092, 27.0f, 10f, 35, () -> {
+	SIMIX(7, 5092, 12.0f, 7f, 17, () -> {
 		return Ingredient.of(DEItems.SIMIX_INGOT.get());
 	}),
-	EMERTYST(8, 3592*2, 17.0f*2, 14f, 50, () -> {
+	EMERTYST(8, 6000, 15.0f, 9f, 19, () -> {
 		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	});
 

@@ -14,20 +14,20 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
 public enum DEArmorMaterial implements ArmorMaterial {
-	PALON(DEMod.MOD_ID + ":palon",62, new int[] {5, 11, 14, 5}, 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	PALON(DEMod.MOD_ID + ":palon", 38, new int[] {3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
 	}),
 
-	EMERTYST(DEMod.MOD_ID + ":emertyst",124, new int[] {10, 22, 28, 10}, 48, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-		return Ingredient.of(DEItems.EMERTYST_GEM.get());
-	}),
-
-	BASSMITE(DEMod.MOD_ID + ":bassmite",64, new int[] {7, 13, 16, 7}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	BASSMITE(DEMod.MOD_ID + ":bassmite", 39, new int[] {4, 7, 8, 3}, 16, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
 
-	SIMIX(DEMod.MOD_ID + ":simix",67, new int[] {10, 16, 19, 10}, 29, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	SIMIX(DEMod.MOD_ID + ":simix", 40, new int[] {4, 7, 9, 4}, 17, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
 		return Ingredient.of(DEItems.SIMIX_INGOT.get());
+	}),
+	
+	EMERTYST(DEMod.MOD_ID + ":emertyst", 64, new int[] {5, 11, 15, 5}, 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.2F, () -> {
+		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	});
 
 	private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

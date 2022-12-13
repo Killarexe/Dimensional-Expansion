@@ -6,7 +6,11 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.*;
+
+import java.lang.reflect.InvocationTargetException;
 
 import javax.annotation.Nullable;
 
@@ -14,7 +18,7 @@ public class DEVillagerTypes {
 
     public static final DeferredRegister<PoiType> POI_TYPE = DeferredRegister.create(ForgeRegistries.POI_TYPES, DEMod.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSION = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, DEMod.MOD_ID);
-
+    
     //PoiTypes
     public static final RegistryObject<PoiType> FORGER_POI = createPoiType("forger_poi", DEBlocks.FORGE);
     public static final RegistryObject<PoiType> FARMER_POI = createPoiType("farmer_poi", DEBlocks.ESSENCE_EXTRACTOR);
@@ -38,5 +42,18 @@ public class DEVillagerTypes {
 
     private static RegistryObject<VillagerProfession> createProfession(String name, RegistryObject<PoiType> poi, @Nullable SoundEvent sound) {
         return VILLAGER_PROFESSION.register(name, () -> new VillagerProfession(name, x -> x.get() == poi.get(), y -> y.get() == poi.get(), ImmutableSet.of(), ImmutableSet.of(), sound));
+    }
+
+    public static void register(IEventBus bus) {
+    	POI_TYPE.register(bus);
+    	VILLAGER_PROFESSION.register(bus);
+    }
+    
+    public static void registerPOIs() {
+    	try {
+    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FORGER_POI.get());
+    	}catch(InvocationTargetException | IllegalAccessException e) {
+    		e.printStackTrace();
+    	}
     }
 }

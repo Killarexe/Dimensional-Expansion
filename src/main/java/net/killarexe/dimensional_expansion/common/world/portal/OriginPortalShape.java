@@ -27,7 +27,7 @@ public class OriginPortalShape {
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
 	private static final BlockBehaviour.StatePredicate FRAME = (p_77720_, p_77721_, p_77722_) -> {
-      return p_77720_.isPortalFrame(p_77721_, p_77722_);
+      return p_77720_.getBlock() == DEBlocks.ORIGIN_FRAME.get();
 	};
 	private final LevelAccessor level;
 	private final Direction.Axis axis;
@@ -165,6 +165,9 @@ public class OriginPortalShape {
 	      BlockState blockstate = DEBlocks.ORIGIN_PORTAL.get().defaultBlockState().setValue(OriginPortalBlock.AXIS, this.axis);
 	      BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((p_77725_) -> {
 	         this.level.setBlock(p_77725_, blockstate, 18);
+	         if(level instanceof ServerLevel serverLevel) {
+	        	 serverLevel.getPoiManager().add(p_77725_, OriginTeleporter.poi);
+	         }
 	      });
 	   }
 

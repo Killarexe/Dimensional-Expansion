@@ -50,6 +50,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.RAW_SIMIX);
     	oneLayerItem(DEItems.SIMIX_INGOT);
     	oneLayerItem(DEItems.SIMIX_NUGGET);
+    	oneLayerItem(DEItems.SIMIX_HAMMER, true);
     	oneLayerItem(DEItems.SIMIX_SWORD, true);
     	oneLayerItem(DEItems.SIMIX_PICKAXE, true);
     	oneLayerItem(DEItems.SIMIX_AXE, true);
@@ -75,6 +76,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.EMERTYST_HORSE_ARMOR);
     	oneLayerItem(DEItems.EMERTYST_MIXED_COAL);
     	
+    	oneLayerItem(DEItems.ALLOY_CRYSTAL);
+    	
     	oneLayerItem(DEItems.WEATHER_POWER_STONE);
     	oneLayerItem(DEItems.TIME_POWER_STONE);
     	oneLayerItem(DEItems.WARP_POWER_STONE);
@@ -89,6 +92,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.XP_ESSENCE);
     	oneLayerItem(DEItems.HEART_ESSENCE);
     	oneLayerItem(DEItems.PEARL_ESSENCE);
+    	
+    	oneLayerItem(DEItems.ORIGIN_PORTAL_KEY);
     	
     	oneLayerItem(DEItems.PURPLEHEART_SIGN);
     	oneLayerItem(DEItems.PURPLEHEART_BOAT);

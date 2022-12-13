@@ -16,9 +16,17 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        tag(Tags.Blocks.ORES).add(DEBlocks.PALON_ORE.get(), DEBlocks.BASSMITE_ORE.get(),
-                DEBlocks.SIMIX_ORE.get(), DEBlocks.EMERTYST_ORE.get());
-        tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(DEBlocks.PALON_ORE.get(), DEBlocks.PALON_BLOCK.get());
+        tag(Tags.Blocks.ORES).add(
+        		DEBlocks.PALON_ORE.get(),
+        		DEBlocks.BASSMITE_ORE.get(),
+                DEBlocks.SIMIX_ORE.get(),
+                DEBlocks.EMERTYST_ORE.get()
+        );
+        
+        tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(
+        		DEBlocks.PALON_ORE.get(),
+        		DEBlocks.PALON_BLOCK.get()
+        );
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
         		DEBlocks.PALON_ORE.get(),

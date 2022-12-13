@@ -33,11 +33,7 @@ public class TimePowerStone extends PowerStone {
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
         if(level instanceof ServerLevel serverLevel){
-            if (serverLevel.isDay()) {
-                serverLevel.setDayTime(1000);
-            } else if(serverLevel.isNight()){
-                serverLevel.setDayTime(13000);
-            }
+        	serverLevel.setDayTime(serverLevel.getDayTime() + 12000);
             return InteractionResultHolder.success(item);
         }
         return InteractionResultHolder.fail(item);

@@ -173,7 +173,7 @@ public class OriginTeleporter implements ITeleporter{
 	@SubscribeEvent
 	public static void registerPOI(RegisterEvent e) {
 		e.register(ForgeRegistries.Keys.POI_TYPES, helper -> {
-			PoiType poiType = new PoiType(ImmutableSet.of(), 0, 1);
+			PoiType poiType = new PoiType(ImmutableSet.copyOf(DEBlocks.ORIGIN_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
 			helper.register("origin_portal", poiType);
 			poi = ForgeRegistries.POI_TYPES.getHolder(poiType).get();
 		});

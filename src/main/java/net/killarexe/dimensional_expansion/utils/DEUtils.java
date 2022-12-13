@@ -23,6 +23,11 @@ public class DEUtils {
     public static void setWindowTitle(String title) {
         Minecraft.getInstance().getWindow().setTitle(title);
     }
+    
+    public static void setWindowIcon(ResourceLocation icon16, ResourceLocation icon32) {
+    	
+    	Minecraft.getInstance().getWindow().setIcon(null, null);
+    }
 
     public static boolean isDev(){
         return Minecraft.getInstance().getLaunchedVersion().equalsIgnoreCase("MOD_DEV");
@@ -32,9 +37,9 @@ public class DEUtils {
         return Minecraft.getInstance().getUser().getName().equalsIgnoreCase("Killarexe") || Minecraft.getInstance().getUser().getName().equalsIgnoreCase("9e_Docteur");
     }
     
-    public static boolean isResponsive(String setPingURLHere) {
+    public static boolean isResponsive(String URL) {
         try {
-            URL url = new URL(setPingURLHere);
+            URL url = new URL(URL);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
             bufferedReader.close();
             return true;
@@ -44,7 +49,7 @@ public class DEUtils {
     }
     
     public static boolean hasInternet() {
-    	return isResponsive("https://github.com");
+    	return isResponsive("https://google.com");
     }
     
     public static ResourceLocation getImageFromURL(String url, String name) {

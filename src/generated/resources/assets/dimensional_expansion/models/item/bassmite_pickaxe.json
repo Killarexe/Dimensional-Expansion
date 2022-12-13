@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "dimensional_expansion:item/bassmite_pickaxe"
+  }
+}

@@ -32,8 +32,11 @@ public class WarpPowerStone extends PowerStone{
 
     @Override
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
-        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
+    	if(level.isClientSide) {
+    		return InteractionResultHolder.sidedSuccess(item, false);
+    	}
         if(player instanceof ServerPlayer serverPlayer) {
+        	level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
             setDamage(item, 1);
             player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
             BlockPos respawnPos = serverPlayer.getRespawnPosition();
@@ -42,9 +45,9 @@ public class WarpPowerStone extends PowerStone{
             }
             serverPlayer.changeDimension(serverPlayer.getServer().getLevel(serverPlayer.getRespawnDimension()));
             serverPlayer.teleportTo(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
+            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
             return InteractionResultHolder.success(item);
         }
-        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-        return InteractionResultHolder.sidedSuccess(item, false);
+        return InteractionResultHolder.fail(item);
     }
 }
