@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.utils.DEUtils;
+import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
@@ -23,7 +23,7 @@ public class DECommonConfigScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-    	DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
+    	DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
         renderBackground(pPoseStack);
         drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".common")), width/2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);

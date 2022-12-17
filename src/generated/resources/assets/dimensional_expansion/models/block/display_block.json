@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "minecraft:block/end_stone",
-    "side": "dimensional_expansion:block/display_block_side",
-    "top": "dimensional_expansion:block/display_block_top"
-  }
-}

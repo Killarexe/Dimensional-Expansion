@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
+import net.killarexe.dimensional_expansion.utils.DELevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -43,10 +44,7 @@ public class WarpPowerStone extends PowerStone{
             if(respawnPos == null && level instanceof ServerLevel serverLevel) {
                 respawnPos = serverLevel.getSharedSpawnPos();
             }
-            serverPlayer.changeDimension(serverPlayer.getServer().getLevel(serverPlayer.getRespawnDimension()));
-            serverPlayer.teleportTo(respawnPos.getX(), respawnPos.getY(), respawnPos.getZ());
-            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-            return InteractionResultHolder.success(item);
+            return DELevelUtils.teleportEntityTo(serverPlayer.getRespawnDimension(), serverPlayer, respawnPos) ? InteractionResultHolder.success(item) : InteractionResultHolder.fail(item);
         }
         return InteractionResultHolder.fail(item);
     }

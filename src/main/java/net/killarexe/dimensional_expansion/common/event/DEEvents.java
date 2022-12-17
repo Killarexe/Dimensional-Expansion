@@ -112,14 +112,7 @@ public class DEEvents {
 
             } else if (e.getType() == DEVillagerTypes.FARMER.get()) {
 
-                addTrade(tradesLevel1, Items.EMERALD, 3, DEItems.XP_SEEDS.get(), 1, 16, 10, 1);
-                addTrade(tradesLevel1, Items.EMERALD, 3, DEItems.HEART_SEEDS.get(), 1, 16, 10, 1);
-
-                addTrade(tradesLevel2, Items.EMERALD, 6, DEItems.XP_PLANTS.get(), 1, 16, 12, 1);
-                addTrade(tradesLevel2, Items.EMERALD, 6, DEItems.HEART.get(), 1, 16, 12, 1);
-
-                addTrade(tradesLevel3, Items.EMERALD, 12, DEItems.XP_SEEDS.get(), 1, DEItems.XP_ESSENCE.get(), 1, 18, 12, 1);
-                addTrade(tradesLevel3, Items.EMERALD, 12, DEItems.HEART_SEEDS.get(), 1, DEItems.HEART_ESSENCE.get(), 1, 18, 12, 1);
+            	
 
             } else if (e.getType() == DEVillagerTypes.MINER.get()) {
 

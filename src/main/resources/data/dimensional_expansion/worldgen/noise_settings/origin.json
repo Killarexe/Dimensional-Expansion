@@ -445,7 +445,7 @@
 										"if_true": {
 											"type": "minecraft:biome",
 											"biome_is": [
-												"dimensional_expansion:origin_desert"
+												"dimensional_expansion:blue_sand_desert"
 											]
 										},
 										"then_run": {

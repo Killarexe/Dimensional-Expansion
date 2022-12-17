@@ -83,8 +83,6 @@ public class DEMod
         	LOGGER.info("Put Dimensional Expansion Strippables");
         	StrippingMap.putStrippables();
         	LOGGER.info("Put Dimensional Expansion Compostables");
-        	ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
-        	ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.6f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.4f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.6f);

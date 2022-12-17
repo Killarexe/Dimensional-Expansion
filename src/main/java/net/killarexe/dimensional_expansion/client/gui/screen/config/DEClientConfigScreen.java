@@ -5,6 +5,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.utils.DEUtils;
+import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
@@ -27,7 +28,7 @@ public class DEClientConfigScreen extends Screen {
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(pPoseStack);
-        DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
+        DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
         drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".client")), width / 2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }

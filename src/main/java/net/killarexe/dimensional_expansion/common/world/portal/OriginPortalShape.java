@@ -22,8 +22,10 @@ import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.phys.Vec3;
 
 public class OriginPortalShape {
+	@SuppressWarnings("unused")
 	private static final int MIN_WIDTH = 2;
 	public static final int MAX_WIDTH = 21;
+	@SuppressWarnings("unused")
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
 	private static final BlockBehaviour.StatePredicate FRAME = (p_77720_, p_77721_, p_77722_) -> {

@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
-import net.killarexe.dimensional_expansion.common.data.generation.recipes.EssenceExtractorRecipeBuilder;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -59,9 +58,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createTrapDoorRecipe(r, PURPLEHEART_TRAPDOOR.get(), PURPLEHEART_PLANKS.get());
         createSignRecipe(r, DEItems.PURPLEHEART_SIGN.get(), PURPLEHEART_PLANKS.get());
         
-        new EssenceExtractorRecipeBuilder(ENDER_PEARL, PEARL_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
-        new EssenceExtractorRecipeBuilder(HEART_SEEDS.get(), HEART_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
-        new EssenceExtractorRecipeBuilder(XP_SEEDS.get(), XP_ESSENCE.get(), 1).unlockedBy("has_material", has(ESSENCE_EXTRACTOR.get()));
+        createMixRecipe(r, PEARL_ESSENCE.get(), SIMIX_HAMMER.get(), ENDER_PEARL);
     }
 
     private void createDoorRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem){

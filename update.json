@@ -23,6 +23,9 @@
   	"0.6.1a": "Ported to 1.19.2.",
   	"0.7a": "Total mod rework"
   },
+  "1.19.3":{
+  	"0.7.1a": "Updated to 1.19.3"
+  },
 
   "promos": {
     "1.16.4-latest": "0.1a",

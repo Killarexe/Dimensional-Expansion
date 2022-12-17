@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dimensional_expansion:is_origin",
   "features": "dimensional_expansion:emertyst_ore_placed",
   "step": "underground_ores"
 }

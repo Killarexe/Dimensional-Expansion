@@ -16,18 +16,14 @@ import javax.annotation.Nullable;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
-import net.killarexe.dimensional_expansion.utils.DEUtils;
+import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.ImageButton;
-import net.minecraft.client.gui.components.MultiLineLabel;
-import net.minecraft.client.gui.components.PlainTextButton;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.*;
@@ -170,10 +166,10 @@ public class DETitleScreen extends Screen {
 
     private void createNormalMenuOptions(int p_96764_, int p_96765_) {
 
-        config =  new ImageButton(width / 2 -200, height / 4 + 48 + 60, 16, 16, 0, 96, icons, (button -> {
+        config =  new ImageButton(width / 2 -200, height / 4 + 48 + 40, 16, 16, 0, 96, icons, (button -> {
             minecraft.setScreen(new DEConfigScreen(this));
         }));
-        discord = new ImageButton(width / 2 -200, height / 4 + 48 + 40, 16, 16, 0, 0, icons, (button -> {
+        discord = new ImageButton(width / 2 -200, height / 4 + 48 + 60, 16, 16, 0, 0, icons, (button -> {
             Util.getPlatform().openUri("https://discord.gg/xYytpBTd3r");
         }));
         youtube = new ImageButton(width / 2 -200, height / 4 + 48 + 20, 16, 16, 0, 64, icons, (button -> {
@@ -184,7 +180,7 @@ public class DETitleScreen extends Screen {
         }));
 
         addRenderableWidget(config);
-        addRenderableWidget(discord);
+        //addRenderableWidget(discord);
         addRenderableWidget(youtube);
         addRenderableWidget(github);
 
@@ -197,7 +193,7 @@ public class DETitleScreen extends Screen {
 
             public void onTooltip(Button p_169458_, PoseStack p_169459_, int p_169460_, int p_169461_) {
                 if (!p_169458_.active) {
-                    DETitleScreen.this.renderTooltip(p_169459_, DETitleScreen.this.minecraft.font.split(this.text, Math.max(DETitleScreen.this.width / 2 - 43, 170)), p_169460_, p_169461_);
+                    renderTooltip(p_169459_, minecraft.font.split(this.text, Math.max(width / 2 - 43, 170)), p_169460_, p_169461_);
                 }
 
             }
@@ -297,7 +293,7 @@ public class DETitleScreen extends Screen {
     }
 
     public void render(PoseStack poseStack, int mouseX, int mouseY, float p_96742_) {
-    	DEUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Title screen");
+    	DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Title screen");
         if (this.fadeInStart == 0L && this.fading) {
             this.fadeInStart = Util.getMillis();
         }

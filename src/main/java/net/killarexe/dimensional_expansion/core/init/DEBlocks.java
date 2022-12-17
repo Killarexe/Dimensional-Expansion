@@ -75,9 +75,6 @@ public class DEBlocks {
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DEItemGroups.BLOCKS);
     public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block", () -> new DisplayBlock(), DEItemGroups.BLOCKS);
-    
-    public static final RegistryObject<Block> XP_CROPS = createCustomBlock("xp_crops", () -> new XPCrops());
-    public static final RegistryObject<Block> HEALTH_CROPS = createCustomBlock("health_crops", () -> new HealthCrops());
 
     private static RegistryObject<Block> createBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
         RegistryObject<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));

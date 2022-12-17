@@ -3,8 +3,7 @@ package net.killarexe.dimensional_expansion.core.init;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.entity.PurpleheartBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
-import net.killarexe.dimensional_expansion.common.item.material.DEArmorMaterial;
-import net.killarexe.dimensional_expansion.common.item.material.DEItemTier;
+import net.killarexe.dimensional_expansion.common.item.material.*;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
@@ -16,7 +15,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,9 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.*;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -69,7 +65,7 @@ public class DEItems {
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DEItemGroups.MISC, true);
-    public static final RegistryObject<Item> SIMIX_HAMMER = createItem("simix_hammer", DEItemGroups.TOOLS, true);
+    public static final RegistryObject<Item> SIMIX_HAMMER = createCustomItem("simix_hammer", () -> new SimixHammerItem());
     public static final RegistryObject<Item> SIMIX_SWORD = createSwordItem("simix_sword", DEItemTier.SIMIX, 3, DEItemGroups.COMBAT, true);
     public static final RegistryObject<Item> SIMIX_PICKAXE = createPickaxeItem("simix_pickaxe", DEItemTier.SIMIX, 6, DEItemGroups.TOOLS, true);
     public static final RegistryObject<Item> SIMIX_AXE = createAxeItem("simix_axe", DEItemTier.SIMIX, 6, DEItemGroups.COMBAT, true);
@@ -103,12 +99,6 @@ public class DEItems {
     public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
     public static final RegistryObject<Item> REMOTE_TELEPORTER = createCustomItem("remote_teleporter", () -> new RemoteTeleporter());
 
-    public static final RegistryObject<Item> XP_SEEDS = ITEMS.register("xp_seeds", () -> new ItemNameBlockItem(DEBlocks.XP_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
-    public static final RegistryObject<Item> HEART_SEEDS = ITEMS.register("heart_seeds", () -> new ItemNameBlockItem(DEBlocks.HEALTH_CROPS.get(), new Item.Properties().tab(DEItemGroups.MISC)));
-    public static final RegistryObject<Item> XP_PLANTS = createCustomItem("xp_plants", () -> new XpPlants());
-    public static final RegistryObject<Item> HEART = createFoodItem("heart", 2, 2, MobEffects.HEALTH_BOOST, 1, 1, 1,DEItemGroups.MISC, false);
-    public static final RegistryObject<Item> XP_ESSENCE = createItem("xp_essence", DEItemGroups.MISC, false);
-    public static final RegistryObject<Item> HEART_ESSENCE = createItem("heart_essence", DEItemGroups.MISC, false);
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
     public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = ITEMS.register("origin_portal_key", () -> new OriginPortalKey());
@@ -133,7 +123,8 @@ public class DEItems {
         return ITEMS.register(id, () -> new FuelItem(new Item.Properties().tab(itemGroup), burnTime));
     }
 
-    private static RegistryObject<Item> createFoodItem(String id, float staturation, int nutrition, MobEffect effect, int level, int duration, float probability, CreativeModeTab itemGroup, boolean isFireProof){
+    @SuppressWarnings("unused")
+	private static RegistryObject<Item> createFoodItem(String id, float staturation, int nutrition, MobEffect effect, int level, int duration, float probability, CreativeModeTab itemGroup, boolean isFireProof){
         if(isFireProof){
             return ITEMS.register(id, () -> new Item(new Item.Properties().tab(itemGroup).food(new FoodProperties.Builder().saturationMod(staturation).alwaysEat().nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build()).fireResistant()));
         }

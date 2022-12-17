@@ -1,4 +1,5 @@
 plugins {
+	id 'java'
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
@@ -87,6 +88,13 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+configurations {
+	// Create the library configuration, where our non-mod libraries will be added to
+	library
+	// Any dependency in the library configuration will also be added to the implementation configuration
+	implementation.extendsFrom library
+}
+
 repositories {
     maven {
     	// location of the maven that hosts JEI files
@@ -96,18 +104,29 @@ repositories {
     maven {
     	// location of a maven mirror for JEI files, as a fallback
     	name = "ModMaven"
-   	url = "https://modmaven.dev"
+   		url = "https://modmaven.dev"
     }
+    mavenCentral()
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
     // compile against the JEI API but do not include it at runtime
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+    compileOnly("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
     // at runtime, use the full JEI
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    library("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
+}
+
+minecraft.runs.all {
+	// Set the minecraft_classpath token to the paths of all jars in the library configuration
+	// This is added with the actual Minecraft classpath to get the real classpath information later on
+	lazyToken('minecraft_classpath') {
+		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
+	}
 }
 
 jar {

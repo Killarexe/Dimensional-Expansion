@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.client.gui.screen;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPCManager;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.SharedConstants;
@@ -26,7 +25,6 @@ public class DEInfoOverlay {
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
                     Minecraft.getInstance().font.draw(event.getPoseStack(), "FPS " + getFPS(Minecraft.getInstance()), posX, posY + 30, getFPSColor(Minecraft.getInstance()));
-                    DiscordRPCManager.setLogoText("FPS: " + getFPS(Minecraft.getInstance()));
                 }
             }
         }

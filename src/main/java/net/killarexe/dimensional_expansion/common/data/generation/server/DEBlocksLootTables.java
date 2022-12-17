@@ -2,13 +2,9 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
@@ -59,11 +55,6 @@ public class DEBlocksLootTables extends BlockLoot {
         
         dropPottedContents(POTTED_PURPLE_ROSE.get());
         dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
-
-        LootItemCondition.Builder lBuilderXp = LootItemBlockStatePropertyCondition.hasBlockStateProperties(XP_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
-        add(XP_CROPS.get(), (block) -> {return createCropDrops(XP_CROPS.get(), DEItems.XP_PLANTS.get(), DEItems.XP_SEEDS.get(), lBuilderXp); });
-        LootItemCondition.Builder lBuilderHealth = LootItemBlockStatePropertyCondition.hasBlockStateProperties(HEALTH_CROPS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
-        add(HEALTH_CROPS.get(), (block) -> {return createCropDrops(HEALTH_CROPS.get(), DEItems.HEART.get(), DEItems.HEART_SEEDS.get(), lBuilderHealth); });
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());

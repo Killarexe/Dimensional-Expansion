@@ -37,6 +37,7 @@ public class OriginTeleporter implements ITeleporter{
 	public static Holder<PoiType> poi;
 	
 	private final ServerLevel level;
+	@SuppressWarnings("unused")
 	private final BlockPos entityPos;
 	
 	public OriginTeleporter(ServerLevel level, BlockPos entityPos) {
@@ -80,7 +81,6 @@ public class OriginTeleporter implements ITeleporter{
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = pPos.mutable();
 		for(BlockPos.MutableBlockPos blockpos$mutableblockpos1 : BlockPos.spiralAround(pPos, 16, Direction.EAST, Direction.SOUTH)) {
 			int j = Math.min(i, this.level.getHeight(Heightmap.Types.MOTION_BLOCKING, blockpos$mutableblockpos1.getX(), blockpos$mutableblockpos1.getZ()));
-			int k = 1;
 			if (worldborder.isWithinBounds(blockpos$mutableblockpos1) && worldborder.isWithinBounds(blockpos$mutableblockpos1.move(direction, 1))) {
 				blockpos$mutableblockpos1.move(direction.getOpposite(), 1);
 				for(int l = j; l >= this.level.getMinBuildHeight(); --l) {

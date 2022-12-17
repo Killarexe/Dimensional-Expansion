@@ -85,12 +85,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.COORD_LINKER);
     	oneLayerItem(DEItems.REMOTE_TELEPORTER);
     	
-    	oneLayerItem(DEItems.XP_SEEDS);
-    	oneLayerItem(DEItems.HEART_SEEDS);
-    	oneLayerItem(DEItems.XP_PLANTS);
-    	oneLayerItem(DEItems.HEART);
-    	oneLayerItem(DEItems.XP_ESSENCE);
-    	oneLayerItem(DEItems.HEART_ESSENCE);
     	oneLayerItem(DEItems.PEARL_ESSENCE);
     	
     	oneLayerItem(DEItems.ORIGIN_PORTAL_KEY);
