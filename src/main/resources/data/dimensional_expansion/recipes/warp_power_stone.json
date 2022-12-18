@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "&": {
+      "item": "dimensional_expansion:coord_linker"
+    },
+    "@": {
+      "item": "dimensional_expansion:pearl_essence"
+    }
+  },
+  "pattern": [
+    "#@#",
+    "@&@",
+    "#@#"
+  ],
+  "result": {
+    "count": 9,
+    "item": "dimensional_expansion:warp_power_stone"
+  }
+}

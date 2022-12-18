@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.block;
 
 import java.util.Optional;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginPortalShape;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginTeleporter;
 import net.killarexe.dimensional_expansion.core.init.DEDimensions;
@@ -87,6 +88,10 @@ public class OriginPortalBlock extends NetherPortalBlock{
 	
 	private void teleport(Entity entity, BlockPos pos, ResourceKey<Level> dimension) {
 		ServerLevel level = entity.getServer().getLevel(dimension);
-		entity.changeDimension(level, new OriginTeleporter(level, pos));
+		if(level != null) {
+			entity.changeDimension(level, new OriginTeleporter(level, pos));
+		}else {
+			DEMod.LOGGER.error("Dimension "+ dimension.toString() +" don't exsit!");
+		}
 	}
 }

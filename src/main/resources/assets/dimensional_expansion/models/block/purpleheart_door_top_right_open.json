@@ -3,6 +3,5 @@
   "textures": {
     "bottom": "dimensional_expansion:block/purpleheart_door_bottom",
     "top": "dimensional_expansion:block/purpleheart_door_top"
-  },
-  "render_type": "cutout"
+  }
 }

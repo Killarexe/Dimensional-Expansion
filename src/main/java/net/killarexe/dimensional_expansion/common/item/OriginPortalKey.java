@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 public class OriginPortalKey extends Item{
 
 	public OriginPortalKey() {
-		super(new Item.Properties().tab(DEItemGroups.MISC).durability(64));
+		super(new Item.Properties().tab(DEItemGroups.TOOLS).durability(64));
 	}
 	
 	@Override

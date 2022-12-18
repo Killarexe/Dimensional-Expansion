@@ -1,11 +1,20 @@
 {
-  "type": "dimensional_expansion:essence_extractor",
-  "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": {
+      "item": "dimensional_expansion:simix_hammer"
+    },
+    "2": {
       "item": "minecraft:ender_pearl"
     }
+  },
+  "pattern": [
+    "   ",
+    " 12",
+    "   "
   ],
-  "output": {
+  "result": {
+    "count": 9,
     "item": "dimensional_expansion:pearl_essence"
   }
 }

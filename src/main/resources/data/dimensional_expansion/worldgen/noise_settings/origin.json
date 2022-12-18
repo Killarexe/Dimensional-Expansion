@@ -490,13 +490,13 @@
 										"if_true": {
 											"type": "minecraft:biome",
 											"biome_is": [
-												"dimensional_expansion:origin_desert"
+												"dimensional_expansion:blue_sand_desert"
 											]
 										},
 										"then_run": {
 											"type": "minecraft:block",
 											"result_state": {
-												"Name": "dimensional_expansion:origin_dirt"
+												"Name": "dimensional_expansion:blue_sand"
 											}
 										}
 									}

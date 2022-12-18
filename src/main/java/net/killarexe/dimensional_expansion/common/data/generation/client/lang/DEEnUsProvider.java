@@ -166,7 +166,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".common_button_desc", "");
 
         add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
-        add("checkbox." + DEMod.MOD_ID + ".coords_linker", "Coord Linker Overlay");
+        add("checkbox." + DEMod.MOD_ID + ".discord_rpc", "Discord RPC");
         add("checkbox." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
         add("checkbox." + DEMod.MOD_ID + ".debug_mod", "Debug Mod");
         
@@ -174,7 +174,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");
         add("tooltip." + DEMod.MOD_ID + ".remote_teleporter", "Give you an effect of Remote for 30 seconds.");
         add("tooltip." + DEMod.MOD_ID + ".time_power_stone", "Change between day and night.");
-        add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point. §4(Need to set a spawn point)");
+        add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point.");
         add("tooltip." + DEMod.MOD_ID + ".weather_power_stone", "Switch between raing and sun.");
     }
 }

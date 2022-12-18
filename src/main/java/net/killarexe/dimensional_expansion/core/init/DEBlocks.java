@@ -83,7 +83,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<Block> createLeavesBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, CreativeModeTab itemGroup){
-        RegistryObject<Block> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).randomTicks().noOcclusion()));
+        RegistryObject<Block> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).lightLevel(s -> 1).randomTicks().noOcclusion()));
         DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup).fireResistant()));
         return block;
     }
@@ -177,7 +177,7 @@ public class DEBlocks {
     }
     
     private static RegistryObject<Block> createGrassBlock(String id, Material material, MaterialColor color, SoundType sound, CreativeModeTab itemGroup){
-    	RegistryObject<Block> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
+    	RegistryObject<Block> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().lightLevel(s -> 5).noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
     	DEItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(itemGroup)));
     	return block;
     }

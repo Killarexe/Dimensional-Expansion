@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "2": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "3": [],
+    "4": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "5": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "6": [],
+    "7": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "8": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "9": []
+  },
+  "pattern": [
+    "123",
+    "456",
+    "789"
+  ],
+  "result": {
+    "item": "dimensional_expansion:mineral_storage"
+  }
+}

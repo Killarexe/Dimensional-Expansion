@@ -19,7 +19,7 @@
 					}
 				},
 				{
-					"biome": "dimensional_expansion:origin_desert",
+					"biome": "dimensional_expansion:blue_sand_desert",
 					"parameters": {
 						"temperature": 1,
 						"humidity": 0,

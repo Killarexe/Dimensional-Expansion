@@ -13,9 +13,7 @@ public final class DEConfig {
     public static final ForgeConfigSpec.ConfigValue<Boolean> debugMod;
     public static final ForgeConfigSpec.ConfigValue<Boolean> discordRPC;
     public static final ForgeConfigSpec.ConfigValue<Boolean> showVersion;
-
     public static final ForgeConfigSpec.ConfigValue<Boolean> moddedScreens;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> coordLinkerOverlay;
 
     /*
     SERVER
@@ -31,7 +29,6 @@ public final class DEConfig {
         debugMod = CLIENT_BUILDER.comment("Set Dimensional Expansion to debug mode. Not Recommended with huge modpack. By Default is false.").define("Debug Mod", false);
         discordRPC = CLIENT_BUILDER.comment("Enable discord rich presence. Not Recommended with huge modpack. By Default is true.").define("DiscordRPC", true);
         showVersion = CLIENT_BUILDER.comment("Show the version of Dimensional Expansion. Not Recommended with huge modpack. By Default is true.").define("Show Version", true);
-        coordLinkerOverlay = CLIENT_BUILDER.comment("Show the coords directly on screen. Not Recommended with huge modpack. By Default is true.").define("Coord Linker Overlay", true);
         moddedScreens = CLIENT_BUILDER.comment("Show a custom title screen and pause screen. Not Recommended with huge modpack. By default is true.").define("Modded Screens", true);
         CLIENT_BUILDER.pop();
         CLIENT_SPEC = CLIENT_BUILDER.build();

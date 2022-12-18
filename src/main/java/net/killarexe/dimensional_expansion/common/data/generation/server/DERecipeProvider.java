@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -59,6 +60,35 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createSignRecipe(r, DEItems.PURPLEHEART_SIGN.get(), PURPLEHEART_PLANKS.get());
         
         createMixRecipe(r, PEARL_ESSENCE.get(), SIMIX_HAMMER.get(), ENDER_PEARL);
+        
+        createCrossRecipe(r, WARP_POWER_STONE.get(), PALON_INGOT.get(), PEARL_ESSENCE.get(), COORD_LINKER.get());
+        createCrossRecipe(r, TIME_POWER_STONE.get(), EMERTYST_GEM.get(), Blocks.DAYLIGHT_DETECTOR, CLOCK);
+        createCrossRecipe(r, COORD_LINKER.get(), SIMIX_INGOT.get(), PEARL_ESSENCE.get(), COMPASS);
+        createCrossRecipe(r, ORIGIN_FRAME.get(), BASSMITE_GEM.get(), PALON_INGOT.get(), PEARL_ESSENCE.get(), SIMIX_INGOT.get());
+        
+        createCustomRecipe(r, DISPLAY_BLOCK.get(),
+        		AIR, ITEM_FRAME, AIR,
+        		PALON_INGOT.get(), PALON_INGOT.get(), PALON_INGOT.get(),
+        		END_STONE, END_STONE, END_STONE
+        );
+        
+        createCustomRecipe(r, FORGE.get(),
+        		PALON_INGOT.get(), PALON_INGOT.get(), PALON_INGOT.get(),
+        		PALON_INGOT.get(), PURPLEHEART_PLANKS.get(), PALON_INGOT.get(),
+        		PALON_INGOT.get(), PURPLEHEART_PLANKS.get(), PALON_INGOT.get()
+        );
+        
+        createCustomRecipe(r, MINERAL_STORAGE.get(),
+        		PALON_INGOT.get(), PALON_INGOT.get(), AIR,
+        		PURPLEHEART_PLANKS.get(), PURPLEHEART_PLANKS.get(), AIR,
+        		PURPLEHEART_PLANKS.get(), PURPLEHEART_PLANKS.get(), AIR
+        );
+        
+        createCustomRecipe(r, SIMIX_HAMMER.get(),
+        		SIMIX_INGOT.get(), SIMIX_INGOT.get(), SIMIX_INGOT.get(),
+        		SIMIX_INGOT.get(), STICK, SIMIX_INGOT.get(),
+        		AIR, STICK, AIR
+        );
     }
 
     private void createDoorRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem){
@@ -168,6 +198,24 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_material", has(requireItem))
                 .save(r);
     }
+    
+    private void createCrossRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem, ItemLike requireItem1, ItemLike requireItem2){
+        ShapedRecipeBuilder.shaped(resultItem, 9).define('#', requireItem).define('@', requireItem1).define('&', requireItem2)
+                .pattern("#@#")
+                .pattern("@&@")
+                .pattern("#@#")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createCrossRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem, ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3){
+        ShapedRecipeBuilder.shaped(resultItem, 9).define('#', requireItem).define('@', requireItem1).define('&', requireItem2).define('%', requireItem3)
+                .pattern("#%#")
+                .pattern("@&@")
+                .pattern("#%#")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
 
     private void createMixRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem, ItemLike requireItem, ItemLike requireItem1){
         ShapedRecipeBuilder.shaped(resultItem, 9).define('1', requireItem).define('2', requireItem1)
@@ -178,11 +226,10 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(r);
     }
 
-    /*private void createCustomRecipe(Consumer<FinishedRecipe> r,
+    private void createCustomRecipe(Consumer<FinishedRecipe> r, ItemLike resultItem,
                                     ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3,
                                     ItemLike requireItem4, ItemLike requireItem5, ItemLike requireItem6,
-                                    ItemLike requireItem7, ItemLike requireItem8, ItemLike requireItem9,
-                                    ItemLike resultItem){
+                                    ItemLike requireItem7, ItemLike requireItem8, ItemLike requireItem9){
         ShapedRecipeBuilder.shaped(resultItem)
                 .define('1', requireItem1).define('2', requireItem2).define('3', requireItem3)
                 .define('4', requireItem4).define('5', requireItem5).define('6', requireItem6)
@@ -192,7 +239,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("789")
                 .unlockedBy("has_material", has(resultItem))
                 .save(r);
-    }*/
+    }
 
     private void createSmelting(Consumer<FinishedRecipe> r, ItemLike smeltItem, ItemLike resultItem, float time, int xp, SimpleCookingSerializer<?> type){
         SimpleCookingRecipeBuilder.cooking(Ingredient.of(new ItemStack(smeltItem)), resultItem, time, xp, type);

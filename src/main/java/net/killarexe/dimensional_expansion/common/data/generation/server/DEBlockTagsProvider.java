@@ -25,7 +25,8 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
         
         tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(
         		DEBlocks.PALON_ORE.get(),
-        		DEBlocks.PALON_BLOCK.get()
+        		DEBlocks.PALON_BLOCK.get(),
+        		DEBlocks.ORIGIN_FRAME.get()
         );
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
@@ -45,7 +46,9 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
         		DEBlocks.SULFUR_STONE_PRESSURE_PLATE.get(),
         		DEBlocks.SULFUR_STONE_SLAB.get(),
         		DEBlocks.SULFUR_STONE_STAIRS.get(),
+        		DEBlocks.BLUE_SANDSTONE.get(),
         		DEBlocks.MINERAL_STORAGE.get(),
+        		DEBlocks.ORIGIN_FRAME.get(),
         		DEBlocks.FORGE.get()
         );
         
@@ -64,6 +67,12 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
         		DEBlocks.PURPLEHEART_TRAPDOOR.get(),
         		DEBlocks.PURPLEHEART_WALL_SIGN.get(),
         		DEBlocks.STRIPPED_PURPLEHEART_LOG.get()
+        );
+        
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+        		DEBlocks.BLUE_SAND.get(),
+        		DEBlocks.ORIGIN_GRASS_BLOCK.get(),
+        		DEBlocks.ORIGIN_DIRT.get()
         );
         
         tag(BlockTags.DIRT).add(DEBlocks.ORIGIN_GRASS_BLOCK.get());

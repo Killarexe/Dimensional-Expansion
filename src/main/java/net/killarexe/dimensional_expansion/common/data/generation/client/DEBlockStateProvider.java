@@ -58,6 +58,8 @@ public class DEBlockStateProvider extends BlockStateProvider {
         stairsBlock((StairBlock)SULFUR_STONE_STAIRS.get(), blockTexture(SULFUR_STONE.get()));
         stairsBlock((StairBlock)SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
         
+        simpleBlock(ORIGIN_FRAME.get());
+        
         getVariantBuilder(BLUE_SANDSTONE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(BLUE_SANDSTONE.getId().getPath(),
         		blockTexture(BLUE_SANDSTONE.get()),
         		new ResourceLocation(blockTexture(BLUE_SANDSTONE.get()) + "_bottom"),

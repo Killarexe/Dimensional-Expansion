@@ -1,7 +1,5 @@
 {
   "replace": false,
   "values": [
-    "dimensional_expansion:xp_crops",
-    "dimensional_expansion:health_crops"
   ]
 }

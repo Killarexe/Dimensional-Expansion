@@ -21,6 +21,7 @@ public class DEBlocksLootTables extends BlockLoot {
         dropSelf(SIMIX_BLOCK.get());
         add(EMERTYST_ORE.get(), (block) ->{return createOreDrop(EMERTYST_ORE.get(), DEItems.EMERTYST_GEM.get());});
         dropSelf(EMERTYST_BLOCK.get());
+        add(ORIGIN_PORTAL.get(), (block) -> {return noDrop();});
 
         add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_GRASS_BLOCK.get()));});
         add(ORIGIN_GRASS.get(), (block) -> {return createGrassDrops(ORIGIN_GRASS.get());});
@@ -55,6 +56,7 @@ public class DEBlocksLootTables extends BlockLoot {
         
         dropPottedContents(POTTED_PURPLE_ROSE.get());
         dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
+        dropSelf(ORIGIN_FRAME.get());
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());

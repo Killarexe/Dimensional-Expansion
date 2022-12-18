@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.google.common.collect.ImmutableSet;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.BlockUtil;
@@ -172,6 +173,7 @@ public class OriginTeleporter implements ITeleporter{
 		
 	@SubscribeEvent
 	public static void registerPOI(RegisterEvent e) {
+		DEMod.LOGGER.info("Register portal POI.");
 		e.register(ForgeRegistries.Keys.POI_TYPES, helper -> {
 			PoiType poiType = new PoiType(ImmutableSet.copyOf(DEBlocks.ORIGIN_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
 			helper.register("origin_portal", poiType);

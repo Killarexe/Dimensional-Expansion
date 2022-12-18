@@ -2,6 +2,5 @@
   "parent": "minecraft:block/template_orientable_trapdoor_bottom",
   "textures": {
     "texture": "dimensional_expansion:block/purpleheart_trapdoor"
-  },
-  "render_type": "cutout"
+  }
 }

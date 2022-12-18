@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -22,25 +23,25 @@ public class DEConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> PALON_ORE = registerOreFeature(
             "palon_ore_configured",
             new BlockMatchTest(Blocks.END_STONE), DEBlocks.PALON_ORE,
-            8
+            5
     );
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> BASSMITE_ORE = registerOreFeature(
             "bassmite_ore_configured",
             OreFeatures.STONE_ORE_REPLACEABLES, DEBlocks.BASSMITE_ORE,
-            7
+            4
     );
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> SIMIX_ORE = registerOreFeature(
             "simix_ore_configured",
             OreFeatures.NETHER_ORE_REPLACEABLES, DEBlocks.SIMIX_ORE,
-            6
+            3
     );
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> EMERTYST_ORE = registerOreFeature(
             "emertyst_ore_configured",
-            OreFeatures.DEEPSLATE_ORE_REPLACEABLES, DEBlocks.EMERTYST_ORE,
-            4
+            new TagMatchTest(DETags.SULFUR_STONE_ORE_REPLACEABLES), DEBlocks.EMERTYST_ORE,
+            2
     );
 
     private static RegistryObject<ConfiguredFeature<?, ?>> registerOreFeature(String name, RuleTest rule, RegistryObject<Block> target, int blocksPerVeins){
