@@ -3,8 +3,12 @@
     "icon": {
       "item": "dimensional_expansion:palon_ingot"
     },
-    "title": "The Palon",
-    "description": "Obtain Palon Ingot!"
+    "title": {
+		"translate": "advancements.dimensional_expansion.the_palon.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.the_palon.desc"
+	}
   },
   "criteria": {
     "requirement": {

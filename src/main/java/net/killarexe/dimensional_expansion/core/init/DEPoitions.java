@@ -22,9 +22,9 @@ public class DEPoitions {
     }
 
     /*POTIONS*/
-	public static final RegistryObject<Potion> REMOTE_POTION = createPotion("remote", REMOTE_EFFECT);
+	public static final RegistryObject<Potion> REMOTE_POTION = createPotion("remote", REMOTE_EFFECT, 30);
 
-	private static RegistryObject<Potion> createPotion(String name, RegistryObject<MobEffect> effect){
-        return POTION.register(name, () -> new Potion(new MobEffectInstance(effect.get())));
+	private static RegistryObject<Potion> createPotion(String name, RegistryObject<MobEffect> effect, int defaultDuration){
+        return POTION.register(name, () -> new Potion(new MobEffectInstance(effect.get(), defaultDuration * 20)));
     }
 }

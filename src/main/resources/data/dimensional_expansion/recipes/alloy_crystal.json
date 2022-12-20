@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": {
+      "item": "minecraft:diamond"
+    },
+    "2": {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    "3": {
+      "item": "minecraft:diamond"
+    },
+    "4": {
+      "item": "minecraft:emerald"
+    },
+    "5": {
+      "item": "dimensional_expansion:emertyst_gem"
+    },
+    "6": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "7": {
+      "item": "minecraft:diamond"
+    },
+    "8": {
+      "item": "dimensional_expansion:simix_hammer"
+    },
+    "9": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "123",
+    "456",
+    "789"
+  ],
+  "result": {
+    "item": "dimensional_expansion:alloy_crystal"
+  }
+}

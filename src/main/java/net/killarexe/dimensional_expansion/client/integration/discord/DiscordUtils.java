@@ -11,7 +11,7 @@ public class DiscordUtils {
 	public static final RichPresence.Builder DEFAULT_BUILDER =  new RichPresence.Builder()
 			.setState("Minecraft: " + SharedConstants.getCurrentVersion().getName())
 			.setDetails("Playing Dimensional Expansion v" + DEMod.VERSION)
-			.setLargeImage("logo", "Dimensional Expansion")
+			.setLargeImage("delogo", "Dimensional Expansion")
 			.setButton1("Download", "https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion")
 			.setButton2("Source Code", "https://github.com/Killarexe/Dimensional-Expansion");
 	public static final long ID = DEUtils.isDev() ? 805057676282560543L : 945425580210389012L;

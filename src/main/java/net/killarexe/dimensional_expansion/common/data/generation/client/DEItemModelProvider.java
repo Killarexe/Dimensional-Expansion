@@ -131,6 +131,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);	
         simpleBlockItem(DEBlocks.BLUE_SAND);
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
+        simpleBlockItem(DEBlocks.ORIGIN_FRAME);
         
         simpleBlockItem(DEBlocks.FORGE);
         simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);

@@ -4,8 +4,12 @@
     "icon": {
       "item": "dimensional_expansion:palon_ingot"
     },
-    "title": "Dimensional Expansion",
-    "description": "Thank For Playing Dimensional Expansion!"
+    "title": {
+		"translate": "advancements.dimensional_expansion.dimensional_expansion.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.dimensional_expansion.desc"
+	}
   },
   "criteria": {
     "requirement": {

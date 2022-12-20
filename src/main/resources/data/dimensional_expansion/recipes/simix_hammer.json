@@ -1,34 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "1": {
+    "/": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "I": {
       "item": "dimensional_expansion:simix_ingot"
     },
-    "2": {
-      "item": "dimensional_expansion:simix_ingot"
-    },
-    "3": {
-      "item": "dimensional_expansion:simix_ingot"
-    },
-    "4": {
-      "item": "dimensional_expansion:simix_ingot"
-    },
-    "5": {
-      "item": "minecraft:stick"
-    },
-    "6": {
-      "item": "dimensional_expansion:simix_ingot"
-    },
-    "7": [],
-    "8": {
-      "item": "minecraft:stick"
-    },
-    "9": []
+    "O": {
+      "item": "minecraft:ender_eye"
+    }
   },
   "pattern": [
-    "123",
-    "456",
-    "789"
+    "III",
+    "IOI",
+    " / "
   ],
   "result": {
     "item": "dimensional_expansion:simix_hammer"

@@ -3,8 +3,12 @@
     "icon": {
       "item": "dimensional_expansion:emertyst_gem"
     },
-    "title": "The Emertyst!",
-    "description": "Obtain A Emertyst Gem!"
+    "title": {
+		"translate": "advancements.dimensional_expansion.emertyst.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.emertyst.desc"
+	}
   },
   "criteria": {
     "requirement": {

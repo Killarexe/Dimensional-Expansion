@@ -378,16 +378,16 @@ public class DETitleScreen extends Screen {
             }
 
             if(github.isHoveredOrFocused()){
-                renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.github"), mouseX, mouseY);
+                renderTooltip(poseStack, Component.translatable("button." + DEMod.MOD_ID + ".github"), mouseX, mouseY);
             }
             if(discord.isHoveredOrFocused()){
-            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.discord"), mouseX, mouseY);
+            	renderTooltip(poseStack, Component.translatable("button." + DEMod.MOD_ID + ".discord"), mouseX, mouseY);
             }
             if(youtube.isHoveredOrFocused()){
-            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.youtube"), mouseX, mouseY);
+            	renderTooltip(poseStack, Component.translatable("button." + DEMod.MOD_ID + ".youtube"), mouseX, mouseY);
             }
             if(config.isHoveredOrFocused()){
-            	renderTooltip(poseStack, Component.translatable("dimensional_expansion.button.config"), mouseX, mouseY);
+            	renderTooltip(poseStack, Component.translatable("button." + DEMod.MOD_ID + ".config"), mouseX, mouseY);
             }
 
             net.minecraftforge.internal.BrandingControl.forEachLine(true, true, (brdline, brd) ->

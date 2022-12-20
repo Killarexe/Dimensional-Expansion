@@ -3,8 +3,12 @@
     "icon": {
       "item": "dimensional_expansion:simix_ingot"
     },
-    "title": "Simix",
-    "description": "Obtain Simix Ingot!"
+    "title":  {
+		"translate": "advancements.dimensional_expansion.simix.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.simix.desc"
+	}
   },
   "criteria": {
     "requirement": {

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "dimensional_expansion:palon_ingot"
+      "item": "dimensional_expansion:alloy_crystal"
     },
     "&": {
       "item": "dimensional_expansion:coord_linker"
@@ -17,7 +17,6 @@
     "#@#"
   ],
   "result": {
-    "count": 9,
     "item": "dimensional_expansion:warp_power_stone"
   }
 }

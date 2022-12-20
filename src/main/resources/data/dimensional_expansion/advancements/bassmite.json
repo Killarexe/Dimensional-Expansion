@@ -3,8 +3,12 @@
     "icon": {
       "item": "dimensional_expansion:bassmite_gem"
     },
-    "title": "Bassmite!",
-    "description": "Obtain A Bassmite Gem!"
+    "title": {
+		"translate": "advancements.dimensional_expansion.bassmite.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.bassmite.desc"
+	}
   },
   "criteria": {
     "requirement": {

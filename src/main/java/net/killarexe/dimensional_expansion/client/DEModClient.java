@@ -60,16 +60,16 @@ public class DEModClient {
 	        LOGGER.info("Add Dimensional Expansion Items Properties");
 	        DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Items Properties");
 	        DEItems.addItemsProperites();
+	        LOGGER.info("Set Dimensional Expansion Window Icon...");
+	        DEWindowUtils.setWindowIcon(
+	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon16x16.png"),
+	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon32x32.png")
+	        );
 	        if(DEConfig.discordRPC.get()) {
 	        	DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Discord RPC");
 	        	LOGGER.info("Init Dimensional Expansion Discord RPC");
 	        	DiscordUtils.start();
 	        }
-	        LOGGER.info("Set Dimensional Expansion Window Icon...");
-	        DEWindowUtils.setWindowIcon(
-	        		new ResourceLocation(DEMod.MOD_ID, "icons/icon16x16.png"),
-	        		new ResourceLocation(DEMod.MOD_ID, "icons/icon32x32.png")
-	        );
 	        DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Client Setup Complete!");
     	});
     }

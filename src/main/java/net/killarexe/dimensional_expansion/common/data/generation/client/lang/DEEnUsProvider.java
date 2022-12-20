@@ -25,6 +25,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.EMERTYST_BLOCK.get(), "Emertyst Block");
 
         add(DEBlocks.ORIGIN_GRASS_BLOCK.get(), "Origin Grass Block");
+        add(DEBlocks.ORIGIN_GRASS.get(), "Origin Grass");
         add(DEBlocks.ORIGIN_DIRT.get(), "Origin Dirt");
         add(DEBlocks.PURPLEHEART_LOG.get(), "PurpleHeart Log");
         add(DEBlocks.STRIPPED_PURPLEHEART_LOG.get(), "PurpleHeart Stripped Log");
@@ -133,8 +134,8 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add(DEItems.ORIGIN_PORTAL_KEY.get(), "Origin Portal Key");
 
-        add(DEItems.PURPLEHEART_SIGN.get(), "Origin Sign");
-        add(DEItems.PURPLEHEART_BOAT.get(), "Origin Boat");
+        add(DEItems.PURPLEHEART_SIGN.get(), "PurpleHeart Sign");
+        add(DEItems.PURPLEHEART_BOAT.get(), "PurpleHeart Boat");
 
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
@@ -176,5 +177,25 @@ public class DEEnUsProvider extends LanguageProvider {
         add("tooltip." + DEMod.MOD_ID + ".time_power_stone", "Change between day and night.");
         add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point.");
         add("tooltip." + DEMod.MOD_ID + ".weather_power_stone", "Switch between raing and sun.");
+        
+        /*
+         *Advancements 
+         */
+        add("advancements." + DEMod.MOD_ID + ".bassmite.title", "Bassmite!");
+        add("advancements." + DEMod.MOD_ID + ".bassmite.desc", "I'm not like lapis...");
+        add("advancements." + DEMod.MOD_ID + ".cover_me_with_emertyst.title", "Cover Me With Emertyst!");
+        add("advancements." + DEMod.MOD_ID + ".cover_me_with_emertyst.desc", "The best armor you can have on this mod.");
+        add("advancements." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".title", "Dimensional Expansion");
+        add("advancements." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".desc", "Thanks for downloading this mod - Killar.exe.");
+        add("advancements." + DEMod.MOD_ID + ".emertyst.title", "Emertyst!");
+        add("advancements." + DEMod.MOD_ID + ".emertyst.desc", "The purplest gem.");
+        add("advancements." + DEMod.MOD_ID + ".purpleheart_wood.title", "Purpleheart wood...?");
+        add("advancements." + DEMod.MOD_ID + ".purpleheart_wood.desc", "The legend says that Purpleheart Forests are alive...");
+        add("advancements." + DEMod.MOD_ID + ".simix.title", "Nether's Simix");
+        add("advancements." + DEMod.MOD_ID + ".simix.desc", "Netherite combined fresh made Obsidian and an unkown ingredient...");
+        add("advancements." + DEMod.MOD_ID + ".the_origin.title", "The Origin...");
+        add("advancements." + DEMod.MOD_ID + ".the_origin.desc", "An anternative...");
+        add("advancements." + DEMod.MOD_ID + ".the_palon.title", "The Palon!");
+        add("advancements." + DEMod.MOD_ID + ".the_palon.desc", "Finaly something we can get on this mod!");
     }
 }

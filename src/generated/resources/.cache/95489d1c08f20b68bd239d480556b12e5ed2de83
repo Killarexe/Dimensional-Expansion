@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-19T00:26:43.695174702	Item Models: dimensional_expansion
+// 1.19.2	2022-12-20T01:00:40.228349966	Item Models: dimensional_expansion
 e88d1aea462e4b48323d171078a4c7e8f1a733c4 assets/dimensional_expansion/models/item/alloy_crystal.json
 ccc0dbb386034263c03fd44faf11ddc1ccca4085 assets/dimensional_expansion/models/item/bassmite_axe.json
 cc9b441ba12f8e117c68805c329cd54e7812bb04 assets/dimensional_expansion/models/item/bassmite_block.json
@@ -35,6 +35,7 @@ c7632ce9eb771af7d4d8ab6439af8412425720b9 assets/dimensional_expansion/models/ite
 7d44849c921ee8151431a23d998a735e8f049a81 assets/dimensional_expansion/models/item/essence_extractor.json
 6cba5ee63709a069070eaa9253b2e7ed6a07dc2e assets/dimensional_expansion/models/item/forge.json
 7784f5f807f7c05a2a4a836b282a5618f2837728 assets/dimensional_expansion/models/item/mineral_storage.json
+a363d47347088baa8d51ce00f41ffe624fbfad9e assets/dimensional_expansion/models/item/origin_frame.json
 e544c0ab54cac4a635f6dc244fb0465f9f191965 assets/dimensional_expansion/models/item/origin_grass_block.json
 8b5686d1de881c503529bf45475827f812078c82 assets/dimensional_expansion/models/item/origin_portal_key.json
 c110512cbb223c12ec7613a8e8d155a39213d0a6 assets/dimensional_expansion/models/item/palon_axe.json

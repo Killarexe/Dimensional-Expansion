@@ -3,8 +3,12 @@
     "icon": {
       "item": "dimensional_expansion:purpleheart_log"
     },
-    "title": "Purple Wood!?",
-    "description": "A wired wood..."
+    "title": {
+		"translate": "advancements.dimensional_expansion.purpleheart_wood.title"
+	},
+    "description": {
+		"translate": "advancements.dimensional_expansion.purpleheart_wood.desc"
+	}
   },
   "criteria": {
     "requirement": {

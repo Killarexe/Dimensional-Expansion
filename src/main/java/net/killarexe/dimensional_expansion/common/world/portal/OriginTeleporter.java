@@ -2,10 +2,10 @@ package net.killarexe.dimensional_expansion.common.world.portal;
 
 import java.util.Comparator;
 import java.util.Optional;
+import java.util.function.Function;
 
 import com.google.common.collect.ImmutableSet;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.BlockUtil;
@@ -14,8 +14,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -24,7 +26,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.border.WorldBorder;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.portal.PortalInfo;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -38,7 +43,6 @@ public class OriginTeleporter implements ITeleporter{
 	public static Holder<PoiType> poi;
 	
 	private final ServerLevel level;
-	@SuppressWarnings("unused")
 	private final BlockPos entityPos;
 	
 	public OriginTeleporter(ServerLevel level, BlockPos entityPos) {
@@ -170,10 +174,74 @@ public class OriginTeleporter implements ITeleporter{
 		}
 		return true;
 	}
+	
+	@Override
+	public Entity placeEntity(Entity entity, ServerLevel currentLevel, ServerLevel nextLevel, float yaw, Function<Boolean, Entity> repositionEntity) {
+		PortalInfo info = getPortalInfo(entity, nextLevel);
+		
+		if(entity instanceof ServerPlayer player) {
+			player.setLevel(nextLevel);
+			nextLevel.addDuringPortalTeleport(player);
+			entity.setYRot(info.yRot % 360.0f);
+			entity.setXRot(info.xRot % 360.0f);
+			entity.moveTo(info.pos);
+			return entity;
+		}
+		
+		Entity newEntity = entity.getType().create(nextLevel);
+		if(newEntity != null) {
+			newEntity.restoreFrom(entity);
+			newEntity.moveTo(info.pos.x, info.pos.y, info.pos.z, info.xRot, info.yRot);
+			newEntity.setDeltaMovement(info.speed);
+			nextLevel.addDuringTeleport(newEntity);
+		}
+		return newEntity;
+	}
+	
+	private PortalInfo getPortalInfo(Entity entity, ServerLevel level) {
+		WorldBorder border = level.getWorldBorder();
+		//double d0 = Math.max(-2.9999872E7D, border.getMinX() + 16.);
+		double d1 = Math.max(-2.9999872E7D, border.getMinZ() + 16.);
+		//double d2 = Math.min(2.9999872E7D, border.getMaxX() - 16.);
+		double d3 = Math.min(2.9999872E7D, border.getMaxZ() - 16.);
+		double d4 = DimensionType.getTeleportationScale(entity.level.dimensionType(), level.dimensionType());
+		BlockPos pos = new BlockPos(Mth.clamp(entity.getX() * d4, d1, d3), entity.getY(), Mth.clamp(entity.getZ() * d4, d1, d3));
+		
+		return this.getExitPortal(entity, pos, border).map(repositioner -> {
+			BlockState state = entity.level.getBlockState(this.entityPos);
+			Direction.Axis dir;
+			Vec3 vec;
+			
+			if(state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
+				dir = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
+				BlockUtil.FoundRectangle result = BlockUtil.getLargestRectangleAround(this.entityPos, dir, 21, Direction.Axis.Z, 21,
+						_pos ->entity.level.getBlockState(_pos) == state
+				);
+				vec = OriginPortalShape.getRelativePosition(result, dir, entity.position(), entity.getDimensions(entity.getPose()));
+			}else {
+				dir = Direction.Axis.X;
+				vec = new Vec3(0.5f, 0, 0);
+			}
+			return OriginPortalShape.createPortalInfo(level, repositioner, dir, vec,
+					entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot()
+			);
+		}).orElse(new PortalInfo(entity.position(), Vec3.ZERO, entity.getYRot(), entity.getXRot()));
+	}
+	
+	protected Optional<BlockUtil.FoundRectangle> getExitPortal(Entity entity, BlockPos pos, WorldBorder border){
+		Optional<BlockUtil.FoundRectangle> result = this.findPortalAround(pos, false, border);
+		if(entity instanceof ServerPlayer) {
+			if(result.isPresent()) {
+				return result;
+			}
+			Direction.Axis dir = entity.level.getBlockState(pos).getOptionalValue(OriginPortalBlock.AXIS).orElse(Direction.Axis.X);
+			return this.createPortal(pos, dir);
+		}
+		return result;
+	}
 		
 	@SubscribeEvent
 	public static void registerPOI(RegisterEvent e) {
-		DEMod.LOGGER.info("Register portal POI.");
 		e.register(ForgeRegistries.Keys.POI_TYPES, helper -> {
 			PoiType poiType = new PoiType(ImmutableSet.copyOf(DEBlocks.ORIGIN_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
 			helper.register("origin_portal", poiType);
