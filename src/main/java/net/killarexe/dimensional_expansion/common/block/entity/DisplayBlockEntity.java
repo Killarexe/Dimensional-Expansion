@@ -15,7 +15,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     private static final int LIMIT = 1;
 
     public DisplayBlockEntity(BlockPos pos, BlockState state) {
-        super(DEBlockEntityTypes.DISPLAY_BLOCK.get(), pos, state, 1);
+        super(DEBlockEntityTypes.DISPLAY_BLOCK.get(), pos, state, LIMIT);
     }
 
     public boolean appendItem(ItemStack stack) {

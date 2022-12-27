@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-20T01:00:40.228349966	Item Models: dimensional_expansion
+// 1.19.2	2022-12-27T13:25:51.17576326	Item Models: dimensional_expansion
 e88d1aea462e4b48323d171078a4c7e8f1a733c4 assets/dimensional_expansion/models/item/alloy_crystal.json
 ccc0dbb386034263c03fd44faf11ddc1ccca4085 assets/dimensional_expansion/models/item/bassmite_axe.json
 cc9b441ba12f8e117c68805c329cd54e7812bb04 assets/dimensional_expansion/models/item/bassmite_block.json
@@ -54,6 +54,7 @@ f89e3b29c520858317b28aec62f7fa8390353cb7 assets/dimensional_expansion/models/ite
 1c494a100d08fb34544871d3319e01ecfc55dc7d assets/dimensional_expansion/models/item/palon_shovel.json
 4d31bb65fa89a17391d49ea5f8f79ae802628038 assets/dimensional_expansion/models/item/palon_sword.json
 83b2d215aa0c0d2dde4f529d3a6b651fb975b113 assets/dimensional_expansion/models/item/pearl_essence.json
+de8854ced4d9e02c9d7d1f7b27e72b249cbbf713 assets/dimensional_expansion/models/item/purple_berry.json
 19225b9b6c80058ccc04dd3871893be87314cc9d assets/dimensional_expansion/models/item/purpleheart_boat.json
 bb9693769ade17a6cd7cf57319d8a1d8d515b0d3 assets/dimensional_expansion/models/item/purpleheart_bookshelf.json
 e31a730aa55f9d968da31dd67d14a1e2e3a953d8 assets/dimensional_expansion/models/item/purpleheart_button.json

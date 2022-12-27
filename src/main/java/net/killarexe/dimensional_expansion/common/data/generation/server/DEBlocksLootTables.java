@@ -2,9 +2,18 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
@@ -62,6 +71,26 @@ public class DEBlocksLootTables extends BlockLoot {
         dropSelf(MINERAL_STORAGE.get());
         add(ESSENCE_EXTRACTOR.get(), (block) -> {return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());});
         dropSelf(DISPLAY_BLOCK.get());
+        
+        add(PURPLE_BERRY_BUSH.get(), (block) -> {
+            return applyExplosionDecay(
+            		block,
+            		LootTable.lootTable()
+            		.withPool(LootPool.lootPool()
+            				.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
+            						.setProperties(StatePropertiesPredicate.Builder.properties()
+            								.hasProperty(SweetBerryBushBlock.AGE, 3)))
+            				.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
+            				.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
+            				.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))
+            		.withPool(LootPool.lootPool()
+            				.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
+            						.setProperties(StatePropertiesPredicate.Builder.properties()
+            								.hasProperty(SweetBerryBushBlock.AGE, 2)))
+            				.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
+            				.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+            				.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+         });
     }
 
     @Override

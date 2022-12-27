@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,13 +20,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.*;
 
 import javax.annotation.Nullable;
-import java.util.function.Supplier;
 
 public class DEItems {
 
@@ -65,7 +62,7 @@ public class DEItems {
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DEItemGroups.MISC, true);
     public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DEItemGroups.MISC, true);
-    public static final RegistryObject<Item> SIMIX_HAMMER = createCustomItem("simix_hammer", () -> new SimixHammerItem());
+    public static final RegistryObject<Item> SIMIX_HAMMER = ITEMS.register("simix_hammer", () -> new SimixHammerItem());
     public static final RegistryObject<Item> SIMIX_SWORD = createSwordItem("simix_sword", DEItemTier.SIMIX, 3, DEItemGroups.COMBAT, true);
     public static final RegistryObject<Item> SIMIX_PICKAXE = createPickaxeItem("simix_pickaxe", DEItemTier.SIMIX, 6, DEItemGroups.TOOLS, true);
     public static final RegistryObject<Item> SIMIX_AXE = createAxeItem("simix_axe", DEItemTier.SIMIX, 6, DEItemGroups.COMBAT, true);
@@ -91,13 +88,15 @@ public class DEItems {
     public static final RegistryObject<Item> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DEItemGroups.COMBAT, true);
     public static final RegistryObject<Item> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DEItemGroups.MISC, true);
 
-    public static final RegistryObject<Item> ALLOY_CRYSTAL = createCustomItem("alloy_crystal", () -> new AlloyCrystal());
+    public static final RegistryObject<Item> ALLOY_CRYSTAL = ITEMS.register("alloy_crystal", () -> new AlloyCrystal());
     
-    public static final RegistryObject<Item> WEATHER_POWER_STONE = createCustomItem("weather_power_stone", () -> new WeatherPowerStone());
-    public static final RegistryObject<Item> TIME_POWER_STONE = createCustomItem("time_power_stone", () -> new TimePowerStone());
-    public static final RegistryObject<Item> WARP_POWER_STONE = createCustomItem("warp_power_stone", () -> new WarpPowerStone());
-    public static final RegistryObject<Item> COORD_LINKER = createCustomItem("coord_linker", () -> new CoordLinker());
-    public static final RegistryObject<Item> REMOTE_TELEPORTER = createCustomItem("remote_teleporter", () -> new RemoteTeleporter());
+    public static final RegistryObject<Item> PURPLE_BERRY = ITEMS.register("purple_berry", () -> new PurpleBerry());
+
+    public static final RegistryObject<Item> WEATHER_POWER_STONE = ITEMS.register("weather_power_stone", () -> new WeatherPowerStone());
+    public static final RegistryObject<Item> TIME_POWER_STONE = ITEMS.register("time_power_stone", () -> new TimePowerStone());
+    public static final RegistryObject<Item> WARP_POWER_STONE = ITEMS.register("warp_power_stone", () -> new WarpPowerStone());
+    public static final RegistryObject<Item> COORD_LINKER = ITEMS.register("coord_linker", () -> new CoordLinker());
+    public static final RegistryObject<Item> REMOTE_TELEPORTER = ITEMS.register("remote_teleporter", () -> new RemoteTeleporter());
 
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DEItemGroups.MISC, false);
 
@@ -182,15 +181,6 @@ public class DEItems {
         	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup).fireResistant()));
         }
     	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().tab(itemGroup)));
-    }
-
-    @SuppressWarnings("unused")
-	private static RegistryObject<Item> createBannerPatternItem(String id, TagKey<BannerPattern> pattern, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
-    }
-    
-    private static <T extends Item> RegistryObject<T> createCustomItem(String id, Supplier<T> item){
-        return ITEMS.register(id, item);
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -88,6 +88,7 @@ public class DEBlockStateProvider extends BlockStateProvider {
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_top")
         )));
+        
         getVariantBuilder(DISPLAY_BLOCK.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.getId().getPath(),
         		new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
         		blockTexture(Blocks.END_STONE),

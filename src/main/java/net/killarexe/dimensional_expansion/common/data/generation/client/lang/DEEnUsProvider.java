@@ -62,6 +62,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ESSENCE_EXTRACTOR.get(), "Essence Extractor");
         add(DEBlocks.MINERAL_STORAGE.get(), "Mineral Storage");
         add(DEBlocks.DISPLAY_BLOCK.get(), "Display Block");
+        
+        add(DEBlocks.PURPLE_BERRY_BUSH.get(), "Purple Berry Block");
 
         /*ITEMS*/
         add(DEItems.RAW_PALON.get(), "Raw Palon");
@@ -131,6 +133,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.REMOTE_TELEPORTER.get(), "Remote Teleporter");
 
         add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
+        
+        add(DEItems.PURPLE_BERRY.get(), "Purple Berry");
         
         add(DEItems.ORIGIN_PORTAL_KEY.get(), "Origin Portal Key");
 

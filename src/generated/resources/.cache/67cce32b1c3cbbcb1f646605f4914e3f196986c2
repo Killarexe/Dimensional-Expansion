@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-19T00:26:43.705266499	LootTables
+// 1.19.2	2022-12-27T13:25:51.16199556	LootTables
 055bfad0e01549e5d9c3f699847b071136edd2bd data/dimensional_expansion/loot_tables/blocks/bassmite_block.json
 0e5f5f3bcb8776e15ba805e3db6504313cfcf6e1 data/dimensional_expansion/loot_tables/blocks/bassmite_ore.json
 6b6a972a34c212a376e708be35cc0e059cd2ca98 data/dimensional_expansion/loot_tables/blocks/blue_sand.json
@@ -18,6 +18,7 @@ f0049591e45212baaaada70ffd44686234641792 data/dimensional_expansion/loot_tables/
 7a8699973d2712970d4f58ecb1e20eeb25c628a8 data/dimensional_expansion/loot_tables/blocks/palon_ore.json
 ec4c805606006aac56c0ad099c6e28e103343798 data/dimensional_expansion/loot_tables/blocks/potted_purple_rose.json
 ff2368bb719fdcfb34592c5ca37381025b75e824 data/dimensional_expansion/loot_tables/blocks/potted_purpleheart_sapling.json
+dd1ea9ae07f24e96a612abc7ebc1257966b574fa data/dimensional_expansion/loot_tables/blocks/purple_berry_bush.json
 9b5ff65fe7f2e3f007a9a0fcab6ecb3bbe75ff6b data/dimensional_expansion/loot_tables/blocks/purple_rose.json
 449525641fcfad8f4bca8c4376009546124cda4b data/dimensional_expansion/loot_tables/blocks/purpleheart_bookshelf.json
 0f9b6e3c367e19dc70dd0254bde1de46ecf82809 data/dimensional_expansion/loot_tables/blocks/purpleheart_button.json

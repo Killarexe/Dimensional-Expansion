@@ -11,5 +11,6 @@
                 "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#portal" }
             }
         }
-    ]
+    ],
+    "render_type": "cutout"
 }

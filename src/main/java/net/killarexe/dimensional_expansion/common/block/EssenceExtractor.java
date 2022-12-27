@@ -32,7 +32,14 @@ import java.util.stream.Stream;
 
 public class EssenceExtractor extends Block implements EntityBlock {
     public EssenceExtractor() {
-        super(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(6, 50).requiresCorrectToolForDrops().destroyTime(3).sound(SoundType.ANVIL).noOcclusion());
+        super(BlockBehaviour.Properties
+        		.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY)
+        		.strength(6, 50)
+        		.requiresCorrectToolForDrops()
+        		.destroyTime(3)
+        		.sound(SoundType.ANVIL)
+        		.noOcclusion()
+        );
     }
 
     public static final VoxelShape SHAPE = Stream.of(

@@ -94,6 +94,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     	
     	oneLayerItem(DEItems.SWEDEN_DISC);
     	oneLayerItem(DEItems.DOCTOR_WHO_DISC);
+    	oneLayerItem(DEItems.PURPLE_BERRY);
     	
         //Block Items
         simpleBlockItem(DEBlocks.PALON_ORE);
