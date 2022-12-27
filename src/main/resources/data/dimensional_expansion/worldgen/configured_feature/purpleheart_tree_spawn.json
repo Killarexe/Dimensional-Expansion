@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:random_selector",
+	"config": {
+		"features": [
+			{
+				"chance": 0.5,
+				"feature": "dimensional_expansion:purpleheart_tree_checked"
+			}
+		],
+		"default": "dimensional_expansion:purpleheart_tree_checked"
+	}
+}

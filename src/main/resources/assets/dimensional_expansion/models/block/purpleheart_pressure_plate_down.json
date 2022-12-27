@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_down",
   "textures": {
-    "texture": "dimensional_expansion:block/sulfur_stone"
+    "texture": "dimensional_expansion:block/purpleheart_planks"
   }
 }

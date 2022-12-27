@@ -59,7 +59,7 @@ import static net.minecraftforge.fml.VersionChecker.Status.BETA_OUTDATED;
 public class DETitleScreen extends Screen {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final Component COPYRIGHT_TEXT = Component.literal("Copyright Mojang AB. Do not distribute!");
-    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation("textures/gui/title/background/panorama"));
+    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation(DEMod.MOD_ID, "textures/gui/title/background/panorama"));
     private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
     private static final ResourceLocation ACCESSIBILITY_TEXTURE = new ResourceLocation("textures/gui/accessibility.png");
     private final ResourceLocation icons = new ResourceLocation(DEMod.MOD_ID, "textures/gui/widgets.png");

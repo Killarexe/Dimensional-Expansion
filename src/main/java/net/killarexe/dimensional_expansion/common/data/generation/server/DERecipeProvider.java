@@ -142,6 +142,13 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 	        .unlockedBy("has_material", has(PURPLEHEART_PLANKS.get()))
 	        .save(r);
         
+        ShapedRecipeBuilder.shaped(PURPLEHEART_BOOKSHELF.get(), 1).define('I', BOOK).define('#', PURPLEHEART_PLANKS.get())
+        .pattern("###")
+        .pattern("III")
+        .pattern("###")
+        .unlockedBy("has_material", has(PURPLEHEART_PLANKS.get()))
+        .save(r);
+        
         ShapedRecipeBuilder.shaped(SIMIX_HAMMER.get(), 1).define('I', SIMIX_INGOT.get()).define('/', STICK).define('O', ENDER_EYE)
 	        .pattern("III")
 	        .pattern("IOI")

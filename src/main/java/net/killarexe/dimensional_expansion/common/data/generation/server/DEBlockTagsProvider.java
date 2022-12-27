@@ -26,7 +26,8 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
         tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(
         		DEBlocks.PALON_ORE.get(),
         		DEBlocks.PALON_BLOCK.get(),
-        		DEBlocks.ORIGIN_FRAME.get()
+        		DEBlocks.ORIGIN_FRAME.get(),
+        		DEBlocks.DISPLAY_BLOCK.get()
         );
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
@@ -49,7 +50,8 @@ public class DEBlockTagsProvider extends BlockTagsProvider {
         		DEBlocks.BLUE_SANDSTONE.get(),
         		DEBlocks.MINERAL_STORAGE.get(),
         		DEBlocks.ORIGIN_FRAME.get(),
-        		DEBlocks.FORGE.get()
+        		DEBlocks.FORGE.get(),
+        		DEBlocks.DISPLAY_BLOCK.get()
         );
         
         tag(BlockTags.MINEABLE_WITH_AXE).add(

@@ -201,5 +201,12 @@ public class DEEnUsProvider extends LanguageProvider {
         add("advancements." + DEMod.MOD_ID + ".the_origin.desc", "An anternative...");
         add("advancements." + DEMod.MOD_ID + ".the_palon.title", "The Palon!");
         add("advancements." + DEMod.MOD_ID + ".the_palon.desc", "Finaly something we can get on this mod!");
+        
+        /*
+         *	Villagers 
+         */
+        add("entity." + DEMod.MOD_ID + ".villager.forger", "Forger");
+        add("entity." + DEMod.MOD_ID + ".villager.farmer", "Farmer");
+        add("entity." + DEMod.MOD_ID + ".villager.miner", "Miner");
     }
 }

@@ -46,7 +46,7 @@ public class DEBlockStateProvider extends BlockStateProvider {
         buttonBlock((ButtonBlock) PURPLEHEART_BUTTON.get(), blockTexture(PURPLEHEART_PLANKS.get()));
         buttonBlock((ButtonBlock) SULFUR_STONE_BUTTON.get(), blockTexture(SULFUR_STONE.get()));
         
-        pressurePlateBlock((PressurePlateBlock)PURPLEHEART_PRESSURE_PLATE.get(), blockTexture(SULFUR_STONE.get()));
+        pressurePlateBlock((PressurePlateBlock)PURPLEHEART_PRESSURE_PLATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
         pressurePlateBlock((PressurePlateBlock)SULFUR_STONE_PRESSURE_PLATE.get(), blockTexture(SULFUR_STONE.get()));
         
         doorBlock((DoorBlock)PURPLEHEART_DOOR.get(), new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_bottom"),
