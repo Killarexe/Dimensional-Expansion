@@ -4,11 +4,12 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class DEEnUsProvider extends LanguageProvider {
 
-    public DEEnUsProvider(DataGenerator generator) {
+    public DEEnUsProvider(PackOutput generator) {
         super(generator, DEMod.MOD_ID, "en_us");
     }
 

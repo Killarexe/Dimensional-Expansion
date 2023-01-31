@@ -57,7 +57,7 @@ public class EssenceExtractorRecipeBuilder implements RecipeBuilder{
 		
 		pFinishedRecipeConsumer.accept(new EssenceExtractorRecipeBuilder.Result(
 				pRecipeId, this.output, this.count, this.ingredient, this.advancement,
-				new ResourceLocation("recipes/" + this.output.getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())
+				new ResourceLocation("recipes/extractor/" + pRecipeId.getPath())
 		));
 	}
 	

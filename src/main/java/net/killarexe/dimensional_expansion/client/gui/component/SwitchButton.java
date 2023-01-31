@@ -49,14 +49,6 @@ public class SwitchButton extends AbstractButton{
 	}
 
 	@Override
-	public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-		this.defaultButtonNarrationText(pNarrationElementOutput);
-	    this.onTooltip.narrateTooltip((p_168841_) -> {
-	    	pNarrationElementOutput.add(NarratedElementType.HINT, p_168841_);
-	    });
-	}
-
-	@Override
 	public void onPress() {
 		this.enabled = !this.enabled;
 	}
@@ -74,11 +66,11 @@ public class SwitchButton extends AbstractButton{
 	    RenderSystem.enableBlend();
 	    RenderSystem.defaultBlendFunc();
 	    RenderSystem.enableDepthTest();
-	    blit(pPoseStack, this.x, this.y, 0, 46 + i * 20, this.width / 2, this.height);
-	    blit(pPoseStack, this.x + this.width / 2, this.y, 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
+	    blit(pPoseStack, getX(), getY(), 0, 46 + i * 20, this.width / 2, this.height);
+	    blit(pPoseStack, getX() + this.width / 2, getY(), 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
 	    this.renderBg(pPoseStack, minecraft, pMouseX, pMouseY);
 	    int j = getFGColor();
-	    drawString(pPoseStack, font, this.getMessage(), this.x + this.width + 16, this.y + (this.height - 8) / 2, j | Mth.ceil(this.alpha * 255.0F) << 24);
+	    drawString(pPoseStack, font, this.getMessage(), getX() + this.width + 16, getY() + (this.height - 8) / 2, j | Mth.ceil(this.alpha * 255.0F) << 24);
 		if (this.isHoveredOrFocused()) {
 			this.renderToolTip(pPoseStack, pMouseX, pMouseY);
 		}
@@ -97,5 +89,13 @@ public class SwitchButton extends AbstractButton{
 	
 	public boolean isEnabled() {
 		return enabled;
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+		this.defaultButtonNarrationText(pNarrationElementOutput);
+	    this.onTooltip.narrateTooltip((p_168841_) -> {
+	    	pNarrationElementOutput.add(NarratedElementType.HINT, p_168841_);
+	    });
 	}
 }

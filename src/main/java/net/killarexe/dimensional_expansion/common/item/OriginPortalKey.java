@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -14,7 +13,7 @@ import net.minecraft.world.level.Level;
 public class OriginPortalKey extends Item{
 
 	public OriginPortalKey() {
-		super(new Item.Properties().tab(DEItemGroups.TOOLS).durability(64));
+		super(new Item.Properties().durability(64));
 	}
 	
 	@Override

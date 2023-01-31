@@ -31,12 +31,14 @@ public class DECommonConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {
-            onClose();
-        }));
-        applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {
-            apply();
-        }));
+        cancelButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {onClose();}))
+        		.bounds(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20)
+        		.build();
+        
+        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {apply();}))
+        		.bounds(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20)
+        		.build();
+        
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 

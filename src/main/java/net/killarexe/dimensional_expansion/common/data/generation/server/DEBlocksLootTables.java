@@ -3,7 +3,8 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
@@ -18,10 +19,10 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
-public class DEBlocksLootTables extends BlockLoot {
+public class DEBlocksLootTables extends VanillaBlockLoot {
 
     @Override
-    protected void addTables() {
+    protected void generate() {
         add(PALON_ORE.get(), (block) ->{return createOreDrop(PALON_ORE.get(), DEItems.RAW_PALON.get());});
         dropSelf(PALON_BLOCK.get());
         add(BASSMITE_ORE.get(), (block) ->{return createOreDrop(BASSMITE_ORE.get(), DEItems.BASSMITE_GEM.get());});

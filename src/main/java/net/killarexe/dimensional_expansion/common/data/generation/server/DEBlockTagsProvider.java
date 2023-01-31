@@ -1,21 +1,23 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.VanillaBlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.Nullable;
 
-public class DEBlockTagsProvider extends BlockTagsProvider {
-    public DEBlockTagsProvider(DataGenerator generator, @Nullable ExistingFileHelper helper) {
-        super(generator, DEMod.MOD_ID, helper);
-    }
+import java.util.concurrent.CompletableFuture;
 
-    @Override
-    protected void addTags() {
+public class DEBlockTagsProvider extends VanillaBlockTagsProvider {
+
+    public DEBlockTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider) {
+		super(pOutput, pLookupProvider);
+	}
+
+	@Override
+    protected void addTags(HolderLookup.Provider pProvider) {
         tag(Tags.Blocks.ORES).add(
         		DEBlocks.PALON_ORE.get(),
         		DEBlocks.BASSMITE_ORE.get(),

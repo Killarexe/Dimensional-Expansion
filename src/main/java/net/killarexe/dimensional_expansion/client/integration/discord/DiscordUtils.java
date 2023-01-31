@@ -19,7 +19,7 @@ public class DiscordUtils {
 	
 	public static void start() {
         RPC = new IPCClient(ID);
-        RPC.setListener(new IPCListener() {
+        RPC.setListener(new IPCListener(){
         	@Override
         	public void onReady(IPCClient client) {
         		client.sendRichPresence(DEFAULT_BUILDER.build());

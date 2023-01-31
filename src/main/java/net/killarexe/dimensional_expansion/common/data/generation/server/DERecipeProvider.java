@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -22,14 +23,14 @@ import static net.minecraft.world.item.crafting.RecipeSerializer.*;
 import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
-public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
+public class DERecipeProvider {/*extends RecipeProvider implements IConditionBuilder {
 
-    public DERecipeProvider(DataGenerator generator) {
-        super(generator);
-    }
+    public DERecipeProvider(PackOutput pOutput) {
+		super(pOutput);
+	}
 
-    @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> r) {
+	@Override
+    protected void buildRecipes(Consumer<FinishedRecipe> r) {
         createSmelting(r, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, BLASTING_RECIPE);
         createSmelting(r, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, SMELTING_RECIPE);
         createMaterialIngotRecipe(r, PALON_NUGGET.get(), PALON_INGOT.get());
@@ -307,10 +308,10 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     }
 
     private void createSmelting(Consumer<FinishedRecipe> r, ItemLike smeltItem, ItemLike resultItem, float time, int xp, SimpleCookingSerializer<?> type){
-        SimpleCookingRecipeBuilder.cooking(Ingredient.of(new ItemStack(smeltItem)), resultItem, time, xp, type);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(new ItemStack(smeltItem)), resultItem, time, xp, type);
     }
     
     private void createSmithingTable(Consumer<FinishedRecipe> r, ItemLike inputItem, ItemLike material, ItemLike result) {
     	UpgradeRecipeBuilder.smithing(Ingredient.of(new ItemStack(inputItem)), Ingredient.of(new ItemStack(material)), result.asItem());
-    }
+    }*/
 }

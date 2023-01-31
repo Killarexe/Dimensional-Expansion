@@ -28,16 +28,13 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "dimensional_expansion";
-    public static final String VERSION = "0.7a";
+    public static final String VERSION = "0.7.1a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         LOGGER.info("Init Dimensional Expansion Sounds");
         DESounds.SOUNDS.register(bus);
-        LOGGER.info("Init Dimensional Expansion Features");
-        DEConfiguredFeatures.FEATURES.register(bus);
-        DEPlacedFeatures.PLACED_FEATURES.register(bus);
         LOGGER.info("Init Dimensional Expansion Blocks");
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");

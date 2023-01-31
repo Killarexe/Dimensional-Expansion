@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -15,7 +14,7 @@ import java.util.Random;
 public class TimePowerStone extends PowerStone {
 
     public TimePowerStone() {
-        super(new Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32), "time_power_stone");
+        super(new Properties().stacksTo(1).durability(32), "time_power_stone");
     }
 
     @Override
@@ -27,7 +26,6 @@ public class TimePowerStone extends PowerStone {
     public UseAnim getUseAnimation(ItemStack p_41452_) {
         return UseAnim.CROSSBOW;
     }
-
 
     @Override
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {

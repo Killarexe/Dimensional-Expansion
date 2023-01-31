@@ -1,5 +1,9 @@
 package net.killarexe.dimensional_expansion.client.render.blockentity;
 
+import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+import org.joml.Vector3d;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.*;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
@@ -34,15 +38,16 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         renderItem(
         		pBlockEntity.getItemInSlot(0),
         		new Vector3d(0.5, 1.5, 0.5),
-        		Vector3f.YN.rotation(0),
+        		Axis.XP.rotation(0),
         		pPoseStack, pBufferSource,
-        		pBlockEntity.getLevel(),pBlockEntity.getBlockPos().above(),
+        		pBlockEntity.getLevel(),
+        		pBlockEntity.getBlockPos().above(),
         		0.8f
         );
         renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
     }
 
-    private void renderItem(ItemStack stack, Vector3d translation, Quaternion rotation,PoseStack matrixStack,
+    private void renderItem(ItemStack stack, Vector3d translation, Quaternionf rotation,PoseStack matrixStack,
                             MultiBufferSource buffer, Level level, BlockPos pos, float scale) {
         matrixStack.pushPose();
         matrixStack.translate(translation.x, translation.y, translation.z);
@@ -70,8 +75,8 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         Matrix4f matrix = stack.last().pose();
         stack.translate(corner.x, corner.y + .4f, corner.z);
         stack.scale(scale, scale, scale);
-        stack.mulPose(Vector3f.YP.rotationDegrees(-mc.player.getYRot()));
-        stack.mulPose(Vector3f.ZP.rotationDegrees(180f));
+        stack.mulPose(Axis.YP.rotationDegrees(-mc.player.getYRot()));
+        stack.mulPose(Axis.ZP.rotationDegrees(180f));
         font.drawInBatch(text, offset, 0, color, false, matrix, buffer, false, opacity, lightLevel);
         stack.popPose();
     }

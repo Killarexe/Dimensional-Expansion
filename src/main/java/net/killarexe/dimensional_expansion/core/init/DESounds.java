@@ -15,6 +15,6 @@ public class DESounds {
     public static final RegistryObject<SoundEvent> SWEDEN_REMIX = createSound("sweden_remix");
 
     private static RegistryObject<SoundEvent> createSound(String name){
-        return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(DEMod.MOD_ID, name)));
+        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DEMod.MOD_ID, name)));
     }
 }

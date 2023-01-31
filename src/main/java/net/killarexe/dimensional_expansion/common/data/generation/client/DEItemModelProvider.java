@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.block.Block;
@@ -12,7 +13,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
 public class DEItemModelProvider extends ItemModelProvider {
-    public DEItemModelProvider(DataGenerator generator, ExistingFileHelper helper) {
+    public DEItemModelProvider(PackOutput generator, ExistingFileHelper helper) {
         super(generator, DEMod.MOD_ID, helper);
     }
 

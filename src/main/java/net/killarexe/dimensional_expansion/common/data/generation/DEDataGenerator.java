@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = DEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEDataGenerator {
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void gatherData(GatherDataEvent e){
         DataGenerator generator = e.getGenerator();
         ExistingFileHelper helper = e.getExistingFileHelper();
@@ -33,5 +33,5 @@ public class DEDataGenerator {
             generator.addProvider(true, new DELootTableProvider(generator));
             generator.addProvider(true, new DEBiomeTagsProvider(generator, helper));
         }
-    }
+    }*/
 }

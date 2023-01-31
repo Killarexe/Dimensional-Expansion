@@ -1,10 +1,13 @@
 package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
+import java.util.concurrent.Callable;
+
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Button.OnPress;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -18,7 +21,7 @@ import net.minecraftforge.common.MinecraftForge;
 @OnlyIn(Dist.CLIENT)
 public class DEConfigScreen extends Screen {
     private final Screen previousScreen;
-    private Button clientButton, commonButton, cancelButton, applyButton;
+    private Button clientButton, commonButton, applyButton;
 
     public DEConfigScreen(Screen previousScreen) {
         super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
@@ -56,25 +59,35 @@ public class DEConfigScreen extends Screen {
         MinecraftForge.EVENT_BUS.post(new ScreenEvent.BackgroundRendered(this, new PoseStack()));
     }
 
+    public static OnPress funcOnPress(Callable<Void> func) {
+    	return new OnPress() {
+			@Override
+			public void onPress(Button pButton) {
+				try {
+					func.call();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		};
+    }
+    
     @Override
-    protected void init() {
-        cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {
-            onClose();
-        }));
-        applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {
-            onClose();
-        }));
-
-        clientButton = new Button(this.width / 2 - 75, this.height / 4 + 60, 150, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".client_button")), (button -> {
-            minecraft.setScreen(new DEClientConfigScreen(this));
-        }));
-        commonButton = new Button(this.width / 2 - 75, this.height / 4 + 0, 150, 20, MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".common_button")), (button -> {
+    protected void init() {  
+        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".quit_button")),(button -> {onClose();}))
+        		.bounds(this.width / 2 + 100, this.height / 4 + 48 + 80, 100, 20)
+        		.build();
+        
+        clientButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".client_button")), (button -> {minecraft.setScreen(new DEClientConfigScreen(this));}))
+        		.bounds(this.width / 2 - 75, this.height / 4 + 60, 150, 20)
+        		.build();
+        
+        commonButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".common_button")), (button -> {
             minecraft.setScreen(new DECommonConfigScreen(this));
-        }));
+        })).bounds(this.width / 2 - 75, this.height / 4 + 0, 150, 20).build();
 
         addRenderableWidget(clientButton);
         addRenderableWidget(commonButton);
-        addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
         super.init();

@@ -3,22 +3,27 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.concurrent.CompletableFuture;
+
 import org.jetbrains.annotations.Nullable;
 
 public class DEItemTagsProvider extends ItemTagsProvider {
+	
+    public DEItemTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, TagsProvider<Block> p_256467_, @Nullable ExistingFileHelper existingFileHelper) {
+		super(pOutput, pLookupProvider, p_256467_, DEMod.MOD_ID, existingFileHelper);
+	}
 
-    public DEItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper helper) {
-        super(generator, blockTagsProvider, DEMod.MOD_ID, helper);
-    }
-
-    @Override
-    protected void addTags() {
+	@Override
+    protected void addTags(Provider pProvider) {
         tag(Tags.Items.ORES).add(DEBlocks.PALON_ORE.get().asItem(), DEBlocks.BASSMITE_ORE.get().asItem(),
                 DEBlocks.SIMIX_ORE.get().asItem(), DEBlocks.EMERTYST_ORE.get().asItem());
         tag(Tags.Items.INGOTS).add(DEItems.PALON_INGOT.get(), DEItems.SIMIX_INGOT.get());

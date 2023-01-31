@@ -4,8 +4,6 @@ import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.Function;
 
-import com.google.common.collect.ImmutableSet;
-
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.BlockUtil;
@@ -31,10 +29,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class OriginTeleporter implements ITeleporter{
@@ -239,15 +234,4 @@ public class OriginTeleporter implements ITeleporter{
 		}
 		return result;
 	}
-		
-	@SubscribeEvent
-	public static void registerPOI(RegisterEvent e) {
-		e.register(ForgeRegistries.Keys.POI_TYPES, helper -> {
-			PoiType poiType = new PoiType(ImmutableSet.copyOf(DEBlocks.ORIGIN_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
-			helper.register("origin_portal", poiType);
-			poi = ForgeRegistries.POI_TYPES.getHolder(poiType).get();
-		});
-	}
-	
-	
 }

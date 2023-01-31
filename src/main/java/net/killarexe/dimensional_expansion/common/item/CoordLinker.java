@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Vec3i;
@@ -24,7 +23,7 @@ public class CoordLinker extends Item {
     private boolean isLost;
 
     public CoordLinker() {
-        super(new Item.Properties().stacksTo(1).tab(DEItemGroups.MISC));
+        super(new Item.Properties().stacksTo(1));
         overworldPos = new Vec3i(0,0, 0);
         netherPos = new Vec3i(0, 0, 0);
         isLost = false;

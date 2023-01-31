@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.killarexe.dimensional_expansion.utils.DELevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -18,7 +17,7 @@ import java.util.Random;
 public class WarpPowerStone extends PowerStone{
 
     public WarpPowerStone() {
-        super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32), "warp_power_stone");
+        super(new Item.Properties().stacksTo(1).durability(32), "warp_power_stone");
     }
 
     @Override

@@ -6,7 +6,7 @@ plugins {
 	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '0.7a'
+version = '0.7.1a'
 group = 'net.killarexe.dimensional_expansion' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dimensional_expansion'
 
@@ -96,28 +96,29 @@ configurations {
 }
 
 repositories {
+    mavenCentral()
     maven {
-    	// location of the maven that hosts JEI files
-    	name = "Progwml6 maven"
-    	url = "https://dvs1.progwml6.com/files/maven/"
-  	}
+	    // location of the maven that hosts JEI files since January 2023
+	    name = "Jared's maven"
+	    url = "https://maven.blamejared.com/mezz/jei/"
+	}
     maven {
     	// location of a maven mirror for JEI files, as a fallback
     	name = "ModMaven"
    		url = "https://modmaven.dev"
     }
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
     // compile against the JEI API but do not include it at runtime
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
     compileOnly("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
     // at runtime, use the full JEI
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     library("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
 }
 

@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.init.DEItemGroups;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +15,7 @@ import java.util.Random;
 public class WeatherPowerStone extends PowerStone{
 
     public WeatherPowerStone() {
-        super(new Item.Properties().tab(DEItemGroups.MISC).stacksTo(1).durability(32), "weather_power_stone");
+        super(new Item.Properties().stacksTo(1).durability(32), "weather_power_stone");
     }
 
     @Override
