@@ -25,7 +25,6 @@ public class DEVillagerTypes {
     public static final RegistryObject<PoiType> MINER_POI = createPoiType("miner_poi", DEBlocks.MINERAL_STORAGE);
     
     //TODO: Separate POI and Villager Jobs into 2 different classes
-    public static final RegistryObject<PoiType> ORIGIN_PORTAL = createPoiType("origin_portal", DEBlocks.ORIGIN_PORTAL);
 
     //Villager Types
     public static final RegistryObject<VillagerProfession> FORGER = createProfession("forger", FORGER_POI, SoundEvents.ANVIL_LAND);
@@ -55,6 +54,8 @@ public class DEVillagerTypes {
     public static void registerPOIs() {
     	try {
     		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FORGER_POI.get());
+    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FARMER_POI.get());
+    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, MINER_POI.get());
     	}catch(InvocationTargetException | IllegalAccessException e) {
     		e.printStackTrace();
     	}

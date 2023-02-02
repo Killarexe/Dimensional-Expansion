@@ -6,12 +6,14 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.server.DEModServer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -19,6 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegistryObject;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -66,6 +70,7 @@ public class DEMod
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
+        bus.addListener(this::addItemsToCreativeTabs);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
@@ -87,5 +92,36 @@ public class DEMod
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
         });
+    }
+    
+    private void addItemsToCreativeTabs(CreativeModeTabEvent.BuildContents e) {
+    	if(e.getTab() == DECreativeTabs.DE_MISC) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.MISC) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_BLOCKS) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.BLOCKS) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_COMBAT) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.COMBAT) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_TOOLS) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.TOOLS) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
     }
 }

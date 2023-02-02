@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.data.generation.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -11,7 +10,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
-public class DEBlockStateProvider extends BlockStateProvider {
+public class DEBlockStateProvider extends BlockStateProvider{
+	
     public DEBlockStateProvider(PackOutput generator, ExistingFileHelper helper) {
         super(generator, DEMod.MOD_ID, helper);
     }

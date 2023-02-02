@@ -1,13 +1,11 @@
 package net.killarexe.dimensional_expansion.common.item.material;
 
 import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-@SuppressWarnings("deprecation")
 public enum DEItemTier implements Tier {
 	PALON(5, 3592, 10.0f, 5f, 15, () -> {
 		return Ingredient.of(DEItems.PALON_INGOT.get());
@@ -27,7 +25,7 @@ public enum DEItemTier implements Tier {
 	private final float speed;
 	private final float damage;
 	private final int enchantmentValue;
-	private final LazyLoadedValue<Ingredient> repairIngredient;
+	private final Supplier<Ingredient> repairIngredient;
 
 	DEItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
 		this.level = p_43332_;
@@ -35,7 +33,7 @@ public enum DEItemTier implements Tier {
 		this.speed = p_43334_;
 		this.damage = p_43335_;
 		this.enchantmentValue = p_43336_;
-		this.repairIngredient = new LazyLoadedValue<>(p_43337_);
+		this.repairIngredient = p_43337_;
 	}
 
 	public int getUses() {

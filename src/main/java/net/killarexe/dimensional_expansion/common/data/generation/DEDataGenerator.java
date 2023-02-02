@@ -1,11 +1,15 @@
 package net.killarexe.dimensional_expansion.common.data.generation;
 
+import java.util.concurrent.CompletableFuture;
+
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEBlockStateProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEItemModelProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.lang.DEEnUsProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.server.*;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,25 +17,22 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEDataGenerator {
-
-    /*@SubscribeEvent
-    public static void gatherData(GatherDataEvent e){
-        DataGenerator generator = e.getGenerator();
-        ExistingFileHelper helper = e.getExistingFileHelper();
-
-        if(e.includeClient()){
-            generator.addProvider(true, new DEBlockStateProvider(generator, helper));
-            generator.addProvider(true, new DEItemModelProvider(generator, helper));
-            generator.addProvider(true, new DEEnUsProvider(generator));
-        }
-
-        if(e.includeServer()){
-            DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(generator, helper);
-            generator.addProvider(true, blockTagsProvider);
-            generator.addProvider(true, new DEItemTagsProvider(generator, blockTagsProvider, helper));
-            generator.addProvider(true, new DERecipeProvider(generator));
-            generator.addProvider(true, new DELootTableProvider(generator));
-            generator.addProvider(true, new DEBiomeTagsProvider(generator, helper));
-        }
-    }*/
+	
+	@SubscribeEvent
+	public static void gatherData(GatherDataEvent e) {
+		DataGenerator generator = e.getGenerator();
+		PackOutput output = generator.getPackOutput();
+		ExistingFileHelper helper = e.getExistingFileHelper();
+		CompletableFuture<HolderLookup.Provider> lookupProvider = e.getLookupProvider();
+		
+		generator.addProvider(e.includeClient(), new DEBlockStateProvider(output, helper));
+		generator.addProvider(e.includeClient(), new DEItemModelProvider(output, helper));
+		generator.addProvider(e.includeClient(), new DEEnUsProvider(output));
+		
+		DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(output, lookupProvider);
+		generator.addProvider(e.includeServer(), blockTagsProvider);
+		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider, helper));
+		generator.addProvider(e.includeServer(), new DELootTableProvider(output));
+		generator.addProvider(e.includeServer(), new DEBiomeTagsProvider(output, lookupProvider, helper));
+	}
 }

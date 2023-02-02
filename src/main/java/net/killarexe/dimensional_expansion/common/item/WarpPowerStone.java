@@ -26,11 +26,6 @@ public class WarpPowerStone extends PowerStone{
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack p_41452_) {
-        return UseAnim.SPYGLASS;
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
     	if(level.isClientSide) {
     		return InteractionResultHolder.sidedSuccess(item, false);
@@ -43,7 +38,10 @@ public class WarpPowerStone extends PowerStone{
             if(respawnPos == null && level instanceof ServerLevel serverLevel) {
                 respawnPos = serverLevel.getSharedSpawnPos();
             }
-            return DELevelUtils.teleportEntityTo(serverPlayer.getRespawnDimension(), serverPlayer, respawnPos) ? InteractionResultHolder.success(item) : InteractionResultHolder.fail(item);
+            if(DELevelUtils.teleportEntityTo(serverPlayer.getRespawnDimension(), serverPlayer, respawnPos)) {
+            	level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
+            	return InteractionResultHolder.success(item);
+            }
         }
         return InteractionResultHolder.fail(item);
     }

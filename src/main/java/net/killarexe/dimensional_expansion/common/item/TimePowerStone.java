@@ -23,11 +23,6 @@ public class TimePowerStone extends PowerStone {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack p_41452_) {
-        return UseAnim.CROSSBOW;
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
         if(level instanceof ServerLevel serverLevel){

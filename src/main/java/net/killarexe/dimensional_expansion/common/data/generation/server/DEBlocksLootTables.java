@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;

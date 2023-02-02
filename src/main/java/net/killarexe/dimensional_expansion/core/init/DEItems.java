@@ -67,7 +67,7 @@ public class DEItems {
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DECreativeTabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DECreativeTabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DECreativeTabs.MISC, true);
-    public static final RegistryObject<Item> SIMIX_HAMMER = ITEMS.register("simix_hammer", () -> new SimixHammerItem());
+    public static final RegistryObject<Item> SIMIX_HAMMER = createItem("simix_hammer", () -> new SimixHammerItem(), DECreativeTabs.TOOLS);
     public static final RegistryObject<Item> SIMIX_SWORD = createSwordItem("simix_sword", DEItemTier.SIMIX, 3, DECreativeTabs.COMBAT, true);
     public static final RegistryObject<Item> SIMIX_PICKAXE = createPickaxeItem("simix_pickaxe", DEItemTier.SIMIX, 6, DECreativeTabs.TOOLS, true);
     public static final RegistryObject<Item> SIMIX_AXE = createAxeItem("simix_axe", DEItemTier.SIMIX, 6, DECreativeTabs.COMBAT, true);

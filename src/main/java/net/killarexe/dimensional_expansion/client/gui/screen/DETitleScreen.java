@@ -33,7 +33,6 @@ import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.LanguageSelectScreen;
 import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.WinScreen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.gui.screens.multiplayer.SafetyScreen;
@@ -45,6 +44,8 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Mth;
@@ -57,7 +58,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
 
 @OnlyIn(Dist.CLIENT)
-public class DETitleScreen extends TitleScreen {
+public class DETitleScreen extends Screen {
    private static final Logger LOGGER = LogUtils.getLogger();
    public static final Component COPYRIGHT_TEXT = Component.literal("Copyright Mojang AB. Do not distribute!");
    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation(DEMod.MOD_ID, "textures/gui/title/background/panorama"));
@@ -81,7 +82,6 @@ public class DETitleScreen extends TitleScreen {
    private long fadeInStart;
    @Nullable
    private DETitleScreen.WarningLabel warningLabel;
-   private net.minecraftforge.client.gui.TitleScreenModUpdateIndicator modUpdateNotification;
    
    private ImageButton paypal, youtube, github, config;
 
@@ -90,7 +90,8 @@ public class DETitleScreen extends TitleScreen {
    }
 
    public DETitleScreen(boolean pFading) {
-      super(pFading);
+	  super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
+	  this.fading = pFading;
       this.minceraftEasterEgg = false;
    }
 
@@ -130,15 +131,13 @@ public class DETitleScreen extends TitleScreen {
       int j = this.width - i - 2;
       //int k = 24;
       int l = this.height / 4 + 48;
-      Button modButton = null;
       if (this.minecraft.isDemo()) {
          this.createDemoMenuOptions(l, 24);
       } else {
          this.createNormalMenuOptions(l, 24);
-         modButton = this.addRenderableWidget(Button.builder(Component.translatable("fml.menu.mods"), button -> this.minecraft.setScreen(new net.minecraftforge.client.gui.ModListScreen(this)))
+         this.addRenderableWidget(Button.builder(Component.translatable("fml.menu.mods"), button -> this.minecraft.setScreen(new net.minecraftforge.client.gui.ModListScreen(this)))
             .pos(this.width / 2 - 100, l + 24 * 2).size(98, 20).build());
       }
-      modUpdateNotification = net.minecraftforge.client.gui.TitleScreenModUpdateIndicator.init(this, modButton);
 
       this.addRenderableWidget(new ImageButton(this.width / 2 - 124, l + 72 + 12, 20, 20, 0, 106, 20, Button.WIDGETS_LOCATION, 256, 256, (p_96791_) -> {
          this.minecraft.setScreen(new LanguageSelectScreen(this, this.minecraft.options, this.minecraft.getLanguageManager()));
@@ -308,13 +307,12 @@ public class DETitleScreen extends TitleScreen {
             });
          }
 
-         RenderSystem.setShaderTexture(0, MINECRAFT_EDITION);
-         blit(pPoseStack, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
+         //RenderSystem.setShaderTexture(0, MINECRAFT_EDITION);
+         //blit(pPoseStack, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
          if (this.warningLabel != null) {
             this.warningLabel.render(pPoseStack, l);
          }
 
-         net.minecraftforge.client.ForgeHooksClient.renderMainMenu(this, pPoseStack, this.font, this.width, this.height, l);
          if (this.splash != null) {
             pPoseStack.pushPose();
             pPoseStack.translate((float)(this.width / 2 + 90), 70.0F, 0.0F);
@@ -370,7 +368,6 @@ public class DETitleScreen extends TitleScreen {
             RenderSystem.enableDepthTest();
             this.realmsNotificationsScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
          }
-         if (f1 >= 1.0f) modUpdateNotification.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
 
       }
    }

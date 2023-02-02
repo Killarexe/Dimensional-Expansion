@@ -11,6 +11,11 @@ public class AlloyCrystal extends Item{
 	}
 	
 	@Override
+	public Rarity getRarity(ItemStack pStack) {
+		return Rarity.RARE;
+	}
+	
+	@Override
 	public boolean isFoil(ItemStack pStack) {
 		return true;
 	}
