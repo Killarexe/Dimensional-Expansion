@@ -19,6 +19,6 @@ public class PurpleheartBoatRenderer extends BoatRenderer {
         if(pEntity instanceof PurpleheartBoatEntity boat){
             return new ResourceLocation(DEMod.MOD_ID, "boat/purpleheart");
         }
-        return new ResourceLocation("minecraft", "boat/oak");
+        return new ResourceLocation(DEMod.MOD_ID, "boat/purpleheart");
     }
 }

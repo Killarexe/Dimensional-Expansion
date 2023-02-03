@@ -101,7 +101,7 @@ public class DEItems {
     public static final RegistryObject<Item> TIME_POWER_STONE = createItem("time_power_stone", () -> new TimePowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> WARP_POWER_STONE = createItem("warp_power_stone", () -> new WarpPowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> COORD_LINKER = createItem("coord_linker", () -> new CoordLinker(), DECreativeTabs.MISC);
-    public static final RegistryObject<Item> REMOTE_TELEPORTER = createItem("remote_teleporter", () -> new RemoteTeleporter(), DECreativeTabs.MISC);
+    public static final RegistryObject<Item> REMOTE_TELEPORTER = createItem("remote_teleporter", () -> new RemoteTeleporter());
 
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DECreativeTabs.MISC, false);
 
@@ -113,6 +113,10 @@ public class DEItems {
     public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
     public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
+    public static RegistryObject<Item> createItem(String id, Supplier<Item> item){
+    	return ITEMS.register(id, item);
+    }
+    
     public static RegistryObject<Item> createItem(String id, Supplier<Item> item, DECreativeTabs tab){
     	itemsTab.put(id, tab);
     	return ITEMS.register(id, item);

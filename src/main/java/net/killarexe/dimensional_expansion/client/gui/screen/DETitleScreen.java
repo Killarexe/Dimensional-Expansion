@@ -278,7 +278,7 @@ public class DETitleScreen extends Screen {
       float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
       this.panorama.render(pPartialTick, Mth.clamp(f, 0.0F, 1.0F));
       //int i = 274;
-      int j = this.width / 2 - 137;
+      int j = this.width / 2 - 127;
       //int k = 30;
       RenderSystem.setShader(GameRenderer::getPositionTexShader);
       RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
@@ -301,7 +301,7 @@ public class DETitleScreen extends Screen {
                this.blit(pPoseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
             });
          } else {
-            this.blitOutlineBlack(j, 30, (p_210862_, p_210863_) -> {
+            this.blitOutlineBlack(j, 20, (p_210862_, p_210863_) -> {
             	this.blit(pPoseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 88);
                 this.blit(pPoseStack, p_210862_ + 155, p_210863_, 155, 0, 102, 88);
             });
@@ -339,7 +339,7 @@ public class DETitleScreen extends Screen {
              renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".github"), pMouseX, pMouseY);
          }
          if(paypal.isHoveredOrFocused()){
-         	renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".discord"), pMouseX, pMouseY);
+         	renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".paypal"), pMouseX, pMouseY);
          }
          if(youtube.isHoveredOrFocused()){
          	renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".youtube"), pMouseX, pMouseY);

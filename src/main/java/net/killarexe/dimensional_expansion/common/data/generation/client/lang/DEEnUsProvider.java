@@ -161,7 +161,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".cancel_button", "§4Cancel");
         add("button." + DEMod.MOD_ID + ".apply_button", "§2Apply");
         add("button." + DEMod.MOD_ID + ".youtube", "Youtube");
-        add("button." + DEMod.MOD_ID + ".discord", "Discord §4(Not avalable)");
+        add("button." + DEMod.MOD_ID + ".paypal", "§3Donate via Paypal");
         add("button." + DEMod.MOD_ID + ".config", "Config");
         add("button." + DEMod.MOD_ID + ".github", "Github");
         add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");

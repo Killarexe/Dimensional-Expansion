@@ -426,9 +426,9 @@ Honey, I waxed the copper!
 Plant-based light sources!
 Made by "real" people!
 Dimensional Expansion!
-V0.7a!
-DE in 1.19.2!
-Fabric Version Soon!
+V0.7.1a!
+DE in 1.19.3!
+Fabric Version Soon (Maybe)!
 New Ores!
 Killar.exe
 9e_Docteur
@@ -436,9 +436,11 @@ Biomes is THERE!
 Also try DocMod!
 Also try Enchantment Expansion!
 Also try Negative-N!
+Also try No Fall!
+Also try Little Rage!
 New Title Screen!
 Josia I Need Help (plz)
-New End!(Obuscated)
+New End! (Obuscated)
 Jeb Boat
 Oh no a wild Simix!
 Amethyst != Emertyst
@@ -455,3 +457,5 @@ Dedi a Niark
 No Fall
 Little Rage
 Negative-N
+1.20 will be an random update but it will be a great update...
+Death is not sad. Death is a page that you turn.
