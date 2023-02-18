@@ -47,7 +47,7 @@ public class DEClientConfigScreen extends Screen {
         moddedScreensCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 8, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".modded_screens")), DEConfig.moddedScreens.get());
         showVersionCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 78, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".show_version")), DEConfig.showVersion.get());
         discordRPCCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 48, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".discord_rpc")), DEConfig.discordRPC.get());
-        debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".debug_mod")), DEConfig.debugMod.get());
+        debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".dev_mod")), DEConfig.devMod.get());
         addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(discordRPCCheckbox);
         addRenderableWidget(moddedScreensCheckbox);
@@ -61,7 +61,7 @@ public class DEClientConfigScreen extends Screen {
         DEConfig.showVersion.set(showVersionCheckbox.isEnabled());
         DEConfig.discordRPC.set(discordRPCCheckbox.isEnabled());
         DEConfig.moddedScreens.set(moddedScreensCheckbox.isEnabled());
-        DEConfig.debugMod.set(debugModCheckBox.isEnabled());
+        DEConfig.devMod.set(debugModCheckBox.isEnabled());
         onClose();
     }
 

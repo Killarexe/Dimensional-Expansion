@@ -1,0 +1,99 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": {
+				"min": 5,
+				"max": 10
+			},
+			"bonus_rolls": 2,
+			"entries": [
+				{
+					"type": "minecraft:group",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"weight": 1,
+							"name": "dimensional_expansion:pearl_essence"
+						},
+						{
+							"type": "minecraft:item",
+							"weight": 2,
+							"name": "dimensional_expansion:origin_grass"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "minecraft:group",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"weight": 8,
+							"name": "dimensional_expansion:raw_palon"
+						},
+						{
+							"type": "minecraft:item",
+							"weight": 4,
+							"name": "dimensional_expansion:bassmite_gem"
+						},
+						{
+							"type": "minecraft:item",
+							"weight": 2,
+							"name": "dimensional_expansion:raw_simix"
+						},
+						{
+							"type": "minecraft:item",
+							"weight": 1,
+							"name": "dimensional_expansion:emertyst_gem"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 0.25,
+			"entries": [
+				{
+					"type": "minecraft:group",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"weight": 10,
+							"name": "minecraft:golden_apple"
+						},
+						{
+							"type": "minecraft:item",
+							"weight": 1,
+							"name": "minecraft:enchanted_golden_apple"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 0.5,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:book",
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly",
+							"conditions": [
+								{
+									"condition": "minecraft:random_chance",
+									"chance": 0.5
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

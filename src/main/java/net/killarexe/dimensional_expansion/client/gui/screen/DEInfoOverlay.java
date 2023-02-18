@@ -22,7 +22,7 @@ public class DEInfoOverlay {
 	        if(DEConfig.showVersion.get()){
 	        	mc.font.draw(event.getPoseStack(), "Dimensional Expansion " + DEMod.VERSION, posX, posY, 255);
 	        }
-	        if(DEConfig.debugMod.get()) {
+	        if(DEConfig.devMod.get()) {
 	        	mc.font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
 	        	mc.font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
 	        	mc.font.draw(event.getPoseStack(), "FPS " + DEWindowUtils.getFPS(), posX, posY + 30, getFPSColor());

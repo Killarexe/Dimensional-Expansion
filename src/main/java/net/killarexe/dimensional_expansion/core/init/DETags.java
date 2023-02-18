@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 
 public class DETags {
 	
+	public static final TagKey<Block> IS_ORE = createBlockTag("is_ore");
 	public static final TagKey<Biome> IS_ORIGIN = createBiomeTag("is_origin");
 	public static final TagKey<Block> END_STONE_ORE_REPLACEABLES = createBlockTag("end_stone_ore_replaceables");
 	public static final TagKey<Block> SULFUR_STONE_ORE_REPLACEABLES = createBlockTag("sulfur_stone_ore_replaceables");

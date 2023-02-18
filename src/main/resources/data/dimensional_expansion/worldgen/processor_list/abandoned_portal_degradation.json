@@ -1,0 +1,36 @@
+{
+	"processors": [
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"location_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "dimensional_expansion:origin_cobblestone",
+						"probability": 0.25
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:air"
+					}
+				},
+				{
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"input_predicate": {
+						"predicate_type": "minecraft:blockstate_match",
+						"block_state": {
+							"Name": "dimensional_expansion:origin_cobblestone"
+						}
+					},
+					"output_state": {
+						"Name": "minecraft:lava"
+					}
+				}
+			]
+		}
+	]
+}

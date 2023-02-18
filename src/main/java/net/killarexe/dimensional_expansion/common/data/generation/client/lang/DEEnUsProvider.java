@@ -164,6 +164,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".paypal", "§3Donate via Paypal");
         add("button." + DEMod.MOD_ID + ".config", "Config");
         add("button." + DEMod.MOD_ID + ".github", "Github");
+        add("button." + DEMod.MOD_ID + ".quit", "Quit");
         add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
         add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
         
@@ -173,7 +174,11 @@ public class DEEnUsProvider extends LanguageProvider {
         add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
         add("checkbox." + DEMod.MOD_ID + ".discord_rpc", "Discord RPC");
         add("checkbox." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
-        add("checkbox." + DEMod.MOD_ID + ".debug_mod", "Debug Mod");
+        add("checkbox." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
+        
+        /*KeyBinds*/
+        add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");
+        add("key." + DEMod.MOD_ID + ".render", "Render");
         
         /*Tooltips*/
         add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");

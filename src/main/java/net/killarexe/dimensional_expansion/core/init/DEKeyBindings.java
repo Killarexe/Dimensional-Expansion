@@ -15,9 +15,9 @@ public class DEKeyBindings {
 	
 	public static final List<KeyMapping> KEYS = new ArrayList<>();
 	
-	public static final String KEY_CATEGORY = "key.category." + DEMod.MOD_ID + ".keys";
+	public static final String KEY_CATEGORY = "key.category." + DEMod.MOD_ID + ".dev_keys";
 	
-	public static final KeyMapping SPAWN_KEY = createKey(KEY_CATEGORY, GLFW.GLFW_KEY_U);
+	public static final KeyMapping RENDER_KEY = createKey("render", GLFW.GLFW_KEY_R);
 	
 	private static KeyMapping createKey(String name, int key) {
 		KeyMapping keyMapping = new KeyMapping(String.format("key.%s.%s", DEMod.MOD_ID, name), KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, key, KEY_CATEGORY);

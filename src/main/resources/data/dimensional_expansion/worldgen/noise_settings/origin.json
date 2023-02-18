@@ -430,7 +430,8 @@
 										"if_true": {
 											"type": "minecraft:biome",
 											"biome_is": [
-												"dimensional_expansion:purpleheart_forest"
+												"dimensional_expansion:purpleheart_forest",
+												"dimensional_expansion:origin_plains"
 											]
 										},
 										"then_run": {
@@ -475,7 +476,8 @@
 										"if_true": {
 											"type": "minecraft:biome",
 											"biome_is": [
-												"dimensional_expansion:purpleheart_forest"
+												"dimensional_expansion:purpleheart_forest",
+												"dimensional_expansion:origin_plains"
 											]
 										},
 										"then_run": {
@@ -496,7 +498,7 @@
 										"then_run": {
 											"type": "minecraft:block",
 											"result_state": {
-												"Name": "dimensional_expansion:blue_sand"
+												"Name": "dimensional_expansion:blue_sandstone"
 											}
 										}
 									}

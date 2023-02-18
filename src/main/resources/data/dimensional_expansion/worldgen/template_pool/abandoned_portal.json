@@ -1,0 +1,15 @@
+{
+  "name": "dimensional_expansion:abandoned_portal",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "dimensional_expansion:abandoned_portal",
+        "projection": "rigid",
+        "processors": "dimensional_expansion:abandoned_portal_degradation"
+      }
+    }
+  ]
+}
