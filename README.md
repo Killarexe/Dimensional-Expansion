@@ -5,7 +5,9 @@
 [![Github Repo Stars](https://img.shields.io/github/stars/Killarexe/Dimensional-Expansion)]()
 [![Github License](https://img.shields.io/github/license/Killarexe/Dimensional-Expansion.svg)]()
 ## What is Dimensional Expansion?
-Dimensional Expansion is a mod who adds a lot of new things like: Blocks, Items, Ores, Biomes and more!
+Dimensional Expansion is a Minecraft mod avaliable on Forge(maybe Fabric later) who adds new tools and weapons for your gears, blocks and for builders, items with special poperities and the main feature that is currenly in progress is a new dimension with dungeons, villages and other structures.
+
+The mod got currently an OST made my me(of course) that also working in progress but you can see some preview [here](https://soundcloud.com/killarexe).
 
 ## Where I can find it?
 [![Curseforge](http://cf.way2muchnoise.eu/versions/453574.svg)](https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion)

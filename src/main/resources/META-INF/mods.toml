@@ -3,12 +3,14 @@ loaderVersion="[44,)"
 license="CC0 1.0 Universal"
 [[mods]]
 modId="dimensional_expansion"
-version="0.7.1a"
-displayName="Dimensional Expansion Mod"
+version="0.8a"
+displayName="Dimensional Expansion"
 logoFile="logo.png"
 credits="This Mod made by Killar.exe and with the help of the community and 9è_Docteur."
 authors="Killar.exe" #optional
-description='''Dimensional Expansion is a mod made by Killar.exe...'''
+description='''Dimensional Expansion is a Minecraft mod avaliable on Forge(maybe Fabric later)
+who adds new tools and weapons for your gears, blocks and for builders, items with special poperities
+and the main feature that is currenly in progress is a new dimension with dungeons, villages and other structures.'''
 updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory

@@ -27,4 +27,9 @@ public class DEWindowUtils {
     		return;
     	}
     }
+    
+    @SuppressWarnings("resource")
+	public static String getFPS() {
+        return Minecraft.getInstance().fpsString.split("\\s+")[0];
+    }
 }

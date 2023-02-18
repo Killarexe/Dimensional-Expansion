@@ -2,16 +2,21 @@ package net.killarexe.dimensional_expansion.client.event;
 
 import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.common.network.packet.MobSpawnPacket;
+import net.killarexe.dimensional_expansion.core.init.DEChannel;
+import net.killarexe.dimensional_expansion.core.init.DEKeyBindings;
+import net.killarexe.dimensional_expansion.utils.DEUtils;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DEEventsClient {
 
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
+	@OnlyIn(Dist.CLIENT)
     public static void onScreenPost(final ScreenEvent.Init.Post event) {
         if(DEConfig.moddedScreens.get()){
             if(event.getScreen() instanceof TitleScreen screen){
@@ -24,4 +29,15 @@ public class DEEventsClient {
         }
     }
 
+	public static void onKeyRegister(RegisterKeyMappingsEvent e) {
+		for(KeyMapping key: DEKeyBindings.KEYS) {
+			e.register(key);
+		}
+	}
+	
+	public static void onKeyInput(InputEvent.Key e) {
+		if(DEKeyBindings.SPAWN_KEY.consumeClick() && (DEUtils.isDev() || DEUtils.isDevAccount()) && DEConfig.debugMod.get()) {
+			DEChannel.sendToServer(new MobSpawnPacket());
+		}
+	}
 }

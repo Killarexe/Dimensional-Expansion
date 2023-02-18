@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
+import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
@@ -32,7 +33,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "dimensional_expansion";
-    public static final String VERSION = "0.7.1a";
+    public static final String VERSION = "0.8a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -66,11 +67,13 @@ public class DEMod
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
         LOGGER.info("Set Dimensional Expansion Event Listeners");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::diggingEvent);
+        MinecraftForge.EVENT_BUS.addListener(DEEventsClient::onKeyInput);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
         bus.addListener(this::addItemsToCreativeTabs);
+        bus.addListener(DEEventsClient::onKeyRegister);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
@@ -78,6 +81,8 @@ public class DEMod
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() ->{
         	LOGGER.info("Dimensional Expansion Common Setup");
+        	LOGGER.info("Register Dimensional Expansion Packets");
+        	DEChannel.register();
         	LOGGER.info("Register Dimensional Expansion Villager Jobs");
         	DEVillagerTypes.registerPOIs();
         	LOGGER.info("Register Dimensional Expansion WoodTypes");
