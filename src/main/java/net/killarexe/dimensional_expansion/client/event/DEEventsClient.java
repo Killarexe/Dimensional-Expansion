@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.client.event;
 import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEKeyBindings;
-import net.killarexe.dimensional_expansion.core.init.DETags;
 import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -24,6 +23,7 @@ import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.client.event.RenderLevelStageEvent.Stage;
 import net.minecraftforge.client.model.data.ModelData;
+import net.minecraftforge.common.Tags;
 
 public class DEEventsClient {
 
@@ -53,6 +53,7 @@ public class DEEventsClient {
 	}
 	
 	public static boolean isActive = false;
+	public static final int range = 16;
 	@SuppressWarnings("deprecation")
 	@OnlyIn(Dist.CLIENT)
     public static void renderLayer(RenderLevelStageEvent event) {
@@ -66,11 +67,11 @@ public class DEEventsClient {
     		BlockPos playerPos = player.blockPosition();
     		Vec3 cameraPos = event.getCamera().getPosition();
     		for(BlockPos pos: BlockPos.betweenClosed(
-    				playerPos.getX() - 32, playerPos.getY() - 32, playerPos.getZ() - 32,
-    				playerPos.getX() + 32, playerPos.getY() + 32, playerPos.getZ() + 32
+    				playerPos.getX() - range, playerPos.getY() - range, playerPos.getZ() - range,
+    				playerPos.getX() + range, playerPos.getY() + range, playerPos.getZ() + range
     		)) {
     			BlockState state = level.getBlockState(pos);
-    			if(state.getTags().toList().contains(DETags.IS_ORE)){
+    			if(state.getTags().toList().contains(Tags.Blocks.ORES)){
     				event.getPoseStack().pushPose();
     				event.getPoseStack().translate(pos.getX() - cameraPos.x, pos.getY() - cameraPos.y, pos.getZ() - cameraPos.z);
     				mc.getBlockRenderer().renderSingleBlock(state, event.getPoseStack(), mc.renderBuffers().bufferSource(), LightTexture.FULL_BRIGHT, LightTexture.FULL_BLOCK, ModelData.EMPTY, 

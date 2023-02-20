@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_savanna",
-  "features": "dimensional_expansion:purple_berry_bush",
-  "step": "vegetal_decoration"
+  "biomes": "#minecraft:is_end",
+  "features": "dimensional_expansion:palon_ore_placed",
+  "step": "underground_ores"
 }
