@@ -9,6 +9,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.client.KeyMapping;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 
 public class DEKeyBindings {
@@ -23,5 +24,11 @@ public class DEKeyBindings {
 		KeyMapping keyMapping = new KeyMapping(String.format("key.%s.%s", DEMod.MOD_ID, name), KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, key, KEY_CATEGORY);
 		KEYS.add(keyMapping);
 		return keyMapping;
+	}
+	
+	public static void onKeyRegister(RegisterKeyMappingsEvent e) {
+		for(KeyMapping key: DEKeyBindings.KEYS) {
+			e.register(key);
+		}
 	}
 }

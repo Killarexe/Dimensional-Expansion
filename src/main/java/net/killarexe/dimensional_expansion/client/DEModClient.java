@@ -32,8 +32,8 @@ public class DEModClient {
 
     public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
         forgeEventBus.addListener(DEEventsClient::onScreenPost);
+        forgeEventBus.addListener(DEEventsClient::onKeyInput);
         forgeEventBus.addListener(DEInfoOverlay::render);
-        forgeEventBus.addListener(DEEventsClient::renderLayer);
         bus.addListener(DEModClient::clientSetup);
     }
 

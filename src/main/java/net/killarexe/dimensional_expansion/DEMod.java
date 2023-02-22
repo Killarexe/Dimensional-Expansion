@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
@@ -67,13 +66,12 @@ public class DEMod
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
         LOGGER.info("Set Dimensional Expansion Event Listeners");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::diggingEvent);
-        MinecraftForge.EVENT_BUS.addListener(DEEventsClient::onKeyInput);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
         bus.addListener(this::addItemsToCreativeTabs);
-        bus.addListener(DEEventsClient::onKeyRegister);
+        bus.addListener(DEKeyBindings::onKeyRegister);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
