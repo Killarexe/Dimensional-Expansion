@@ -4,7 +4,6 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -12,21 +11,12 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 
-@SuppressWarnings("deprecation")
 public enum DEArmorMaterial implements ArmorMaterial {
-	PALON(DEMod.MOD_ID + ":palon", 38, new int[] {3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-		return Ingredient.of(DEItems.PALON_INGOT.get());
-	}),
-
-	BASSMITE(DEMod.MOD_ID + ":bassmite", 39, new int[] {4, 7, 8, 3}, 16, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+	BASSMITE(DEMod.MOD_ID + ":bassmite", 40, new int[] {4, 6, 8, 4}, 16, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.25F, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
-
-	SIMIX(DEMod.MOD_ID + ":simix", 40, new int[] {4, 7, 9, 4}, 17, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-		return Ingredient.of(DEItems.SIMIX_INGOT.get());
-	}),
 	
-	EMERTYST(DEMod.MOD_ID + ":emertyst", 64, new int[] {5, 11, 15, 5}, 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.2F, () -> {
+	EMERTYST(DEMod.MOD_ID + ":emertyst", 45, new int[] {4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.5F, () -> {
 		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	});
 
@@ -38,7 +28,7 @@ public enum DEArmorMaterial implements ArmorMaterial {
 	private final SoundEvent sound;
 	private final float toughness;
 	private final float knockbackResistance;
-	private final LazyLoadedValue<Ingredient> repairIngredient;
+	private final Supplier<Ingredient> repairIngredient;
 
 	DEArmorMaterial(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
 		this.name = p_40474_;
@@ -48,7 +38,7 @@ public enum DEArmorMaterial implements ArmorMaterial {
 		this.sound = p_40478_;
 		this.toughness = p_40479_;
 		this.knockbackResistance = p_40480_;
-		this.repairIngredient = new LazyLoadedValue<>(p_40481_);
+		this.repairIngredient = p_40481_;
 	}
 
 	@Override

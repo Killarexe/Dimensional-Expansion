@@ -69,16 +69,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.RAW_PALON.get(), "Raw Palon");
         add(DEItems.PALON_INGOT.get(), "Palon Ingot");
         add(DEItems.PALON_NUGGET.get(), "Palon Nugget");
-        add(DEItems.PALON_SWORD.get(), "Palon Sword");
-        add(DEItems.PALON_PICKAXE.get(), "Palon Pickaxe");
-        add(DEItems.PALON_AXE.get(), "Palon Axe");
-        add(DEItems.PALON_SHOVEL.get(), "Palon Shovel");
-        add(DEItems.PALON_HOE.get(), "Palon Hoe");
-        add(DEItems.PALON_HELMET.get(), "Palon Helmet");
-        add(DEItems.PALON_CHESTPLATE.get(), "Palon Chestplate");
-        add(DEItems.PALON_LEGGINGS.get(), "Palon Leggings");
-        add(DEItems.PALON_BOOTS.get(), "Palon Boots");
-        add(DEItems.PALON_HORSE_ARMOR.get(), "Palon Horse Armor");
         add(DEItems.PALON_MIXED_COAL.get(), "Palon Mixed Coal");
 
         add(DEItems.BASSMITE_GEM.get(), "Bassmite Gem");
@@ -98,16 +88,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.SIMIX_INGOT.get(), "Simix Ingot");
         add(DEItems.SIMIX_NUGGET.get(), "Simix Nugget");
         add(DEItems.SIMIX_HAMMER.get(), "Simix Hammer");
-        add(DEItems.SIMIX_SWORD.get(), "Simix Sword");
-        add(DEItems.SIMIX_PICKAXE.get(), "Simix Pickaxe");
-        add(DEItems.SIMIX_AXE.get(), "Simix Axe Axe");
-        add(DEItems.SIMIX_SHOVEL.get(), "Simix Shovel");
-        add(DEItems.SIMIX_HOE.get(), "Simix Hoe");
-        add(DEItems.SIMIX_HELMET.get(), "Simix Helmet");
-        add(DEItems.SIMIX_CHESTPLATE.get(), "Simix Chestplate");
-        add(DEItems.SIMIX_LEGGINGS.get(), "Simix Leggings");
-        add(DEItems.SIMIX_BOOTS.get(), "Simix Boots");
-        add(DEItems.SIMIX_HORSE_ARMOR.get(), "Simix Horse Armor");
         add(DEItems.SIMIX_MIXED_COAL.get(), "Simix Mixed Coal");
 
         add(DEItems.EMERTYST_GEM.get(), "Emertyst Gem");

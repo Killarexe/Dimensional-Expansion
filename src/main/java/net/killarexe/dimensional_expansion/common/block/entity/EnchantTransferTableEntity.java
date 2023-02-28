@@ -15,5 +15,6 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		if(level.isClientSide()) {
 			return;
 		}
+		super.tick();
 	}
 }

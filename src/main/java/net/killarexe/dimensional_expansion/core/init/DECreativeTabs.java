@@ -33,7 +33,7 @@ public enum DECreativeTabs {
     				.build();	
     	});
     	DE_COMBAT = event.registerCreativeModeTab(new ResourceLocation(DEMod.MOD_ID, "combat"), builder -> {
-    		builder.icon(() -> new ItemStack(DEItems.SIMIX_SWORD.get()))
+    		builder.icon(() -> new ItemStack(DEItems.EMERTYST_SWORD.get()))
     				.title(Component.translatable("itemGroup.dimensional_expansion.combat"))
     				.build();	
     	});

@@ -15,7 +15,6 @@ import net.minecraftforge.client.event.ScreenEvent;
 @OnlyIn(Dist.CLIENT)
 public class DEEventsClient {
 
-	@OnlyIn(Dist.CLIENT)
     public static void onScreenPost(final ScreenEvent.Init.Post event) {
         if(DEConfig.moddedScreens.get()){
             if(event.getScreen() instanceof TitleScreen screen){
@@ -28,7 +27,6 @@ public class DEEventsClient {
         }
     }
 	
-	@OnlyIn(Dist.CLIENT)
 	public static void onKeyInput(InputEvent.Key e) {
 		if(DEKeyBindings.RENDER_KEY.consumeClick() && (DEUtils.isDev() || DEUtils.isDevAccount()) && DEConfig.devMod.get()) {
 			Minecraft.getInstance().setScreen(new DEConfigScreen(null));

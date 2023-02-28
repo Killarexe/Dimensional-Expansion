@@ -2,13 +2,7 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.data.recipes.UpgradeRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -69,45 +63,8 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createCrossRecipe(r, RecipeCategory.MISC, COORD_LINKER.get(), 1, SIMIX_INGOT.get(), PEARL_ESSENCE.get(), COMPASS);
         createCrossRecipe(r, RecipeCategory.MISC, ORIGIN_FRAME.get(), 4, BASSMITE_GEM.get(), PALON_INGOT.get(), PEARL_ESSENCE.get(), SIMIX_INGOT.get());
         
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_BOOTS, PALON_INGOT.get(), PALON_BOOTS.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_LEGGINGS, PALON_INGOT.get(), PALON_LEGGINGS.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_CHESTPLATE, PALON_INGOT.get(), PALON_CHESTPLATE.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_HELMET, PALON_INGOT.get(), PALON_HELMET.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_SWORD, PALON_INGOT.get(), PALON_SWORD.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_PICKAXE, PALON_INGOT.get(), PALON_PICKAXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_AXE, PALON_INGOT.get(), PALON_AXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_SHOVEL, PALON_INGOT.get(), PALON_SHOVEL.get());
-        createSmithingTable(r, RecipeCategory.MISC, NETHERITE_HOE, PALON_INGOT.get(), PALON_HOE.get());
         
-        createSmithingTable(r, RecipeCategory.MISC, PALON_BOOTS.get(), BASSMITE_GEM.get(), BASSMITE_BOOTS.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_LEGGINGS.get(), BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_CHESTPLATE.get(), BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_HELMET.get(), BASSMITE_GEM.get(), BASSMITE_HELMET.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_SWORD.get(), BASSMITE_GEM.get(), BASSMITE_SWORD.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_PICKAXE.get(), BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_AXE.get(), BASSMITE_GEM.get(), BASSMITE_AXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_SHOVEL.get(), BASSMITE_GEM.get(), BASSMITE_SHOVEL.get());
-        createSmithingTable(r, RecipeCategory.MISC, PALON_HOE.get(), BASSMITE_GEM.get(), BASSMITE_HOE.get());
-        
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_LEGGINGS.get(), SIMIX_INGOT.get(), SIMIX_LEGGINGS.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_BOOTS.get(), SIMIX_INGOT.get(), SIMIX_BOOTS.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_CHESTPLATE.get(), SIMIX_INGOT.get(), SIMIX_CHESTPLATE.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_HELMET.get(), SIMIX_INGOT.get(), SIMIX_HELMET.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_SWORD.get(), SIMIX_INGOT.get(), SIMIX_SWORD.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_PICKAXE.get(), SIMIX_INGOT.get(), SIMIX_PICKAXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_AXE.get(), SIMIX_INGOT.get(), SIMIX_AXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_SHOVEL.get(), SIMIX_INGOT.get(), SIMIX_SHOVEL.get());
-        createSmithingTable(r, RecipeCategory.MISC, BASSMITE_HOE.get(), SIMIX_INGOT.get(), SIMIX_HOE.get());
-
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_BOOTS.get(), EMERTYST_GEM.get(), EMERTYST_BOOTS.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_LEGGINGS.get(), EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_CHESTPLATE.get(), EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_HELMET.get(), EMERTYST_GEM.get(), EMERTYST_HELMET.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_SWORD.get(), EMERTYST_GEM.get(), EMERTYST_SWORD.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_PICKAXE.get(), EMERTYST_GEM.get(), EMERTYST_PICKAXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_AXE.get(), EMERTYST_GEM.get(), EMERTYST_AXE.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_SHOVEL.get(), EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
-        createSmithingTable(r, RecipeCategory.MISC, SIMIX_HOE.get(), EMERTYST_GEM.get(), EMERTYST_HOE.get());
+        //TODO: Bassmite and Emertyst tools and armor recipes
         
         
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
@@ -311,9 +268,5 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     
     private void createBlasting(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike smeltItem, ItemLike resultItem, float time, int xp){
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp);
-    }
-    
-    private void createSmithingTable(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike inputItem, ItemLike material, ItemLike result) {
-    	UpgradeRecipeBuilder.smithing(Ingredient.of(new ItemStack(inputItem)), Ingredient.of(new ItemStack(material)), category, result.asItem());
     }
 }

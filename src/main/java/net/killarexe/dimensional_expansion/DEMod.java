@@ -82,7 +82,7 @@ public class DEMod
         	LOGGER.info("Register Dimensional Expansion Packets");
         	DEChannel.register();
         	LOGGER.info("Register Dimensional Expansion Villager Jobs");
-        	DEVillagerTypes.registerPOIs();
+        	DEPois.registerPOIs();
         	LOGGER.info("Register Dimensional Expansion WoodTypes");
         	WoodType.register(DEWoodTypes.PURPLEHEART);
         	LOGGER.info("Put Dimensional Expansion Strippables");

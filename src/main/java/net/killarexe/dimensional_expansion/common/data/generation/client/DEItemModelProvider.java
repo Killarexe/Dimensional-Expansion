@@ -22,16 +22,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.RAW_PALON);
     	oneLayerItem(DEItems.PALON_INGOT);
     	oneLayerItem(DEItems.PALON_NUGGET);
-    	oneLayerItem(DEItems.PALON_SWORD, true);
-    	oneLayerItem(DEItems.PALON_PICKAXE, true);
-    	oneLayerItem(DEItems.PALON_AXE, true);
-    	oneLayerItem(DEItems.PALON_SHOVEL, true);
-    	oneLayerItem(DEItems.PALON_HOE, true);
-    	oneLayerItem(DEItems.PALON_HELMET);
-    	oneLayerItem(DEItems.PALON_CHESTPLATE);
-    	oneLayerItem(DEItems.PALON_LEGGINGS);
-    	oneLayerItem(DEItems.PALON_BOOTS);
-    	oneLayerItem(DEItems.PALON_HORSE_ARMOR);
     	oneLayerItem(DEItems.PALON_MIXED_COAL);
     	
     	oneLayerItem(DEItems.BASSMITE_GEM);
@@ -51,16 +41,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.SIMIX_INGOT);
     	oneLayerItem(DEItems.SIMIX_NUGGET);
     	oneLayerItem(DEItems.SIMIX_HAMMER, true);
-    	oneLayerItem(DEItems.SIMIX_SWORD, true);
-    	oneLayerItem(DEItems.SIMIX_PICKAXE, true);
-    	oneLayerItem(DEItems.SIMIX_AXE, true);
-    	oneLayerItem(DEItems.SIMIX_SHOVEL, true);
-    	oneLayerItem(DEItems.SIMIX_HOE, true);
-    	oneLayerItem(DEItems.SIMIX_HELMET);
-    	oneLayerItem(DEItems.SIMIX_CHESTPLATE);
-    	oneLayerItem(DEItems.SIMIX_LEGGINGS);
-    	oneLayerItem(DEItems.SIMIX_BOOTS);
-    	oneLayerItem(DEItems.SIMIX_HORSE_ARMOR);
     	oneLayerItem(DEItems.SIMIX_MIXED_COAL);
     	
     	oneLayerItem(DEItems.EMERTYST_GEM);
