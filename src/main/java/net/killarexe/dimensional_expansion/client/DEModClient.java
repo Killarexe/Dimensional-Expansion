@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion.client;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
+import net.killarexe.dimensional_expansion.client.gui.screen.EnchantTransferTableScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.client.integration.discord.DiscordUtils;
@@ -58,6 +59,7 @@ public class DEModClient {
 	        LOGGER.info("Register Dimensional Expansion Container");
 	        DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Containers");
 	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
+	        MenuScreens.register(DEMenuTypes.ENCHANT_TRANSFER_TABLE_MENU_TYPE.get(), EnchantTransferTableScreen::new);
 	        LOGGER.info("Add Dimensional Expansion Items Properties");
 	        DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " Items Properties");
 	        DEItems.addItemsProperites();

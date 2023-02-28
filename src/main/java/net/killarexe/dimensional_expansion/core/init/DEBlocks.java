@@ -75,7 +75,8 @@ public class DEBlocks {
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block", () -> new DisplayBlock(), DECreativeTabs.BLOCKS);
-
+    public static final RegistryObject<Block> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table", () -> new EnchantTransferTable(), DECreativeTabs.BLOCKS);
+    
     public static final RegistryObject<Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush", () -> new PurpleBerryBush());
     
     private static RegistryObject<Block> createBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){

@@ -57,7 +57,7 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Menu Types");
         DEMenuTypes.MENU_TYPES.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
-        DEVillagerTypes.register(bus);
+        DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
         DEDimensions.register();
@@ -82,6 +82,7 @@ public class DEMod
         	LOGGER.info("Register Dimensional Expansion Packets");
         	DEChannel.register();
         	LOGGER.info("Register Dimensional Expansion Villager Jobs");
+        	DEVillagerTypes.setTypeByBiome();
         	DEPois.registerPOIs();
         	LOGGER.info("Register Dimensional Expansion WoodTypes");
         	WoodType.register(DEWoodTypes.PURPLEHEART);
