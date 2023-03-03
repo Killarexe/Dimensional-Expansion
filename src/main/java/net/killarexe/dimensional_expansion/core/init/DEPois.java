@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.core.init;
 
-import java.lang.reflect.InvocationTargetException;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -35,8 +34,8 @@ public class DEPois {
     		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FORGER_POI.get());
     		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FARMER_POI.get());
     		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, MINER_POI.get());
-    	}catch(InvocationTargetException | IllegalAccessException e) {
-    		e.printStackTrace();
+    	}catch(Exception e) {
+    		DEMod.LOGGER.error("Failed to register villager pois!\nCause: " + e.getMessage());
     	}
     }
 }

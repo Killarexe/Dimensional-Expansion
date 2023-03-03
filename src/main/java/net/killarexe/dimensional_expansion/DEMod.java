@@ -4,9 +4,11 @@ import net.killarexe.dimensional_expansion.client.DEModClient;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
+import net.killarexe.dimensional_expansion.common.event.DEVillagerTrades;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.killarexe.dimensional_expansion.server.DEModServer;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -58,6 +60,7 @@ public class DEMod
         DEMenuTypes.MENU_TYPES.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
+        DEVillagerTypes.VILLAGER_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
         DEDimensions.register();
@@ -66,24 +69,23 @@ public class DEMod
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
         LOGGER.info("Set Dimensional Expansion Event Listeners");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::diggingEvent);
-        MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
+        MinecraftForge.EVENT_BUS.addListener(DEEvents::addTrades);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
         bus.addListener(this::addItemsToCreativeTabs);
         bus.addListener(DEKeyBindings::onKeyRegister);
         MinecraftForge.EVENT_BUS.register(this);
+        DEVillagerTypes.setTypeByBiome();
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+    	new DEVillagerTrades.EmeraldForItems(Items.STRING, 20, 16, 2);
         event.enqueueWork(() ->{
         	LOGGER.info("Dimensional Expansion Common Setup");
         	LOGGER.info("Register Dimensional Expansion Packets");
         	DEChannel.register();
-        	LOGGER.info("Register Dimensional Expansion Villager Jobs");
-        	DEVillagerTypes.setTypeByBiome();
-        	DEPois.registerPOIs();
         	LOGGER.info("Register Dimensional Expansion WoodTypes");
         	WoodType.register(DEWoodTypes.PURPLEHEART);
         	LOGGER.info("Put Dimensional Expansion Strippables");
@@ -95,6 +97,8 @@ public class DEMod
         	LOGGER.info("Put Dimensional Expansion Flower Pots");
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
+        	LOGGER.info("Register Dimensional Expansion Villager Jobs");
+        	DEPois.registerPOIs();
         });
     }
     
