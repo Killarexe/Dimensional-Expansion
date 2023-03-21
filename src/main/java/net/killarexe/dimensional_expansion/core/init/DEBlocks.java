@@ -63,11 +63,12 @@ public class DEBlocks {
     public static final RegistryObject<Block> SULFUR_STONE_SLAB = createSlabBlock("sulfur_stone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> SULFUR_STONE_STAIRS = createStairBlock("sulfur_stone_stairs", SULFUR_STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> SULFUR_COBBLESTONE = createBlock("sulfur_cobblestone", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> SULFUR_COBBLESTONE_SLAB = createSlabBlock("sulfur_cobblestone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> SULFUR_COBBLESTONE_SLAB = createSlabBlock("sulfur_cobblestone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> SULFUR_COBBLESTONE_STAIRS = createStairBlock("sulfur_cobblestone_stairs", SULFUR_COBBLESTONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> BLUE_SAND = createFallingBlock("blue_sand", Material.SAND, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.SAND, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> BLUE_SANDSTONE = createBlock("blue_sandstone", Material.STONE, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DECreativeTabs.BLOCKS);
-
+    public static final RegistryObject<Block> PURPLEISH_CACTUS = createCustomBlock("purpleish_cactus", () -> new PurpleishCactusBlock(), DECreativeTabs.BLOCKS);
+    
     public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal", () -> new OriginPortalBlock());
     public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", Material.METAL, MaterialColor.CLAY, 0, 0, 0, SoundType.METAL, DECreativeTabs.BLOCKS);
     

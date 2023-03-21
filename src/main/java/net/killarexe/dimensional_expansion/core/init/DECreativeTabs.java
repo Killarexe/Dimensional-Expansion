@@ -4,13 +4,12 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = DEMod.MOD_ID, bus = Bus.MOD)
 public enum DECreativeTabs {
 	MISC,
 	BLOCKS,
@@ -42,5 +41,37 @@ public enum DECreativeTabs {
     				.title(Component.translatable("itemGroup.dimensional_expansion.tools"))
     				.build();	
     	});
+    }
+    
+    @SubscribeEvent
+    public static void addItemsToCreativeTabs(CreativeModeTabEvent.BuildContents e) {
+    	if(e.getTab() == DECreativeTabs.DE_MISC) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.MISC) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_BLOCKS) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.BLOCKS) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_COMBAT) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.COMBAT) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
+    	if(e.getTab() == DECreativeTabs.DE_TOOLS) {
+    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
+    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.TOOLS) {
+    				e.accept(item.get());
+    			}
+    		}
+    	}
     }
 }

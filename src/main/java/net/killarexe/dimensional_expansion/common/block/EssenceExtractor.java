@@ -74,8 +74,9 @@ public class EssenceExtractor extends Block implements EntityBlock {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final EssenceExtractorBlockEntity be) {
             final MenuProvider container = new SimpleMenuProvider(EssenceExtractorContainer.getServerContainer(be, pos), EssenceExtractorBlockEntity.TITLE);
             NetworkHooks.openScreen((ServerPlayer) player, container, pos);
+            return InteractionResult.SUCCESS;
         }
 
-        return InteractionResult.SUCCESS;
+        return InteractionResult.sidedSuccess(true);
     }
 }

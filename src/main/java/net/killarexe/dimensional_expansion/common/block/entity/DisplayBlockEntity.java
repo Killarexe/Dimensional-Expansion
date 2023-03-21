@@ -13,9 +13,11 @@ import net.minecraft.world.level.block.state.BlockState;
 public class DisplayBlockEntity extends InventoryBlockEntity{
 
     private static final int LIMIT = 1;
+    private boolean showName;
 
     public DisplayBlockEntity(BlockPos pos, BlockState state) {
         super(DEBlockEntityTypes.DISPLAY_BLOCK.get(), pos, state, LIMIT);
+        this.showName = true;
     }
 
     public boolean appendItem(ItemStack stack) {
@@ -71,6 +73,10 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
         final CompoundTag inventory = compound.getCompound("Inventory");
         this.inventory.setSize(
                 inventory.contains("Size", Tag.TAG_INT) ? inventory.getInt("Size") : this.inventory.getSlots());
+        
+        if(compound.contains("showName")) {
+        	showName = compound.getBoolean("showName");
+        }
 
         final ListTag items = inventory.getList("Items", Tag.TAG_COMPOUND);
         for (int index = 0; index < items.size(); index++) {
@@ -153,5 +159,21 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
         inventory.put("Items", items);
         inventory.putInt("Size", this.inventory.getSlots());
         compound.put("Inventory", inventory);
+        
+        compound.putBoolean("showName", showName);
+    }
+    
+    @Override
+    public void tick() {
+    	super.tick();
+    	setChanged();
+    }
+    
+    public boolean isShowName() {
+		return showName;
+	}
+    
+    public float getYOffset() {
+    	return (float) Math.sin(timer) * 2.0f;
     }
 }

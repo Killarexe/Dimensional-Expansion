@@ -29,7 +29,7 @@ public class DEVillagerTypes {
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSION = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, DEMod.MOD_ID);
     public static final DeferredRegister<VillagerType> VILLAGER_TYPE = DeferredRegister.create(Registries.VILLAGER_TYPE, DEMod.MOD_ID);
     
-    private static final Map<RegistryObject<VillagerType>, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
+    private static final Map<VillagerType, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
 
     //Villager Professions
     public static final RegistryObject<VillagerProfession> FORGER = createProfession("forger", DEPois.FORGER_POI, SoundEvents.ANVIL_LAND);
@@ -37,7 +37,7 @@ public class DEVillagerTypes {
     public static final RegistryObject<VillagerProfession> MINER = createProfession("miner", DEPois.MINER_POI, SoundEvents.STONE_BREAK);
     
     //Villager Types
-    public static final RegistryObject<VillagerType> ORIGIN_PLAINS = createVillagerType("origin_plains", Set.of(DEBiomes.ORIGIN_PLAINS));
+    public static final RegistryObject<VillagerType> ORIGIN_PLAINS = createVillagerType("origin_plains", Set.of(DEBiomes.ORIGIN_PLAINS, DEBiomes.PURPLEHEART_FOREST));
     public static final RegistryObject<VillagerType> BLUE_SAND_DESERT = createVillagerType("blue_sand_desert", Set.of(DEBiomes.BLUE_SAND_DESERT));
 
     private static RegistryObject<VillagerProfession> createProfession(String name, RegistryObject<PoiType> poi, @Nullable SoundEvent sound) {
@@ -45,17 +45,18 @@ public class DEVillagerTypes {
     }
     
     private static RegistryObject<VillagerType> createVillagerType(String name, Set<ResourceKey<Biome>> biomes) {
-    	RegistryObject<VillagerType> type = VILLAGER_TYPE.register(name, () -> new VillagerType(name));
-    	VILLAGER_TYPE_BY_BIOME.put(type, biomes);
+    	VillagerType villagerType = new VillagerType(name);
+    	RegistryObject<VillagerType> type = VILLAGER_TYPE.register(name, () -> villagerType);
+    	VILLAGER_TYPE_BY_BIOME.put(villagerType, biomes);
     	return type;
     }
 
     public static void setTypeByBiome() {
-    	for(RegistryObject<VillagerType> type: VILLAGER_TYPE_BY_BIOME.keySet()) {
+    	for(VillagerType type: VILLAGER_TYPE_BY_BIOME.keySet()) {
     		for(ResourceKey<Biome> biome: VILLAGER_TYPE_BY_BIOME.get(type)) {
     			DEMod.LOGGER.info(biome.toString());
     			try {
-    				VillagerType.BY_BIOME.put(biome, type.get());
+    				VillagerType.BY_BIOME.put(biome, type);
     			}catch(Exception e) {
     				DEMod.LOGGER.info("Failed to register villager type!\n" + e.getMessage());
     			}

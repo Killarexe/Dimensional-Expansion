@@ -37,14 +37,16 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         Component label = Component.literal(pBlockEntity.getItemInSlot(0).getHoverName().getString());
         renderItem(
         		pBlockEntity.getItemInSlot(0),
-        		new Vector3d(0.5, 1.5, 0.5),
+        		new Vector3d(0.5, 1.5 + pBlockEntity.getYOffset(), 0.5),
         		Axis.XP.rotation(0),
         		pPoseStack, pBufferSource,
         		pBlockEntity.getLevel(),
         		pBlockEntity.getBlockPos().above(),
         		0.8f
         );
-        renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        if(pBlockEntity.isShowName()) {
+        	renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        }
     }
 
     private void renderItem(ItemStack stack, Vector3d translation, Quaternionf rotation,PoseStack matrixStack,
