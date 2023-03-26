@@ -63,7 +63,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.WARP_POWER_STONE);
     	
     	oneLayerItem(DEItems.COORD_LINKER);
-    	oneLayerItem(DEItems.REMOTE_TELEPORTER);
+    	oneLayerItem(DEItems.TIME_REMOTE_POWER_STONE);
     	
     	oneLayerItem(DEItems.PEARL_ESSENCE);
     	
@@ -87,6 +87,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.EMERTYST_BLOCK);
         
         simpleBlockItem(DEBlocks.ORIGIN_GRASS_BLOCK);
+        simpleBlockItem(DEBlocks.ORIGIN_DIRT_PATH);
+        simpleBlockItem(DEBlocks.ORIGIN_DIRT);
         simpleBlockItem(DEBlocks.PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.STRIPPED_PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.PURPLEHEART_PLANKS);

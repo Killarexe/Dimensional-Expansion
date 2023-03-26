@@ -110,7 +110,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.WARP_POWER_STONE.get(), "Warp Power Stone");
 
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
-        add(DEItems.REMOTE_TELEPORTER.get(), "Remote Teleporter");
+        add(DEItems.TIME_POWER_STONE.get(), "Timer Remote Power Stone");
 
         add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
         
@@ -158,7 +158,7 @@ public class DEEnUsProvider extends LanguageProvider {
         
         /*KeyBinds*/
         add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");
-        add("key." + DEMod.MOD_ID + ".render", "Render");
+        add("key." + DEMod.MOD_ID + ".config", "Dimensional Expansion Config");
         
         /*Tooltips*/
         add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dimensional_expansion:block/enchant_transfer_table"
+      },
+      {
+        "model": "dimensional_expansion:block/enchant_transfer_table",
+        "y": 90
+      },
+      {
+        "model": "dimensional_expansion:block/enchant_transfer_table",
+        "y": 180
+      },
+      {
+        "model": "dimensional_expansion:block/enchant_transfer_table",
+        "y": 270
+      }
+    ]
+  }
+}

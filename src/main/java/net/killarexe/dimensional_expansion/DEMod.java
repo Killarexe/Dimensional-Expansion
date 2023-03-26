@@ -89,8 +89,10 @@ public class DEMod
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.6f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.4f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.6f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEISH_CACTUS.get(), 0.6f);
         	LOGGER.info("Put Dimensional Expansion Flower Pots");
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
+        	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEISH_CACTUS.getId(), DEBlocks.POTTED_PURPLEISH_CACTUS);
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
         	LOGGER.info("Register Dimensional Expansion Villager Jobs");
         	DEPois.registerPOIs();

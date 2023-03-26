@@ -35,7 +35,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA, 7, 40, 7, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
 
     public static final RegistryObject<Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block", () -> new OriginGrassBlock(), DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> ORIGIN_BIRT_PATH = createBlock("origin_dirt_path", Material.DIRT, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.GRAVEL, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> ORIGIN_DIRT_PATH = createNoOcclusionBlock("origin_dirt_path", Material.DIRT, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.GRAVEL, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ORIGIN_DIRT = createBlock("origin_dirt", Material.DIRT, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.GRAVEL, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ORIGIN_GRASS = createGrassBlock("origin_grass", Material.GRASS, MaterialColor.COLOR_BLACK, SoundType.GRASS, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> PURPLEHEART_LOG = createPillarBlock("purpleheart_log", Material.WOOD, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
@@ -68,6 +68,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> BLUE_SAND = createFallingBlock("blue_sand", Material.SAND, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.SAND, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> BLUE_SANDSTONE = createBlock("blue_sandstone", Material.STONE, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> PURPLEISH_CACTUS = createCustomBlock("purpleish_cactus", () -> new PurpleishCactusBlock(), DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> POTTED_PURPLEISH_CACTUS = createFlowerPotBlock("potted_purpleish_cactus", () -> PURPLEISH_CACTUS.get());
     
     public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal", () -> new OriginPortalBlock());
     public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", Material.METAL, MaterialColor.CLAY, 0, 0, 0, SoundType.METAL, DECreativeTabs.BLOCKS);
@@ -85,6 +86,13 @@ public class DEBlocks {
         DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
         return block;
     }
+    
+    private static RegistryObject<Block> createNoOcclusionBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){
+        RegistryObject<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion()));
+        DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
+        return block;
+    }
+
 
     private static RegistryObject<Block> createLeavesBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){
         RegistryObject<Block> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).lightLevel(s -> 1).randomTicks().noOcclusion()));

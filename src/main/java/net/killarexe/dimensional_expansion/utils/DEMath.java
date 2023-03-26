@@ -18,4 +18,12 @@ public class DEMath {
 	public static Vec3i netherPosToOverworldPos(Vec3i position) {
 		return new Vec3i(position.getX() * 8, position.getY(), position.getZ() * 8);
 	}
+	
+	public static float clamp(float val, float min, float max) {
+        return Math.max(min, Math.min(max, val));
+    }
+    
+    public static int clamp(int val, int min, int max) {
+        return Math.max(min, Math.min(max, val));
+    }
 }

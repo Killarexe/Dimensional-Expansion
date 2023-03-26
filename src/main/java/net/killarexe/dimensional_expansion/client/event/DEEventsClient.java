@@ -28,7 +28,7 @@ public class DEEventsClient {
     }
 	
 	public static void onKeyInput(InputEvent.Key e) {
-		if(DEKeyBindings.RENDER_KEY.consumeClick() && (DEUtils.isDev() || DEUtils.isDevAccount()) && DEConfig.devMod.get()) {
+		if(DEKeyBindings.CONFIG_KEY.consumeClick() && (DEUtils.isDev() || DEUtils.isDevAccount()) && DEConfig.devMod.get()) {
 			Minecraft.getInstance().setScreen(new DEConfigScreen(null));
 		}
 	}

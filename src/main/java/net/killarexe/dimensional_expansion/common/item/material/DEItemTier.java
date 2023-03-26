@@ -7,10 +7,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum DEItemTier implements Tier {
-	BASSMITE(6, 4092, 11.0f, 6f, 16, () -> {
+	BASSMITE(5, 3096, 9.5f, 4.5f, 17, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
-	EMERTYST(8, 6000, 15.0f, 9f, 19, () -> {
+	EMERTYST(6, 4096, 10.0f, 5f, 20, () -> {
 		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	});
 

@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.container.EnchantTransferTableContainer;
 import net.killarexe.dimensional_expansion.common.container.EssenceExtractorContainer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -18,11 +17,6 @@ public class DEMenuTypes {
     public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_MENU_TYPE = createContainer(
             "essence_extractor_container",
             () -> new MenuType<>(EssenceExtractorContainer::new)
-    );
-    
-    public static final RegistryObject<MenuType<EnchantTransferTableContainer>> ENCHANT_TRANSFER_TABLE_MENU_TYPE = createContainer(
-    		"enchant_transfer_table_container",
-    		() -> new MenuType<>(EnchantTransferTableContainer::new)
     );
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(String name, Supplier<? extends MenuType<T>> type){

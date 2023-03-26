@@ -74,20 +74,41 @@ public class DEBlockTagsProvider extends VanillaBlockTagsProvider {
         );
         
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-        		DEBlocks.BLUE_SAND.get(),
-        		DEBlocks.ORIGIN_GRASS_BLOCK.get(),
-        		DEBlocks.ORIGIN_DIRT.get()
+        	DEBlocks.BLUE_SAND.get(),
+        	DEBlocks.ORIGIN_GRASS_BLOCK.get(),
+        	DEBlocks.ORIGIN_DIRT_PATH.get(),
+        	DEBlocks.ORIGIN_DIRT.get()
         );
         
-        tag(BlockTags.DIRT).add(DEBlocks.ORIGIN_GRASS_BLOCK.get());
-        tag(BlockTags.LOGS).add(DEBlocks.PURPLEHEART_LOG.get(), DEBlocks.STRIPPED_PURPLEHEART_LOG.get());
+        tag(BlockTags.DIRT).add(
+        	DEBlocks.ORIGIN_GRASS_BLOCK.get(), 
+        	DEBlocks.ORIGIN_DIRT.get()
+        );
+        
+        tag(BlockTags.LOGS).add(
+        	DEBlocks.PURPLEHEART_LOG.get(),
+        	DEBlocks.STRIPPED_PURPLEHEART_LOG.get()
+        );
+        
+        tag(BlockTags.SIGNS).add(
+        	DEBlocks.PURPLEHEART_SIGN.get(),
+        	DEBlocks.PURPLEHEART_WALL_SIGN.get()
+        );
+        
+        tag(BlockTags.BAMBOO_PLANTABLE_ON).add(
+        	DEBlocks.ORIGIN_GRASS_BLOCK.get(),
+        	DEBlocks.ORIGIN_DIRT.get()
+        );
+        
         tag(BlockTags.PLANKS).add(DEBlocks.PURPLEHEART_PLANKS.get());
         tag(BlockTags.LEAVES).add(DEBlocks.PURPLEHEART_LEAVES.get());
-        tag(BlockTags.SIGNS).add(DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get());
         tag(BlockTags.STANDING_SIGNS).add(DEBlocks.PURPLEHEART_SIGN.get());
         tag(BlockTags.WALL_SIGNS).add(DEBlocks.PURPLEHEART_WALL_SIGN.get());
         tag(BlockTags.SMALL_FLOWERS).add(DEBlocks.PURPLE_ROSE.get());
         tag(BlockTags.SAPLINGS).add(DEBlocks.PURPLEHEART_SAPLING.get());
-        tag(BlockTags.FLOWER_POTS).add(DEBlocks.POTTED_PURPLE_ROSE.get(), DEBlocks.POTTED_PURPLEHEART_SAPLING.get());
+        tag(BlockTags.FLOWER_POTS).add(
+        		DEBlocks.POTTED_PURPLE_ROSE.get(),
+        		DEBlocks.POTTED_PURPLEHEART_SAPLING.get()
+        );
     }
 }

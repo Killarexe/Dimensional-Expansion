@@ -20,7 +20,7 @@ public class PurpleBerry extends ItemNameBlockItem{
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
-		pLivingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL));
+		pLivingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL, 2, 0, true, false, false));
 		return super.finishUsingItem(pStack, pLevel, pLivingEntity);
 	}
 

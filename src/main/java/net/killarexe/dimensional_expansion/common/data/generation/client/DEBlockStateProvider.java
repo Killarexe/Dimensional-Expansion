@@ -32,7 +32,7 @@ public class DEBlockStateProvider extends BlockStateProvider{
         simpleBlock(PURPLEHEART_PLANKS.get());
         simpleBlock(PURPLEHEART_LEAVES.get());
         simpleBlock(BLUE_SAND.get());
-        
+
         logBlock((RotatedPillarBlock)PURPLEHEART_LOG.get());
         logBlock((RotatedPillarBlock)STRIPPED_PURPLEHEART_LOG.get());
         

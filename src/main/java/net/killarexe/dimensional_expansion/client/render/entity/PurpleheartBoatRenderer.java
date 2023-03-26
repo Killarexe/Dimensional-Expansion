@@ -17,8 +17,8 @@ public class PurpleheartBoatRenderer extends BoatRenderer {
     @Override
     public ResourceLocation getTextureLocation(Boat pEntity) {
         if(pEntity instanceof PurpleheartBoatEntity boat){
-            return new ResourceLocation(DEMod.MOD_ID, "boat/purpleheart");
+            return new ResourceLocation(DEMod.MOD_ID, "textures/entity/chest_boat/boat/purpleheart.png");
         }
-        return new ResourceLocation(DEMod.MOD_ID, "boat/purpleheart");
+        return new ResourceLocation(DEMod.MOD_ID, "textures/entity/chest_boat/boat/purpleheart.png");
     }
 }

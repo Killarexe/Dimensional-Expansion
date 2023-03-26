@@ -17,5 +17,18 @@
 			"minecraft:canyon"
 		]
 	},
-	"features": []
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			"dimensional_expansion:purpleish_cactus_placed"
+		]
+	]
 }

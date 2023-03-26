@@ -12,11 +12,11 @@ import java.util.function.Supplier;
 
 
 public enum DEArmorMaterial implements ArmorMaterial {
-	BASSMITE(DEMod.MOD_ID + ":bassmite", 40, new int[] {4, 6, 8, 4}, 16, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.25F, () -> {
+	BASSMITE(DEMod.MOD_ID + ":bassmite", 40, new int[] {4, 6, 8, 4}, 16, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.15F, () -> {
 		return Ingredient.of(DEItems.BASSMITE_GEM.get());
 	}),
 	
-	EMERTYST(DEMod.MOD_ID + ":emertyst", 45, new int[] {4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.5F, () -> {
+	EMERTYST(DEMod.MOD_ID + ":emertyst", 45, new int[] {4, 7, 9, 4}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.2F, () -> {
 		return Ingredient.of(DEItems.EMERTYST_GEM.get());
 	});
 
