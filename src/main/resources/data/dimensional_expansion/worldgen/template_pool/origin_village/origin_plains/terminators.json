@@ -4,7 +4,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/terminators/terminator_01",
-        "processors": "minecraft:street_plains",
+        "processors": "dimensional_expansion:street_plains",
         "projection": "terrain_matching"
       },
       "weight": 1
@@ -13,7 +13,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/terminators/terminator_02",
-        "processors": "minecraft:street_plains",
+        "processors": "dimensional_expansion:street_plains",
         "projection": "terrain_matching"
       },
       "weight": 1
@@ -22,7 +22,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/terminators/terminator_03",
-        "processors": "minecraft:street_plains",
+        "processors": "dimensional_expansion:street_plains",
         "projection": "terrain_matching"
       },
       "weight": 1
@@ -31,7 +31,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/terminators/terminator_04",
-        "processors": "minecraft:street_plains",
+        "processors": "dimensional_expansion:street_plains",
         "projection": "terrain_matching"
       },
       "weight": 1

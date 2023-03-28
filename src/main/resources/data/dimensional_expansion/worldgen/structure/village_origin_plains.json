@@ -8,7 +8,7 @@
   "start_height": {
     "absolute": 0
   },
-  "start_pool": "dimensional_expansion:village/origin_plains/town_centers",
+  "start_pool": "dimensional_expansion:origin_village/origin_plains/town_centers",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
   "use_expansion_hack": true

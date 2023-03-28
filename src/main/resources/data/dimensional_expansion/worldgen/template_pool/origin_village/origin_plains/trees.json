@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:feature_pool_element",
-        "feature": "dimensional_expansion:purple_heart_tree_placed",
+        "feature": "dimensional_expansion:purpleheart_tree_placed",
         "projection": "rigid"
       },
       "weight": 1

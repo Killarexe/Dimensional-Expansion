@@ -4,7 +4,9 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/town_centers/plains_fountain_01",
-        "processors": "dimensional_expansion:mossify_20_percent",
+        "processors": {
+          "processors": []
+        },
         "projection": "rigid"
       },
       "weight": 50
@@ -13,7 +15,9 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "dimensional_expansion:origin_village/origin_plains/town_centers/plains_meeting_point_1",
-        "processors": "minecraft:mossify_20_percent",
+        "processors": {
+          "processors": []
+        },
         "projection": "rigid"
       },
       "weight": 50
