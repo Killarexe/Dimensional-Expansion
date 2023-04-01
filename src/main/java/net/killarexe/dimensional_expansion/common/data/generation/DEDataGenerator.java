@@ -25,14 +25,20 @@ public class DEDataGenerator {
 		ExistingFileHelper helper = e.getExistingFileHelper();
 		CompletableFuture<HolderLookup.Provider> lookupProvider = e.getLookupProvider();
 		
+		DEMod.LOGGER.info("Generating Dimensional Expansion BlockStates / Block Models...");
 		generator.addProvider(e.includeClient(), new DEBlockStateProvider(output, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Item Models...");
 		generator.addProvider(e.includeClient(), new DEItemModelProvider(output, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Lang Files...");
 		generator.addProvider(e.includeClient(), new DEEnUsProvider(output));
-		
-		DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(output, lookupProvider);
-		generator.addProvider(e.includeServer(), blockTagsProvider);
-		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion LottTables...");
 		generator.addProvider(e.includeServer(), new DELootTableProvider(output));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Biome Tags...");
 		generator.addProvider(e.includeServer(), new DEBiomeTagsProvider(output, lookupProvider, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Block Tags...");
+		DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(output, lookupProvider, helper);
+		generator.addProvider(e.includeServer(), blockTagsProvider);
+		DEMod.LOGGER.info("Generating Dimensional Expansion Item Tags...");
+		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider, helper));
 	}
 }

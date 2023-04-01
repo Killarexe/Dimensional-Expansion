@@ -35,6 +35,10 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
         add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_GRASS_BLOCK.get()));});
         add(ORIGIN_GRASS.get(), (block) -> {return createGrassDrops(ORIGIN_GRASS.get());});
         dropSelf(ORIGIN_DIRT.get());
+        add(ORIGIN_FARMLAND.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_FARMLAND.get()));});
+        add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_DIRT_PATH.get()));});
+        dropSelf(PURPLEISH_CACTUS.get());
+        
         dropSelf(PURPLEHEART_LOG.get());
         dropSelf(STRIPPED_PURPLEHEART_LOG.get());
         dropSelf(PURPLEHEART_PLANKS.get());
@@ -60,16 +64,19 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
         dropSelf(SULFUR_STONE_PRESSURE_PLATE.get());
         dropSelf(SULFUR_STONE_STAIRS.get());
         add(SULFUR_STONE_SLAB.get(), (block) -> {return createSlabItemTable(SULFUR_STONE_SLAB.get());});
+        dropSelf(SULFUR_COBBLESTONE_WALL.get());
         dropSelf(BLUE_SAND.get());
         dropSelf(BLUE_SANDSTONE.get());
         
         dropPottedContents(POTTED_PURPLE_ROSE.get());
         dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
+        dropPottedContents(POTTED_PURPLEISH_CACTUS.get());
         dropSelf(ORIGIN_FRAME.get());
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());
         add(ESSENCE_EXTRACTOR.get(), (block) -> {return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());});
+        add(ENCHANT_TRANSFER_TABLE.get(), (block) -> {return createNameableBlockEntityTable(ENCHANT_TRANSFER_TABLE.get());});
         dropSelf(DISPLAY_BLOCK.get());
         
         add(PURPLE_BERRY_BUSH.get(), (block) -> {

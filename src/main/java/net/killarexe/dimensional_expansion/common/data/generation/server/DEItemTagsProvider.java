@@ -14,16 +14,16 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class DEItemTagsProvider extends ItemTagsProvider {
 	
-    public DEItemTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, TagsProvider<Block> p_256467_, @Nullable ExistingFileHelper existingFileHelper) {
+	public DEItemTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, TagsProvider<Block> p_256467_, @Nullable ExistingFileHelper existingFileHelper) {
 		super(pOutput, pLookupProvider, p_256467_, DEMod.MOD_ID, existingFileHelper);
 	}
 
 	@Override
-    protected void addTags(Provider pProvider) {
+	protected void addTags(Provider pProvider) {
         tag(Tags.Items.ORES).add(DEBlocks.PALON_ORE.get().asItem(), DEBlocks.BASSMITE_ORE.get().asItem(),
                 DEBlocks.SIMIX_ORE.get().asItem(), DEBlocks.EMERTYST_ORE.get().asItem());
         tag(Tags.Items.INGOTS).add(DEItems.PALON_INGOT.get(), DEItems.SIMIX_INGOT.get());

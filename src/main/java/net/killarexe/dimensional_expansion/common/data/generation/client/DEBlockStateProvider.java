@@ -33,31 +33,34 @@ public class DEBlockStateProvider extends BlockStateProvider{
         simpleBlock(PURPLEHEART_LEAVES.get());
         simpleBlock(BLUE_SAND.get());
 
-        logBlock((RotatedPillarBlock)PURPLEHEART_LOG.get());
-        logBlock((RotatedPillarBlock)STRIPPED_PURPLEHEART_LOG.get());
+        logBlock(PURPLEHEART_LOG.get());
+        logBlock(STRIPPED_PURPLEHEART_LOG.get());
         
-        slabBlock((SlabBlock)PURPLEHEART_SLAB.get(), PURPLEHEART_SLAB.getId(), blockTexture(PURPLEHEART_PLANKS.get()));
-        slabBlock((SlabBlock)SULFUR_STONE_SLAB.get(), SULFUR_STONE_SLAB.getId(), blockTexture(SULFUR_STONE.get()));
-        slabBlock((SlabBlock)SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE_SLAB.getId(), blockTexture(SULFUR_COBBLESTONE.get()));
+        slabBlock(PURPLEHEART_SLAB.get(), PURPLEHEART_SLAB.getId(), blockTexture(PURPLEHEART_PLANKS.get()));
+        slabBlock(SULFUR_STONE_SLAB.get(), SULFUR_STONE_SLAB.getId(), blockTexture(SULFUR_STONE.get()));
+        slabBlock(SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE_SLAB.getId(), blockTexture(SULFUR_COBBLESTONE.get()));
         
-        fenceBlock((FenceBlock) PURPLEHEART_FENCE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+        fenceBlock(PURPLEHEART_FENCE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
         
-        fenceGateBlock((FenceGateBlock) PURPLEHEART_FENCE_GATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+        fenceGateBlock(PURPLEHEART_FENCE_GATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
         
-        buttonBlock((ButtonBlock) PURPLEHEART_BUTTON.get(), blockTexture(PURPLEHEART_PLANKS.get()));
-        buttonBlock((ButtonBlock) SULFUR_STONE_BUTTON.get(), blockTexture(SULFUR_STONE.get()));
+        buttonBlock(PURPLEHEART_BUTTON.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+        buttonBlock(SULFUR_STONE_BUTTON.get(), blockTexture(SULFUR_STONE.get()));
         
-        pressurePlateBlock((PressurePlateBlock)PURPLEHEART_PRESSURE_PLATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
-        pressurePlateBlock((PressurePlateBlock)SULFUR_STONE_PRESSURE_PLATE.get(), blockTexture(SULFUR_STONE.get()));
+        pressurePlateBlock(PURPLEHEART_PRESSURE_PLATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+        pressurePlateBlock(SULFUR_STONE_PRESSURE_PLATE.get(), blockTexture(SULFUR_STONE.get()));
         
-        doorBlock((DoorBlock)PURPLEHEART_DOOR.get(), new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_bottom"),
+        doorBlock(PURPLEHEART_DOOR.get(), new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_top"));
         
-        trapdoorBlock((TrapDoorBlock)PURPLEHEART_TRAPDOOR.get(), blockTexture(PURPLEHEART_TRAPDOOR.get()), true);
+        trapdoorBlock(PURPLEHEART_TRAPDOOR.get(), blockTexture(PURPLEHEART_TRAPDOOR.get()), true);
         
-        stairsBlock((StairBlock)PURPLEHEART_STAIRS.get(), blockTexture(PURPLEHEART_PLANKS.get()));
-        stairsBlock((StairBlock)SULFUR_STONE_STAIRS.get(), blockTexture(SULFUR_STONE.get()));
-        stairsBlock((StairBlock)SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
+        stairsBlock(PURPLEHEART_STAIRS.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+        stairsBlock(SULFUR_STONE_STAIRS.get(), blockTexture(SULFUR_STONE.get()));
+        stairsBlock(SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
+        wallBlock(SULFUR_COBBLESTONE_WALL.get(), blockTexture(SULFUR_COBBLESTONE.get()));
+        
+        
         
         simpleBlock(ORIGIN_FRAME.get());
         
@@ -65,6 +68,12 @@ public class DEBlockStateProvider extends BlockStateProvider{
         		blockTexture(BLUE_SANDSTONE.get()),
         		new ResourceLocation(blockTexture(BLUE_SANDSTONE.get()) + "_bottom"),
         		new ResourceLocation(blockTexture(BLUE_SANDSTONE.get()) + "_top")
+        )));
+        
+        getVariantBuilder(ORIGIN_FARMLAND.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(ORIGIN_FARMLAND.getId().getPath(),
+        		blockTexture(ORIGIN_DIRT.get()),
+        		blockTexture(ORIGIN_DIRT.get()),
+        		blockTexture(ORIGIN_FARMLAND.get())
         )));
         getVariantBuilder(ORIGIN_GRASS_BLOCK.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(ORIGIN_GRASS_BLOCK.getId().getPath(),
         		new ResourceLocation(blockTexture(ORIGIN_GRASS_BLOCK.get()) + "_side"),

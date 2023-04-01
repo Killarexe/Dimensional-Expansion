@@ -63,9 +63,27 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createCrossRecipe(r, RecipeCategory.MISC, COORD_LINKER.get(), 1, SIMIX_INGOT.get(), PEARL_ESSENCE.get(), COMPASS);
         createCrossRecipe(r, RecipeCategory.MISC, ORIGIN_FRAME.get(), 4, BASSMITE_GEM.get(), PALON_INGOT.get(), PEARL_ESSENCE.get(), SIMIX_INGOT.get());
         
+        createTrapDoorRecipe(r, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE_WALL.get(), SULFUR_COBBLESTONE.get());
         
-        //TODO: Bassmite and Emertyst tools and armor recipes
+        createHelmetRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_HELMET.get());
+        createChestplateRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get());
+        createLeggingsRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get());
+        createBootsRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_BOOTS.get());
+        createSwordRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_SWORD.get());
+        createPickaxeRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
+        createAxeRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_AXE.get());
+        createShovelRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_SHOVEL.get());
+        createHoeRecipe(r, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_HOE.get());
         
+        createHelmetRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_HELMET.get());
+        createChestplateRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get());
+        createLeggingsRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get());
+        createBootsRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_BOOTS.get());
+        createSwordRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_SWORD.get());
+        createPickaxeRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_PICKAXE.get());
+        createAxeRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_AXE.get());
+        createShovelRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
+        createHoeRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_HOE.get());
         
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
 	        .unlockedBy("has_material", has(SIMIX_HAMMER.get()))
@@ -133,6 +151,87 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .pattern("###")
                 .pattern("   ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createHelmetRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("   ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createChestplateRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createLeggingsRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createBootsRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem)
+                .pattern("# #")
+                .pattern("# #")
+                .pattern("   ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createSwordRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
+                .pattern(" # ")
+                .pattern(" # ")
+                .pattern(" / ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createPickaxeRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
+                .pattern("###")
+                .pattern(" / ")
+                .pattern(" / ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createAxeRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
+                .pattern(" ##")
+                .pattern(" /#")
+                .pattern(" / ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createShovelRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
+                .pattern(" # ")
+                .pattern(" / ")
+                .pattern(" / ")
+                .unlockedBy("has_material", has(requireItem))
+                .save(r);
+    }
+    
+    private void createHoeRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem){
+        ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
+                .pattern(" ##")
+                .pattern(" / ")
+                .pattern(" / ")
                 .unlockedBy("has_material", has(requireItem))
                 .save(r);
     }

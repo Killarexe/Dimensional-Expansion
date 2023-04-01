@@ -4,7 +4,7 @@
       "model": "dimensional_expansion:block/purpleheart_slab"
     },
     "type=double": {
-      "model": "dimensional_expansion:block/purpleheart_slab"
+      "model": "dimensional_expansion:block/purpleheart_planks"
     },
     "type=top": {
       "model": "dimensional_expansion:block/purpleheart_slab_top"

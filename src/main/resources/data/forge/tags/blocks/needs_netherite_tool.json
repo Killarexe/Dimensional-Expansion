@@ -2,6 +2,7 @@
   "values": [
     "dimensional_expansion:palon_ore",
     "dimensional_expansion:palon_block",
-    "dimensional_expansion:origin_frame"
+    "dimensional_expansion:origin_frame",
+    "dimensional_expansion:display_block"
   ]
 }

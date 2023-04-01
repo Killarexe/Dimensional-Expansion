@@ -1,19 +1,26 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.VanillaBlockTagsProvider;
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DEBlockTagsProvider extends VanillaBlockTagsProvider {
+public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
 
-    public DEBlockTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider) {
-		super(pOutput, pLookupProvider);
+    @SuppressWarnings("deprecation")
+	public DEBlockTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, ExistingFileHelper helper) {
+		super(pOutput, Registries.BLOCK, pLookupProvider, (p_255790_) -> {
+	         return p_255790_.builtInRegistryHolder().key();
+	      }, DEMod.MOD_ID, helper);
 	}
 
 	@Override
@@ -100,15 +107,48 @@ public class DEBlockTagsProvider extends VanillaBlockTagsProvider {
         	DEBlocks.ORIGIN_DIRT.get()
         );
         
+        tag(BlockTags.STAIRS).add(
+        	DEBlocks.PURPLEHEART_STAIRS.get(),
+        	DEBlocks.SULFUR_COBBLESTONE_STAIRS.get(),
+        	DEBlocks.SULFUR_STONE_STAIRS.get()
+        );
+        
+        tag(BlockTags.WOODEN_STAIRS).add(DEBlocks.PURPLEHEART_STAIRS.get());
+        
+        tag(BlockTags.SLABS).add(
+        	DEBlocks.PURPLEHEART_SLAB.get(),
+        	DEBlocks.SULFUR_STONE_SLAB.get(),
+        	DEBlocks.SULFUR_COBBLESTONE_SLAB.get()
+        );
+        
+        tag(BlockTags.WOODEN_SLABS).add(DEBlocks.PURPLEHEART_SLAB.get());
+        
+        tag(BlockTags.WALLS).add(DEBlocks.SULFUR_COBBLESTONE_WALL.get());
+        
+        tag(BlockTags.DOORS).add(DEBlocks.PURPLEHEART_DOOR.get());
+        tag(BlockTags.WOODEN_DOORS).add(DEBlocks.PURPLEHEART_DOOR.get());
+        tag(BlockTags.TRAPDOORS).add(DEBlocks.PURPLEHEART_TRAPDOOR.get());
+        tag(BlockTags.WOODEN_TRAPDOORS).add(DEBlocks.PURPLEHEART_TRAPDOOR.get());
+        
         tag(BlockTags.PLANKS).add(DEBlocks.PURPLEHEART_PLANKS.get());
         tag(BlockTags.LEAVES).add(DEBlocks.PURPLEHEART_LEAVES.get());
         tag(BlockTags.STANDING_SIGNS).add(DEBlocks.PURPLEHEART_SIGN.get());
         tag(BlockTags.WALL_SIGNS).add(DEBlocks.PURPLEHEART_WALL_SIGN.get());
         tag(BlockTags.SMALL_FLOWERS).add(DEBlocks.PURPLE_ROSE.get());
         tag(BlockTags.SAPLINGS).add(DEBlocks.PURPLEHEART_SAPLING.get());
+        tag(BlockTags.BUTTONS).add(
+        	DEBlocks.PURPLEHEART_BUTTON.get(),
+        	DEBlocks.SULFUR_STONE_BUTTON.get()
+        );
+        tag(BlockTags.PRESSURE_PLATES).add(
+        	DEBlocks.PURPLEHEART_PRESSURE_PLATE.get(),
+        	DEBlocks.SULFUR_STONE_PRESSURE_PLATE.get()
+        );
+        tag(BlockTags.WOODEN_PRESSURE_PLATES).add(DEBlocks.PURPLEHEART_PRESSURE_PLATE.get());
         tag(BlockTags.FLOWER_POTS).add(
         		DEBlocks.POTTED_PURPLE_ROSE.get(),
-        		DEBlocks.POTTED_PURPLEHEART_SAPLING.get()
+        		DEBlocks.POTTED_PURPLEHEART_SAPLING.get(),
+        		DEBlocks.POTTED_PURPLEISH_CACTUS.get()
         );
     }
 }

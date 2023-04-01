@@ -27,6 +27,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ORIGIN_GRASS_BLOCK.get(), "Origin Grass Block");
         add(DEBlocks.ORIGIN_GRASS.get(), "Origin Grass");
         add(DEBlocks.ORIGIN_DIRT.get(), "Origin Dirt");
+        add(DEBlocks.ORIGIN_FARMLAND.get(), "Origin Farmland");
         add(DEBlocks.PURPLEHEART_LOG.get(), "PurpleHeart Log");
         add(DEBlocks.STRIPPED_PURPLEHEART_LOG.get(), "PurpleHeart Stripped Log");
         add(DEBlocks.PURPLEHEART_PLANKS.get(), "PurpleHeart Planks");
@@ -52,6 +53,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.SULFUR_COBBLESTONE.get(), "Sulfur Cobblestone");
         add(DEBlocks.SULFUR_COBBLESTONE_SLAB.get(), "Sulfur Cobblestone Slab");
         add(DEBlocks.SULFUR_COBBLESTONE_STAIRS.get(), "Sulfur Cobblestone Stairs");
+        add(DEBlocks.SULFUR_COBBLESTONE_WALL.get(), "Sulfur Cobblestone Wall");
         add(DEBlocks.BLUE_SAND.get(), "Blue Sand");
         add(DEBlocks.BLUE_SANDSTONE.get(), "Blue Sandstone");
         
@@ -106,7 +108,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.ALLOY_CRYSTAL.get(), "Alloy Crystal");
 
         add(DEItems.WEATHER_POWER_STONE.get(), "Weather Power Stone");
-        add(DEItems.TIME_POWER_STONE.get(), "Time Power Stone");
         add(DEItems.WARP_POWER_STONE.get(), "Warp Power Stone");
 
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
@@ -120,7 +121,7 @@ public class DEEnUsProvider extends LanguageProvider {
 
         add(DEItems.PURPLEHEART_SIGN.get(), "PurpleHeart Sign");
         add(DEItems.PURPLEHEART_BOAT.get(), "PurpleHeart Boat");
-
+        
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
         add(DEItems.SWEDEN_DISC.get().getDescriptionId() + ".desc", "Sweden in the 90's by Killar.exe");

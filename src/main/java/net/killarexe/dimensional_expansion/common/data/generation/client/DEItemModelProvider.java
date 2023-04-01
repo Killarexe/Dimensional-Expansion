@@ -89,6 +89,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ORIGIN_GRASS_BLOCK);
         simpleBlockItem(DEBlocks.ORIGIN_DIRT_PATH);
         simpleBlockItem(DEBlocks.ORIGIN_DIRT);
+        simpleBlockItem(DEBlocks.ORIGIN_FARMLAND);
         simpleBlockItem(DEBlocks.PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.STRIPPED_PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.PURPLEHEART_PLANKS);
@@ -111,7 +112,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SULFUR_STONE_PRESSURE_PLATE);
         simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
-        inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);	
+        inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);
+        sideItem(DEBlocks.SULFUR_COBBLESTONE_WALL);
         simpleBlockItem(DEBlocks.BLUE_SAND);
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
         simpleBlockItem(DEBlocks.ORIGIN_FRAME);
@@ -122,15 +124,19 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
     }
 
-    private void simpleBlockItem(RegistryObject<Block> block){
+    private <T extends Block> void simpleBlockItem(RegistryObject<T> block){
         getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath())));
     }
 
-    private void inventoryItem(RegistryObject<Block> block) {
+    private <T extends Block> void inventoryItem(RegistryObject<T> block) {
     	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_inventory")));
     }
+    
+    private <T extends Block> void sideItem(RegistryObject<T> block) {
+    	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_side")));
+    }
 
-    private void trapDoorItem(RegistryObject<Block> block) {
+    private <T extends Block> void trapDoorItem(RegistryObject<T> block) {
     	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_bottom")));
     }
 

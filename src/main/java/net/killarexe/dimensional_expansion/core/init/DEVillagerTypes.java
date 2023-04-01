@@ -52,14 +52,13 @@ public class DEVillagerTypes {
     }
 
     public static void setTypeByBiome() {
-    	for(VillagerType type: VILLAGER_TYPE_BY_BIOME.keySet()) {
-    		for(ResourceKey<Biome> biome: VILLAGER_TYPE_BY_BIOME.get(type)) {
-    			DEMod.LOGGER.info(biome.toString());
-    			try {
-    				VillagerType.BY_BIOME.put(biome, type);
-    			}catch(Exception e) {
-    				DEMod.LOGGER.info("Failed to register villager type!\n" + e.getMessage());
-    			}
+    	for(Map.Entry<VillagerType, Set<ResourceKey<Biome>>> entry: VILLAGER_TYPE_BY_BIOME.entrySet()) {
+    		for(ResourceKey<Biome> biome: entry.getValue()) {
+	    		try {
+	    			VillagerType.BY_BIOME.put(biome, entry.getKey());
+	    		}catch(Exception e) {
+	    			DEMod.LOGGER.info("Failed to register villager type!\n" + e.getMessage());
+	    		}
     		}
     	}
     	try {
@@ -108,7 +107,7 @@ public class DEVillagerTypes {
 	        				)
 	        );
     	}catch(Exception e) {
-    		DEMod.LOGGER.info("Oh no!");
+    		DEMod.LOGGER.info("Failed to put trades! Error: " + e.getMessage());
     	}
     }
 }
