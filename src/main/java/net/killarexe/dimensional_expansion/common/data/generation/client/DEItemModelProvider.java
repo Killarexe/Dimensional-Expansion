@@ -75,6 +75,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.SWEDEN_DISC);
     	oneLayerItem(DEItems.DOCTOR_WHO_DISC);
     	oneLayerItem(DEItems.PURPLE_BERRY);
+    	oneLayerItem(DEItems.SAVORLEAF);
+    	oneLayerItem(DEItems.VIOLET_CARROT);
     	
         //Block Items
         simpleBlockItem(DEBlocks.PALON_ORE);
@@ -113,10 +115,11 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
         inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);
-        sideItem(DEBlocks.SULFUR_COBBLESTONE_WALL);
+        //inventoryItem(DEBlocks.SULFUR_COBBLESTONE_WALL);
         simpleBlockItem(DEBlocks.BLUE_SAND);
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
         simpleBlockItem(DEBlocks.ORIGIN_FRAME);
+        simpleBlockItem(DEBlocks.SAVORLEAF_BLOCK);
         
         simpleBlockItem(DEBlocks.FORGE);
         simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);
@@ -130,10 +133,6 @@ public class DEItemModelProvider extends ItemModelProvider {
 
     private <T extends Block> void inventoryItem(RegistryObject<T> block) {
     	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_inventory")));
-    }
-    
-    private <T extends Block> void sideItem(RegistryObject<T> block) {
-    	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_side")));
     }
 
     private <T extends Block> void trapDoorItem(RegistryObject<T> block) {

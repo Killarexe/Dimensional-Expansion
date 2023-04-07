@@ -32,7 +32,7 @@ public class DEBlockStateProvider extends BlockStateProvider{
         simpleBlock(PURPLEHEART_PLANKS.get());
         simpleBlock(PURPLEHEART_LEAVES.get());
         simpleBlock(BLUE_SAND.get());
-
+        
         logBlock(PURPLEHEART_LOG.get());
         logBlock(STRIPPED_PURPLEHEART_LOG.get());
         
@@ -60,8 +60,7 @@ public class DEBlockStateProvider extends BlockStateProvider{
         stairsBlock(SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
         wallBlock(SULFUR_COBBLESTONE_WALL.get(), blockTexture(SULFUR_COBBLESTONE.get()));
         
-        
-        
+        simpleBlock(SAVORLEAF_BLOCK.get());
         simpleBlock(ORIGIN_FRAME.get());
         
         getVariantBuilder(BLUE_SANDSTONE.get()).partialState().setModels(new ConfiguredModel(models().cubeBottomTop(BLUE_SANDSTONE.getId().getPath(),

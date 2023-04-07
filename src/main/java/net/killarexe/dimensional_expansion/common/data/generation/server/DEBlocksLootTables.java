@@ -13,10 +13,14 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
+
+import net.killarexe.dimensional_expansion.common.block.SavorleafCropBlock;
+import net.killarexe.dimensional_expansion.common.block.VioletCarrotCropBlock;
 
 public class DEBlocksLootTables extends VanillaBlockLoot {
 
@@ -39,6 +43,11 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
         add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_DIRT_PATH.get()));});
         dropSelf(PURPLEISH_CACTUS.get());
         
+        LootItemCondition.Builder savorleafCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SavorleafCropBlock.AGE, SavorleafCropBlock.MAX_AGE));
+        add(SAVORLEAF_CROP.get(), createCropDrops(SAVORLEAF_CROP.get(), DEItems.SAVORLEAF.get(), DEItems.SAVORLEAF.get(), savorleafCondition));
+        LootItemCondition.Builder violetCarrotCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(VioletCarrotCropBlock.AGE, VioletCarrotCropBlock.MAX_AGE));
+        add(VIOLET_CARROT_CROP.get(), createCropDrops(VIOLET_CARROT_CROP.get(), DEItems.VIOLET_CARROT.get(), DEItems.VIOLET_CARROT.get(), violetCarrotCondition));
+       
         dropSelf(PURPLEHEART_LOG.get());
         dropSelf(STRIPPED_PURPLEHEART_LOG.get());
         dropSelf(PURPLEHEART_PLANKS.get());
@@ -72,6 +81,7 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
         dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
         dropPottedContents(POTTED_PURPLEISH_CACTUS.get());
         dropSelf(ORIGIN_FRAME.get());
+        dropSelf(SAVORLEAF_BLOCK.get());
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());

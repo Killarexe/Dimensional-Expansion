@@ -47,8 +47,8 @@ public class DEVillagerTrades {
 	      private final int villagerXp;
 
 	      public EmeraldsForVillagerTypeItem(int pCost, int pMaxUses, int pVillagerXp, Map<VillagerType, Item> pTrades) {
-	         BuiltInRegistries.VILLAGER_TYPE.stream().filter((p_35680_) -> {
-	            return !pTrades.containsKey(p_35680_);
+	         BuiltInRegistries.VILLAGER_TYPE.stream().filter((key) -> {
+	            return !pTrades.containsKey(key);
 	         }).findAny().ifPresent((p_258962_) -> {
 	            throw new IllegalStateException("Missing trade for villager type: " + BuiltInRegistries.VILLAGER_TYPE.getKey(p_258962_));
 	         });

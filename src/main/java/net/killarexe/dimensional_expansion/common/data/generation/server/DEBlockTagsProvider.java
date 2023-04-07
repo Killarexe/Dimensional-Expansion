@@ -97,6 +97,11 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         	DEBlocks.STRIPPED_PURPLEHEART_LOG.get()
         );
         
+        tag(BlockTags.CROPS).add(
+        	DEBlocks.SAVORLEAF_CROP.get(),
+        	DEBlocks.VIOLET_CARROT_CROP.get()
+        );
+        
         tag(BlockTags.SIGNS).add(
         	DEBlocks.PURPLEHEART_SIGN.get(),
         	DEBlocks.PURPLEHEART_WALL_SIGN.get()

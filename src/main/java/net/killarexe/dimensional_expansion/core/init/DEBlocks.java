@@ -81,7 +81,11 @@ public class DEBlocks {
     public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block", () -> new DisplayBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table", () -> new EnchantTransferTable(), DECreativeTabs.BLOCKS);
     
+    public static final RegistryObject<SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block", () -> new SavorleafBlock(), DECreativeTabs.BLOCKS);
+    
     public static final RegistryObject<Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush", () -> new PurpleBerryBush());
+    public static final RegistryObject<SavorleafCropBlock> SAVORLEAF_CROP = createCustomBlock("savorleaf_crop", () -> new SavorleafCropBlock());
+    public static final RegistryObject<VioletCarrotCropBlock> VIOLET_CARROT_CROP = createCustomBlock("violet_carrot_crop", () -> new VioletCarrotCropBlock());
     
     private static RegistryObject<Block> createBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){
         RegistryObject<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
@@ -90,7 +94,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<LeavesBlock> createLeavesBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){
-        RegistryObject<LeavesBlock> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).lightLevel(s -> 1).randomTicks().noOcclusion()));
+        RegistryObject<LeavesBlock> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).randomTicks().noOcclusion()));
         DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
         return block;
     }
@@ -185,7 +189,7 @@ public class DEBlocks {
     }
     
     private static RegistryObject<TallGrassBlock> createGrassBlock(String id, Material material, MaterialColor color, SoundType sound, DECreativeTabs itemGroup){
-    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().lightLevel(s -> 5).noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
+    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
     	DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
     	return block;
     }
@@ -196,8 +200,8 @@ public class DEBlocks {
         return cBlock;
     }
 
-    private static <T extends Block> RegistryObject<Block> createCustomBlock(@Nonnull String id, Supplier<T> block){
-        RegistryObject<Block> cBlock = BLOCK.register(id, block);
+    private static <T extends Block> RegistryObject<T> createCustomBlock(@Nonnull String id, Supplier<T> block){
+        RegistryObject<T> cBlock = BLOCK.register(id, block);
         return cBlock;
     }
 }

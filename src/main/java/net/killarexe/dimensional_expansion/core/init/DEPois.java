@@ -1,12 +1,10 @@
 package net.killarexe.dimensional_expansion.core.init;
 
-
 import com.google.common.collect.ImmutableSet;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,15 +25,5 @@ public class DEPois {
                         1
                 ));
         return type;
-    }
-    
-    public static void registerPOIs() {
-    	try {
-    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FORGER_POI.get());
-    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, FARMER_POI.get());
-    		ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, MINER_POI.get());
-    	}catch(Exception e) {
-    		DEMod.LOGGER.error("Failed to register villager pois!\nCause: " + e.getMessage());
-    	}
     }
 }

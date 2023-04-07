@@ -15,8 +15,7 @@ public class OriginParticle extends TextureSheetParticle{
 
 	@Override
 	public ParticleRenderType getRenderType() {
-		// TODO Auto-generated method stub
-		return null;
+		return ParticleRenderType.NO_RENDER;
 	}
 	
 }

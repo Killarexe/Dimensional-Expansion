@@ -19,6 +19,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.PALON_BLOCK.get(), "Palon Block");
         add(DEBlocks.BASSMITE_ORE.get(), "Bassmite Ore");
         add(DEBlocks.BASSMITE_BLOCK.get(), "Bassmite Block");
+        
         add(DEBlocks.SIMIX_ORE.get(), "Simix Ore");
         add(DEBlocks.SIMIX_BLOCK.get(), "Simix Block");
         add(DEBlocks.EMERTYST_ORE.get(), "Emertyst Ore");
@@ -28,6 +29,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ORIGIN_GRASS.get(), "Origin Grass");
         add(DEBlocks.ORIGIN_DIRT.get(), "Origin Dirt");
         add(DEBlocks.ORIGIN_FARMLAND.get(), "Origin Farmland");
+        
         add(DEBlocks.PURPLEHEART_LOG.get(), "PurpleHeart Log");
         add(DEBlocks.STRIPPED_PURPLEHEART_LOG.get(), "PurpleHeart Stripped Log");
         add(DEBlocks.PURPLEHEART_PLANKS.get(), "PurpleHeart Planks");
@@ -45,15 +47,18 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.POTTED_PURPLE_ROSE.get(), "Potted Origin Rose");
         add(DEBlocks.PURPLEHEART_SAPLING.get(), "PurpleHeart Sapling");
         add(DEBlocks.POTTED_PURPLEHEART_SAPLING.get(), "Potted PurpleHeart Sapling");
+        
         add(DEBlocks.SULFUR_STONE.get(), "Origin Stone");
         add(DEBlocks.SULFUR_STONE_SLAB.get(), "Sulfur Stone Slab");
         add(DEBlocks.SULFUR_STONE_STAIRS.get(), "Sulfur Stone Stairs");
         add(DEBlocks.SULFUR_STONE_BUTTON.get(), "Sulfur Stone Button");
         add(DEBlocks.SULFUR_STONE_PRESSURE_PLATE.get(), "Sulfur Stone Pressure Plate");
+        
         add(DEBlocks.SULFUR_COBBLESTONE.get(), "Sulfur Cobblestone");
         add(DEBlocks.SULFUR_COBBLESTONE_SLAB.get(), "Sulfur Cobblestone Slab");
         add(DEBlocks.SULFUR_COBBLESTONE_STAIRS.get(), "Sulfur Cobblestone Stairs");
         add(DEBlocks.SULFUR_COBBLESTONE_WALL.get(), "Sulfur Cobblestone Wall");
+        
         add(DEBlocks.BLUE_SAND.get(), "Blue Sand");
         add(DEBlocks.BLUE_SANDSTONE.get(), "Blue Sandstone");
         
@@ -64,8 +69,10 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ESSENCE_EXTRACTOR.get(), "Essence Extractor");
         add(DEBlocks.MINERAL_STORAGE.get(), "Mineral Storage");
         add(DEBlocks.DISPLAY_BLOCK.get(), "Display Block");
+        add(DEBlocks.ENCHANT_TRANSFER_TABLE.get(), "Enchant Transfer Table");
         
         add(DEBlocks.PURPLE_BERRY_BUSH.get(), "Purple Berry Block");
+        add(DEBlocks.SAVORLEAF_BLOCK.get(), "Savorleaf Block");
 
         /*ITEMS*/
         add(DEItems.RAW_PALON.get(), "Raw Palon");
@@ -122,6 +129,9 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.PURPLEHEART_SIGN.get(), "PurpleHeart Sign");
         add(DEItems.PURPLEHEART_BOAT.get(), "PurpleHeart Boat");
         
+        add(DEItems.SAVORLEAF.get(), "Savorleaf");
+        add(DEItems.VIOLET_CARROT.get(), "Violet Carrot");
+        
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
         add(DEItems.SWEDEN_DISC.get().getDescriptionId() + ".desc", "Sweden in the 90's by Killar.exe");
@@ -145,7 +155,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".paypal", "§3Donate via Paypal");
         add("button." + DEMod.MOD_ID + ".config", "Config");
         add("button." + DEMod.MOD_ID + ".github", "Github");
-        add("button." + DEMod.MOD_ID + ".quit", "Quit");
+        add("button." + DEMod.MOD_ID + ".quit", "§4Quit");
         add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
         add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
         

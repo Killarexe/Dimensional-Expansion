@@ -74,7 +74,7 @@ public class DEConfigScreen extends Screen {
     
     @Override
     protected void init() {  
-        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".quit_button")),(button -> {onClose();}))
+        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".quit")),(button -> {onClose();}))
         		.bounds(this.width / 2 + 100, this.height / 4 + 48 + 80, 100, 20)
         		.build();
         

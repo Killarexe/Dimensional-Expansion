@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "dimensional_expansion:block/savorleaf_stage1"
+  },
+  "render_type": "cutout"
+}

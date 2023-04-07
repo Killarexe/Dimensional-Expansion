@@ -39,44 +39,46 @@ public class DEItems {
     public static final RegistryObject<Item> RAW_PALON = createItem("raw_palon", DECreativeTabs.MISC, false);
     public static final RegistryObject<Item> PALON_INGOT = createItem("palon_ingot", DECreativeTabs.MISC, false);
     public static final RegistryObject<Item> PALON_NUGGET = createItem("palon_nugget", DECreativeTabs.MISC, false);
-    public static final RegistryObject<Item> PALON_MIXED_COAL = createFuelItem("palon_mixed_coal", 3200, DECreativeTabs.MISC, false);
+    public static final RegistryObject<FuelItem> PALON_MIXED_COAL = createFuelItem("palon_mixed_coal", 3200, DECreativeTabs.MISC, false);
 
     public static final RegistryObject<Item> BASSMITE_GEM = createItem("bassmite_gem", DECreativeTabs.MISC, false);
-    public static final RegistryObject<Item> BASSMITE_SWORD = createSwordItem("bassmite_sword", DEItemTier.BASSMITE, 3, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_PICKAXE = createPickaxeItem("bassmite_pickaxe", DEItemTier.BASSMITE, 6, DECreativeTabs.TOOLS, false);
-    public static final RegistryObject<Item> BASSMITE_AXE = createAxeItem("bassmite_axe", DEItemTier.BASSMITE, 6, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_SHOVEL = createShovelItem("bassmite_shovel", DEItemTier.BASSMITE, 1.5f, DECreativeTabs.TOOLS, false);
-    public static final RegistryObject<Item> BASSMITE_HOE = createHoeItem("bassmite_hoe", DEItemTier.BASSMITE, 0, DECreativeTabs.TOOLS, false);
-    public static final RegistryObject<Item> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterial.BASSMITE, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterial.BASSMITE, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterial.BASSMITE, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterial.BASSMITE, EquipmentSlot.FEET, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_HORSE_ARMOR = createHorseArmorItem("bassmite_horse_armor", 10, "bassmite", DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<Item> BASSMITE_MIXED_COAL = createFuelItem("bassmite_mixed_coal", 6400, DECreativeTabs.MISC, false);
+    public static final RegistryObject<SwordItem> BASSMITE_SWORD = createSwordItem("bassmite_sword", DEItemTier.BASSMITE, 3, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<PickaxeItem> BASSMITE_PICKAXE = createPickaxeItem("bassmite_pickaxe", DEItemTier.BASSMITE, 6, DECreativeTabs.TOOLS, false);
+    public static final RegistryObject<AxeItem> BASSMITE_AXE = createAxeItem("bassmite_axe", DEItemTier.BASSMITE, 6, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ShovelItem> BASSMITE_SHOVEL = createShovelItem("bassmite_shovel", DEItemTier.BASSMITE, 1.5f, DECreativeTabs.TOOLS, false);
+    public static final RegistryObject<HoeItem> BASSMITE_HOE = createHoeItem("bassmite_hoe", DEItemTier.BASSMITE, 0, DECreativeTabs.TOOLS, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterial.BASSMITE, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterial.BASSMITE, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterial.BASSMITE, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterial.BASSMITE, EquipmentSlot.FEET, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<HorseArmorItem> BASSMITE_HORSE_ARMOR = createHorseArmorItem("bassmite_horse_armor", 10, "bassmite", DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<FuelItem> BASSMITE_MIXED_COAL = createFuelItem("bassmite_mixed_coal", 6400, DECreativeTabs.MISC, false);
 
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DECreativeTabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DECreativeTabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DECreativeTabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_HAMMER = createItem("simix_hammer", () -> new SimixHammerItem(), DECreativeTabs.TOOLS);
-    public static final RegistryObject<Item> SIMIX_MIXED_COAL = createFuelItem("simix_mixed_coal", 12800, DECreativeTabs.MISC, true);
+    public static final RegistryObject<FuelItem> SIMIX_MIXED_COAL = createFuelItem("simix_mixed_coal", 12800, DECreativeTabs.MISC, true);
 
     public static final RegistryObject<Item> EMERTYST_GEM = createItem("emertyst_gem", DECreativeTabs.MISC, true);
-    public static final RegistryObject<Item> EMERTYST_SWORD = createSwordItem("emertyst_sword", DEItemTier.EMERTYST, 3, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", DEItemTier.EMERTYST, 5, DECreativeTabs.TOOLS, true);
-    public static final RegistryObject<Item> EMERTYST_AXE = createAxeItem("emertyst_axe", DEItemTier.EMERTYST, 6, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_SHOVEL = createShovelItem("emertyst_shovel", DEItemTier.EMERTYST, 1.5f, DECreativeTabs.TOOLS, true);
-    public static final RegistryObject<Item> EMERTYST_HOE = createHoeItem("emertyst_hoe", DEItemTier.EMERTYST, 0, DECreativeTabs.TOOLS, true);
-    public static final RegistryObject<Item> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterial.EMERTYST, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterial.EMERTYST, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterial.EMERTYST, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, EquipmentSlot.FEET, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<Item> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.MISC, true);
+    public static final RegistryObject<SwordItem> EMERTYST_SWORD = createSwordItem("emertyst_sword", DEItemTier.EMERTYST, 3, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<PickaxeItem> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", DEItemTier.EMERTYST, 5, DECreativeTabs.TOOLS, true);
+    public static final RegistryObject<AxeItem> EMERTYST_AXE = createAxeItem("emertyst_axe", DEItemTier.EMERTYST, 6, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ShovelItem> EMERTYST_SHOVEL = createShovelItem("emertyst_shovel", DEItemTier.EMERTYST, 1.5f, DECreativeTabs.TOOLS, true);
+    public static final RegistryObject<HoeItem> EMERTYST_HOE = createHoeItem("emertyst_hoe", DEItemTier.EMERTYST, 0, DECreativeTabs.TOOLS, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterial.EMERTYST, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterial.EMERTYST, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterial.EMERTYST, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, EquipmentSlot.FEET, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<HorseArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<FuelItem> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.MISC, true);
 
     public static final RegistryObject<Item> ALLOY_CRYSTAL = createItem("alloy_crystal", () -> new AlloyCrystal(), DECreativeTabs.MISC);
     
-    public static final RegistryObject<Item> PURPLE_BERRY = createItem("purple_berry", () -> new PurpleBerry(), DECreativeTabs.MISC);
-
+    public static final RegistryObject<PurpleBerry> PURPLE_BERRY = createItem("purple_berry", () -> new PurpleBerry(), DECreativeTabs.MISC);
+    public static final RegistryObject<SavorleafItem> SAVORLEAF = createItem("savorleaf", () -> new SavorleafItem(), DECreativeTabs.MISC);
+    public static final RegistryObject<VioletCarrot> VIOLET_CARROT = createItem("violet_carrot", () -> new VioletCarrot(), DECreativeTabs.MISC); 
+    
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createItem("weather_power_stone", () -> new WeatherPowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> TIME_REMOTE_POWER_STONE = createItem("time_remote_power_stone", () -> new TimeRemotePowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> TIME_POWER_STONE = createItem("time_power_stone", () -> new TimePowerStone(), DECreativeTabs.MISC);
@@ -90,14 +92,14 @@ public class DEItems {
     public static final RegistryObject<Item> PURPLEHEART_SIGN = createItem("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()), DECreativeTabs.BLOCKS);
     public static final RegistryObject<Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).fireResistant(), PurpleheartBoatEntity.Type.PURPLEHEART), DECreativeTabs.MISC);
 
-    public static final RegistryObject<Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
-    public static final RegistryObject<Item> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
+    public static final RegistryObject<RecordItem> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
+    public static final RegistryObject<RecordItem> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
-    public static RegistryObject<Item> createItem(String id, Supplier<Item> item){
+    public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);
     }
     
-    public static RegistryObject<Item> createItem(String id, Supplier<Item> item, DECreativeTabs tab){
+    public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item, DECreativeTabs tab){
     	itemsTab.put(id, tab);
     	return ITEMS.register(id, item);
     }
@@ -110,7 +112,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new Item(new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createFuelItem(String id, int burnTime, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<FuelItem> createFuelItem(String id, int burnTime, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof){
             return ITEMS.register(id, () -> new FuelItem(new Item.Properties().fireResistant(), burnTime));
@@ -127,7 +129,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationMod(staturation).alwaysEat().nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build())));
     }
 
-    private static RegistryObject<Item> createSwordItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<SwordItem> createSwordItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new SwordItem(tier, level, -2.4F, new Item.Properties().fireResistant()));
@@ -135,7 +137,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new SwordItem(tier, level, -2.4F, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createPickaxeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<PickaxeItem> createPickaxeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new PickaxeItem(tier, level, -2.8F, new Item.Properties().fireResistant()));
@@ -143,7 +145,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new PickaxeItem(tier, level, -2.8F, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createAxeItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<AxeItem> createAxeItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new AxeItem(tier, level, -3.2F, new Item.Properties().fireResistant()));
@@ -151,7 +153,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new AxeItem(tier, level, -3.2F, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createShovelItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<ShovelItem> createShovelItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new ShovelItem(tier, level, -3F, new Item.Properties().fireResistant()));
@@ -159,7 +161,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new ShovelItem(tier, level, -3F, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createHoeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<HoeItem> createHoeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties().fireResistant()));
@@ -167,7 +169,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<ArmorItem> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().fireResistant()));
@@ -175,11 +177,11 @@ public class DEItems {
         return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties()));
     }
 
-    private static RegistryObject<Item> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, DECreativeTabs tab, int seconds){
+    private static RegistryObject<RecordItem> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, DECreativeTabs tab, int seconds){
         return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().stacksTo(1), DEMath.secondsToTicks(seconds)));
     }
 
-    private static RegistryObject<Item> createHorseArmorItem(String id, int armorValue, String tierID, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<HorseArmorItem> createHorseArmorItem(String id, int armorValue, String tierID, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().fireResistant()));

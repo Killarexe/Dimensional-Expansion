@@ -85,6 +85,9 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createShovelRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
         createHoeRecipe(r, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_HOE.get());
         
+        createOreBlockRecipe(r, RecipeCategory.BUILDING_BLOCKS, SAVORLEAF_BLOCK.get(), SAVORLEAF.get());
+        createMaterialRecipe(r, RecipeCategory.FOOD, SAVORLEAF.get(), SAVORLEAF_BLOCK.get());
+        
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
 	        .unlockedBy("has_material", has(SIMIX_HAMMER.get()))
 	        .save(r);
@@ -343,8 +346,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_material", has(requireItem))
                 .save(r);
     }
-    
-    
 
     private void createCustomRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, int count,
                                     ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3,
