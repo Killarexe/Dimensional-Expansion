@@ -27,12 +27,12 @@ public class DEBlocks {
 
     public static final RegistryObject<DropExperienceBlock> PALON_ORE = createOreBlock("palon_ore", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, UniformInt.of(0, 0), SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<DropExperienceBlock> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_LIGHT_GRAY, 5, 20, 5, UniformInt.of(2, 6), SoundType.STONE, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLUE,5, 20, 5, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<DropExperienceBlock> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED, 6, 30, 6, UniformInt.of(0, 0), SoundType.NETHERRACK, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED, 6, 30, 6, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<DropExperienceBlock> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_GRAY, 7, 40, 7, UniformInt.of(4, 10), SoundType.STONE, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA, 7, 40, 7, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<DropExperienceBlock> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_LIGHT_GRAY, 4, 20, 4, UniformInt.of(2, 6), SoundType.STONE, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLUE, 4, 20, 4, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<DropExperienceBlock> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 30, 4, UniformInt.of(0, 0), SoundType.NETHERRACK, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED, 4, 30, 4, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<DropExperienceBlock> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_GRAY, 5, 40, 5, UniformInt.of(4, 10), SoundType.STONE, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA, 5, 40, 5, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
 
     public static final RegistryObject<Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block", () -> new OriginGrassBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ORIGIN_DIRT_PATH = createCustomBlock("origin_dirt_path", () -> new OriginDirtPathBlock(), DECreativeTabs.BLOCKS);
@@ -94,7 +94,7 @@ public class DEBlocks {
     }
 
     private static RegistryObject<LeavesBlock> createLeavesBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs itemGroup){
-        RegistryObject<LeavesBlock> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).randomTicks().noOcclusion()));
+        RegistryObject<LeavesBlock> block = BLOCK.register(id, () -> new LeavesBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).lightLevel(s -> 1).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).randomTicks().noOcclusion()));
         DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
         return block;
     }
@@ -189,7 +189,7 @@ public class DEBlocks {
     }
     
     private static RegistryObject<TallGrassBlock> createGrassBlock(String id, Material material, MaterialColor color, SoundType sound, DECreativeTabs itemGroup){
-    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
+    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).lightLevel(s -> 5).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
     	DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
     	return block;
     }

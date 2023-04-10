@@ -2,11 +2,9 @@
   "elements": [
     {
       "element": {
-        "element_type": "minecraft:feature_pool_element",
-        "feature": "dimensional_expansion:purpleheart_tree_placed",
-        "projection": "rigid"
+        "element_type": "minecraft:empty_pool_element"
       },
-      "weight": 1
+      "weight": 2
     }
   ],
   "fallback": "minecraft:empty"

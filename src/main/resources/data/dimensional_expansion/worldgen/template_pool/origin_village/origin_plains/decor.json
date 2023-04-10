@@ -14,22 +14,6 @@
     {
       "element": {
         "element_type": "minecraft:feature_pool_element",
-        "feature": "minecraft:flower_plain",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:feature_pool_element",
-        "feature": "dimensional_expansion:purpleheart_tree_placed",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:feature_pool_element",
         "feature": "dimensional_expansion:pile_savorleaf_placed",
         "projection": "rigid"
       },

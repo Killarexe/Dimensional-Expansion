@@ -95,8 +95,8 @@ public class InventoryBlockEntity extends BlockEntity{
         super.onDataPacket(net, pkt);
         handleUpdateTag(pkt.getTag());
     }
-
-    public void tick() {
+    
+	public void tick() {
         this.timer++;
         if (this.requiresUpdate && this.level != null) {
             update();

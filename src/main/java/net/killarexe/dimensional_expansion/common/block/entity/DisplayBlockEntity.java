@@ -157,7 +157,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
             }
         }
 
-        final var inventory = new CompoundTag();
+        final CompoundTag inventory = new CompoundTag();
         inventory.put("Items", items);
         inventory.putInt("Size", this.inventory.getSlots());
         compound.put("Inventory", inventory);

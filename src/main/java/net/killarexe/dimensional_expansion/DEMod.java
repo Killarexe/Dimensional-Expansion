@@ -52,6 +52,8 @@ public class DEMod
         DEEntityTypes.ENTITY_TYPES.register(bus);
         LOGGER.info("Init Dimensional Expansion Menu Types");
         DEMenuTypes.MENU_TYPES.register(bus);
+        LOGGER.info("Init Dimensional Expansion POIs");
+        DEPois.POI_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
         DEVillagerTypes.VILLAGER_TYPE.register(bus);
@@ -85,10 +87,10 @@ public class DEMod
         	LOGGER.info("Put Dimensional Expansion Strippables");
         	StrippingMap.putStrippables();
         	LOGGER.info("Put Dimensional Expansion Compostables");
-        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.6f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.2f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.SAVORLEAF_BLOCK.get(), 0.6f);
-        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.4f);
-        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.6f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.1f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.2f);
         	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEISH_CACTUS.get(), 0.6f);
         	ComposterBlock.COMPOSTABLES.put(DEItems.SAVORLEAF.get(), 0.4f);
         	ComposterBlock.COMPOSTABLES.put(DEItems.VIOLET_CARROT.get(), 0.4f);
@@ -96,7 +98,6 @@ public class DEMod
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEISH_CACTUS.getId(), DEBlocks.POTTED_PURPLEISH_CACTUS);
         	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
-        	LOGGER.info("Register Dimensional Expansion Villager Jobs");
         	LOGGER.info("Dimensional Expansion Common Setup Complete");
         });
     }

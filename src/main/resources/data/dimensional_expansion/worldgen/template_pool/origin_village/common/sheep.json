@@ -2,25 +2,9 @@
   "elements": [
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "dimensional_expansion:origin_village/common/animals/sheep_1",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
+        "element_type": "minecraft:empty_pool_element"
       },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
-        "location": "dimensional_expansion:origin_village/common/animals/sheep_2",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 1
+      "weight": 3
     }
   ],
   "fallback": "minecraft:empty"
