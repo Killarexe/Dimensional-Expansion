@@ -118,7 +118,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.WARP_POWER_STONE.get(), "Warp Power Stone");
 
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
-        add(DEItems.TIME_POWER_STONE.get(), "Timer Remote Power Stone");
+        add(DEItems.REMOTE_POWER_STONE.get(), "Remote Power Stone");
+        add(DEItems.TIME_POWER_STONE.get(), "Timer Power Stone");
 
         add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
         

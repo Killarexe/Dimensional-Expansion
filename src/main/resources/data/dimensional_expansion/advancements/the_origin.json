@@ -9,7 +9,7 @@
 		"description": {
 			"translate": "advancements.dimensional_expansion.the_origin.desc"
 		},
-		"frame": "task",
+		"frame": "goal",
 		"show_toast": true,
 		"announce_to_chat": true,
 		"hidden": false

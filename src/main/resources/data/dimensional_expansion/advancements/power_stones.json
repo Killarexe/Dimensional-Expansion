@@ -1,0 +1,80 @@
+{
+	"display": {
+		"icon": {
+			"item": "dimensional_expansion:time_power_stone",
+			"nbt": "{Damage:0}"
+		},
+		"title": {
+			"translate": "advancements.dimensional_expansion.power_stones.title"
+		},
+		"description": {
+			"translate": "advancements.dimensional_expansion.power_stones.desc"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "dimensional_expansion:dimensional_expansion",
+	"criteria": {
+		"time_power_stone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"dimensional_expansion:time_power_stone"
+						]
+					}
+				]
+			}
+		},
+		"weather_power_stone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"dimensional_expansion:weather_power_stone"
+						]
+					}
+				]
+			}
+		},
+		"remote_power_stone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"dimensional_expansion:remote_power_stone"
+						]
+					}
+				]
+			}
+		},
+		"warp_power_stone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"dimensional_expansion:warp_power_stone"
+						]
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"time_power_stone",
+			"weather_power_stone",
+			"remote_power_stone",
+			"warp_power_stone"
+		]
+	],
+	"rewards": {
+		"experience": 100
+	}
+}

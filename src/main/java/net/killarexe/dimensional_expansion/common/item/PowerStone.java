@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -42,7 +43,7 @@ public abstract class PowerStone extends Item {
             pPlayer.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
             return onUse(pLevel, pPlayer, pUsedHand, item);
         }else{
-            pPlayer.displayClientMessage(Component.translatable("text." + DEMod.MOD_ID + ".power_stones_disable"), false);
+            pPlayer.displayClientMessage(Component.translatable("text." + DEMod.MOD_ID + ".power_stones_disable").withStyle(ChatFormatting.BOLD, ChatFormatting.RED), false);
         }
         return InteractionResultHolder.pass(item);
     }

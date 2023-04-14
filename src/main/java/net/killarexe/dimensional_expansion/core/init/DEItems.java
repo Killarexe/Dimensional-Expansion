@@ -80,7 +80,7 @@ public class DEItems {
     public static final RegistryObject<VioletCarrot> VIOLET_CARROT = createItem("violet_carrot", () -> new VioletCarrot(), DECreativeTabs.MISC); 
     
     public static final RegistryObject<Item> WEATHER_POWER_STONE = createItem("weather_power_stone", () -> new WeatherPowerStone(), DECreativeTabs.MISC);
-    public static final RegistryObject<Item> TIME_REMOTE_POWER_STONE = createItem("time_remote_power_stone", () -> new TimeRemotePowerStone(), DECreativeTabs.MISC);
+    public static final RegistryObject<Item> REMOTE_POWER_STONE = createItem("remote_power_stone", () -> new RemotePowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> TIME_POWER_STONE = createItem("time_power_stone", () -> new TimePowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> WARP_POWER_STONE = createItem("warp_power_stone", () -> new WarpPowerStone(), DECreativeTabs.MISC);
     public static final RegistryObject<Item> COORD_LINKER = createItem("coord_linker", () -> new CoordLinker(), DECreativeTabs.MISC);

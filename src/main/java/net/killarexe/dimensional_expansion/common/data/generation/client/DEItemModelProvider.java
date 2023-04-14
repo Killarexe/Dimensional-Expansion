@@ -63,7 +63,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.WARP_POWER_STONE);
     	
     	oneLayerItem(DEItems.COORD_LINKER);
-    	oneLayerItem(DEItems.TIME_REMOTE_POWER_STONE);
+    	oneLayerItem(DEItems.REMOTE_POWER_STONE);
     	
     	oneLayerItem(DEItems.PEARL_ESSENCE);
     	

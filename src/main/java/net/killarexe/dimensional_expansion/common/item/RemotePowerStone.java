@@ -15,9 +15,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 
-public class TimeRemotePowerStone extends PowerStone{
+public class RemotePowerStone extends PowerStone{
 
-	public TimeRemotePowerStone() {
+	public RemotePowerStone() {
 		super(new Item.Properties().stacksTo(1).durability(16), "remote_teleporter");
 	}
 	

@@ -1,0 +1,41 @@
+{
+	"display": {
+		"icon": {
+			"item": "dimensional_expansion:origin_portal_key"
+		},
+		"title": {
+			"translate": "advancements.dimensional_expansion.origin_abandonned_portal.title"
+		},
+		"description": {
+			"translate": "advancements.dimensional_expansion.origin_abandonned_portal.desc"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "dimensional_expansion:dimensional_expansion",
+	"criteria": {
+		"origin_village": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"structure": "dimensional_expansion:abandonned_portal"
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"origin_village"
+		]
+	]
+}

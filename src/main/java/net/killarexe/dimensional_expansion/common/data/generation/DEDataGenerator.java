@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEBlockStateProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.DEItemModelProvider;
+import net.killarexe.dimensional_expansion.common.data.generation.client.advancement.DEAdvancementProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.client.lang.DEEnUsProvider;
 import net.killarexe.dimensional_expansion.common.data.generation.server.*;
 import net.minecraft.core.HolderLookup;
@@ -29,6 +30,8 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeClient(), new DEBlockStateProvider(output, helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Item Models...");
 		generator.addProvider(e.includeClient(), new DEItemModelProvider(output, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Advencement Files...");
+		generator.addProvider(e.includeClient(), new DEAdvancementProvider(output, lookupProvider, helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Lang Files...");
 		generator.addProvider(e.includeClient(), new DEEnUsProvider(output));
 		DEMod.LOGGER.info("Generating Dimensional Expansion LottTables...");
