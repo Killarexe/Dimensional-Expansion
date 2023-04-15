@@ -33,7 +33,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				new ResourceLocation(DEMod.MOD_ID, "textures/block/palon_block.png"),
 				"dimensional_expansion",
-				FrameType.CHALLENGE,
+				FrameType.TASK,
 				false,
 				saver,
 				existingFileHelper
@@ -89,6 +89,15 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		.save(saver, new ResourceLocation(DEMod.MOD_ID, "the_origin"), existingFileHelper);
 		
 		createPreAdvancement(
+				DEBlocks.PURPLEHEART_LOG.get(),
+				"purpleheart_wood",
+				FrameType.TASK,
+				the_origin,
+				false
+		).addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEBlocks.PURPLEHEART_LOG.get()))
+		.save(saver, new ResourceLocation(DEMod.MOD_ID, "purpleheart_wood"), existingFileHelper);
+		
+		createPreAdvancement(
 				DEItems.EMERTYST_CHESTPLATE.get(),
 				"cover_me_with_emertyst",
 				FrameType.CHALLENGE,
@@ -117,7 +126,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEItems.REMOTE_POWER_STONE.get()
 		)).addCriterion("weather", InventoryChangeTrigger.TriggerInstance.hasItems(
 				DEItems.WEATHER_POWER_STONE.get()
-		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "cover_me_with_emertyst"), existingFileHelper);
+		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "power_stones"), existingFileHelper);
 		
 		createPreAdvancement(
 				DEItems.ORIGIN_PORTAL_KEY.get(),

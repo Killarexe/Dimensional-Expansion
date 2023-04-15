@@ -78,7 +78,7 @@
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_pickaxe"
+					"name": "dimensional_expansion:bassmite_pickaxe"
 				},
 				{
 					"type": "minecraft:item",
@@ -114,7 +114,7 @@
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_shovel"
+					"name": "dimensional_expansion:bassmite_shovel"
 				}
 			]
 		}

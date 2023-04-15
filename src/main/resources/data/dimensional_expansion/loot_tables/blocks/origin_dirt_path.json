@@ -24,11 +24,11 @@
                   }
                 }
               ],
-              "name": "dimensional_expansion:origin_dirt"
+              "name": "dimensional_expansion:origin_dirt_path"
             },
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:origin_dirt_path"
+              "name": "dimensional_expansion:origin_dirt"
             }
           ]
         }

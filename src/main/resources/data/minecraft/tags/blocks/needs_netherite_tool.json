@@ -1,7 +1,13 @@
 {
-  "replace": false,
   "values": [
     "dimensional_expansion:palon_block",
-    "dimensional_expansion:palon_ore"
+    "dimensional_expansion:palon_ore",
+    "dimensional_expansion:bassmite_block",
+    "dimensional_expansion:bassmite_ore",
+    "dimensional_expansion:simix_block",
+    "dimensional_expansion:simix_ore",
+    "dimensional_expansion:emertyst_block",
+    "dimensional_expansion:display_block",
+    "dimensional_expansion:emertyst_ore"
   ]
 }

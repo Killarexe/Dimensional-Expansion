@@ -29,7 +29,7 @@ public class EnchantTransferTable extends Block implements EntityBlock{
 	public EnchantTransferTable() {
 		super(BlockBehaviour.Properties
         		.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY)
-        		.strength(6, 50)
+        		.strength(4, 20)
         		.requiresCorrectToolForDrops()
         		.destroyTime(3)
         		.sound(SoundType.ANVIL)

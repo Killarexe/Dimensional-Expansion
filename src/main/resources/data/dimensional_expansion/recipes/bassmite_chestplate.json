@@ -1,12 +1,17 @@
 {
-    "type": "minecraft:smithing",
-    "base": {
-        "item": "dimensional_expansion:palon_chestplate"
-    },
-    "addition": {
-        "item": "dimensional_expansion:bassmite_gem"
-    },
-    "result": {
-        "item": "dimensional_expansion:bassmite_chestplate"
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:bassmite_gem"
     }
+  },
+  "pattern": [
+    "# #",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "dimensional_expansion:bassmite_chestplate"
+  }
 }

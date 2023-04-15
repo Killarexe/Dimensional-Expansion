@@ -35,6 +35,12 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(
         		DEBlocks.PALON_ORE.get(),
         		DEBlocks.PALON_BLOCK.get(),
+        		DEBlocks.BASSMITE_ORE.get(),
+        		DEBlocks.BASSMITE_BLOCK.get(),
+                DEBlocks.SIMIX_ORE.get(),
+                DEBlocks.SIMIX_BLOCK.get(),
+                DEBlocks.EMERTYST_ORE.get(),
+                DEBlocks.EMERTYST_BLOCK.get(),
         		DEBlocks.ORIGIN_FRAME.get(),
         		DEBlocks.DISPLAY_BLOCK.get()
         );

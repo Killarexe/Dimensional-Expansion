@@ -36,16 +36,16 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
         dropSelf(EMERTYST_BLOCK.get());
         add(ORIGIN_PORTAL.get(), (block) -> {return noDrop();});
 
-        add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_GRASS_BLOCK.get()));});
+        add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_GRASS_BLOCK.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
         add(ORIGIN_GRASS.get(), (block) -> {return createGrassDrops(ORIGIN_GRASS.get());});
         dropSelf(ORIGIN_DIRT.get());
-        add(ORIGIN_FARMLAND.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_FARMLAND.get()));});
-        add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT.get(), LootItem.lootTableItem(ORIGIN_DIRT_PATH.get()));});
+        add(ORIGIN_FARMLAND.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_FARMLAND.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
+        add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT_PATH.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
         dropSelf(PURPLEISH_CACTUS.get());
         
         LootItemCondition.Builder savorleafCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SavorleafCropBlock.AGE, SavorleafCropBlock.MAX_AGE));
         add(SAVORLEAF_CROP.get(), createCropDrops(SAVORLEAF_CROP.get(), DEItems.SAVORLEAF.get(), DEItems.SAVORLEAF.get(), savorleafCondition));
-        LootItemCondition.Builder violetCarrotCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(VioletCarrotCropBlock.AGE, VioletCarrotCropBlock.MAX_AGE));
+        LootItemCondition.Builder violetCarrotCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(VIOLET_CARROT_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(VioletCarrotCropBlock.AGE, VioletCarrotCropBlock.MAX_AGE));
         add(VIOLET_CARROT_CROP.get(), createCropDrops(VIOLET_CARROT_CROP.get(), DEItems.VIOLET_CARROT.get(), DEItems.VIOLET_CARROT.get(), violetCarrotCondition));
        
         dropSelf(PURPLEHEART_LOG.get());

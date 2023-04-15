@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dimensional_expansion:item/remote_power_stone"
+  },
+  "overrides": [
+    {"predicate": { "duration": 1}, "model": "item/clock" },
+    {"predicate": { "duration": 2}, "model": "item/clock" },
+    {"predicate": { "duration": 3}, "model": "item/clock" },
+    {"predicate": { "duration": 4}, "model": "item/clock" },
+    {"predicate": { "duration": 5}, "model": "item/clock" },
+    {"predicate": { "duration": 6}, "model": "item/clock" },
+    {"predicate": { "duration": 7}, "model": "item/clock" },
+    {"predicate": { "duration": 8}, "model": "item/clock" },
+    {"predicate": { "duration": 9}, "model": "item/clock" },
+    {"predicate": { "duration": 10}, "model": "item/clock" }
+  ]
+}

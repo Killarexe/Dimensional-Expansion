@@ -1,8 +1,10 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.entity.PurpleheartBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.DEBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.DEChestBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
+import net.killarexe.dimensional_expansion.common.item.BoatItem;
 import net.killarexe.dimensional_expansion.common.item.material.*;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -17,6 +19,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -90,8 +93,9 @@ public class DEItems {
     public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = createItem("origin_portal_key", () -> new OriginPortalKey(), DECreativeTabs.TOOLS);
     
     public static final RegistryObject<Item> PURPLEHEART_SIGN = createItem("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()), DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new EndBoatItem(new Item.Properties().stacksTo(1).fireResistant(), PurpleheartBoatEntity.Type.PURPLEHEART), DECreativeTabs.MISC);
-
+    public static final RegistryObject<Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new BoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEBoatEntity.Type.PURPLEHEART), DECreativeTabs.MISC);
+    public static final RegistryObject<Item> PURPLEHEART_CHEST_BOAT = createItem("purpleheart_chest_boat", () -> new ChestBoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEChestBoatEntity.Type.PURPLEHEART), DECreativeTabs.MISC);
+    
     public static final RegistryObject<RecordItem> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
     public static final RegistryObject<RecordItem> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
@@ -191,6 +195,7 @@ public class DEItems {
 
     @OnlyIn(Dist.CLIENT)
     public static void addItemsProperites(){
+    	addRemoteProperties(REMOTE_POWER_STONE.get());
         addClockProperties(TIME_POWER_STONE.get());
         addCompassProperties(COORD_LINKER.get());
     }
@@ -202,35 +207,35 @@ public class DEItems {
             private double rota;
             private long lastUpdateTick;
 
-            public float unclampedCall(ItemStack p_174665_, @Nullable ClientLevel p_174666_, @Nullable LivingEntity p_174667_, int p_174668_) {
-                Entity entity = p_174667_ != null ? p_174667_ : p_174665_.getEntityRepresentation();
+            public float unclampedCall(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity livingEntity, int seed) {
+                Entity entity = livingEntity != null ? livingEntity : stack.getEntityRepresentation();
                 if (entity == null) {
                     return 0.0F;
                 } else {
-                    if (p_174666_ == null && entity.level instanceof ClientLevel) {
-                        p_174666_ = (ClientLevel) entity.level;
+                    if (level == null && entity.level instanceof ClientLevel) {
+                        level = (ClientLevel) entity.level;
                     }
 
-                    if (p_174666_ == null) {
+                    if (level == null) {
                         return 0.0F;
                     } else {
-                        double d0;
-                        if (p_174666_.dimensionType().natural()) {
-                            d0 = p_174666_.getTimeOfDay(1.0F);
+                        double value;
+                        if (level.dimensionType().natural()) {
+                        	value = level.getTimeOfDay(1.0F);
                         } else {
-                            d0 = Math.random();
+                        	value = Math.random();
                         }
 
-                        d0 = this.wobble(p_174666_, d0);
-                        return (float) d0;
+                        value = this.wobble(level, value);
+                        return (float) value;
                     }
                 }
             }
 
-            private double wobble(Level p_117904_, double p_117905_) {
-                if (p_117904_.getGameTime() != this.lastUpdateTick) {
-                    this.lastUpdateTick = p_117904_.getGameTime();
-                    double d0 = p_117905_ - this.rotation;
+            private double wobble(Level level, double value) {
+                if (level.getGameTime() != this.lastUpdateTick) {
+                    this.lastUpdateTick = level.getGameTime();
+                    double d0 = value - this.rotation;
                     d0 = Mth.positiveModulo(d0 + 0.5D, 1.0D) - 0.5D;
                     this.rota += d0 * 0.1D;
                     this.rota *= 0.9D;
@@ -240,6 +245,27 @@ public class DEItems {
                 return this.rotation;
             }
         });
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void addRemoteProperties(Item item) {
+    	ItemProperties.register(item, new ResourceLocation("duration"), new ClampedItemPropertyFunction() {
+			@Override
+			public float unclampedCall(ItemStack pStack, ClientLevel pLevel, LivingEntity pEntity, int pSeed) {
+				if(pLevel == null && pEntity.getLevel() instanceof ClientLevel level) {
+					pLevel = level;
+				}
+				if(pLevel == null) {
+					return 0;
+				}
+				if(pEntity instanceof Player player) {
+					if(player.hasEffect(DEPoitions.REMOTE_EFFECT.get())) {
+						return DEMath.clamp(player.getEffect(DEPoitions.REMOTE_EFFECT.get()).getDuration(), 0, 30);
+					}
+				}
+				return 0;
+			}
+		});
     }
     
     @OnlyIn(Dist.CLIENT)

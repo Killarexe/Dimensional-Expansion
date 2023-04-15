@@ -22,7 +22,7 @@
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "dimensional_expansion:time_remote_power_stone",
+					"name": "dimensional_expansion:remote_power_stone",
 					"conditions": [
 						{
 							"condition": "minecraft:random_chance",

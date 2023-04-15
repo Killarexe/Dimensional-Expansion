@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "dimensional_expansion:savorleaf_corp",
+                  "block": "dimensional_expansion:violet_carrot_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "dimensional_expansion:savorleaf_corp",
+          "block": "dimensional_expansion:violet_carrot_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "7"

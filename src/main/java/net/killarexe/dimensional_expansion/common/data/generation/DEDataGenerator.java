@@ -34,7 +34,7 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeClient(), new DEAdvancementProvider(output, lookupProvider, helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Lang Files...");
 		generator.addProvider(e.includeClient(), new DEEnUsProvider(output));
-		DEMod.LOGGER.info("Generating Dimensional Expansion LottTables...");
+		DEMod.LOGGER.info("Generating Dimensional Expansion LootTables...");
 		generator.addProvider(e.includeServer(), new DELootTableProvider(output));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Biome Tags...");
 		generator.addProvider(e.includeServer(), new DEBiomeTagsProvider(output, lookupProvider, helper));
@@ -43,5 +43,7 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeServer(), blockTagsProvider);
 		DEMod.LOGGER.info("Generating Dimensional Expansion Item Tags...");
 		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider, helper));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Recipes...");
+		generator.addProvider(e.includeServer(), new DERecipeProvider(output));
 	}
 }

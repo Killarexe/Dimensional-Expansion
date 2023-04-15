@@ -1,0 +1,41 @@
+{
+  "parent": "dimensional_expansion:the_origin",
+  "criteria": {
+    "in_structure": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dimensional_expansion:village_origin_plains"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.village_origin_plains.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:purpleheart_sapling"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.village_origin_plains.title"
+    }
+  },
+  "requirements": [
+    [
+      "in_structure"
+    ]
+  ]
+}

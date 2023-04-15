@@ -20,7 +20,7 @@ public class OriginFarmlandBlock extends FarmBlock{
 		super(BlockBehaviour.Properties.copy(Blocks.FARMLAND));
 	}
 	
-	private void turnToOriginDirt(BlockState pState, Level pLevel, BlockPos pPos) {
+	public static void turnToOriginDirt(BlockState pState, Level pLevel, BlockPos pPos) {
 		pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, DEBlocks.ORIGIN_DIRT.get().defaultBlockState(), pLevel, pPos));
 	}
 	

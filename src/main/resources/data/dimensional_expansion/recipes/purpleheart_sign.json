@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
-      "item": "dimensional_expansion:purpleheart_planks"
+      "item": "dimensional_expansion:purpleheart_sign"
     },
     "/": {
       "item": "minecraft:stick"
@@ -15,6 +16,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "dimensional_expansion:purpleheart_sign"
+    "item": "dimensional_expansion:purpleheart_planks"
   }
 }

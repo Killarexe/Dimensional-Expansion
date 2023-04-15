@@ -92,32 +92,32 @@
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_pickaxe"
+					"name": "dimensional_expansion:bassmite_pickaxe"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_sword"
+					"name": "dimensional_expansion:bassmite_sword"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_chestplate"
+					"name": "dimensional_expansion:bassmite_chestplate"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_helmet"
+					"name": "dimensional_expansion:bassmite_helmet"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_leggings"
+					"name": "dimensional_expansion:bassmite_leggings"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 5,
-					"name": "dimensional_expansion:palon_boots"
+					"name": "dimensional_expansion:bassmite_boots"
 				},
 				{
 					"type": "minecraft:item",
@@ -158,7 +158,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "dimensional_expansion:simix_horse_armor"
+					"name": "dimensional_expansion:bassmite_horse_armor"
 				},
 				{
 					"type": "minecraft:item",

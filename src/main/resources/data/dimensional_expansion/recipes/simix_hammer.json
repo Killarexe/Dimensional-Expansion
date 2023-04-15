@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "/": {
-      "item": "dimensional_expansion:purpleheart_planks"
+      "item": "minecraft:stick"
     },
     "I": {
       "item": "dimensional_expansion:simix_ingot"

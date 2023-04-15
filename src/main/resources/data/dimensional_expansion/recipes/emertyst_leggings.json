@@ -1,12 +1,17 @@
 {
-    "type": "minecraft:smithing",
-    "base": {
-        "item": "dimensional_expansion:simix_leggings"
-    },
-    "addition": {
-        "item": "dimensional_expansion:emertyst_gem"
-    },
-    "result": {
-        "item": "dimensional_expansion:emertyst_leggings"
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:emertyst_gem"
     }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "result": {
+    "item": "dimensional_expansion:emertyst_leggings"
+  }
 }

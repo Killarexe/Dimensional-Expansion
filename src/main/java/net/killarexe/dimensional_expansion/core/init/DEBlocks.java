@@ -29,8 +29,8 @@ public class DEBlocks {
     public static final RegistryObject<Block> PALON_BLOCK = createBlock("palon_block", Material.METAL, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
     public static final RegistryObject<DropExperienceBlock> BASSMITE_ORE = createOreBlock("bassmite_ore", Material.STONE, MaterialColor.COLOR_LIGHT_GRAY, 4, 20, 4, UniformInt.of(2, 6), SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> BASSMITE_BLOCK = createBlock("bassmite_block", Material.METAL, MaterialColor.COLOR_BLUE, 4, 20, 4, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<DropExperienceBlock> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 30, 4, UniformInt.of(0, 0), SoundType.NETHERRACK, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED, 4, 30, 4, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<DropExperienceBlock> SIMIX_ORE = createOreBlock("simix_ore", Material.STONE, MaterialColor.COLOR_RED, 5, 30, 5, UniformInt.of(0, 0), SoundType.NETHERRACK, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> SIMIX_BLOCK = createBlock("simix_block", Material.METAL, MaterialColor.COLOR_RED, 5, 30, 5, SoundType.NETHERITE_BLOCK, DECreativeTabs.BLOCKS);
     public static final RegistryObject<DropExperienceBlock> EMERTYST_ORE = createOreBlock("emertyst_ore", Material.STONE, MaterialColor.COLOR_GRAY, 5, 40, 5, UniformInt.of(4, 10), SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> EMERTYST_BLOCK = createBlock("emertyst_block", Material.METAL, MaterialColor.COLOR_MAGENTA, 5, 40, 5, SoundType.AMETHYST, DECreativeTabs.BLOCKS);
 
@@ -61,7 +61,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> SULFUR_STONE = createBlock("sulfur_stone", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<ButtonBlock> SULFUR_STONE_BUTTON = createButtonBlock( "sulfur_stone_button", Material.STONE, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, false, DECreativeTabs.BLOCKS);
     public static final RegistryObject<PressurePlateBlock> SULFUR_STONE_PRESSURE_PLATE = createPressurePlateBlock("sulfur_stone_pressure_plate", Material.STONE, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, PressurePlateBlock.Sensitivity.MOBS, DECreativeTabs.BLOCKS);
-    public static final RegistryObject<SlabBlock> SULFUR_STONE_SLAB = createSlabBlock("sulfur_stone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<SlabBlock> SULFUR_STONE_SLAB = createSlabBlock("sulfur_stone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<StairBlock> SULFUR_STONE_STAIRS = createStairBlock("sulfur_stone_stairs", SULFUR_STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> SULFUR_COBBLESTONE = createBlock("sulfur_cobblestone", Material.STONE, MaterialColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.BLOCKS);
     public static final RegistryObject<SlabBlock> SULFUR_COBBLESTONE_SLAB = createSlabBlock("sulfur_cobblestone_slab", Material.STONE, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.STONE, DECreativeTabs.BLOCKS);
@@ -73,7 +73,7 @@ public class DEBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_PURPLEISH_CACTUS = createFlowerPotBlock("potted_purpleish_cactus", () -> PURPLEISH_CACTUS.get());
     
     public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal", () -> new OriginPortalBlock());
-    public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", Material.METAL, MaterialColor.CLAY, 0, 0, 0, SoundType.METAL, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", Material.METAL, MaterialColor.CLAY, 4, 10, 4, SoundType.METAL, DECreativeTabs.BLOCKS);
     
     public static final RegistryObject<Block> FORGE = createBlock("forge", Material.METAL, MaterialColor.COLOR_BLACK, 3, 50, 2, SoundType.ANVIL, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor", () -> new EssenceExtractor(), DECreativeTabs.BLOCKS);

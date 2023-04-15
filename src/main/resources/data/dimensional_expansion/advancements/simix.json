@@ -1,52 +1,37 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:simix_ingot"
-    },
-    "title":  {
-		"translate": "advancements.dimensional_expansion.simix.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.simix.desc"
-	}
-  },
+  "parent": "dimensional_expansion:bassmite",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
               "dimensional_expansion:simix_ingot"
-            ],
-            "count": {
-              "min": 1,
-              "max": 64
-            }
+            ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 50,
-    "recipes": [
-      "dimensional_expansion:simix_axe",
-      "dimensional_expansion:simix_block",
-      "dimensional_expansion:simix_boots",
-      "dimensional_expansion:simix_chestplate",
-      "dimensional_expansion:simix_hammer",
-      "dimensional_expansion:simix_helmet",
-      "dimensional_expansion:simix_hoe",
-      "dimensional_expansion:simix_ingot",
-      "dimensional_expansion:simix_ingot1",
-      "dimensional_expansion:simix_ingot2",
-      "dimensional_expansion:simix_ingot3",
-      "dimensional_expansion:simix_leggings",
-      "dimensional_expansion:simix_pickaxe",
-      "dimensional_expansion:simix_shovel",
-      "dimensional_expansion:simix_sword"
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.simix.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:simix_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.simix.title"
+    }
   },
-  "parent": "dimensional_expansion:bassmite"
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
 }

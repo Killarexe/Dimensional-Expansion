@@ -37,11 +37,11 @@
                   ]
                 }
               ],
-              "name": "dimensional_expansion:origin_dirt"
+              "name": "dimensional_expansion:origin_grass_block"
             },
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:origin_grass_block"
+              "name": "dimensional_expansion:origin_dirt"
             }
           ]
         }

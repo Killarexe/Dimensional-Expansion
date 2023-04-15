@@ -1,53 +1,37 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:palon_ingot"
-    },
-    "title": {
-		"translate": "advancements.dimensional_expansion.the_palon.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.the_palon.desc"
-	}
-  },
+  "parent": "dimensional_expansion:dimensional_expansion",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
               "dimensional_expansion:palon_ingot"
-            ],
-            "count": {
-              "min": 1,
-              "max": 64
-            }
+            ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 50,
-    "recipes": [
-      "dimensional_expansion:palon_axe",
-      "dimensional_expansion:palon_block",
-      "dimensional_expansion:palon_boots",
-      "dimensional_expansion:palon_chestplate",
-      "dimensional_expansion:palon_helmet",
-      "dimensional_expansion:palon_hoe",
-      "dimensional_expansion:palon_ingot",
-      "dimensional_expansion:palon_ingot1",
-      "dimensional_expansion:palon_ingot2",
-      "dimensional_expansion:palon_ingot3",
-      "dimensional_expansion:palon_leggings",
-      "dimensional_expansion:palon_pickaxe",
-      "dimensional_expansion:palon_shovel",
-      "dimensional_expansion:origin_frame",
-      "dimensional_expansion:display_block",
-      "dimensional_expansion:palon_sword"
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.the_palon.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.the_palon.title"
+    }
   },
-  "parent": "dimensional_expansion:dimensional_expansion"
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
 }

@@ -41,8 +41,9 @@ public class DEMod
         DEItems.ITEMS.register(bus);
         LOGGER.info("Init Dimensional Expansion Recipe Types");
         DERecipeTypes.RECIPE_SERIALIZERS.register(bus);
-        LOGGER.info("Init Dimensional Potions Items");
+        LOGGER.info("Init Dimensional Expansion Effects");
         DEPoitions.EFFECT.register(bus);
+        LOGGER.info("Init Dimensional Expansion Potions Items");
         DEPoitions.POTION.register(bus);
         LOGGER.info("Init Dimensional Enchantments");
         DEEnchantments.ENCHANTMENT.register(bus);
@@ -56,11 +57,13 @@ public class DEMod
         DEPois.POI_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
+        LOGGER.info("Init Dimensional Expansion Villager Types");
         DEVillagerTypes.VILLAGER_TYPE.register(bus);
         DEVillagerTypes.setTypeByBiome();
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
         DEDimensions.register();
+        DEStructures.register();
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");

@@ -24,11 +24,11 @@
                   }
                 }
               ],
-              "name": "dimensional_expansion:origin_dirt"
+              "name": "dimensional_expansion:origin_farmland"
             },
             {
               "type": "minecraft:item",
-              "name": "dimensional_expansion:origin_farmland"
+              "name": "dimensional_expansion:origin_dirt"
             }
           ]
         }

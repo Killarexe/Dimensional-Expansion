@@ -1,47 +1,37 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:purpleheart_log"
-    },
-    "title": {
-		"translate": "advancements.dimensional_expansion.purpleheart_wood.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.purpleheart_wood.desc"
-	}
-  },
+  "parent": "dimensional_expansion:the_origin",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
               "dimensional_expansion:purpleheart_log"
-            ],
-            "count": {
-              "min": 1,
-              "max": 64
-            }
+            ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 0,
-    "recipes": [
-      "dimensional_expansion:purpleheart_planks",
-      "dimensional_expansion:purpleheart_fence",
-      "dimensional_expansion:purpleheart_fencegate",
-      "dimensional_expansion:purpleheart_slab",
-      "dimensional_expansion:purpleheart_button",
-      "dimensional_expansion:purpleheart_door",
-      "dimensional_expansion:purpleheart_sign",
-      "dimensional_expansion:purpleheart_trapdoor",
-      "dimensional_expansion:purpleheart_pressure_plate",
-      "dimensional_expansion:purpleheart_stairs"
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.purpleheart_wood.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:purpleheart_log"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.purpleheart_wood.title"
+    }
   },
-  "parent": "dimensional_expansion:the_origin"
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
 }

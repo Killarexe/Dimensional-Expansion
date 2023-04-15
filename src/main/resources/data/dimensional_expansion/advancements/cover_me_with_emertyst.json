@@ -1,64 +1,56 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:emertyst_helmet"
-    },
-    "title": {
-		"translate": "advancements.dimensional_expansion.cover_me_with_emertyst.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.cover_me_with_emertyst.desc"
-	}
-  },
+  "parent": "dimensional_expansion:emertyst",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "full_armor": {
       "conditions": {
         "items": [
-        	{
-	            "items": [
-	              "dimensional_expansion:emertyst_helmet"
-	            ],
-	            "count": {
-	              "min": 1,
-	              "max": 64
-	            }
-            },
-            {
-	            "items": [
-	              "dimensional_expansion:emertyst_chestplate"
-	            ],
-	            "count": {
-	              "min": 1,
-	              "max": 64
-	            }
-            },
-            {
-	            "items": [
-	              "dimensional_expansion:emertyst_leggings"
-	            ],
-	            "count": {
-	              "min": 1,
-	              "max": 64
-	            }
-	        },
-	        {
-	            "items": [
-	              "dimensional_expansion:emertyst_boots"
-	            ],
-	            "count": {
-	              "min": 1,
-	              "max": 64
-	            }
-	        }
+          {
+            "items": [
+              "dimensional_expansion:emertyst_helmet"
+            ]
+          },
+          {
+            "items": [
+              "dimensional_expansion:emertyst_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "dimensional_expansion:emertyst_leggings"
+            ]
+          },
+          {
+            "items": [
+              "dimensional_expansion:emertyst_boots"
+            ]
+          }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 50,
-    "recipes": [
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.cover_me_with_emertyst.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:emertyst_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.cover_me_with_emertyst.title"
+    }
   },
-  "parent": "dimensional_expansion:emertyst"
+  "requirements": [
+    [
+      "full_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
 }

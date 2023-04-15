@@ -29,6 +29,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ORIGIN_GRASS.get(), "Origin Grass");
         add(DEBlocks.ORIGIN_DIRT.get(), "Origin Dirt");
         add(DEBlocks.ORIGIN_FARMLAND.get(), "Origin Farmland");
+        add(DEBlocks.ORIGIN_DIRT_PATH.get(), "Origin Dirt Path");
         
         add(DEBlocks.PURPLEHEART_LOG.get(), "PurpleHeart Log");
         add(DEBlocks.STRIPPED_PURPLEHEART_LOG.get(), "PurpleHeart Stripped Log");
@@ -127,8 +128,9 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add(DEItems.ORIGIN_PORTAL_KEY.get(), "Origin Portal Key");
 
-        add(DEItems.PURPLEHEART_SIGN.get(), "PurpleHeart Sign");
-        add(DEItems.PURPLEHEART_BOAT.get(), "PurpleHeart Boat");
+        add(DEItems.PURPLEHEART_SIGN.get(), "Purpleheart Sign");
+        add(DEItems.PURPLEHEART_BOAT.get(), "Purpleheart Boat");
+        add(DEItems.PURPLEHEART_CHEST_BOAT.get(), "Purpleheart Chest Boat");
         
         add(DEItems.SAVORLEAF.get(), "Savorleaf");
         add(DEItems.VIOLET_CARROT.get(), "Violet Carrot");
@@ -182,28 +184,49 @@ public class DEEnUsProvider extends LanguageProvider {
         /*
          *Advancements 
          */
-        add("advancements." + DEMod.MOD_ID + ".bassmite.title", "Bassmite!");
-        add("advancements." + DEMod.MOD_ID + ".bassmite.desc", "I'm not like lapis...");
-        add("advancements." + DEMod.MOD_ID + ".cover_me_with_emertyst.title", "Cover Me With Emertyst!");
-        add("advancements." + DEMod.MOD_ID + ".cover_me_with_emertyst.desc", "The best armor you can have on this mod.");
-        add("advancements." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".title", "Dimensional Expansion");
-        add("advancements." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".desc", "Thanks for downloading this mod - Killar.exe.");
-        add("advancements." + DEMod.MOD_ID + ".emertyst.title", "Emertyst!");
-        add("advancements." + DEMod.MOD_ID + ".emertyst.desc", "The purplest gem.");
-        add("advancements." + DEMod.MOD_ID + ".purpleheart_wood.title", "Purpleheart wood...?");
-        add("advancements." + DEMod.MOD_ID + ".purpleheart_wood.desc", "The legend says that Purpleheart Forests are alive...");
-        add("advancements." + DEMod.MOD_ID + ".simix.title", "Nether's Simix");
-        add("advancements." + DEMod.MOD_ID + ".simix.desc", "Netherite combined fresh made Obsidian and an unkown ingredient...");
-        add("advancements." + DEMod.MOD_ID + ".the_origin.title", "The Origin...");
-        add("advancements." + DEMod.MOD_ID + ".the_origin.desc", "An anternative...");
-        add("advancements." + DEMod.MOD_ID + ".the_palon.title", "The Palon!");
-        add("advancements." + DEMod.MOD_ID + ".the_palon.desc", "Finaly something we can get on this mod!");
+        add("advancement." + DEMod.MOD_ID + ".village_origin_plains.title", "A New village ?");
+        add("advancement." + DEMod.MOD_ID + ".village_origin_plains.desc", "Wow that's... new...");
+        add("advancement." + DEMod.MOD_ID + ".origin_abandonned_portal.title", "An abandonned portal...");
+        add("advancement." + DEMod.MOD_ID + ".origin_abandonned_portal.desc", "Mmmphhh... Sus...");
+        add("advancement." + DEMod.MOD_ID + ".bassmite.title", "Bassmite!");
+        add("advancement." + DEMod.MOD_ID + ".bassmite.desc", "I'm not like lapis...");
+        add("advancement." + DEMod.MOD_ID + ".cover_me_with_emertyst.title", "Cover Me With Emertyst!");
+        add("advancement." + DEMod.MOD_ID + ".cover_me_with_emertyst.desc", "The best armor you can have on this mod.");
+        add("advancement." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".title", "Dimensional Expansion");
+        add("advancement." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".desc", "Thanks for downloading this mod - Killar.exe.");
+        add("advancement." + DEMod.MOD_ID + ".emertyst.title", "Emertyst!");
+        add("advancement." + DEMod.MOD_ID + ".emertyst.desc", "The purplest gem.");
+        add("advancement." + DEMod.MOD_ID + ".purpleheart_wood.title", "Purpleheart wood...?");
+        add("advancement." + DEMod.MOD_ID + ".purpleheart_wood.desc", "The legend says that Purpleheart Forests are alive...");
+        add("advancement." + DEMod.MOD_ID + ".simix.title", "Nether's Simix");
+        add("advancement." + DEMod.MOD_ID + ".simix.desc", "Netherite combined fresh made Obsidian and an unkown ingredient...");
+        add("advancement." + DEMod.MOD_ID + ".the_origin.title", "The Origin...");
+        add("advancement." + DEMod.MOD_ID + ".the_origin.desc", "An anternative...");
+        add("advancement." + DEMod.MOD_ID + ".the_palon.title", "The Palon!");
+        add("advancement." + DEMod.MOD_ID + ".the_palon.desc", "Finaly something we can get on this mod!");
         
         /*
-         *	Villagers 
+         *	Entities 
          */
         add("entity." + DEMod.MOD_ID + ".villager.forger", "Forger");
         add("entity." + DEMod.MOD_ID + ".villager.farmer", "Farmer");
         add("entity." + DEMod.MOD_ID + ".villager.miner", "Miner");
+        add("entity." + DEMod.MOD_ID + ".purpleheart_chest_boat", "Purpleheart Chest Boat");
+        
+        /*
+         * Potions
+         */
+        add("effect.remote", "Remote");
+        add("item.minecraft.potion.effect.remote", "Potion of Remote");
+        add("item.minecraft.tripped_arrow.effect.remote", "Arrow of Remote");
+        add("item.minecraft.splash_potion.effect.remote", "Splash Potion of Remote");
+        add("item.minecraft.lingering_potion.effect.remote", "Lingering Potion of Remote");
+        
+        /*
+         * Enchantements
+         */
+        add("enchantment." + DEMod.MOD_ID + ".burn_protection", "Burn Protection");
+        add("enchantment." + DEMod.MOD_ID + ".no_magic", "No Magic");
+        add("enchantment." + DEMod.MOD_ID + ".smelt", "Smelt");
     }
 }

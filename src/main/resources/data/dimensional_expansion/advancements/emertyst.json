@@ -1,49 +1,37 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:emertyst_gem"
-    },
-    "title": {
-		"translate": "advancements.dimensional_expansion.emertyst.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.emertyst.desc"
-	}
-  },
+  "parent": "dimensional_expansion:simix",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
               "dimensional_expansion:emertyst_gem"
-            ],
-            "count": {
-              "min": 1,
-              "max": 64
-            }
+            ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 50,
-    "recipes": [
-      "dimensional_expansion:emertyst_axe",
-      "dimensional_expansion:emertyst_block",
-      "dimensional_expansion:emertyst_boots",
-      "dimensional_expansion:emertyst_chestplate",
-      "dimensional_expansion:emertyst_helmet",
-      "dimensional_expansion:emertyst_hoe",
-      "dimensional_expansion:emertyst_gem",
-      "dimensional_expansion:emertyst_gem1",
-      "dimensional_expansion:emertyst_leggings",
-      "dimensional_expansion:emertyst_pickaxe",
-      "dimensional_expansion:emertyst_shovel",
-      "dimensional_expansion:emertyst_sword"
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.emertyst.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:emertyst_gem"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.emertyst.title"
+    }
   },
-  "parent": "dimensional_expansion:simix"
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
 }

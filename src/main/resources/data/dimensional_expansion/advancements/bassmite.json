@@ -1,49 +1,37 @@
 {
-  "display": {
-    "icon": {
-      "item": "dimensional_expansion:bassmite_gem"
-    },
-    "title": {
-		"translate": "advancements.dimensional_expansion.bassmite.title"
-	},
-    "description": {
-		"translate": "advancements.dimensional_expansion.bassmite.desc"
-	}
-  },
+  "parent": "dimensional_expansion:the_palon",
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
               "dimensional_expansion:bassmite_gem"
-            ],
-            "count": {
-              "min": 1,
-              "max": 64
-            }
+            ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
-  "rewards": {
-    "experience": 50,
-    "recipes": [
-      "dimensional_expansion:bassmite_axe",
-      "dimensional_expansion:bassmite_block",
-      "dimensional_expansion:bassmite_boots",
-      "dimensional_expansion:bassmite_chestplate",
-      "dimensional_expansion:bassmite_helmet",
-      "dimensional_expansion:bassmite_hoe",
-      "dimensional_expansion:bassmite_gem",
-      "dimensional_expansion:bassmite_gem1",
-      "dimensional_expansion:bassmite_leggings",
-      "dimensional_expansion:bassmite_pickaxe",
-      "dimensional_expansion:bassmite_shovel",
-      "dimensional_expansion:bassmite_sword"
-    ]
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.dimensional_expansion.bassmite.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.dimensional_expansion.bassmite.title"
+    }
   },
-  "parent": "dimensional_expansion:the_palon"
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
 }

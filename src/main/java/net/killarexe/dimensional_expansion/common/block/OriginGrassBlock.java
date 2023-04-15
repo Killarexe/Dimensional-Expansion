@@ -49,6 +49,13 @@ public class OriginGrassBlock extends Block implements BonemealableBlock{
 		return canBeGrass(pState, pLevel, pPos) && !pLevel.getFluidState(blockpos).is(FluidTags.WATER);
 	}
 	
+	@Override
+	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+		if(!canBeGrass(pState, pLevel, pPos)) {
+			pLevel.setBlockAndUpdate(pPos, DEBlocks.ORIGIN_DIRT.get().defaultBlockState());
+		}
+	}
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
