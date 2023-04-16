@@ -74,6 +74,7 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add(DEBlocks.PURPLE_BERRY_BUSH.get(), "Purple Berry Block");
         add(DEBlocks.SAVORLEAF_BLOCK.get(), "Savorleaf Block");
+        add(DEBlocks.PURPLEISH_CACTUS.get(), "Purpleish Cactus");
 
         /*ITEMS*/
         add(DEItems.RAW_PALON.get(), "Raw Palon");
@@ -201,7 +202,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("advancement." + DEMod.MOD_ID + ".simix.title", "Nether's Simix");
         add("advancement." + DEMod.MOD_ID + ".simix.desc", "Netherite combined fresh made Obsidian and an unkown ingredient...");
         add("advancement." + DEMod.MOD_ID + ".the_origin.title", "The Origin...");
-        add("advancement." + DEMod.MOD_ID + ".the_origin.desc", "An anternative...");
+        add("advancement." + DEMod.MOD_ID + ".the_origin.desc", "Get into The Origin by making a portal from Origin Frames");
         add("advancement." + DEMod.MOD_ID + ".the_palon.title", "The Palon!");
         add("advancement." + DEMod.MOD_ID + ".the_palon.desc", "Finaly something we can get on this mod!");
         

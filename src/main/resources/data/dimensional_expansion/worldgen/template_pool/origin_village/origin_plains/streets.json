@@ -145,5 +145,5 @@
       "weight": 3
     }
   ],
-  "fallback": "minecraft:village/plains/terminators"
+  "fallback": "dimensional_expansion:origin_village/origin_plains/terminators"
 }
