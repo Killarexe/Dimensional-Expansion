@@ -60,9 +60,9 @@ public class DEEvents {
         	
         	tradesLevel3.add(new EmeraldForItems(DEBlocks.SAVORLEAF_BLOCK.get(), 8, 32, 20));
         	
-        	tradesLevel4.add(new EmeraldForItems(DEItems.PEARL_ESSENCE.get(), 16, 24, 25));
+        	tradesLevel4.add(new ItemsForEmeralds(DEItems.PEARL_ESSENCE.get(), 16, 24, 25));
         	
-        	tradesLevel5.add(new EmeraldForItems(DEItems.EMERTYST_HOE.get(), 32, 1, 30));
+        	tradesLevel5.add(new ItemsForEmeralds(DEItems.EMERTYST_HOE.get(), 32, 1, 30));
 
         } else if (e.getType() == DEVillagerTypes.MINER.get()) {
 
@@ -70,7 +70,7 @@ public class DEEvents {
         	tradesLevel1.add(new ItemsForEmeralds(Items.DIAMOND, 4, 1, 24, 10));
         	
         	tradesLevel2.add(new ItemsForEmeralds(DEItems.BASSMITE_GEM.get(), 4, 1, 16, 10));
-        	tradesLevel2.add(new EmeraldForItems(DEItems.PALON_MIXED_COAL.get(), 4, 1, 10));
+        	tradesLevel2.add(new ItemsForEmeralds(DEItems.PALON_MIXED_COAL.get(), 4, 1, 10));
         	
         	tradesLevel3.add(new ItemsForEmeralds(DEItems.RAW_SIMIX.get(), 8, 1, 12, 10));
         	tradesLevel3.add(new ItemsForEmeralds(DEItems.BASSMITE_MIXED_COAL.get(), 6, 1, 12, 10));

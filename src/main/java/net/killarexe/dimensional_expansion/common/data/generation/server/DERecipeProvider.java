@@ -96,7 +96,15 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createOreBlockRecipe(r, RecipeCategory.BUILDING_BLOCKS, SAVORLEAF_BLOCK.get(), SAVORLEAF.get(), "savorleaf_block");
         createMaterialRecipe(r, RecipeCategory.FOOD, SAVORLEAF.get(), SAVORLEAF_BLOCK.get(), "savorleaf");
         
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_PLANKS.get(), 4).requires(PURPLEHEART_LOG.get())
+                .unlockedBy("has_material", has(PURPLEHEART_LOG.get()))
+                .save(r, new ResourceLocation(DEMod.MOD_ID, "purpleheart_planks_log"));
+ 
+    	ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_PLANKS.get(), 4).requires(STRIPPED_PURPLEHEART_LOG.get())
+    			.unlockedBy("has_material", has(STRIPPED_PURPLEHEART_LOG.get()))
+                .save(r, new ResourceLocation(DEMod.MOD_ID, "purpleheart_planks_stripped_log"));
+        
+    	ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
 	        .unlockedBy("has_material", has(SIMIX_HAMMER.get()))
 	        .save(r);
         

@@ -14,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -38,11 +39,13 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		ItemStack copy = stack.copyWithCount(1);
 		if(getItemInSlot(0).isEmpty()) {
 			if(!copy.isEnchanted() || copy.is(Items.ENCHANTED_BOOK)) {
-				player.displayClientMessage(
-						Component.translatable("message." + DEMod.MOD_ID + ".need_enchanted_item")
-						.withStyle(ChatFormatting.BOLD)
-						.withStyle(ChatFormatting.RED), true
-				);
+				if(player instanceof ServerPlayer serverPlayer) {
+					serverPlayer.displayClientMessage(
+							Component.translatable("message." + DEMod.MOD_ID + ".need_enchanted_item")
+							.withStyle(ChatFormatting.BOLD)
+							.withStyle(ChatFormatting.RED), true
+					);
+				}
 				return;
 			}
 			insertItem(0, copy);

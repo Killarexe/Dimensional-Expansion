@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
 import net.killarexe.dimensional_expansion.common.block.entity.EnchantTransferTableEntity;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -55,7 +54,7 @@ public class EnchantTransferTable extends Block implements EntityBlock{
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		if(!pLevel.isClientSide && pLevel.getBlockEntity(pPos) instanceof EnchantTransferTableEntity blockEntity) {
-			if(Screen.hasShiftDown()) {
+			if(pPlayer.isCrouching()) {
 				blockEntity.prependItem(pPlayer);
 			}else {
 				if(!blockEntity.getItemInSlot(1).isEmpty()) {

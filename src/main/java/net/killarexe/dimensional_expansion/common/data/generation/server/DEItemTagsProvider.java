@@ -36,5 +36,37 @@ public class DEItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.SIGNS).add(DEItems.PURPLEHEART_SIGN.get());
         tag(ItemTags.SMALL_FLOWERS).add(DEBlocks.PURPLE_ROSE.get().asItem());
         tag(ItemTags.SAPLINGS).add(DEBlocks.PURPLEHEART_SAPLING.get().asItem());
+        tag(ItemTags.FOX_FOOD).add(DEItems.VIOLET_CARROT.get(), DEItems.SAVORLEAF.get());
+        tag(ItemTags.COALS).add(
+        		DEItems.PALON_MIXED_COAL.get(), DEItems.BASSMITE_MIXED_COAL.get(),
+        		DEItems.SIMIX_MIXED_COAL.get(), DEItems.EMERTYST_MIXED_COAL.get()
+        );
+        tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
+        		DEItems.DOCTOR_WHO_DISC.get(), DEItems.SWEDEN_DISC.get()
+        );
+        tag(ItemTags.SAND).add(DEBlocks.BLUE_SAND.get().asItem());
+        tag(ItemTags.FENCE_GATES).add(DEBlocks.PURPLEHEART_FENCE_GATE.get().asItem());
+        tag(ItemTags.WOODEN_FENCES).add(DEBlocks.PURPLEHEART_FENCE.get().asItem());
+        tag(ItemTags.COMPASSES).add(DEItems.COORD_LINKER.get());
+        tag(ItemTags.BOATS).add(DEItems.PURPLEHEART_BOAT.get());
+        tag(ItemTags.CHEST_BOATS).add(DEItems.PURPLEHEART_CHEST_BOAT.get());
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
+        		DEItems.PALON_INGOT.get(), DEItems.BASSMITE_GEM.get(), DEItems.SIMIX_INGOT.get(), DEItems.EMERTYST_GEM.get()
+        );
+        tag(Tags.Items.TOOLS_SWORDS).add(
+        		DEItems.BASSMITE_SWORD.get(), DEItems.EMERTYST_SWORD.get()
+        );
+        tag(Tags.Items.TOOLS_PICKAXES).add(
+        		DEItems.BASSMITE_PICKAXE.get(), DEItems.EMERTYST_PICKAXE.get()
+        );
+        tag(Tags.Items.TOOLS_AXES).add(
+        		DEItems.BASSMITE_AXE.get(), DEItems.EMERTYST_AXE.get()
+        );
+        tag(Tags.Items.TOOLS_SHOVELS).add(
+        		DEItems.BASSMITE_SHOVEL.get(), DEItems.EMERTYST_SHOVEL.get()
+        );
+        tag(Tags.Items.TOOLS_HOES).add(
+        		DEItems.BASSMITE_HOE.get(), DEItems.EMERTYST_HOE.get()
+        );
     }
 }

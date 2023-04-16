@@ -52,12 +52,25 @@ public class DEVillagerTypes {
     }
 
     public static void setTypeByBiome() {
+	    ImmutableMap.Builder<VillagerType, Item> map = ImmutableMap.<VillagerType, Item>builder()
+	    .put(VillagerType.PLAINS, Items.OAK_BOAT)
+	    .put(VillagerType.TAIGA, Items.SPRUCE_BOAT)
+	    .put(VillagerType.SNOW, Items.SPRUCE_BOAT)
+	    .put(VillagerType.DESERT, Items.JUNGLE_BOAT)
+	    .put(VillagerType.JUNGLE, Items.JUNGLE_BOAT)
+	    .put(VillagerType.SAVANNA, Items.ACACIA_BOAT)
+	    .put(VillagerType.SWAMP, Items.DARK_OAK_BOAT);
     	for(Map.Entry<VillagerType, Set<ResourceKey<Biome>>> entry: VILLAGER_TYPE_BY_BIOME.entrySet()) {
+    		try {
+    			map.put(entry.getKey(), DEItems.PURPLEHEART_BOAT.get());
+    		}catch(Exception e) {
+    			DEMod.LOGGER.error("Failed to put into map trades for villager type: " + e.getMessage());
+    		}
     		for(ResourceKey<Biome> biome: entry.getValue()) {
 	    		try {
 	    			VillagerType.BY_BIOME.put(biome, entry.getKey());
 	    		}catch(Exception e) {
-	    			DEMod.LOGGER.info("Failed to register villager type!\n" + e.getMessage());
+	    			DEMod.LOGGER.error("Failed to register villager type!\n" + e.getMessage());
 	    		}
     		}
     	}
@@ -90,24 +103,14 @@ public class DEVillagerTypes {
 	        										1,
 	        										12,
 	        										30,
-	        										ImmutableMap.<VillagerType, Item>builder()
-	        										.put(VillagerType.PLAINS, Items.OAK_BOAT)
-	        										.put(VillagerType.TAIGA, Items.SPRUCE_BOAT)
-	        										.put(VillagerType.SNOW, Items.SPRUCE_BOAT)
-	        										.put(VillagerType.DESERT, Items.JUNGLE_BOAT)
-	        										.put(VillagerType.JUNGLE, Items.JUNGLE_BOAT)
-	        										.put(VillagerType.SAVANNA, Items.ACACIA_BOAT)
-	        										.put(VillagerType.SWAMP, Items.DARK_OAK_BOAT)
-	        										.put(DEVillagerTypes.ORIGIN_PLAINS.get(), DEItems.PURPLEHEART_BOAT.get())
-	        										.put(DEVillagerTypes.BLUE_SAND_DESERT.get(), DEItems.PURPLEHEART_BOAT.get())
-	        										.build()
+	        										map.build()
 	        										)
 	        								}
 	        						)
 	        				)
 	        );
     	}catch(Exception e) {
-    		DEMod.LOGGER.info("Failed to put trades! Error: " + e.getMessage());
+    		DEMod.LOGGER.error("Failed to put trades! Error: " + e.getMessage());
     	}
     }
 }

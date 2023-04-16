@@ -34,6 +34,7 @@ public class DEModClient {
         forgeEventBus.addListener(DEEventsClient::onScreenPost);
         forgeEventBus.addListener(DEEventsClient::onKeyInput);
         forgeEventBus.addListener(DEInfoOverlay::render);
+        bus.addListener(DEKeyBindings::onKeyRegister);
         bus.addListener(DEModClient::clientSetup);
     }
 

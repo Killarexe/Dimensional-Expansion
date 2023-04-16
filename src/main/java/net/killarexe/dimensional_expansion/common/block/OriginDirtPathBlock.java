@@ -7,13 +7,14 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DirtPathBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class OriginDirtPathBlock extends DirtPathBlock{
 	
 	public OriginDirtPathBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.DIRT_PATH));
+		super(BlockBehaviour.Properties.copy(Blocks.DIRT_PATH).sound(SoundType.GRASS));
 	}
 
 	@Override

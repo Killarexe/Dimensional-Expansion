@@ -197,6 +197,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add("advancement." + DEMod.MOD_ID + "." + DEMod.MOD_ID + ".desc", "Thanks for downloading this mod - Killar.exe.");
         add("advancement." + DEMod.MOD_ID + ".emertyst.title", "Emertyst!");
         add("advancement." + DEMod.MOD_ID + ".emertyst.desc", "The purplest gem.");
+        add("advancement." + DEMod.MOD_ID + ".power_stones.desc", "Collect them'all!");
+        add("advancement." + DEMod.MOD_ID + ".power_stones.title", "Power Stones");
         add("advancement." + DEMod.MOD_ID + ".purpleheart_wood.title", "Purpleheart wood...?");
         add("advancement." + DEMod.MOD_ID + ".purpleheart_wood.desc", "The legend says that Purpleheart Forests are alive...");
         add("advancement." + DEMod.MOD_ID + ".simix.title", "Nether's Simix");
@@ -209,9 +211,9 @@ public class DEEnUsProvider extends LanguageProvider {
         /*
          *	Entities 
          */
-        add("entity." + DEMod.MOD_ID + ".villager.forger", "Forger");
-        add("entity." + DEMod.MOD_ID + ".villager.farmer", "Farmer");
-        add("entity." + DEMod.MOD_ID + ".villager.miner", "Miner");
+        add("entity.minecraft.villager." + DEMod.MOD_ID + ".forger", "Forger");
+        add("entity.minecraft.villager." + DEMod.MOD_ID + ".farmer", "Farmer");
+        add("entity.minecraft.villager." + DEMod.MOD_ID + ".miner", "Miner");
         add("entity." + DEMod.MOD_ID + ".purpleheart_chest_boat", "Purpleheart Chest Boat");
         
         /*

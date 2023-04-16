@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.network.packet.MobSpawnPacket;
-import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -17,7 +16,7 @@ public class DEChannel {
 	public static void register() {
 		INSTANCE = NetworkRegistry.ChannelBuilder
 				.named(new ResourceLocation(DEMod.MOD_ID, DEMod.MOD_ID + "_channel"))
-				.networkProtocolVersion(() -> DEUtils.isDev() ? "1.0dev" : "1.0r")
+				.networkProtocolVersion(() -> "1.0r")
 				.clientAcceptedVersions(s -> true)
 				.serverAcceptedVersions(s -> true)
 				.simpleChannel();
