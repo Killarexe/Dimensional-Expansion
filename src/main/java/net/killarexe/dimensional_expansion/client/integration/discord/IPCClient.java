@@ -15,9 +15,6 @@
  */
 package net.killarexe.dimensional_expansion.client.integration.discord;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.gson.JsonObject;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.Callback;
@@ -36,6 +33,9 @@ import java.lang.management.ManagementFactory;
 import java.util.HashMap;
 
 import javax.json.JsonException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Represents a Discord IPC Client that can send and receive
@@ -62,7 +62,7 @@ import javax.json.JsonException;
  */
 public final class IPCClient implements Closeable
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(IPCClient.class);
+	private static final Logger LOGGER = LogManager.getLogger();
     private final long clientId;
     private final HashMap<String,Callback> callbacks = new HashMap<>();
     private volatile Pipe pipe;
@@ -122,7 +122,7 @@ public final class IPCClient implements Closeable
 
         pipe = Pipe.openPipe(this, clientId, callbacks, preferredOrder);
 
-        LOGGER.debug("Client is now connected and ready!");
+        LOGGER.info("Client is now connected and ready!");
         if(listener != null)
             listener.onReady(this);
         startReading();
@@ -177,7 +177,7 @@ public final class IPCClient implements Closeable
     {
         checkConnected(true);
         if(log) {
-        	LOGGER.debug("Sending RichPresence to discord: "+(presence == null ? null : presence.toJson().toString()));
+        	LOGGER.info("Sending RichPresence to discord: "+(presence == null ? null : presence.toJson().toString()));
         }
         JsonObject command = new JsonObject();
         JsonObject args = new JsonObject();
@@ -230,7 +230,7 @@ public final class IPCClient implements Closeable
         checkConnected(true);
         if(!sub.isSubscribable())
             throw new IllegalStateException("Cannot subscribe to "+sub+" event!");
-        LOGGER.debug(String.format("Subscribing to Event: %s", sub.name()));
+        LOGGER.info(String.format("Subscribing to Event: %s", sub.name()));
         JsonObject command = new JsonObject();
         command.addProperty("cmd", "SUBSCRIBE");
         command.addProperty("evt", sub.name());
@@ -265,7 +265,7 @@ public final class IPCClient implements Closeable
         try {
             pipe.close();
         } catch (IOException e) {
-            LOGGER.debug("Failed to close pipe", e);
+            LOGGER.info("Failed to close pipe", e);
         }
     }
 
@@ -385,19 +385,19 @@ public final class IPCClient implements Closeable
                             break;
                             
                         case ACTIVITY_JOIN:
-                            LOGGER.debug("Reading thread received a 'join' event.");
+                            LOGGER.info("Reading thread received a 'join' event.");
                             break;
                             
                         case ACTIVITY_SPECTATE:
-                            LOGGER.debug("Reading thread received a 'spectate' event.");
+                            LOGGER.info("Reading thread received a 'spectate' event.");
                             break;
                             
                         case ACTIVITY_JOIN_REQUEST:
-                            LOGGER.debug("Reading thread received a 'join request' event.");
+                            LOGGER.info("Reading thread received a 'join request' event.");
                             break;
                             
                         case UNKNOWN:
-                            LOGGER.debug("Reading thread encountered an event with an unknown type: " +
+                            LOGGER.info("Reading thread encountered an event with an unknown type: " +
                                          json.get("evt").getAsString());
                             break;
                         default:
@@ -454,8 +454,7 @@ public final class IPCClient implements Closeable
                     listener.onDisconnect(this, ex);
             }
         });
-
-        LOGGER.debug("Starting IPCClient reading thread!");
+        LOGGER.info("Starting IPCClient reading thread!");
         readThread.start();
     }
     

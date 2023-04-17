@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -23,15 +22,13 @@ public class OriginPortalKey extends Item{
 		ItemStack item = pContext.getItemInHand();
 		Level level = pContext.getLevel();
 		if(!player.mayUseItemAt(pos, pContext.getClickedFace(), item)) {
-			DEMod.LOGGER.warn("Failed to create portal");
 			return InteractionResult.FAIL;
 		}
 		if(level.isEmptyBlock(pos)) {
-			OriginPortalBlock.portalSpawn(level, pos);
 			item.hurtAndBreak(1, player, c -> c.broadcastBreakEvent(pContext.getHand()));
+			OriginPortalBlock.portalSpawn(level, pos);
 			return InteractionResult.SUCCESS;
 		}
-		DEMod.LOGGER.warn("Failed to create portal");
 		return InteractionResult.FAIL;
 	}
 }

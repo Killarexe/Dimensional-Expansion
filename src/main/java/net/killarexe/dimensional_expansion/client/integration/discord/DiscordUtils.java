@@ -18,25 +18,17 @@ public class DiscordUtils {
 	public static IPCClient RPC;
 	
 	public static void start() {
-        RPC = new IPCClient(ID);
-        RPC.setListener(new IPCListener(){
-        	@Override
-        	public void onReady(IPCClient client) {
-        		client.sendRichPresence(DEFAULT_BUILDER.build());
-        	}
-        });
-        try {
+		try {
+	        RPC = new IPCClient(ID);
+	        RPC.setListener(new IPCListener(){
+	        	@Override
+	        	public void onReady(IPCClient client) {
+	        		client.sendRichPresence(DEFAULT_BUILDER.build());
+	        	}
+	        });
         	RPC.connect(DiscordBuild.ANY);
 		} catch (NoDiscordClientException e) {
-			System.out.println("Discord RPC Failed:\n" + e.getMessage());
+			DEMod.LOGGER.info("Discord RPC Failed:\n" + e.getMessage());
 		}
-        /*new Thread(() -> {
-        	while(!Thread.currentThread().isInterrupted()) {
-        		try {
-					Thread.sleep(2000);
-					RPC.sendRichPresence(DEFAULT_BUILDER.setEndTimestamp(System.currentTimeMillis()).build(), null, false);
-				} catch (InterruptedException e) {}
-        	}
-        }, "RPC").start();*/
 	}
 }

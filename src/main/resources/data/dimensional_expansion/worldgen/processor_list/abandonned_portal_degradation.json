@@ -26,7 +26,7 @@
 						"probability": 0.25
 					},
 					"output_state": {
-						"Name": "minecraft:air"
+						"Name": "minecraft:water"
 					}
 				},
 				{
@@ -36,7 +36,7 @@
 					"input_predicate": {
 						"predicate_type": "minecraft:random_block_match",
 						"block": "dimensional_expansion:origin_frame",
-						"probability": 0.25
+						"probability": 0.5
 					},
 					"output_state": {
 						"Name": "minecraft:air"
@@ -49,7 +49,7 @@
 					"input_predicate": {
 						"predicate_type": "minecraft:random_block_match",
 						"block": "dimensional_expansion:sulfur_cobblestone_wall",
-						"probability": 0.1
+						"probability": 0.25
 					},
 					"output_state": {
 						"Name": "minecraft:air"

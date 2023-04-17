@@ -16,8 +16,8 @@
 
 package net.killarexe.dimensional_expansion.client.integration.discord.entities.pipe.ipml;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -38,7 +38,7 @@ import javax.json.JsonException;
 public class WindowsPipe extends Pipe
 {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WindowsPipe.class);
+	private static final Logger LOGGER = LogManager.getLogger();
 
     private final RandomAccessFile file;
 
@@ -86,7 +86,7 @@ public class WindowsPipe extends Pipe
 
     @Override
     public void close() throws IOException {
-        LOGGER.debug("Closing IPC pipe...");
+        LOGGER.info("Closing IPC pipe...");
         send(Packet.OpCode.CLOSE, new JsonObject(), null);
         status = PipeStatus.CLOSED;
         file.close();

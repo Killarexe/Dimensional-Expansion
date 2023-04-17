@@ -16,16 +16,11 @@
 	},
 	"parent": "dimensional_expansion:dimensional_expansion",
 	"criteria": {
-		"entered_origin": {
+		"entered_end": {
 			"trigger": "minecraft:changed_dimension",
 			"conditions": {
 				"to": "dimensional_expansion:origin"
 			}
 		}
-	},
-	"requirements": [
-		[
-			"entered_origin"
-		]
-	]
+	}
 }

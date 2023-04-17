@@ -1,6 +1,6 @@
 {
 	"type": "minecraft:jigsaw",
-	"biomes": "#dimensional_expansion:abandonned_portal",
+	"biomes": "#dimensional_expansion:has_structure/abandonned_portal",
 	"step": "surface_structures",
 	"spawn_overrides": {},
 	"start_pool": "dimensional_expansion:abandonned_portal",
@@ -11,5 +11,5 @@
 	},
 	"max_distance_from_center": 80,
 	"terrain_adaptation": "beard_thin",
-	"use_expansion_hack": true
+	"use_expansion_hack": false
 }

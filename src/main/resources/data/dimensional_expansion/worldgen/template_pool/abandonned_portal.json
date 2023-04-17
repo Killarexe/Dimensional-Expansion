@@ -1,15 +1,15 @@
 {
-  "name": "dimensional_expansion:abandoned_portal",
-  "fallback": "minecraft:empty",
-  "elements": [
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "dimensional_expansion:abandonned_portal",
-        "projection": "rigid",
-        "processors": "dimensional_expansion:abandonned_portal_degradation"
-      }
-    }
-  ]
+	"name": "dimensional_expansion:abandoned_portal",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"projection": "terrain_matching",
+				"location": "dimensional_expansion:abandonned_portal",
+				"processors": "dimensional_expansion:abandonned_portal_degradation"
+			}
+		}
+	]
 }

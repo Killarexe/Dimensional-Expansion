@@ -38,6 +38,10 @@ public class OriginPortalBlock extends NetherPortalBlock{
 	}
 	
 	@Override
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+	}
+	
+	@Override
 	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel,
 			BlockPos pCurrentPos, BlockPos pFacingPos) {
 		Direction.Axis direction$axis = pFacing.getAxis();

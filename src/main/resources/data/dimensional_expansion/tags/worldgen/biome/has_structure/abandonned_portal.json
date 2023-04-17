@@ -1,6 +1,8 @@
 {
-	"values":[
-		"dimensional_expansion:origin_plains",
-		"dimensional_expansion:purpleheart_forest"
-	]
+  "values": [
+    "dimensional_expansion:origin_plains",
+    "dimensional_expansion:purpleheart_forest",
+    "#minecraft:is_overworld",
+    "#minecraft:is_nether"
+  ]
 }

@@ -9,6 +9,7 @@ public class DEModServer {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public static void serverFeatures(IEventBus bus, IEventBus forgeEventBus){
-        LOGGER.info("Running Dimensional Expansion Server...");
+        LOGGER.info("Statring Dimensional Expansion Server Setup...");
+        LOGGER.info("Dimensional Expansion Server Setup Complete!");
     }
 }

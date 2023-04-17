@@ -15,9 +15,6 @@
  */
 package net.killarexe.dimensional_expansion.client.integration.discord.entities.pipe;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.gson.JsonObject;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.IPCClient;
@@ -36,9 +33,13 @@ import java.util.UUID;
 
 import javax.json.JsonException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public abstract class Pipe {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Pipe.class);
+	private static final Logger LOGGER = LogManager.getLogger();
+	
     private static final int VERSION = 1;
     protected PipeStatus status = PipeStatus.CONNECTING;
     protected IPCListener listener;
@@ -71,7 +72,7 @@ public abstract class Pipe {
                 if(!new File(location).exists()) {
                 	throw new IOException();
                 }
-                LOGGER.debug(String.format("Searching for IPC: %s", location));
+                LOGGER.info(String.format("Searching for IPC: %s", location));
                 pipe = createPipe(ipcClient, callbacks, location);
                 JsonObject info = new JsonObject();
                 info.addProperty("v", VERSION);
@@ -83,7 +84,7 @@ public abstract class Pipe {
                         .getAsJsonObject("config")
                         .get("api_endpoint").getAsString());
 
-                LOGGER.debug(String.format("Found a valid client (%s) with packet: %s", pipe.build.name(), p.toString()));
+                LOGGER.info(String.format("Found a valid client (%s) with packet: %s", pipe.build.name(), p.toString()));
                 // we're done if we found our first choice
                 if(pipe.build == preferredOrder[0] || DiscordBuild.ANY == preferredOrder[0])
                 {
@@ -111,7 +112,7 @@ public abstract class Pipe {
             for(int i = 1; i < preferredOrder.length; i++)
             {
                 DiscordBuild cb = preferredOrder[i];
-                LOGGER.debug(String.format("Looking for client build: %s", cb.name()));
+                LOGGER.info(String.format("Looking for client build: %s", cb.name()));
                 if(open[cb.ordinal()] != null)
                 {
                     pipe = open[cb.ordinal()];
@@ -150,7 +151,7 @@ public abstract class Pipe {
                 } catch(IOException ex) {
                     // This isn't really important to applications and better
                     // as debug info
-                    LOGGER.debug("Failed to close an open IPC pipe!", ex);
+                    LOGGER.info("Failed to close an open IPC pipe!", ex);
                 }
             }
         }
