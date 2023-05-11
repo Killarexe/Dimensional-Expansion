@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
 import java.util.Map;
+
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -12,8 +13,6 @@ import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,7 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class EnchantTransferTableEntity extends InventoryBlockEntity{
 
-	public static final Component TITLE = MutableComponent.create(new TranslatableContents("block." + DEMod.MOD_ID + ".enchant_transfer_table"));
+	public static final Component TITLE = Component.translatable("block." + DEMod.MOD_ID + ".enchant_transfer_table");
 	
 	public EnchantTransferTableEntity(BlockPos pos, BlockState state) {
 		super(DEBlockEntityTypes.ENCHANT_TRANSFER_TABLE.get(), pos, state, 2);

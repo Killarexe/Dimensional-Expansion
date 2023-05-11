@@ -5,8 +5,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -17,7 +16,7 @@ public class DECommonConfigScreen extends Screen {
     private Button cancelButton, applyButton;
 
     protected DECommonConfigScreen(Screen previousScreen) {
-        super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
+        super(Component.empty());
         this.previousScreen = previousScreen;
     }
 
@@ -25,17 +24,17 @@ public class DECommonConfigScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
     	DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
         renderBackground(pPoseStack);
-        drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".common")), width/2, 10, 0xffffff);
+        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".common"), width/2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
     protected void init() {
-        cancelButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {onClose();}))
+        cancelButton = Button.builder(Component.translatable("button." + DEMod.MOD_ID + ".cancel_button"), (button -> {onClose();}))
         		.bounds(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20)
         		.build();
         
-        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {apply();}))
+        applyButton = Button.builder(Component.translatable("button." + DEMod.MOD_ID + ".apply_button"), (button -> {apply();}))
         		.bounds(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20)
         		.build();
         

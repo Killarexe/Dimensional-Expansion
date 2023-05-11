@@ -53,13 +53,14 @@ public class SwitchButton extends AbstractButton{
 		this.enabled = !this.enabled;
 	}
 	
-	public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+	@Override
+	public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
 		Minecraft minecraft = Minecraft.getInstance();
 		Font font = minecraft.font;
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
 	    RenderSystem.setShaderTexture(0, DE_WIDGETS_LOCATION);
 	    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
-	    int i = this.getYImage(this.isHoveredOrFocused());
+	    int i = getTextureY();
 	    if(enabled) {
 	    	i += 3;
 	    }
@@ -68,17 +69,28 @@ public class SwitchButton extends AbstractButton{
 	    RenderSystem.enableDepthTest();
 	    blit(pPoseStack, getX(), getY(), 0, 46 + i * 20, this.width / 2, this.height);
 	    blit(pPoseStack, getX() + this.width / 2, getY(), 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
-	    this.renderBg(pPoseStack, minecraft, pMouseX, pMouseY);
+	    //this.renderBg(pPoseStack, minecraft, pMouseX, pMouseY);
 	    int j = getFGColor();
 	    drawString(pPoseStack, font, this.getMessage(), getX() + this.width + 16, getY() + (this.height - 8) / 2, j | Mth.ceil(this.alpha * 255.0F) << 24);
 		if (this.isHoveredOrFocused()) {
 			this.renderToolTip(pPoseStack, pMouseX, pMouseY);
 		}
+        this.isHovered = pMouseX >= this.getX() && pMouseY >= this.getY() && pMouseX < this.getX() + this.width && pMouseY < this.getY() + this.height;
 	}
 
 	public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
 		String tooltipMessage = enabled ? "ON" : "OFF"; 
 		this.onTooltip.onTooltip(this, pPoseStack, pMouseX, pMouseY, tooltipMessage);
+	}
+	
+	private int getTextureY() {
+	   int i = 1;
+	   if (!this.active) {
+	      i = 0;
+	   } else if (this.isHoveredOrFocused()) {
+	      i = 2;
+	   }
+	   return i;
 	}
 
 	@OnlyIn(Dist.CLIENT)

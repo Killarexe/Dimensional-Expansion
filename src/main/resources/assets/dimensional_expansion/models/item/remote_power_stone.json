@@ -4,15 +4,15 @@
     "layer0": "dimensional_expansion:item/remote_power_stone"
   },
   "overrides": [
-    {"predicate": { "duration": 1}, "model": "item/clock" },
-    {"predicate": { "duration": 2}, "model": "item/clock" },
-    {"predicate": { "duration": 3}, "model": "item/clock" },
-    {"predicate": { "duration": 4}, "model": "item/clock" },
-    {"predicate": { "duration": 5}, "model": "item/clock" },
-    {"predicate": { "duration": 6}, "model": "item/clock" },
-    {"predicate": { "duration": 7}, "model": "item/clock" },
-    {"predicate": { "duration": 8}, "model": "item/clock" },
-    {"predicate": { "duration": 9}, "model": "item/clock" },
-    {"predicate": { "duration": 10}, "model": "item/clock" }
+    {"predicate": { "duration": 1}, "model": "item/clock_00" },
+    {"predicate": { "duration": 2}, "model": "item/clock_01" },
+    {"predicate": { "duration": 3}, "model": "item/clock_02" },
+    {"predicate": { "duration": 4}, "model": "item/clock_03" },
+    {"predicate": { "duration": 5}, "model": "item/clock_04" },
+    {"predicate": { "duration": 6}, "model": "item/clock_05" },
+    {"predicate": { "duration": 7}, "model": "item/clock_06" },
+    {"predicate": { "duration": 8}, "model": "item/clock_07" },
+    {"predicate": { "duration": 9}, "model": "item/clock_08" },
+    {"predicate": { "duration": 10}, "model": "item/clock_09" }
   ]
 }

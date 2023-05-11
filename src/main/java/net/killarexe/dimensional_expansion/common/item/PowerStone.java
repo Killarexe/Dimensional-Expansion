@@ -5,8 +5,6 @@ import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -29,9 +27,9 @@ public abstract class PowerStone extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if(Screen.hasShiftDown()){
-            pTooltipComponents.add(MutableComponent.create(new TranslatableContents("tooltip." + DEMod.MOD_ID + "." + name)));
+            pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + "." + name));
         }else{
-            pTooltipComponents.add(MutableComponent.create(new TranslatableContents("tooltip." + DEMod.MOD_ID + ".shift")));
+            pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".shift"));
         }
     }
 

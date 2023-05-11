@@ -166,10 +166,10 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".client_button_desc", "");
         add("button." + DEMod.MOD_ID + ".common_button_desc", "");
 
-        add("checkbox." + DEMod.MOD_ID + ".show_version", "Show Version");
-        add("checkbox." + DEMod.MOD_ID + ".discord_rpc", "Discord RPC");
-        add("checkbox." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
-        add("checkbox." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
+        add("config." + DEMod.MOD_ID + ".show_version", "Show Version");
+        add("config." + DEMod.MOD_ID + ".discord_rpc", "Discord RPC");
+        add("config." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
+        add("config." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
         
         /*KeyBinds*/
         add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");
@@ -224,6 +224,13 @@ public class DEEnUsProvider extends LanguageProvider {
         add("item.minecraft.tripped_arrow.effect.remote", "Arrow of Remote");
         add("item.minecraft.splash_potion.effect.remote", "Splash Potion of Remote");
         add("item.minecraft.lingering_potion.effect.remote", "Lingering Potion of Remote");
+        
+        /*
+         * Messages
+         */
+        
+        add("message." + DEMod.MOD_ID + ".need_enchanted_item", "You need to put a enchanted item first!");
+        add("message." + DEMod.MOD_ID + ".cost_too_high", "Not enough experience to do this...");
         
         /*
          * Enchantements

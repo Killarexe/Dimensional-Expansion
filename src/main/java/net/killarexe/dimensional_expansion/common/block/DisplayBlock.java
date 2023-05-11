@@ -30,10 +30,8 @@ public class DisplayBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
-                                                                  BlockEntityType<T> beType) {
-        return level.isClientSide ? null
-                : (level0, pos, state0, blockEntity) -> ((DisplayBlockEntity) blockEntity).tick();
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> beType) {
+        return level.isClientSide ? null : (level0, pos, state0, blockEntity) -> ((DisplayBlockEntity) blockEntity).tick();
     }
 
     @Override
@@ -42,12 +40,10 @@ public class DisplayBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand,
-                                 BlockHitResult result) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof final DisplayBlockEntity entity) {
         	entity.appendItem(player.getItemInHand(hand));
         }
-
         return InteractionResult.SUCCESS;
     }
 }

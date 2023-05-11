@@ -88,10 +88,10 @@ public class DEEvents {
     		Level level = e.getPlayer().getLevel();
     		ItemStack item = new ItemStack(e.getState().getBlock());
     		if(level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).isPresent()) {
-    			item = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).get().getResultItem();
+    			item = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).map(recipe -> recipe.getResultItem(level.registryAccess()).copy()).orElse(item);
     		}
     		if(EnchantmentHelper.getEnchantmentLevel(DEEnchantments.SMELT.get(), e.getPlayer()) > 1 && level.getRecipeManager().getRecipeFor(RecipeType.BLASTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).isPresent()) {
-    			item = level.getRecipeManager().getRecipeFor(RecipeType.BLASTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).get().getResultItem();
+    			item = level.getRecipeManager().getRecipeFor(RecipeType.BLASTING, new SimpleContainer(new ItemStack(e.getState().getBlock())), level).map(recipe -> recipe.getResultItem(level.registryAccess()).copy()).orElse(item);
     		}
     		level.destroyBlock(e.getPos(), false);
     		level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), item));

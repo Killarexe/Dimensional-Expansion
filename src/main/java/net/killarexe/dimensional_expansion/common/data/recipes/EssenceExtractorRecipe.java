@@ -6,6 +6,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.killarexe.dimensional_expansion.core.init.DERecipeTypes;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -39,18 +40,8 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer container) {
-        return output;
-    }
-
-    @Override
     public boolean canCraftInDimensions(int i, int i1) {
         return true;
-    }
-
-    @Override
-    public ItemStack getResultItem() {
-        return output.copy();
     }
 
     @Override
@@ -123,7 +114,17 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing : essenceExtractorRecipe.getIngredients()) {
                 ing.toNetwork(friendlyByteBuf);
             }
-            friendlyByteBuf.writeItemStack(essenceExtractorRecipe.getResultItem(), false);
+            friendlyByteBuf.writeItemStack(essenceExtractorRecipe.getResultItem(RegistryAccess.EMPTY), false);
         }
     }
+
+	@Override
+	public ItemStack assemble(SimpleContainer p_44001_, RegistryAccess p_267165_) {
+		return output;
+	}
+
+	@Override
+	public ItemStack getResultItem(RegistryAccess p_267052_) {
+		return output.copy();
+	}
 }

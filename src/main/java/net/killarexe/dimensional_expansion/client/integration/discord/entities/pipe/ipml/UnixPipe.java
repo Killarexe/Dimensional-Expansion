@@ -23,6 +23,7 @@ import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.IPCClient;
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.Callback;
@@ -35,8 +36,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
-
-import javax.json.JsonException;
 
 public class UnixPipe extends Pipe
 {
@@ -54,7 +53,7 @@ public class UnixPipe extends Pipe
     }
 
     @Override
-    public Packet read() throws IOException, JsonException
+    public Packet read() throws IOException, JsonParseException
     {
         InputStream is = socket.getInputStream();
 

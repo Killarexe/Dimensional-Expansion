@@ -16,6 +16,7 @@
 package net.killarexe.dimensional_expansion.client.integration.discord.entities.pipe;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.IPCClient;
 import net.killarexe.dimensional_expansion.client.integration.discord.IPCListener;
@@ -30,8 +31,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
-
-import javax.json.JsonException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -98,7 +97,7 @@ public abstract class Pipe {
                 pipe.build = null;
                 pipe = null;
             }
-            catch(IOException | JsonException ex)
+            catch(IOException | JsonParseException ex)
             {
             	LOGGER.warn("Failed to create pipe...");	
                 pipe = null;
@@ -221,7 +220,7 @@ public abstract class Pipe {
      * @throws JSONException
      *         If the read thread receives bad data.
      */
-    public abstract Packet read() throws IOException, JsonException;
+    public abstract Packet read() throws IOException, JsonParseException;
 
     public abstract void write(byte[] b) throws IOException;
 

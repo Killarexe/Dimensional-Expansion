@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.container.EssenceExtractorContainer;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,7 +17,7 @@ public class DEMenuTypes {
 
     public static final RegistryObject<MenuType<EssenceExtractorContainer>> ESSENCE_EXTRACTOR_MENU_TYPE = createContainer(
             "essence_extractor_container",
-            () -> new MenuType<>(EssenceExtractorContainer::new)
+            () -> new MenuType<>(EssenceExtractorContainer::new, FeatureFlags.VANILLA_SET)
     );
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> createContainer(String name, Supplier<? extends MenuType<T>> type){

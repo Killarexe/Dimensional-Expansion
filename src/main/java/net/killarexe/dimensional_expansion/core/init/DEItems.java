@@ -17,7 +17,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -50,10 +49,10 @@ public class DEItems {
     public static final RegistryObject<AxeItem> BASSMITE_AXE = createAxeItem("bassmite_axe", DEItemTier.BASSMITE, 6, DECreativeTabs.COMBAT, false);
     public static final RegistryObject<ShovelItem> BASSMITE_SHOVEL = createShovelItem("bassmite_shovel", DEItemTier.BASSMITE, 1.5f, DECreativeTabs.TOOLS, false);
     public static final RegistryObject<HoeItem> BASSMITE_HOE = createHoeItem("bassmite_hoe", DEItemTier.BASSMITE, 0, DECreativeTabs.TOOLS, false);
-    public static final RegistryObject<ArmorItem> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterial.BASSMITE, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<ArmorItem> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterial.BASSMITE, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<ArmorItem> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterial.BASSMITE, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, false);
-    public static final RegistryObject<ArmorItem> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterial.BASSMITE, EquipmentSlot.FEET, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterial.BASSMITE, ArmorItem.Type.HELMET, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterial.BASSMITE, ArmorItem.Type.CHESTPLATE, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterial.BASSMITE, ArmorItem.Type.LEGGINGS, DECreativeTabs.COMBAT, false);
+    public static final RegistryObject<ArmorItem> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterial.BASSMITE, ArmorItem.Type.BOOTS, DECreativeTabs.COMBAT, false);
     public static final RegistryObject<HorseArmorItem> BASSMITE_HORSE_ARMOR = createHorseArmorItem("bassmite_horse_armor", 10, "bassmite", DECreativeTabs.COMBAT, false);
     public static final RegistryObject<FuelItem> BASSMITE_MIXED_COAL = createFuelItem("bassmite_mixed_coal", 6400, DECreativeTabs.MISC, false);
 
@@ -69,10 +68,10 @@ public class DEItems {
     public static final RegistryObject<AxeItem> EMERTYST_AXE = createAxeItem("emertyst_axe", DEItemTier.EMERTYST, 6, DECreativeTabs.COMBAT, true);
     public static final RegistryObject<ShovelItem> EMERTYST_SHOVEL = createShovelItem("emertyst_shovel", DEItemTier.EMERTYST, 1.5f, DECreativeTabs.TOOLS, true);
     public static final RegistryObject<HoeItem> EMERTYST_HOE = createHoeItem("emertyst_hoe", DEItemTier.EMERTYST, 0, DECreativeTabs.TOOLS, true);
-    public static final RegistryObject<ArmorItem> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterial.EMERTYST, EquipmentSlot.HEAD, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<ArmorItem> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterial.EMERTYST, EquipmentSlot.CHEST, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<ArmorItem> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterial.EMERTYST, EquipmentSlot.LEGS, DECreativeTabs.COMBAT, true);
-    public static final RegistryObject<ArmorItem> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, EquipmentSlot.FEET, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterial.EMERTYST, ArmorItem.Type.HELMET, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterial.EMERTYST, ArmorItem.Type.CHESTPLATE, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterial.EMERTYST, ArmorItem.Type.LEGGINGS, DECreativeTabs.COMBAT, true);
+    public static final RegistryObject<ArmorItem> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, ArmorItem.Type.BOOTS, DECreativeTabs.COMBAT, true);
     public static final RegistryObject<HorseArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.COMBAT, true);
     public static final RegistryObject<FuelItem> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.MISC, true);
 
@@ -173,7 +172,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties()));
     }
 
-    private static RegistryObject<ArmorItem> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot, DECreativeTabs tab, boolean isFireProof){
+    private static RegistryObject<ArmorItem> createArmorItem(String id, ArmorMaterial material, ArmorItem.Type slot, DECreativeTabs tab, boolean isFireProof){
     	itemsTab.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().fireResistant()));

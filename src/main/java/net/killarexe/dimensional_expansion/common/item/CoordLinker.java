@@ -5,8 +5,6 @@ import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
@@ -33,12 +31,12 @@ public class CoordLinker extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()){
             if(isLost) {
-            	tooltip.add(MutableComponent.create(new TranslatableContents("tooltip." + DEMod.MOD_ID + ".is_lost")));
+            	tooltip.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".is_lost"));
             }else {
-            	tooltip.add(MutableComponent.create(new TranslatableContents("Overworld: " + overworldPos.toShortString() + " Nether: " + netherPos.toShortString())));
+            	tooltip.add(Component.translatable("Overworld: " + overworldPos.toShortString() + " Nether: " + netherPos.toShortString()));
             }
         }else{
-            tooltip.add(MutableComponent.create(new TranslatableContents("tooltip." + DEMod.MOD_ID + ".shift")));
+            tooltip.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".shift"));
         }
     }
 

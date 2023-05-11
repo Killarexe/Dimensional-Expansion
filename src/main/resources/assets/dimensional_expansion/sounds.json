@@ -18,5 +18,35 @@
         "stream": true
       }
     ]
+  },
+  "nightly_walk": {
+  	"category": "music",
+    "subtitle": "music.dimensional_expansion.nightly_walk.subtitle",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:nightly_walk",
+        "stream": true
+      }
+    ]
+  },
+  "seeing_the_stars": {
+  	"category": "music",
+    "subtitle": "music.dimensional_expansion.seeing_the_stars.subtitle",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:seeing_the_stars",
+        "stream": true
+      }
+    ]
+  },
+  "the_origin": {
+  	"category": "music",
+    "subtitle": "music.dimensional_expansion.the_origin.subtitle",
+    "sounds": [
+      {
+        "name": "dimensional_expansion:the_origin",
+        "stream": true
+      }
+    ]
   }
 }

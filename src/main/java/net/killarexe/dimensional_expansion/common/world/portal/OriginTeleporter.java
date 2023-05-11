@@ -205,7 +205,13 @@ public class OriginTeleporter implements ITeleporter{
 		//double d2 = Math.min(2.9999872E7D, border.getMaxX() - 16.);
 		double d3 = Math.min(2.9999872E7D, border.getMaxZ() - 16.);
 		double d4 = DimensionType.getTeleportationScale(entity.level.dimensionType(), level.dimensionType());
-		BlockPos pos = new BlockPos(Mth.clamp(entity.getX() * d4, d1, d3), entity.getY(), Mth.clamp(entity.getZ() * d4, d1, d3));
+		BlockPos pos = new BlockPos(
+				new Vec3i(
+						(int)Mth.clamp(entity.getX() * d4, d1, d3),
+						(int)entity.getY(),
+						(int)Mth.clamp(entity.getZ() * d4, d1, d3)
+				)
+		);
 		
 		return this.getExitPortal(entity, pos, border).map(repositioner -> {
 			BlockState state = entity.level.getBlockState(this.entityPos);

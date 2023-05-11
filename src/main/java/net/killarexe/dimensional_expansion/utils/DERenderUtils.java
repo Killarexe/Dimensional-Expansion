@@ -11,16 +11,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 
 public class DERenderUtils {
-	public static void renderItem(ItemStack stack, Vector3d translation, Quaternionf rotation,PoseStack matrixStack, MultiBufferSource buffer, Level level, BlockPos pos, float scale) {
+	public static void renderItem(ItemStack stack, Vector3d translation, Quaternionf rotation, PoseStack matrixStack, MultiBufferSource buffer, Level level, BlockPos pos, float scale) {
         matrixStack.pushPose();
         matrixStack.translate(translation.x, translation.y, translation.z);
         matrixStack.mulPose(rotation);
@@ -28,11 +28,12 @@ public class DERenderUtils {
 
         Minecraft.getInstance().getItemRenderer().renderStatic(
 				stack,
-				ItemTransforms.TransformType.FIXED,
+				ItemDisplayContext.FIXED,
 				getLightLevel(level, pos),
 				OverlayTexture.NO_OVERLAY,
 				matrixStack,
 				buffer,
+				level,
 				1
 		);
         matrixStack.popPose();
@@ -50,7 +51,7 @@ public class DERenderUtils {
         stack.scale(scale, scale, scale);
         stack.mulPose(Axis.YP.rotationDegrees(-mc.player.getYRot()));
         stack.mulPose(Axis.ZP.rotationDegrees(180f));
-        font.drawInBatch(text, offset, 0, color, false, matrix, buffer, false, opacity, lightLevel);
+        font.drawInBatch(text, offset, 0, color, false, matrix, buffer, Font.DisplayMode.NORMAL, opacity, lightLevel);
         stack.popPose();
     }
 	

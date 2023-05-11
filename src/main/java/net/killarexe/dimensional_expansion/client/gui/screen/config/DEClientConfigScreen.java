@@ -8,8 +8,7 @@ import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -21,7 +20,7 @@ public class DEClientConfigScreen extends Screen {
     private SwitchButton moddedScreensCheckbox, showVersionCheckbox, discordRPCCheckbox, debugModCheckBox;
 
     public DEClientConfigScreen(Screen previousScreen) {
-        super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
+        super(Component.empty());
         this.previousScreen = previousScreen;
     }
 
@@ -29,25 +28,25 @@ public class DEClientConfigScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(pPoseStack);
         DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
-        drawCenteredString(pPoseStack, font, MutableComponent.create(new TranslatableContents("config." + DEMod.MOD_ID + ".client")), width / 2, 10, 0xffffff);
+        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".client"), width / 2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
     protected void init() {
-    	cancelButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".cancel_button")), (button -> {onClose();}))
+    	cancelButton = Button.builder(Component.translatable("button." + DEMod.MOD_ID + ".cancel_button"), (button -> {onClose();}))
         		.bounds(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20)
         		.build();
-        applyButton = Button.builder(MutableComponent.create(new TranslatableContents("button." + DEMod.MOD_ID + ".apply_button")), (button -> {apply();}))
+        applyButton = Button.builder(Component.translatable("button." + DEMod.MOD_ID + ".apply_button"), (button -> {apply();}))
         		.bounds(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20)
         		.build();
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        moddedScreensCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 8, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".modded_screens")), DEConfig.moddedScreens.get());
-        showVersionCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 78, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".show_version")), DEConfig.showVersion.get());
-        discordRPCCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 48, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".discord_rpc")), DEConfig.discordRPC.get());
-        debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, MutableComponent.create(new TranslatableContents("checkbox." + DEMod.MOD_ID + ".dev_mod")), DEConfig.devMod.get());
+        moddedScreensCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 8, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".modded_screens"), DEConfig.moddedScreens.get());
+        showVersionCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 78, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".show_version"), DEConfig.showVersion.get());
+        discordRPCCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 48, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".discord"), DEConfig.discordRPC.get());
+        debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".dev_mod"), DEConfig.devMod.get());
         addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(discordRPCCheckbox);
         addRenderableWidget(moddedScreensCheckbox);

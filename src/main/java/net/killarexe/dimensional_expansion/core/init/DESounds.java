@@ -11,8 +11,11 @@ public class DESounds {
 
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DEMod.MOD_ID);
 
+    public static final RegistryObject<SoundEvent> THE_ORIGIN = createSound("the_origin");
     public static final RegistryObject<SoundEvent> DOCTOR_WHO = createSound("doctor_who");
     public static final RegistryObject<SoundEvent> SWEDEN_REMIX = createSound("sweden_remix");
+    public static final RegistryObject<SoundEvent> NIGHTLY_WALK = createSound("nightly_walk");  
+    public static final RegistryObject<SoundEvent> SEEING_THE_STARS = createSound("seeing_the_stars");
 
     private static RegistryObject<SoundEvent> createSound(String name){
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DEMod.MOD_ID, name)));

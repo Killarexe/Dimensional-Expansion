@@ -44,8 +44,6 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Mth;
@@ -90,7 +88,7 @@ public class DETitleScreen extends Screen {
    }
 
    public DETitleScreen(boolean pFading) {
-	  super(MutableComponent.create(new TranslatableContents("narrator.screen.title")));
+	  super(Component.translatable("narrator.screen.title"));
 	  this.fading = pFading;
       this.minceraftEasterEgg = false;
    }
@@ -293,17 +291,17 @@ public class DETitleScreen extends Screen {
          RenderSystem.setShaderTexture(0, MINECRAFT_LOGO);
          RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
          if (this.minceraftEasterEgg) {
-            this.blitOutlineBlack(j, 30, (p_232776_, p_232777_) -> {
-               this.blit(pPoseStack, p_232776_ + 0, p_232777_, 0, 0, 99, 44);
-               this.blit(pPoseStack, p_232776_ + 99, p_232777_, 129, 0, 27, 44);
-               this.blit(pPoseStack, p_232776_ + 99 + 26, p_232777_, 126, 0, 3, 44);
-               this.blit(pPoseStack, p_232776_ + 99 + 26 + 3, p_232777_, 99, 0, 26, 44);
-               this.blit(pPoseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
+            blitOutlineBlack(j, 30, (p_232776_, p_232777_) -> {
+               blit(pPoseStack, p_232776_ + 0, p_232777_, 0, 0, 99, 44);
+               blit(pPoseStack, p_232776_ + 99, p_232777_, 129, 0, 27, 44);
+               blit(pPoseStack, p_232776_ + 99 + 26, p_232777_, 126, 0, 3, 44);
+               blit(pPoseStack, p_232776_ + 99 + 26 + 3, p_232777_, 99, 0, 26, 44);
+               blit(pPoseStack, p_232776_ + 155, p_232777_, 0, 45, 155, 44);
             });
          } else {
-            this.blitOutlineBlack(j, 20, (p_210862_, p_210863_) -> {
-            	this.blit(pPoseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 88);
-                this.blit(pPoseStack, p_210862_ + 155, p_210863_, 155, 0, 102, 88);
+            blitOutlineBlack(j, 20, (p_210862_, p_210863_) -> {
+            	blit(pPoseStack, p_210862_ + 0, p_210863_, 0, 0, 155, 88);
+                blit(pPoseStack, p_210862_ + 155, p_210863_, 155, 0, 102, 88);
             });
          }
 

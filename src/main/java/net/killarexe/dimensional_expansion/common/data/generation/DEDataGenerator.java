@@ -42,7 +42,7 @@ public class DEDataGenerator {
 		DEBlockTagsProvider blockTagsProvider = new DEBlockTagsProvider(output, lookupProvider, helper);
 		generator.addProvider(e.includeServer(), blockTagsProvider);
 		DEMod.LOGGER.info("Generating Dimensional Expansion Item Tags...");
-		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider, helper));
+		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Recipes...");
 		generator.addProvider(e.includeServer(), new DERecipeProvider(output));
 	}

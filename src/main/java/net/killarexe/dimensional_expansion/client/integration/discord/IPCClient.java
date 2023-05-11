@@ -16,6 +16,7 @@
 package net.killarexe.dimensional_expansion.client.integration.discord;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.Callback;
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.DiscordBuild;
@@ -31,8 +32,6 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.util.HashMap;
-
-import javax.json.JsonException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -442,7 +441,7 @@ public final class IPCClient implements Closeable
                 if(listener != null)
                     listener.onClose(this, p.getJson());
             }
-            catch(IOException | JsonException ex)
+            catch(IOException | JsonParseException ex)
             {
                 if(ex instanceof IOException)
                     LOGGER.error("Reading thread encountered an IOException", ex);

@@ -35,7 +35,7 @@ public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtra
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderTexture(0, GUI);
-        this.blit(poseStack, leftPos, topPos, 0, -2, getXSize(), getYSize());
+        blit(poseStack, leftPos, topPos, 0, -2, getXSize(), getYSize());
         RenderSystem.disableBlend();
     }
 

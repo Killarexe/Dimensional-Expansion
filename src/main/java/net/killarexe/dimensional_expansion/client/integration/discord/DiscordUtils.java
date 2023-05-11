@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.client.integration.discord;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.DiscordBuild;
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.RichPresence;
-import net.killarexe.dimensional_expansion.client.integration.discord.exceptions.NoDiscordClientException;
 import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.SharedConstants;
 
@@ -27,8 +26,8 @@ public class DiscordUtils {
 	        	}
 	        });
         	RPC.connect(DiscordBuild.ANY);
-		} catch (NoDiscordClientException e) {
-			DEMod.LOGGER.info("Discord RPC Failed:\n" + e.getMessage());
+		} catch (Exception e) {
+			DEMod.LOGGER.warn("Discord RPC Failed:\n" + e.getMessage());
 		}
 	}
 }

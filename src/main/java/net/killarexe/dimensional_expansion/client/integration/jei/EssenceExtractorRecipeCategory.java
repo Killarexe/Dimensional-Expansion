@@ -11,6 +11,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.data.recipes.EssenceExtractorRecipe;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -53,7 +54,7 @@ public class EssenceExtractorRecipeCategory implements IRecipeCategory<EssenceEx
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, EssenceExtractorRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(VanillaTypes.ITEM_STACK, List.of(recipe.getIngredients().get(0).getItems()));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem(RegistryAccess.EMPTY));
     }
 
     public ResourceLocation getUid() {

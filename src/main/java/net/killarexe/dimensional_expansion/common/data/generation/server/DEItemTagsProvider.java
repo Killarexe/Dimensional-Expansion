@@ -6,7 +6,6 @@ import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -18,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class DEItemTagsProvider extends ItemTagsProvider {
 	
-	public DEItemTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, TagsProvider<Block> p_256467_, @Nullable ExistingFileHelper existingFileHelper) {
+	public DEItemTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> p_256467_, @Nullable ExistingFileHelper existingFileHelper) {
 		super(pOutput, pLookupProvider, p_256467_, DEMod.MOD_ID, existingFileHelper);
 	}
 
@@ -52,21 +51,6 @@ public class DEItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.CHEST_BOATS).add(DEItems.PURPLEHEART_CHEST_BOAT.get());
         tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
         		DEItems.PALON_INGOT.get(), DEItems.BASSMITE_GEM.get(), DEItems.SIMIX_INGOT.get(), DEItems.EMERTYST_GEM.get()
-        );
-        tag(Tags.Items.TOOLS_SWORDS).add(
-        		DEItems.BASSMITE_SWORD.get(), DEItems.EMERTYST_SWORD.get()
-        );
-        tag(Tags.Items.TOOLS_PICKAXES).add(
-        		DEItems.BASSMITE_PICKAXE.get(), DEItems.EMERTYST_PICKAXE.get()
-        );
-        tag(Tags.Items.TOOLS_AXES).add(
-        		DEItems.BASSMITE_AXE.get(), DEItems.EMERTYST_AXE.get()
-        );
-        tag(Tags.Items.TOOLS_SHOVELS).add(
-        		DEItems.BASSMITE_SHOVEL.get(), DEItems.EMERTYST_SHOVEL.get()
-        );
-        tag(Tags.Items.TOOLS_HOES).add(
-        		DEItems.BASSMITE_HOE.get(), DEItems.EMERTYST_HOE.get()
         );
     }
 }

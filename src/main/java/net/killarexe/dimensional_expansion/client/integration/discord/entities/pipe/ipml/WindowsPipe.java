@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import net.killarexe.dimensional_expansion.client.integration.discord.IPCClient;
 import net.killarexe.dimensional_expansion.client.integration.discord.entities.Callback;
@@ -32,8 +33,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
-
-import javax.json.JsonException;
 
 public class WindowsPipe extends Pipe
 {
@@ -58,7 +57,7 @@ public class WindowsPipe extends Pipe
     }
 
     @Override
-    public Packet read() throws IOException, JsonException {
+    public Packet read() throws IOException, JsonParseException {
         while(file.length() == 0 && status == PipeStatus.CONNECTED)
         {
             try {

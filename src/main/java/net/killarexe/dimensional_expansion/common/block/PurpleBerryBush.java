@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import net.killarexe.dimensional_expansion.core.init.DEDamageSources;
+import net.killarexe.dimensional_expansion.core.init.DEDamageTypes;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -60,7 +60,7 @@ public class PurpleBerryBush extends SweetBerryBushBlock{
 	            double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
 	            double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
 	            if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-	               pEntity.hurt(DEDamageSources.BLUE_BERRY_BUSH, 1.0F);
+	               pEntity.hurt(DEDamageTypes.fromType(DEDamageTypes.BLUE_BERRY_BUSH), 1.0F);
 	            }
 	         }
 

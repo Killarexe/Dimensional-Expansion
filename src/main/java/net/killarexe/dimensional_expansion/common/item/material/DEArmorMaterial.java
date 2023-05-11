@@ -4,7 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -42,13 +42,13 @@ public enum DEArmorMaterial implements ArmorMaterial {
 	}
 
 	@Override
-	public int getDurabilityForSlot(EquipmentSlot p_40484_) {
-		return HEALTH_PER_SLOT[p_40484_.getIndex()] * this.durabilityMultiplier;
+	public int getDurabilityForType(ArmorItem.Type p_40484_) {
+		return HEALTH_PER_SLOT[p_40484_.getSlot().getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
-	public int getDefenseForSlot(EquipmentSlot p_40487_) {
-		return this.slotProtections[p_40487_.getIndex()];
+	public int getDefenseForType(ArmorItem.Type p_40487_) {
+		return this.slotProtections[p_40487_.getSlot().getIndex()];
 	}
 
 	@Override
