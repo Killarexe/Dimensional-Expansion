@@ -28,7 +28,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "dimensional_expansion";
-    public static final String VERSION = "0.8a";
+    public static final String VERSION = "0.9a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
