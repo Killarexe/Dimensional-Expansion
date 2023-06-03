@@ -14,7 +14,7 @@ import net.minecraftforge.client.event.ScreenEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class DEEventsClient {
-
+	
     public static void onScreenPost(final ScreenEvent.Init.Post event) {
         if(DEConfig.moddedScreens.get()){
             if(event.getScreen() instanceof TitleScreen screen){

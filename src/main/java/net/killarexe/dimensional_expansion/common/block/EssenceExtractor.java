@@ -43,15 +43,15 @@ public class EssenceExtractor extends Block implements EntityBlock {
     }
 
     public static final VoxelShape SHAPE = Stream.of(
-            Shapes.join(Block.box(0, 0, 0, 1, 16, 1),
-                    Shapes.join(Block.box(15, 0, 0, 16, 16, 1),
-                            Shapes.join(Block.box(15, 0, 15, 16, 16, 16),
-                                    Block.box(0, 0, 15, 1, 16, 16), BooleanOp.FIRST),
-                            BooleanOp.FIRST),
-                    BooleanOp.FIRST),
-            Block.box(3, 8, 3, 13, 16, 13),
-            Block.box(1, 0, 1, 15, 8, 15)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+    		Stream.of(
+    				Block.box(0, 0, 0, 1, 16, 1),
+    				Block.box(15, 0, 0, 16, 16, 1),
+    				Block.box(15, 0, 15, 16, 16, 16),
+    				Block.box(0, 0, 15, 1, 16, 16))
+    		.reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get(),
+    				Block.box(3, 8, 3, 13, 16, 13),
+    				Block.box(1, 0, 1, 15, 8, 15))
+    		.reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {

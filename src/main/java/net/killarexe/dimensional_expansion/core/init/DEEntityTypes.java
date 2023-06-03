@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.core.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.entity.DEBoatEntity;
+import net.killarexe.dimensional_expansion.common.entity.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,10 +19,17 @@ public class DEEntityTypes {
                     .setCustomClientFactory(((spawnEntity, level) -> new DEBoatEntity(level, 0, 0, 0)))
                     .build("purpleheart_boat"));
     
-    public static final RegistryObject<EntityType<DEBoatEntity>> DE_CHEST_BOAT = ENTITY_TYPES.register("purpleheart_chest_boat",
-            () -> EntityType.Builder.<DEBoatEntity>of(DEBoatEntity::new, MobCategory.MISC)
+    public static final RegistryObject<EntityType<DEChestBoatEntity>> DE_CHEST_BOAT = ENTITY_TYPES.register("purpleheart_chest_boat",
+            () -> EntityType.Builder.<DEChestBoatEntity>of(DEChestBoatEntity::new, MobCategory.MISC)
                     .fireImmune()
                     .sized(1.375F, 0.5625F)
-                    .setCustomClientFactory(((spawnEntity, level) -> new DEBoatEntity(level, 0, 0, 0)))
+                    .setCustomClientFactory(((spawnEntity, level) -> new DEChestBoatEntity(level, 0, 0, 0)))
                     .build("purpleheart_chest_boat"));
+    
+    public static final RegistryObject<EntityType<HeadedSkeleton>> HEADED_SKELETON = ENTITY_TYPES.register("headed_skeleton",
+    		() -> EntityType.Builder.<HeadedSkeleton>of(HeadedSkeleton::new, MobCategory.MONSTER)
+    			.sized(0.25f, 0.25f)
+    			.canSpawnFarFromPlayer()
+    			.build("headed_skeleton")
+    );
 }

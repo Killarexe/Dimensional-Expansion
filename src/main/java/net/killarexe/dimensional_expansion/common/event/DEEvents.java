@@ -3,7 +3,9 @@ package net.killarexe.dimensional_expansion.common.event;
 import java.util.List;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.client.DEModClient;
 import net.killarexe.dimensional_expansion.core.init.*;
+import net.killarexe.dimensional_expansion.server.DEModServer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -13,14 +15,62 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.killarexe.dimensional_expansion.common.block.StrippingMap;
+import net.killarexe.dimensional_expansion.common.entity.HeadedSkeleton;
 import net.killarexe.dimensional_expansion.common.event.DEVillagerTrades.*;
 
 public class DEEvents {
 	
-	public static void addTrades(VillagerTradesEvent e) {
+	public static void addListeners(IEventBus forgeBus, IEventBus modBus) {
+        DEMod.LOGGER.info("Set Dimensional Expansion Event Listeners");
+		forgeBus.addListener(DEEvents::diggingEvent);
+        forgeBus.addListener(DEEvents::addTrades);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(modBus, forgeBus));
+        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(modBus, forgeBus));
+        modBus.addListener(DEEvents::commonSetup);
+        modBus.addListener(DEEvents::registerAttributes);
+        modBus.addListener(DECreativeTabs::registerCreativeTabs);
+        modBus.addListener(DECreativeTabs::addItemsToCreativeTabs);
+	}
+	
+	private static void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() ->{
+        	DEMod.LOGGER.info("Dimensional Expansion Common Setup");
+        	DEMod.LOGGER.info("Register Dimensional Expansion Packets");
+        	DEChannel.register();
+        	DEMod.LOGGER.info("Register Dimensional Expansion WoodTypes");
+        	WoodType.register(DEWoodTypes.PURPLEHEART);
+        	DEMod.LOGGER.info("Put Dimensional Expansion Strippables");
+        	StrippingMap.putStrippables();
+        	DEMod.LOGGER.info("Put Dimensional Expansion Compostables");
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_LEAVES.get(), 0.3f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.SAVORLEAF_BLOCK.get(), 0.85f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLE_ROSE.get(), 0.3f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEHEART_SAPLING.get(), 0.5f);
+        	ComposterBlock.COMPOSTABLES.put(DEBlocks.PURPLEISH_CACTUS.get(), 0.65f);
+        	ComposterBlock.COMPOSTABLES.put(DEItems.SAVORLEAF.get(), 0.5f);
+        	ComposterBlock.COMPOSTABLES.put(DEItems.VIOLET_CARROT.get(), 0.5f);
+        	DEMod.LOGGER.info("Put Dimensional Expansion Flower Pots");
+        	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLE_ROSE.getId(), DEBlocks.POTTED_PURPLE_ROSE);
+        	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEISH_CACTUS.getId(), DEBlocks.POTTED_PURPLEISH_CACTUS);
+        	((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.PURPLEHEART_SAPLING.getId(), DEBlocks.POTTED_PURPLEHEART_SAPLING);
+        	DEMod.LOGGER.info("Dimensional Expansion Common Setup Complete");
+        });
+    }
+	
+	private static void addTrades(VillagerTradesEvent e) {
         DEMod.LOGGER.info("Init Dimensional Expansion Villager Trades");
         
         List<ItemListing> tradesLevel5 = e.getTrades().get(5);
@@ -81,7 +131,7 @@ public class DEEvents {
         }
     }
     
-    public static void diggingEvent(BlockEvent.BreakEvent e){
+    private static void diggingEvent(BlockEvent.BreakEvent e){
     	if(EnchantmentHelper.getEnchantmentLevel(DEEnchantments.SMELT.get(), e.getPlayer()) > 0 && e != null && e.isCancelable() && e.getResult() != Result.DENY && !e.getPlayer().isCreative()) {
     		e.setCanceled(true);
     		BlockPos pos = e.getPos();
@@ -96,5 +146,9 @@ public class DEEvents {
     		level.destroyBlock(e.getPos(), false);
     		level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), item));
     	}
+    }
+    
+    private static void registerAttributes(EntityAttributeCreationEvent e) {
+    	e.put(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
     }
 }

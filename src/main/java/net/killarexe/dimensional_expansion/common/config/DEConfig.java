@@ -1,6 +1,9 @@
 package net.killarexe.dimensional_expansion.common.config;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 
 public final class DEConfig {
 
@@ -38,5 +41,11 @@ public final class DEConfig {
         enablePowerStones = SERVER_BUILDER.comment("Enable ALL power stones. By Default is true (for server recommended to be false)").define("Enable ALL Power Stone", true);
         SERVER_BUILDER.pop();
         SERVER_SPEC = SERVER_BUILDER.build();
+    }
+    
+    public static void registerAll(){
+        DEMod.LOGGER.info("Init Dimensional Expansion Config");
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
     }
 }
