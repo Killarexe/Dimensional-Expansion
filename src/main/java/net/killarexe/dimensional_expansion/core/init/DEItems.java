@@ -259,7 +259,9 @@ public class DEItems {
 				}
 				if(pEntity instanceof Player player) {
 					if(player.hasEffect(DEPoitions.REMOTE_EFFECT.get())) {
-						return DEMath.clamp(player.getEffect(DEPoitions.REMOTE_EFFECT.get()).getDuration(), 0, 30);
+						int value = DEMath.clamp(player.getEffect(DEPoitions.REMOTE_EFFECT.get()).getDuration(), 0, 30);
+						DEMod.LOGGER.info(value);
+						return value;
 					}
 				}
 				return 0;

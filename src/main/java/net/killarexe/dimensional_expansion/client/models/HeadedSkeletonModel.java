@@ -41,7 +41,7 @@ public class HeadedSkeletonModel<T extends HeadedSkeleton> extends EntityModel<T
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
-		this.head.xRot = (-(float)Math.PI / 4F);
+		this.head.xRot = headPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
