@@ -39,9 +39,9 @@ public class DEModClient {
         bus.addListener(DEKeyBindings::onKeyRegister);
         bus.addListener(DEModClient::clientSetup);
     }
-
+    
     private static void clientSetup(final FMLClientSetupEvent event){
-    	event.enqueueWork(() ->{;
+    	event.enqueueWork(() ->{
 	        setWindowTitle("Dimensional Expansion Client Setup...", "Client Setup...");
 	        ModLoadingContext.get().registerExtensionPoint(
 	                ConfigScreenHandler.ConfigScreenFactory.class,
@@ -59,6 +59,7 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.DE_BOAT.get(), PurpleheartBoatRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.DE_CHEST_BOAT.get(), PurpleheartChestBoatRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeletonRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeletonRenderer::new);
 	        setWindowTitle("Register Dimensional Expansion Container", "Containers...");
 	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
 	        setWindowTitle("Add Dimensional Expansion Items Properties", "Items Properties...");

@@ -35,6 +35,8 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMonsterAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.0f)
+			.add(Attributes.KNOCKBACK_RESISTANCE, 10.0f)
+			.add(Attributes.JUMP_STRENGTH, 0.0f)
 			.add(Attributes.MAX_HEALTH, 30.0f);
 
 	public HeadedSkeleton(EntityType<? extends HeadedSkeleton> pEntityType, Level pLevel) {
@@ -78,7 +80,7 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
 	    }
 	    double d0 = pTarget.getX() - this.getX();
-	    double d1 = pTarget.getY(0.3333333333333333D) - abstractarrow.getY();
+	    double d1 = pTarget.getY(0.15151515152D) - abstractarrow.getY();
 	    double d2 = pTarget.getZ() - this.getZ();
 	    double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 	    lookAt(pTarget, 180, 180);

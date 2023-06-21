@@ -4,19 +4,18 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.RegistryObject;
 
 public enum DECreativeTabs {
 	MISC,
 	BLOCKS,
 	COMBAT,
-	TOOLS;
+	TOOLS,
+	MOBS;
 	
-	public static CreativeModeTab DE_MISC, DE_BLOCKS, DE_COMBAT, DE_TOOLS;
+	public static CreativeModeTab DE_MISC, DE_BLOCKS, DE_COMBAT, DE_TOOLS, DE_MOBS;
     
     @SubscribeEvent
     public static void registerCreativeTabs(CreativeModeTabEvent.Register event) {
@@ -41,37 +40,31 @@ public enum DECreativeTabs {
     				.title(Component.translatable("itemGroup.dimensional_expansion.tools"))
     				.build();	
     	});
+    	DE_MOBS = event.registerCreativeModeTab(new ResourceLocation(DEMod.MOD_ID, "mobs"), builder -> {
+    		builder.icon(() -> new ItemStack(DEItems.ALLOY_CRYSTAL.get()))
+    				.title(Component.translatable("itemGroup.dimensional_expansion.mobs"))
+    				.build();	
+    	});
+    }
+   
+    private static void addItemsToCreativeTab(CreativeModeTabEvent.BuildContents event, DECreativeTabs tab, CreativeModeTab creativeTab) {
+    	DEItems.ITEMS.getEntries().forEach((item) -> {
+    		if(DEItems.ITEM_TAB_MAP.get(item.getId().getPath()) == tab) {
+    			event.accept(item.get());
+    		}
+    	});
     }
     
     @SubscribeEvent
     public static void addItemsToCreativeTabs(CreativeModeTabEvent.BuildContents e) {
     	if(e.getTab() == DECreativeTabs.DE_MISC) {
-    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
-    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.MISC) {
-    				e.accept(item.get());
-    			}
-    		}
-    	}
-    	if(e.getTab() == DECreativeTabs.DE_BLOCKS) {
-    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
-    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.BLOCKS) {
-    				e.accept(item.get());
-    			}
-    		}
-    	}
-    	if(e.getTab() == DECreativeTabs.DE_COMBAT) {
-    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
-    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.COMBAT) {
-    				e.accept(item.get());
-    			}
-    		}
-    	}
-    	if(e.getTab() == DECreativeTabs.DE_TOOLS) {
-    		for(RegistryObject<Item> item: DEItems.ITEMS.getEntries()) {
-    			if(DEItems.itemsTab.get(item.getId().getPath()) == DECreativeTabs.TOOLS) {
-    				e.accept(item.get());
-    			}
-    		}
+    		addItemsToCreativeTab(e, MISC, DE_MISC);
+    	}else if(e.getTab() == DECreativeTabs.DE_BLOCKS) {
+    		addItemsToCreativeTab(e, BLOCKS, DE_BLOCKS);
+    	}else if(e.getTab() == DECreativeTabs.DE_COMBAT) {
+    		addItemsToCreativeTab(e, COMBAT, DE_COMBAT);
+    	}else if(e.getTab() == DECreativeTabs.DE_TOOLS) {
+    		addItemsToCreativeTab(e, COMBAT, DE_COMBAT);
     	}
     }
 }

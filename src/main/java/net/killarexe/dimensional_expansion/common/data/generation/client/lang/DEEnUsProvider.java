@@ -215,6 +215,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add("entity.minecraft.villager." + DEMod.MOD_ID + ".farmer", "Farmer");
         add("entity.minecraft.villager." + DEMod.MOD_ID + ".miner", "Miner");
         add("entity." + DEMod.MOD_ID + ".purpleheart_chest_boat", "Purpleheart Chest Boat");
+        add("entity." + DEMod.MOD_ID + ".headed_skeleton", "Headed Skeleton");
+        add("entity." + DEMod.MOD_ID + ".headed_guardian", "Headed Guardian");
         
         /*
          * Potions

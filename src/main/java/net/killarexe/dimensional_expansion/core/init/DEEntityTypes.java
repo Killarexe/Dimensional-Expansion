@@ -28,8 +28,14 @@ public class DEEntityTypes {
     
     public static final RegistryObject<EntityType<HeadedSkeleton>> HEADED_SKELETON = ENTITY_TYPES.register("headed_skeleton",
     		() -> EntityType.Builder.<HeadedSkeleton>of(HeadedSkeleton::new, MobCategory.MONSTER)
-    			.sized(0.25f, 0.25f)
+    			.sized(0.5f, 0.5f)
     			.canSpawnFarFromPlayer()
     			.build("headed_skeleton")
+    );
+    
+    public static final RegistryObject<EntityType<HeadedGuardian>> HEADED_GUARDIAN = ENTITY_TYPES.register("headed_guardian",
+    		() -> EntityType.Builder.<HeadedGuardian>of(HeadedGuardian::new, MobCategory.MISC)
+    		.sized(0.5f, 0.5f)
+    		.build("headed_gardian")
     );
 }

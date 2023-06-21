@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 
 public class DEItems {
 
-	public static final HashMap<String, DECreativeTabs> itemsTab = new HashMap<>();
+	public static final HashMap<String, DECreativeTabs> ITEM_TAB_MAP = new HashMap<>();
 	
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DEMod.MOD_ID);
 
@@ -98,17 +98,21 @@ public class DEItems {
     public static final RegistryObject<RecordItem> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
     public static final RegistryObject<RecordItem> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
+    //TODO: Make it working... Turty Worky tutoral or Look at Minecarft's code...
+    public static final RegistryObject<Item> HEADED_SKELETON_SPAWN_EGG = createItem("headed_skeleton_spawn_egg", DECreativeTabs.MOBS, false);
+    public static final RegistryObject<Item> HEADED_GUARDIAN_SPAWN_EGG = createItem("headed_guardian_spawn_egg", DECreativeTabs.MOBS, false);
+    
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);
     }
     
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item, DECreativeTabs tab){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	return ITEMS.register(id, item);
     }
     
     private static RegistryObject<Item> createItem(String id, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof){
             return ITEMS.register(id, () -> new Item(new Item.Properties().fireResistant()));
         }
@@ -116,7 +120,7 @@ public class DEItems {
     }
 
     private static RegistryObject<FuelItem> createFuelItem(String id, int burnTime, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof){
             return ITEMS.register(id, () -> new FuelItem(new Item.Properties().fireResistant(), burnTime));
         }
@@ -125,7 +129,7 @@ public class DEItems {
 
     @SuppressWarnings("unused")
 	private static RegistryObject<Item> createFoodItem(String id, float staturation, int nutrition, MobEffect effect, int level, int duration, float probability, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof){
             return ITEMS.register(id, () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationMod(staturation).alwaysEat().nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build()).fireResistant()));
         }
@@ -133,7 +137,7 @@ public class DEItems {
     }
 
     private static RegistryObject<SwordItem> createSwordItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new SwordItem(tier, level, -2.4F, new Item.Properties().fireResistant()));
         }
@@ -141,7 +145,7 @@ public class DEItems {
     }
 
     private static RegistryObject<PickaxeItem> createPickaxeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new PickaxeItem(tier, level, -2.8F, new Item.Properties().fireResistant()));
         }
@@ -149,7 +153,7 @@ public class DEItems {
     }
 
     private static RegistryObject<AxeItem> createAxeItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new AxeItem(tier, level, -3.2F, new Item.Properties().fireResistant()));
         }
@@ -157,7 +161,7 @@ public class DEItems {
     }
 
     private static RegistryObject<ShovelItem> createShovelItem(String id, Tier tier, float level, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new ShovelItem(tier, level, -3F, new Item.Properties().fireResistant()));
         }
@@ -165,7 +169,7 @@ public class DEItems {
     }
 
     private static RegistryObject<HoeItem> createHoeItem(String id, Tier tier, int level, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new HoeItem(tier, level, -3F, new Item.Properties().fireResistant()));
         }
@@ -173,7 +177,7 @@ public class DEItems {
     }
 
     private static RegistryObject<ArmorItem> createArmorItem(String id, ArmorMaterial material, ArmorItem.Type slot, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties().fireResistant()));
         }
@@ -185,7 +189,7 @@ public class DEItems {
     }
 
     private static RegistryObject<HorseArmorItem> createHorseArmorItem(String id, int armorValue, String tierID, DECreativeTabs tab, boolean isFireProof){
-    	itemsTab.put(id, tab);
+    	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof) {
         	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().fireResistant()));
         }

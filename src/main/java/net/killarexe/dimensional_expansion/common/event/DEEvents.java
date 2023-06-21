@@ -150,5 +150,6 @@ public class DEEvents {
     
     private static void registerAttributes(EntityAttributeCreationEvent e) {
     	e.put(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
+    	e.put(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeleton.ATTRIBUTES.build());
     }
 }
