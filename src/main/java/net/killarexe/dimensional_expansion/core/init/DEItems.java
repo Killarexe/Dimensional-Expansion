@@ -101,6 +101,8 @@ public class DEItems {
     //TODO: Make it working... Turty Worky tutoral or Look at Minecarft's code...
     public static final RegistryObject<Item> HEADED_SKELETON_SPAWN_EGG = createItem("headed_skeleton_spawn_egg", DECreativeTabs.MOBS, false);
     public static final RegistryObject<Item> HEADED_GUARDIAN_SPAWN_EGG = createItem("headed_guardian_spawn_egg", DECreativeTabs.MOBS, false);
+   
+    public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem());
     
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);

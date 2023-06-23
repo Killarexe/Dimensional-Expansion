@@ -11,11 +11,12 @@ public class SimixHammerItem extends Item{
 	
 	@Override
 	public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
-		if(itemStack.getDamageValue() + 1 >= itemStack.getMaxDamage()) {
+		ItemStack retval = new ItemStack(this);
+		retval.setDamageValue(itemStack.getDamageValue() + 1);
+		if(retval.getDamageValue() >= retval.getMaxDamage()) {
 			return ItemStack.EMPTY;
 		}
-		itemStack.setDamageValue(itemStack.getDamageValue() + 1);
-		return itemStack;
+		return retval;
 	}
 	
 	@Override
@@ -23,9 +24,8 @@ public class SimixHammerItem extends Item{
 		return true;
 	}
 	
-	//TODO: Version 0.8a add Simix Hammer Repearation material
-	/*@Override
+	@Override
 	public boolean isRepairable(ItemStack stack) {
-		return true;
-	}*/
+		return false;
+	}
 }
