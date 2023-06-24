@@ -17,13 +17,16 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 
 import java.util.HashMap;
@@ -99,8 +102,8 @@ public class DEItems {
     public static final RegistryObject<RecordItem> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
     //TODO: Make it working... Turty Worky tutoral or Look at Minecarft's code...
-    public static final RegistryObject<Item> HEADED_SKELETON_SPAWN_EGG = createItem("headed_skeleton_spawn_egg", DECreativeTabs.MOBS, false);
-    public static final RegistryObject<Item> HEADED_GUARDIAN_SPAWN_EGG = createItem("headed_guardian_spawn_egg", DECreativeTabs.MOBS, false);
+    public static final RegistryObject<ForgeSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
+    public static final RegistryObject<ForgeSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
    
     public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem());
     
@@ -196,6 +199,10 @@ public class DEItems {
         	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties().fireResistant()));
         }
     	return ITEMS.register(id, () -> new HorseArmorItem(armorValue, new ResourceLocation(DEMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + tierID + ".png"), new Item.Properties()));
+    }
+    
+    private static RegistryObject<ForgeSpawnEggItem> createSpawnEggItem(String id, RegistryObject<? extends EntityType<? extends Mob>> entityType, int backgroundColor, int forgroundColor, DECreativeTabs tab){
+    	return createItem(id, () -> new ForgeSpawnEggItem(entityType, backgroundColor, forgroundColor, new Item.Properties()), tab);
     }
 
     @OnlyIn(Dist.CLIENT)

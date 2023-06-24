@@ -136,6 +136,10 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.SAVORLEAF.get(), "Savorleaf");
         add(DEItems.VIOLET_CARROT.get(), "Violet Carrot");
         
+        add(DEItems.MOBOX.get(), "Mobox");
+        add(DEItems.HEADED_SKELETON_SPAWN_EGG.get(), "Headed Skeleton Spawn Egg");
+        add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");
+        
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
         add(DEItems.SWEDEN_DISC.get().getDescriptionId() + ".desc", "Sweden in the 90's by Killar.exe");
