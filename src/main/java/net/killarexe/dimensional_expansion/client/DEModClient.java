@@ -11,7 +11,7 @@ import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
+import net.killarexe.dimensional_expansion.io.WindowManager;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -65,7 +65,7 @@ public class DEModClient {
 	        setWindowTitle("Add Dimensional Expansion Items Properties", "Items Properties...");
 	        DEItems.addItemsProperites();
 	        setWindowTitle("Set Dimensional Expansion Window Icon...", "Window Icon...");
-	        DEWindowUtils.setWindowIcon(
+	        WindowManager.setWindowIcon(
 	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon16x16.png"),
 	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon32x32.png")
 	        );
@@ -79,6 +79,6 @@ public class DEModClient {
     
     private static void setWindowTitle(String loggerMessage, String title) {
     	LOGGER.info(loggerMessage);
-    	DEWindowUtils.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " " + title);
+    	WindowManager.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " " + title);
     }
 }

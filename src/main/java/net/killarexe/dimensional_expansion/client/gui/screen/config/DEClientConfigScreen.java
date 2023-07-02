@@ -4,8 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.utils.DEUtils;
-import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
+import net.killarexe.dimensional_expansion.io.WindowManager;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -27,7 +26,7 @@ public class DEClientConfigScreen extends Screen {
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(pPoseStack);
-        DEWindowUtils.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
+        WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
         drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".client"), width / 2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
@@ -50,7 +49,7 @@ public class DEClientConfigScreen extends Screen {
         addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(discordRPCCheckbox);
         addRenderableWidget(moddedScreensCheckbox);
-        if(DEUtils.isDev() || DEUtils.isDevAccount()) {
+        if(DEConfig.isDev() || DEConfig.isDevAccount()) {
             addRenderableWidget(debugModCheckBox);
         }
         super.init();

@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.utils;
+package net.killarexe.dimensional_expansion.io;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 
-public class DEWindowUtils {
+public class WindowManager {
     public static void setWindowTitle(String title) {
         Minecraft.getInstance().getWindow().setTitle(title);
     }

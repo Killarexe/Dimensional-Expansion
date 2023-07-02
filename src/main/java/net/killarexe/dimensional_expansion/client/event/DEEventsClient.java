@@ -4,7 +4,6 @@ import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.core.init.DEKeyBindings;
-import net.killarexe.dimensional_expansion.utils.DEUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,7 +27,7 @@ public class DEEventsClient {
     }
 	
 	public static void onKeyInput(InputEvent.Key e) {
-		if(DEKeyBindings.CONFIG_KEY.consumeClick() && (DEUtils.isDev() || DEUtils.isDevAccount()) && DEConfig.devMod.get()) {
+		if(DEKeyBindings.CONFIG_KEY.consumeClick() && (DEConfig.isDev() || DEConfig.isDevAccount()) && DEConfig.devMod.get()) {
 			Minecraft.getInstance().setScreen(new DEConfigScreen(null));
 		}
 	}

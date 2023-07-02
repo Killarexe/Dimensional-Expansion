@@ -47,7 +47,7 @@ public class MoboxItem extends Item {
 			if(loadedEntity instanceof LivingEntity livingEntity) {
 				level.addFreshEntity(livingEntity);
 				item.addTagElement("current_entity", new CompoundTag());
-				setDamage(item, 1);
+				damageItem(item, 1, pContext.getPlayer(), null);
 				return InteractionResult.SUCCESS;
 			}
 			return InteractionResult.PASS;

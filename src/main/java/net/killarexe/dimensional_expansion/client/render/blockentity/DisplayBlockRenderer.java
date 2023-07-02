@@ -5,7 +5,7 @@ import org.joml.Vector3d;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.*;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
-import net.killarexe.dimensional_expansion.utils.DERenderUtils;
+import net.killarexe.dimensional_expansion.io.RenderManager;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -25,7 +25,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         if (pBlockEntity.getItemInSlot(0).equals(ItemStack.EMPTY) || pBlockEntity.getItemInSlot(0).getItem().equals(Items.AIR))
             return;
         Component label = Component.literal(pBlockEntity.getItemInSlot(0).getHoverName().getString());
-        DERenderUtils.renderItem(
+        RenderManager.renderItem(
         		pBlockEntity.getItemInSlot(0),
         		new Vector3d(0.5, 1.5 + pBlockEntity.getYOffset(), 0.5),
         		Axis.XP.rotation(0),
@@ -35,7 +35,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         		0.8f
         );
         if(pBlockEntity.isShowName()) {
-        	DERenderUtils.renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        	RenderManager.renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
         }
     }
 

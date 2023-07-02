@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.utils;
+package net.killarexe.dimensional_expansion.common.world;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.*;
@@ -9,7 +9,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-public class DELevelUtils {
+public class EntityManager {
 	public static boolean teleportEntityTo(ResourceKey<Level> dim, Player player, BlockPos pos) {
 		if(player instanceof ServerPlayer serverPlayer) {
 			if(serverPlayer.level.dimension() != dim && serverPlayer.canChangeDimensions()) {

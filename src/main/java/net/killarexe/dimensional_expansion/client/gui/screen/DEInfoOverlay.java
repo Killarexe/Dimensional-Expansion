@@ -2,8 +2,8 @@ package net.killarexe.dimensional_expansion.client.gui.screen;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.io.WindowManager;
 import net.killarexe.dimensional_expansion.utils.DEMath;
-import net.killarexe.dimensional_expansion.utils.DEWindowUtils;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,13 +25,13 @@ public class DEInfoOverlay {
 	        if(DEConfig.devMod.get()) {
 	        	mc.font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
 	        	mc.font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
-	        	mc.font.draw(event.getPoseStack(), "FPS " + DEWindowUtils.getFPS(), posX, posY + 30, getFPSColor());
+	        	mc.font.draw(event.getPoseStack(), "FPS " + WindowManager.getFPS(), posX, posY + 30, getFPSColor());
 	        }
     	}
     }
     
     private static int getFPSColor() {
-    	int fps = Integer.parseInt(DEWindowUtils.getFPS());
+    	int fps = Integer.parseInt(WindowManager.getFPS());
     	if(fps > 60) {
     		fps = 60;
     	}else if(fps <= 0) {

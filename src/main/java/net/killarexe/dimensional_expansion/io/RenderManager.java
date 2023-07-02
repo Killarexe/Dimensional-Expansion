@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.utils;
+package net.killarexe.dimensional_expansion.io;
 
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
@@ -19,7 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 
-public class DERenderUtils {
+public class RenderManager {
 	public static void renderItem(ItemStack stack, Vector3d translation, Quaternionf rotation, PoseStack matrixStack, MultiBufferSource buffer, Level level, BlockPos pos, float scale) {
         matrixStack.pushPose();
         matrixStack.translate(translation.x, translation.y, translation.z);

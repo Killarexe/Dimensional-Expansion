@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.utils;
+package net.killarexe.dimensional_expansion.io;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.resources.ResourceLocation;
 
-public class DEIOUtils {
+public class TextureDownloader {
 	
 	private static final Map<String, ResourceLocation> DOWNLOADED_TEXTURES = new HashMap<>();
 	

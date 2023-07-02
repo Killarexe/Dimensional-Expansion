@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.client.render.entity;
 import com.mojang.datafixers.util.Pair;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.utils.DEModelUtils;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.ChestRaftModel;
@@ -32,9 +31,9 @@ public class AbstractBoatRenderer extends BoatRenderer {
     }
     
     private ListModel<Boat> createBoatModel(EntityRendererProvider.Context context) {
-    	ModelLayerLocation model = DEModelUtils.createLocation("boat/oak", "main");
+    	ModelLayerLocation model = new ModelLayerLocation(new ResourceLocation("minecraft", "boat/oak"), "main");
         if(has_chest) {
-        	model = DEModelUtils.createLocation("chest_boat/oak", "main");
+        	model = new ModelLayerLocation(new ResourceLocation("minecraft", "chest_boat/oak"), "main");
         }
         ModelPart modelpart = context.bakeLayer(model);
         if(style == Style.BAMBOO) {

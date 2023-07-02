@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.common.config;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
@@ -47,5 +48,13 @@ public final class DEConfig {
         DEMod.LOGGER.info("Init Dimensional Expansion Config");
     	ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
+    }
+    
+    public static boolean isDev(){
+        return Minecraft.getInstance().getLaunchedVersion().equalsIgnoreCase("MOD_DEV");
+    }
+
+    public static boolean isDevAccount(){
+        return Minecraft.getInstance().getUser().getName().equalsIgnoreCase("Killarexe") || Minecraft.getInstance().getUser().getName().equalsIgnoreCase("9e_Docteur");
     }
 }

@@ -107,7 +107,7 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		if(!player.isCreative()) {
 			player.experienceLevel -= costValue;
 		}
-		player.getLevel().playSound(player, getBlockPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, new Random().nextFloat() * 0.1F + 0.9F);
+		player.getLevel().playSound(null, getBlockPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, new Random().nextFloat() * 0.1F + 0.9F);
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 		executor.schedule(() -> {
 			dropAll();
