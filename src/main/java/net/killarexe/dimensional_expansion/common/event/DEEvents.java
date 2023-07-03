@@ -35,10 +35,10 @@ public class DEEvents {
 	
 	public static void addListeners(IEventBus forgeBus, IEventBus modBus) {
         DEMod.LOGGER.info("Set Dimensional Expansion Event Listeners");
-		forgeBus.addListener(DEEvents::diggingEvent);
-        forgeBus.addListener(DEEvents::addTrades);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(modBus, forgeBus));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(modBus, forgeBus));
+		forgeBus.addListener(DEEvents::diggingEvent);
+        forgeBus.addListener(DEEvents::addTrades);
         modBus.addListener(DEEvents::commonSetup);
         modBus.addListener(DEEvents::registerAttributes);
         modBus.addListener(DECreativeTabs::registerCreativeTabs);

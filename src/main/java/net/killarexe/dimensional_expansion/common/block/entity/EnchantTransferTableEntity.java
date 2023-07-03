@@ -69,7 +69,7 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 	public void transferEnchant(Player player) {
 		ItemStack enchantedItem = getItemInSlot(0);
 		ItemStack targetItem = getItemInSlot(1);
-		int costValue = DEMath.clamp(enchantedItem.getEnchantmentValue() + targetItem.getEnchantmentValue(), 1, 5);
+		int costValue = DEMath.clamp(enchantedItem.getBaseRepairCost() + targetItem.getBaseRepairCost(), 1, 5);
 		if(!enchantedItem.isEnchanted() || targetItem.isEmpty() || targetItem.is(Items.AIR)) {
 			return;
 		}
@@ -84,7 +84,7 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		boolean transferedEnchant = false;
 		ItemStack copy = new ItemStack(enchantedItem.getItem());
 		for(Map.Entry<Enchantment, Integer> entry: enchantedItem.getAllEnchantments().entrySet()) {
-			if(entry.getKey().canEnchant(targetItem) || !targetItem.getAllEnchantments().containsKey(entry.getKey())){
+			if(entry.getKey().canEnchant(targetItem) && !targetItem.getAllEnchantments().containsKey(entry.getKey())){
 				targetItem.enchant(entry.getKey(), entry.getValue());
 				transferedEnchant = true;
 			}else {
@@ -101,7 +101,9 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		}
 		copy.setDamageValue(enchantedItem.getDamageValue());
 		copy.setCount(enchantedItem.getCount());
-		copy.setHoverName(enchantedItem.getHoverName());
+		if(enchantedItem.hasCustomHoverName()) {
+			copy.setHoverName(enchantedItem.getHoverName());
+		}
 		extractItem(0);
 		insertItem(0, copy);
 		if(!player.isCreative()) {

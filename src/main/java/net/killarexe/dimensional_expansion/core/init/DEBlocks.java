@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -40,6 +41,7 @@ public class DEBlocks {
     public static final RegistryObject<Block> ORIGIN_DIRT = createBlock("origin_dirt", Material.DIRT, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.GRAVEL, DECreativeTabs.BLOCKS);
     public static final RegistryObject<FarmBlock> ORIGIN_FARMLAND = createCustomBlock("origin_farmland", () -> new OriginFarmlandBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<TallGrassBlock> ORIGIN_GRASS = createGrassBlock("origin_grass", Material.GRASS, MaterialColor.COLOR_BLACK, SoundType.GRASS, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<DoublePlantBlock> ORIGIN_TALL_GRASS = createDoublePlantBlock("origin_tall_grass", Material.GRASS, MaterialColor.COLOR_MAGENTA, SoundType.GRASS, DECreativeTabs.BLOCKS);
     public static final RegistryObject<RotatedPillarBlock> PURPLEHEART_LOG = createPillarBlock("purpleheart_log", Material.WOOD, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_PURPLEHEART_LOG = createPillarBlock("stripped_purpleheart_log", Material.WOOD, MaterialColor.COLOR_BLACK,1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> PURPLEHEART_PLANKS = createBlock("purpleheart_planks", Material.WOOD, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.WOOD, DECreativeTabs.BLOCKS);
@@ -190,8 +192,14 @@ public class DEBlocks {
     }
     
     private static RegistryObject<TallGrassBlock> createGrassBlock(String id, Material material, MaterialColor color, SoundType sound, DECreativeTabs itemGroup){
-    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).lightLevel(s -> 5).instabreak().noCollission().offsetType(BlockBehaviour.OffsetType.XYZ).noOcclusion()));
+    	RegistryObject<TallGrassBlock> block = BLOCK.register(id, () -> new TallGrassBlock(BlockBehaviour.Properties.of(material, color).sound(sound).lightLevel(s -> 5).instabreak().noCollission().offsetType(OffsetType.XYZ).noOcclusion()));
     	DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
+    	return block;
+    }
+    
+    private static RegistryObject<DoublePlantBlock> createDoublePlantBlock(String id, Material material, MaterialColor color, SoundType sound, DECreativeTabs tab){
+    	RegistryObject<DoublePlantBlock> block = BLOCK.register(id, () -> new DoublePlantBlock(BlockBehaviour.Properties.of(material, color).sound(sound).lightLevel(s -> 5).instabreak().noCollission().offsetType(OffsetType.XYZ).noOcclusion()));
+    	DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), tab);
     	return block;
     }
 

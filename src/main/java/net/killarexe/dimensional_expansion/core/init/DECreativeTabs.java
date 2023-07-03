@@ -41,13 +41,13 @@ public enum DECreativeTabs {
     				.build();	
     	});
     	DE_MOBS = event.registerCreativeModeTab(new ResourceLocation(DEMod.MOD_ID, "mobs"), builder -> {
-    		builder.icon(() -> new ItemStack(DEItems.ALLOY_CRYSTAL.get()))
+    		builder.icon(() -> new ItemStack(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get()))
     				.title(Component.translatable("itemGroup.dimensional_expansion.mobs"))
     				.build();	
     	});
     }
    
-    private static void addItemsToCreativeTab(CreativeModeTabEvent.BuildContents event, DECreativeTabs tab, CreativeModeTab creativeTab) {
+    private static void addItemsToCreativeTab(CreativeModeTabEvent.BuildContents event, DECreativeTabs tab) {
     	DEItems.ITEMS.getEntries().forEach((item) -> {
     		if(DEItems.ITEM_TAB_MAP.get(item.getId().getPath()) == tab) {
     			event.accept(item.get());
@@ -57,14 +57,16 @@ public enum DECreativeTabs {
     
     @SubscribeEvent
     public static void addItemsToCreativeTabs(CreativeModeTabEvent.BuildContents e) {
-    	if(e.getTab() == DECreativeTabs.DE_MISC) {
-    		addItemsToCreativeTab(e, MISC, DE_MISC);
-    	}else if(e.getTab() == DECreativeTabs.DE_BLOCKS) {
-    		addItemsToCreativeTab(e, BLOCKS, DE_BLOCKS);
-    	}else if(e.getTab() == DECreativeTabs.DE_COMBAT) {
-    		addItemsToCreativeTab(e, COMBAT, DE_COMBAT);
-    	}else if(e.getTab() == DECreativeTabs.DE_TOOLS) {
-    		addItemsToCreativeTab(e, COMBAT, DE_COMBAT);
+    	if(e.getTab() == DE_MISC) {
+    		addItemsToCreativeTab(e, MISC);
+    	}else if(e.getTab() == DE_BLOCKS) {
+    		addItemsToCreativeTab(e, BLOCKS);
+    	}else if(e.getTab() == DE_COMBAT) {
+    		addItemsToCreativeTab(e, COMBAT);
+    	}else if(e.getTab() == DE_TOOLS) {
+    		addItemsToCreativeTab(e, TOOLS);
+    	}else if(e.getTab() == DE_MOBS) {
+    		addItemsToCreativeTab(e, MOBS);
     	}
     }
 }

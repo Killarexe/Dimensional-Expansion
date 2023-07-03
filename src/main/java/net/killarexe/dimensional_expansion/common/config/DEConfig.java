@@ -55,6 +55,7 @@ public final class DEConfig {
     }
 
     public static boolean isDevAccount(){
-        return Minecraft.getInstance().getUser().getName().equalsIgnoreCase("Killarexe") || Minecraft.getInstance().getUser().getName().equalsIgnoreCase("9e_Docteur");
+    	String playerName = Minecraft.getInstance().getUser().getName();
+        return playerName.equalsIgnoreCase("Killarexe") || playerName.equalsIgnoreCase("9e_Docteur");
     }
 }
