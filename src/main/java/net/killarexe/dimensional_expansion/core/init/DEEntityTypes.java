@@ -35,7 +35,14 @@ public class DEEntityTypes {
     
     public static final RegistryObject<EntityType<HeadedGuardian>> HEADED_GUARDIAN = ENTITY_TYPES.register("headed_guardian",
     		() -> EntityType.Builder.<HeadedGuardian>of(HeadedGuardian::new, MobCategory.MISC)
-    		.sized(0.5f, 0.5f)
-    		.build("headed_gardian")
+    			.sized(0.5f, 0.5f)
+    			.build("headed_gardian")
+    );
+    
+    public static final RegistryObject<EntityType<BlueSandMan>> BLUE_SAND_MAN = ENTITY_TYPES.register("blue_sand_man",
+    		() -> EntityType.Builder.<BlueSandMan>of(BlueSandMan::new, MobCategory.AMBIENT)
+    			.sized(1, 1.5f)
+    			.canSpawnFarFromPlayer()
+    			.build("blue_sand_man")
     );
 }

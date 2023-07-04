@@ -101,10 +101,10 @@ public class DEItems {
     public static final RegistryObject<RecordItem> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESounds.SWEDEN_REMIX, DECreativeTabs.MISC, 0);
     public static final RegistryObject<RecordItem> DOCTOR_WHO_DISC = createDiscItem("doctor_who_disc", 3, DESounds.DOCTOR_WHO, DECreativeTabs.MISC, 0);
 
-    //TODO: Make it working... Turty Worky tutoral or Look at Minecarft's code...
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
-   
+    public static final RegistryObject<ForgeSpawnEggItem> BLUE_SAND_MAN_SPAWN_EGG = createSpawnEggItem("blue_sand_man_spawn_egg", DEEntityTypes.BLUE_SAND_MAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
+    
     public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem());
     
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){

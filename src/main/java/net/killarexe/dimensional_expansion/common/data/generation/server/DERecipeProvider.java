@@ -151,6 +151,13 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 	        .unlockedBy("has_material", has(PURPLEHEART_PLANKS.get()))
 	        .save(r);
         
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ENCHANT_TRANSFER_TABLE.get(), 1).define('#', ORIGIN_FRAME.get()).define('/', SIMIX_INGOT.get())
+        	.pattern("   ")
+        	.pattern("/#/")
+        	.pattern("###")
+        	.unlockedBy("has_material", has(ORIGIN_FRAME.get()))
+        	.save(r);
+        
         createCustomRecipe(r, RecipeCategory.MISC, ALLOY_CRYSTAL.get(), 1,
         		DIAMOND, BASSMITE_GEM.get(), DIAMOND,
         		EMERALD, EMERTYST_GEM.get(), LAPIS_LAZULI,

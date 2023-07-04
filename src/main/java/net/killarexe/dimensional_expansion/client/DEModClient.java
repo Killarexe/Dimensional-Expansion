@@ -6,6 +6,7 @@ import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.client.integration.discord.DiscordUtils;
+import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
 import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
@@ -51,6 +52,7 @@ public class DEModClient {
 	        DEWoodTypes.setWoodTypes();
 	        setWindowTitle("Set Dimensional Expansion Layer Definitions", "Layer Definitions...");
 	        ForgeHooksClient.registerLayerDefinition(HeadedSkeletonModel.LAYER_LOCATION, HeadedSkeletonModel::createBodyLayer);
+	        ForgeHooksClient.registerLayerDefinition(BlueSandManModel.LAYER_LOCATION, BlueSandManModel::createBodyLayer);
 	        setWindowTitle("Set Dimensional Expansion Block Entity Renders", "Block Entity Renders...");
 	        BlockEntityRenderers.register(DEBlockEntityTypes.PURPLEHEART_SIGN.get(), SignRenderer::new);
 	        BlockEntityRenderers.register(DEBlockEntityTypes.DISPLAY_BLOCK.get(), DisplayBlockRenderer::new);
@@ -60,6 +62,7 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.DE_CHEST_BOAT.get(), PurpleheartChestBoatRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeletonRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeletonRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandManRenderer::new);
 	        setWindowTitle("Register Dimensional Expansion Container", "Containers...");
 	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
 	        setWindowTitle("Add Dimensional Expansion Items Properties", "Items Properties...");

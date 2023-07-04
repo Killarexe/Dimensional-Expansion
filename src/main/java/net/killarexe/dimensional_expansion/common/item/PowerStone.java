@@ -37,7 +37,7 @@ public abstract class PowerStone extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
         if(!pPlayer.getCooldowns().isOnCooldown(this) && DEConfig.enablePowerStones.get()) {
-            setDamage(item, 1);
+            item.hurtAndBreak(1, pPlayer, (a) -> a.broadcastBreakEvent(pUsedHand));
             pPlayer.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
             return onUse(pLevel, pPlayer, pUsedHand, item);
         }else{

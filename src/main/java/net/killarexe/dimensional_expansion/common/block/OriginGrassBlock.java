@@ -14,7 +14,6 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
@@ -25,7 +24,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LayerLightEngine;
 
-public class OriginGrassBlock extends Block implements BonemealableBlock{
+public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlock{
 
 	public OriginGrassBlock() {
 		super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK));

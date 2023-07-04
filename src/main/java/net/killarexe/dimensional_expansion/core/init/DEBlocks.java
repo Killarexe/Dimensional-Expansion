@@ -38,7 +38,7 @@ public class DEBlocks {
 
     public static final RegistryObject<Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block", () -> new OriginGrassBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<Block> ORIGIN_DIRT_PATH = createCustomBlock("origin_dirt_path", () -> new OriginDirtPathBlock(), DECreativeTabs.BLOCKS);
-    public static final RegistryObject<Block> ORIGIN_DIRT = createBlock("origin_dirt", Material.DIRT, MaterialColor.COLOR_BLACK, 1, 10, 1, SoundType.GRAVEL, DECreativeTabs.BLOCKS);
+    public static final RegistryObject<Block> ORIGIN_DIRT = createCustomBlock("origin_dirt", () -> new OriginDirtBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<FarmBlock> ORIGIN_FARMLAND = createCustomBlock("origin_farmland", () -> new OriginFarmlandBlock(), DECreativeTabs.BLOCKS);
     public static final RegistryObject<TallGrassBlock> ORIGIN_GRASS = createGrassBlock("origin_grass", Material.GRASS, MaterialColor.COLOR_BLACK, SoundType.GRASS, DECreativeTabs.BLOCKS);
     public static final RegistryObject<DoublePlantBlock> ORIGIN_TALL_GRASS = createDoublePlantBlock("origin_tall_grass", Material.GRASS, MaterialColor.COLOR_MAGENTA, SoundType.GRASS, DECreativeTabs.BLOCKS);

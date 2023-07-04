@@ -14,7 +14,7 @@ public class HeadedSkeletonRenderer<T extends HeadedSkeleton> extends MobRendere
 	public static final ResourceLocation GUARDIAN_TEXTURE = new ResourceLocation(DEMod.MOD_ID, "textures/entity/headed/guardian.png"); 
 	
 	public HeadedSkeletonRenderer(Context pContext) {
-		super(pContext, new HeadedSkeletonModel<>(pContext.bakeLayer(HeadedSkeletonModel.LAYER_LOCATION)), 1.0F);
+		super(pContext, new HeadedSkeletonModel<>(pContext.bakeLayer(HeadedSkeletonModel.LAYER_LOCATION)), 0.5F);
 	}
 
 	@Override

@@ -47,7 +47,7 @@ public class MoboxItem extends Item {
 			if(loadedEntity instanceof LivingEntity livingEntity) {
 				level.addFreshEntity(livingEntity);
 				item.addTagElement("current_entity", new CompoundTag());
-				damageItem(item, 1, pContext.getPlayer(), null);
+				item.hurtAndBreak(1, pContext.getPlayer(), (a) -> a.broadcastBreakEvent(pContext.getHand()));
 				return InteractionResult.SUCCESS;
 			}
 			return InteractionResult.PASS;

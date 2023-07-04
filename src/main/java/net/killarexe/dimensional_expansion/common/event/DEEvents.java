@@ -28,6 +28,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
+import net.killarexe.dimensional_expansion.common.entity.BlueSandMan;
 import net.killarexe.dimensional_expansion.common.entity.HeadedSkeleton;
 import net.killarexe.dimensional_expansion.common.event.DEVillagerTrades.*;
 
@@ -151,5 +152,6 @@ public class DEEvents {
     private static void registerAttributes(EntityAttributeCreationEvent e) {
     	e.put(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
     	e.put(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeleton.ATTRIBUTES.build());
+    	e.put(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandMan.ATTRIBUTES.build());
     }
 }

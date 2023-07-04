@@ -139,6 +139,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.MOBOX.get(), "Mobox");
         add(DEItems.HEADED_SKELETON_SPAWN_EGG.get(), "Headed Skeleton Spawn Egg");
         add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");
+        add(DEItems.BLUE_SAND_MAN_SPAWN_EGG.get(), "Blue Sand Man Spawn Egg");
         
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
@@ -151,6 +152,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("itemGroup." + DEMod.MOD_ID + ".tools", "DE Tools");
         add("itemGroup." + DEMod.MOD_ID + ".misc", "DE Misc");
         add("itemGroup." + DEMod.MOD_ID + ".blocks", "DE Blocks");
+        add("itemGroup." + DEMod.MOD_ID + ".mobs", "Dimensional Expansion Mobs");
 
         /*Screens*/
         add("config." + DEMod.MOD_ID + ".title", "Dimensional Expansion Config");
@@ -221,6 +223,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("entity." + DEMod.MOD_ID + ".purpleheart_chest_boat", "Purpleheart Chest Boat");
         add("entity." + DEMod.MOD_ID + ".headed_skeleton", "Headed Skeleton");
         add("entity." + DEMod.MOD_ID + ".headed_guardian", "Headed Guardian");
+        add("entity." + DEMod.MOD_ID + ".blue_sand_man", "Blue Sand Man");
         
         /*
          * Potions
