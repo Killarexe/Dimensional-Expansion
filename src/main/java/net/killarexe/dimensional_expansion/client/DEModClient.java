@@ -8,6 +8,8 @@ import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScre
 import net.killarexe.dimensional_expansion.client.integration.discord.DiscordUtils;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
+import net.killarexe.dimensional_expansion.client.models.JugerModel;
+import net.killarexe.dimensional_expansion.client.models.MouvetModel;
 import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
@@ -53,6 +55,8 @@ public class DEModClient {
 	        setWindowTitle("Set Dimensional Expansion Layer Definitions", "Layer Definitions...");
 	        ForgeHooksClient.registerLayerDefinition(HeadedSkeletonModel.LAYER_LOCATION, HeadedSkeletonModel::createBodyLayer);
 	        ForgeHooksClient.registerLayerDefinition(BlueSandManModel.LAYER_LOCATION, BlueSandManModel::createBodyLayer);
+	        ForgeHooksClient.registerLayerDefinition(MouvetModel.LAYER_LOCATION, MouvetModel::createBodyLayer);
+	        ForgeHooksClient.registerLayerDefinition(JugerModel.LAYER_LOCATION, JugerModel::createBodyLayer);
 	        setWindowTitle("Set Dimensional Expansion Block Entity Renders", "Block Entity Renders...");
 	        BlockEntityRenderers.register(DEBlockEntityTypes.PURPLEHEART_SIGN.get(), SignRenderer::new);
 	        BlockEntityRenderers.register(DEBlockEntityTypes.DISPLAY_BLOCK.get(), DisplayBlockRenderer::new);
@@ -63,6 +67,8 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeletonRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeletonRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandManRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.MOUVET.get(), MouvetRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.JUGER.get(), JugerRenderer::new);
 	        setWindowTitle("Register Dimensional Expansion Container", "Containers...");
 	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
 	        setWindowTitle("Add Dimensional Expansion Items Properties", "Items Properties...");

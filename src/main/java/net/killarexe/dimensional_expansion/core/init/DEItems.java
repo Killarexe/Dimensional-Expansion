@@ -104,6 +104,8 @@ public class DEItems {
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> BLUE_SAND_MAN_SPAWN_EGG = createSpawnEggItem("blue_sand_man_spawn_egg", DEEntityTypes.BLUE_SAND_MAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
+    public static final RegistryObject<ForgeSpawnEggItem> MOUVET_SPAWN_EGG = createSpawnEggItem("mouvet_spawn_egg", DEEntityTypes.MOUVET, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
+    public static final RegistryObject<ForgeSpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     
     public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem());
     

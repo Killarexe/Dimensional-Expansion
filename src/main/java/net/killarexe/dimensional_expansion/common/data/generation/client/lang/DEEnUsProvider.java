@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.data.generation.client.lang;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.core.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -140,6 +141,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.HEADED_SKELETON_SPAWN_EGG.get(), "Headed Skeleton Spawn Egg");
         add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");
         add(DEItems.BLUE_SAND_MAN_SPAWN_EGG.get(), "Blue Sand Man Spawn Egg");
+        add(DEItems.MOUVET_SPAWN_EGG.get(), "Mouvet Spawn Egg");
+        add(DEItems.JUGER_SPAWN_EGG.get(), "Juger Spawn Egg;");
         
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
@@ -224,6 +227,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add("entity." + DEMod.MOD_ID + ".headed_skeleton", "Headed Skeleton");
         add("entity." + DEMod.MOD_ID + ".headed_guardian", "Headed Guardian");
         add("entity." + DEMod.MOD_ID + ".blue_sand_man", "Blue Sand Man");
+        add("entity." + DEMod.MOD_ID + ".mouvet", "Mouvet");
+        add(DEEntityTypes.JUGER.get(), "Juger");
         
         /*
          * Potions

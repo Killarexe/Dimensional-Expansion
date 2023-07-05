@@ -30,6 +30,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.entity.BlueSandMan;
 import net.killarexe.dimensional_expansion.common.entity.HeadedSkeleton;
+import net.killarexe.dimensional_expansion.common.entity.Juger;
+import net.killarexe.dimensional_expansion.common.entity.Mouvet;
 import net.killarexe.dimensional_expansion.common.event.DEVillagerTrades.*;
 
 public class DEEvents {
@@ -153,5 +155,7 @@ public class DEEvents {
     	e.put(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
     	e.put(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeleton.ATTRIBUTES.build());
     	e.put(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandMan.ATTRIBUTES.build());
+    	e.put(DEEntityTypes.MOUVET.get(), Mouvet.ATTRIBUTES.build());
+    	e.put(DEEntityTypes.JUGER.get(), Juger.ATTRIBUTES.build());
     }
 }

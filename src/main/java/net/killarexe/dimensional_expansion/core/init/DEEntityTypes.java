@@ -45,4 +45,18 @@ public class DEEntityTypes {
     			.canSpawnFarFromPlayer()
     			.build("blue_sand_man")
     );
+    
+    public static final RegistryObject<EntityType<Mouvet>> MOUVET = ENTITY_TYPES.register("mouvet",
+    		() -> EntityType.Builder.<Mouvet>of(Mouvet::new, MobCategory.AMBIENT)
+    			.sized(0.5f, 0.5f)
+    			.canSpawnFarFromPlayer()
+    			.build("mouvet")
+    );
+    
+    public static final RegistryObject<EntityType<Juger>> JUGER = ENTITY_TYPES.register("juger",
+    		() -> EntityType.Builder.<Juger>of(Juger::new, MobCategory.MONSTER)
+    		.sized(2.0f, 0.5f)
+    		.canSpawnFarFromPlayer()
+    		.build("juger")
+    );
 }
