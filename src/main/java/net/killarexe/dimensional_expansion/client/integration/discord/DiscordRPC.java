@@ -6,7 +6,7 @@ import net.killarexe.dimensional_expansion.client.integration.discord.entities.R
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.minecraft.SharedConstants;
 
-public class DiscordUtils {
+public class DiscordRPC {
 	public static final RichPresence.Builder DEFAULT_BUILDER =  new RichPresence.Builder()
 			.setState("Minecraft: " + SharedConstants.getCurrentVersion().getName())
 			.setDetails("Playing Dimensional Expansion v" + DEMod.VERSION)

@@ -266,12 +266,6 @@ public class DEItems {
     	ItemProperties.register(item, new ResourceLocation("duration"), new ClampedItemPropertyFunction() {
 			@Override
 			public float unclampedCall(ItemStack pStack, ClientLevel pLevel, LivingEntity pEntity, int pSeed) {
-				if(pLevel == null && pEntity.getLevel() instanceof @SuppressWarnings("resource") ClientLevel level) {
-					pLevel = level;
-				}
-				if(pLevel == null) {
-					return 0;
-				}
 				if(pEntity instanceof Player player) {
 					if(player.hasEffect(DEPoitions.REMOTE_EFFECT.get())) {
 						int value = DEMath.clamp(player.getEffect(DEPoitions.REMOTE_EFFECT.get()).getDuration() / 20, 0, 30);

@@ -3,6 +3,7 @@
 [![Github Repo Size](https://img.shields.io/github/repo-size/Killarexe/Dimensional-Expansion)]()
 [![Github Repo Issues](https://img.shields.io/github/issues/Killarexe/Dimensional-Expansion)]()
 [![Github Repo Stars](https://img.shields.io/github/stars/Killarexe/Dimensional-Expansion)]()
+![GitHub release](https://img.shields.io/github/release/Killarexe/Dimensional-Expansion.svg)
 [![Github License](https://img.shields.io/github/license/Killarexe/Dimensional-Expansion.svg)]()
 
 ## What is Dimensional Expansion?

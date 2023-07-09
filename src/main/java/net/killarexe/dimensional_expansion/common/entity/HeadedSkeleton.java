@@ -30,6 +30,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.event.ForgeEventFactory;
 
 public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	
@@ -54,13 +55,12 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
 			MobSpawnType pReason, SpawnGroupData pSpawnData, CompoundTag pDataTag) {
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
 		this.goalSelector.addGoal(4, new RangedBowAttackGoal<HeadedSkeleton>(this, 1.0D, 20, 15.0F));
-		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+		return ForgeEventFactory.onFinalizeSpawn(this, pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
 	}
 	
 	@Override
@@ -80,7 +80,7 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
 	    }
 	    double d0 = pTarget.getX() - this.getX();
-	    double d1 = pTarget.getY(0.15151515152D) - abstractarrow.getY();
+	    double d1 = pTarget.getY(0.33333333333D) - abstractarrow.getY() - 1;
 	    double d2 = pTarget.getZ() - this.getZ();
 	    double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 	    lookAt(pTarget, 180, 180);

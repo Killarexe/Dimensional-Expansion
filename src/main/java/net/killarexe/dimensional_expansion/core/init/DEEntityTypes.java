@@ -55,7 +55,7 @@ public class DEEntityTypes {
     
     public static final RegistryObject<EntityType<Juger>> JUGER = ENTITY_TYPES.register("juger",
     		() -> EntityType.Builder.<Juger>of(Juger::new, MobCategory.MONSTER)
-    		.sized(2.0f, 0.5f)
+    		.sized(1.25f, 0.5f)
     		.canSpawnFarFromPlayer()
     		.build("juger")
     );

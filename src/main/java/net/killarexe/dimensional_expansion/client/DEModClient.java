@@ -5,7 +5,7 @@ import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
-import net.killarexe.dimensional_expansion.client.integration.discord.DiscordUtils;
+import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPC;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
 import net.killarexe.dimensional_expansion.client.models.JugerModel;
@@ -80,14 +80,14 @@ public class DEModClient {
 	        );
 	        if(DEConfig.discordRPC.get()) {
 	        	setWindowTitle("Init Dimensional Expansion Discord RPC", "Discord RPC...");
-	        	DiscordUtils.start();
+	        	DiscordRPC.start();
 	        }
 	        setWindowTitle("Dimensional Expansion Client Setup Complete!", "Client Setup Complete!");
     	});
     }
     
     private static void setWindowTitle(String loggerMessage, String title) {
-    	LOGGER.info(loggerMessage);
+    	LOGGER.debug(loggerMessage);
     	WindowManager.setWindowTitle("Dimensional Expansion " + DEMod.VERSION + " " + title);
     }
 }

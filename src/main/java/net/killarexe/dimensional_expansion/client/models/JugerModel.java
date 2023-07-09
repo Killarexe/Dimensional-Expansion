@@ -4,10 +4,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.minecraft.client.animation.AnimationChannel;
-import net.minecraft.client.animation.AnimationDefinition;
-import net.minecraft.client.animation.Keyframe;
-import net.minecraft.client.animation.KeyframeAnimations;
+import net.killarexe.dimensional_expansion.client.animations.JugerAnimations;
+import net.killarexe.dimensional_expansion.common.entity.Juger;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -18,72 +16,24 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.util.Mth;
 
 //Made with Blockbench 4.7.4
 //Exported for Minecraft version 1.17 or later with Mojang mappings
 //Paste this class into your mod and generate all required imports
 
 
-public class JugerModel<T extends Entity> extends HierarchicalModel<T> {
+public class JugerModel<T extends Juger> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DEMod.MOD_ID, "juger"), "juger");
 	
-	public static final AnimationDefinition JUGER_WALK = AnimationDefinition.Builder.withLength(1f).looping()
-			.addAnimation("left_legs",
-				new AnimationChannel(AnimationChannel.Targets.ROTATION,
-					new Keyframe(0f, KeyframeAnimations.degreeVec(0f, -15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(0.5f, KeyframeAnimations.degreeVec(0f, 15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(1f, KeyframeAnimations.degreeVec(0f, -15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM)))
-			.addAnimation("right_legs",
-				new AnimationChannel(AnimationChannel.Targets.ROTATION,
-					new Keyframe(0f, KeyframeAnimations.degreeVec(0f, -15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(0.5f, KeyframeAnimations.degreeVec(0f, 15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(1f, KeyframeAnimations.degreeVec(0f, -15f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM))).build();
-	
-	public static final AnimationDefinition JUGER_ATTACK = AnimationDefinition.Builder.withLength(0.25f)
-			.addAnimation("up",
-				new AnimationChannel(AnimationChannel.Targets.ROTATION,
-					new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.LINEAR),
-					new Keyframe(0.125f, KeyframeAnimations.degreeVec(-25f, 0f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(0.25f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.LINEAR)))
-			.addAnimation("down",
-				new AnimationChannel(AnimationChannel.Targets.ROTATION,
-					new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.LINEAR),
-					new Keyframe(0.125f, KeyframeAnimations.degreeVec(25f, 0f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM),
-					new Keyframe(0.25f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.LINEAR))).build();
-	
-	public static final AnimationDefinition JUGER_STAND = AnimationDefinition.Builder.withLength(2f).looping()
-			.addAnimation("body",
-				new AnimationChannel(AnimationChannel.Targets.POSITION, 
-					new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM), 
-					new Keyframe(1f, KeyframeAnimations.posVec(0f, -0.25f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM), 
-					new Keyframe(2f, KeyframeAnimations.posVec(0f, 0f, 0f),
-						AnimationChannel.Interpolations.CATMULLROM))).build();
-	
 	private final ModelPart head;
-	private final ModelPart body;
-	private final ModelPart bb_main;
+	private final ModelPart root;
 	
 
 	public JugerModel(ModelPart root) {
+		this.root = root;
 		this.head = root.getChild("head");
-		this.body = root.getChild("body");
-		this.bb_main = root.getChild("bb_main");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -146,18 +96,23 @@ public class JugerModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		animateWalk(JUGER_WALK, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+		root().getAllParts().forEach(ModelPart::resetPose);
+		animateWalk(JugerAnimations.JUGER_WALK, limbSwing, limbSwingAmount, 1.0F, 1.0F);
+		animate(entity.getAttackState(), JugerAnimations.JUGER_ATTACK, 1.0F);
+		animate(entity.getStandState(), JugerAnimations.JUGER_STAND, 1.0F);
+		netHeadYaw = Mth.clamp(netHeadYaw, -30.0F, 30.0F);
+		headPitch = Mth.clamp(headPitch, -25.0F, 45.0F);
+	    this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
+	    this.head.xRot = headPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		//bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		this.root().render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 
 	@Override
 	public ModelPart root() {
-		return bb_main;
+		return root;
 	}
 }
