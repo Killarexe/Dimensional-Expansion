@@ -37,7 +37,7 @@ public class Juger extends Monster{
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 2.0F, true));
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.25F, true));
 		this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 
@@ -62,13 +62,13 @@ public class Juger extends Monster{
 	
 	private void handleAnimationStates() {
 		STAND_STATE.animateWhen(getPose() == Pose.STANDING && !ATTACK_STATE.isStarted(), this.tickCount);
-		ATTACK_STATE.updateTime(XP_REWARD_HUGE, XP_REWARD_BOSS);
 	}
 	
 	@Override
 	public boolean doHurtTarget(Entity pEntity) {
-		STAND_STATE.ifStarted((state) -> state.stop());
-		ATTACK_STATE.startIfStopped(tickCount);
+		STAND_STATE.stop();
+		ATTACK_STATE.stop();
+		ATTACK_STATE.start(tickCount);
 		return super.doHurtTarget(pEntity);
 	}
 	
