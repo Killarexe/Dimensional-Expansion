@@ -26,7 +26,7 @@ public class DEConfigScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
     	WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Config screen");
         this.renderBackground(pPoseStack);
-        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".title"), width/2, 10, 0xffffff);
+
         if(clientButton.isHoveredOrFocused()) {
         	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".client_button_desc"), pMouseX, pMouseY);
         }
@@ -34,6 +34,7 @@ public class DEConfigScreen extends Screen {
         	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".common_button_desc"), pMouseX, pMouseY);
         }
         
+        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".title"), width/2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 

@@ -2,18 +2,23 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
+import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.io.WindowManager;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.gui.widget.ForgeSlider;
 
 @OnlyIn(Dist.CLIENT)
 public class DECommonConfigScreen extends Screen {
 
     private final Screen previousScreen;
     private Button cancelButton, applyButton;
+    private SwitchButton enablePowerStones;
+    private ForgeSlider powerStonesDelay;
 
     protected DECommonConfigScreen(Screen previousScreen) {
         super(Component.empty());
@@ -22,10 +27,20 @@ public class DECommonConfigScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-    	WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
         renderBackground(pPoseStack);
+        WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
+        
+        if(enablePowerStones.isHovered()) {
+        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".enable_power_stones_desc"), pMouseX, pMouseY);
+        }
+        
+        powerStonesDelay.active = enablePowerStones.isEnabled();
         drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".common"), width/2, 10, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        if(powerStonesDelay.isHovered()) {
+        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".power_stones_delay_desc"), pMouseX, pMouseY);
+        }
     }
 
     @Override
@@ -38,13 +53,40 @@ public class DECommonConfigScreen extends Screen {
         		.bounds(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20)
         		.build();
         
+        enablePowerStones = new SwitchButton(
+        		this.width / 2 - 200,
+        		this.height / 4 + 8,
+        		20,
+        		20,
+        		Component.translatable("config." + DEMod.MOD_ID + ".enable_power_stones"),
+        		DEConfig.moddedScreens.get()
+        );
+        
+        powerStonesDelay = new ForgeSlider(
+        		this.width / 2 - 200,
+        		this.height / 4 + 78,
+        		256,
+        		20,
+        		Component.translatable("config." + DEMod.MOD_ID + ".power_stone_delay"),
+        		Component.translatable(DEMod.MOD_ID + ".seconds"),
+        		50,
+        		200,
+        		DEConfig.powerStoneDelay.get(),
+        		true
+        );
+        		
+        
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
+        addRenderableWidget(enablePowerStones);
+        addRenderableWidget(powerStonesDelay);
 
         super.init();
     }
 
     private void apply(){
+    	DEConfig.enablePowerStones.set(enablePowerStones.isEnabled());
+    	DEConfig.powerStoneDelay.set(powerStonesDelay.getValueInt());
         onClose();
     }
 

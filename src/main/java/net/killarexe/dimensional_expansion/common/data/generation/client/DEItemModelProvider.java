@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -78,6 +79,13 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.PURPLE_BERRY);
     	oneLayerItem(DEItems.SAVORLEAF);
     	oneLayerItem(DEItems.VIOLET_CARROT);
+    	oneLayerItem(DEItems.MOBOX);
+    	
+    	spawnEgg(DEItems.HEADED_SKELETON_SPAWN_EGG);
+    	spawnEgg(DEItems.HEADED_GUARDIAN_SPAWN_EGG);
+    	spawnEgg(DEItems.BLUE_SAND_MAN_SPAWN_EGG);
+    	spawnEgg(DEItems.MOUVET_SPAWN_EGG);
+    	spawnEgg(DEItems.JUGER_SPAWN_EGG);
     	
         //Block Items
         simpleBlockItem(DEBlocks.PALON_ORE);
@@ -151,6 +159,10 @@ public class DEItemModelProvider extends ItemModelProvider {
         }else{
             DEMod.LOGGER.warn("Failed to find texture for: " + item.getId().toString());
         }
+    }
+    
+    private void spawnEgg(RegistryObject<ForgeSpawnEggItem> item) {
+    	getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/template_spawn_egg")));
     }
 
     private void oneLayerItem(RegistryObject<?> item, boolean handheld){

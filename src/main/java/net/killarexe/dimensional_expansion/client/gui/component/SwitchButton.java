@@ -24,7 +24,7 @@ public class SwitchButton extends AbstractButton{
 	
 	public static final SwitchButton.OnTooltip NO_TOOLTIP = new SwitchButton.OnTooltip() {
 		@Override
-		public void onTooltip(SwitchButton pButton, PoseStack pPoseStack, int pMouseX, int pMouseY, String tooltipMessage) {
+		public void onTooltip(SwitchButton pButton, PoseStack pPoseStack, int pMouseX, int pMouseY, Component tooltipMessage) {
 
 		}
 	};
@@ -33,7 +33,7 @@ public class SwitchButton extends AbstractButton{
 	public static final int DEFAULT_HEIGHT = 20;
 	protected boolean enabled;
 	protected final SwitchButton.OnTooltip onTooltip;
-	
+
 	public SwitchButton(int x, int y, Component message, boolean defaultValue) {
 		this(x, y, DEFAULT_WIDTH, DEFAULT_HEIGHT, message, defaultValue);
 	}
@@ -79,7 +79,7 @@ public class SwitchButton extends AbstractButton{
 	}
 
 	public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-		String tooltipMessage = enabled ? "ON" : "OFF"; 
+		Component tooltipMessage = enabled ? Component.translatable("minecraft.on") : Component.translatable("minecraft.off");
 		this.onTooltip.onTooltip(this, pPoseStack, pMouseX, pMouseY, tooltipMessage);
 	}
 	
@@ -95,7 +95,7 @@ public class SwitchButton extends AbstractButton{
 
 	@OnlyIn(Dist.CLIENT)
 	public interface OnTooltip {
-		void onTooltip(SwitchButton pButton, PoseStack pPoseStack, int pMouseX, int pMouseY, String tooltipMessage);
+		void onTooltip(SwitchButton pButton, PoseStack pPoseStack, int pMouseX, int pMouseY, Component tooltipMessage);
 	    default void narrateTooltip(Consumer<Component> pContents) {}
 	}
 	

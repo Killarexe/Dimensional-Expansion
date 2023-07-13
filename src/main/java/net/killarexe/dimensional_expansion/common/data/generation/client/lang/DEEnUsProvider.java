@@ -142,7 +142,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");
         add(DEItems.BLUE_SAND_MAN_SPAWN_EGG.get(), "Blue Sand Man Spawn Egg");
         add(DEItems.MOUVET_SPAWN_EGG.get(), "Mouvet Spawn Egg");
-        add(DEItems.JUGER_SPAWN_EGG.get(), "Juger Spawn Egg;");
+        add(DEItems.JUGER_SPAWN_EGG.get(), "Juger Spawn Egg");
         
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
@@ -172,13 +172,22 @@ public class DEEnUsProvider extends LanguageProvider {
         add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
         add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
         
-        add("button." + DEMod.MOD_ID + ".client_button_desc", "");
-        add("button." + DEMod.MOD_ID + ".common_button_desc", "");
+        add("button." + DEMod.MOD_ID + ".client_button_desc", "Dimensional Expansion §3Client §fConfig");
+        add("button." + DEMod.MOD_ID + ".common_button_desc", "Dimensional Expansion §6Common §fConfig");
 
         add("config." + DEMod.MOD_ID + ".show_version", "Show Version");
         add("config." + DEMod.MOD_ID + ".discord_rpc", "Discord RPC");
         add("config." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
         add("config." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
+        add("config." + DEMod.MOD_ID + ".enable_power_stones", "Enable Power Stones");
+        add("config." + DEMod.MOD_ID + ".power_stone_delay", "Power Stones Delay");
+        
+        add("config." + DEMod.MOD_ID + ".show_version_desc", "Shows the version on the screen.");
+        add("config." + DEMod.MOD_ID + ".discord_rpc_desc", "Shows on your Discord profile my mod.");
+        add("config." + DEMod.MOD_ID + ".modded_screens_desc", "Adds a custom title screen.");
+        add("config." + DEMod.MOD_ID + ".dev_mod_desc", "Developper Mode.");
+        add("config." + DEMod.MOD_ID + ".enable_power_stones_desc", "Enable ALL Power Stones (Not recommended on big servers!)");
+        add("config." + DEMod.MOD_ID + ".power_stone_delay_desc", "Power Stones Delay on Seconds");
         
         /*KeyBinds*/
         add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");

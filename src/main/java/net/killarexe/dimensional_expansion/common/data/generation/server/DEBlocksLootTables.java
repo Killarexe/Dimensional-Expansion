@@ -38,6 +38,7 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
 
         add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_GRASS_BLOCK.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
         add(ORIGIN_GRASS.get(), (block) -> {return createGrassDrops(ORIGIN_GRASS.get());});
+        add(ORIGIN_TALL_GRASS.get(), (block) -> {return createGrassDrops(block);});
         dropSelf(ORIGIN_DIRT.get());
         add(ORIGIN_FARMLAND.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_FARMLAND.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
         add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT_PATH.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
