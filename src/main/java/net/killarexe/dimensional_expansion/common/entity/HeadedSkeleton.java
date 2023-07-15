@@ -88,5 +88,4 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	    this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 	    this.level.addFreshEntity(abstractarrow);
 	}
-
 }

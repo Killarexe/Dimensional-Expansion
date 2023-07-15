@@ -134,7 +134,7 @@ public class JugerModel<T extends Juger> extends HierarchicalModel<T> {
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		this.root().render(poseStack, vertexConsumer, packedLight, packedOverlay);
+		root().render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 
 	@Override

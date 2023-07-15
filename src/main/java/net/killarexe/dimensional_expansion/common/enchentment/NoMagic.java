@@ -18,7 +18,7 @@ public class NoMagic extends Enchantment{
 	}
 	
 	@Override
-	public void doPostAttack(LivingEntity livingEntity, Entity p_44687_, int p_44688_) {
+	public void doPostAttack(LivingEntity livingEntity, Entity entity, int level) {
 		livingEntity.removeAllEffects();
 	}
 	

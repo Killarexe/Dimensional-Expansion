@@ -65,7 +65,7 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.DE_BOAT.get(), PurpleheartBoatRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.DE_CHEST_BOAT.get(), PurpleheartChestBoatRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeletonRenderer::new);
-	        EntityRenderers.register(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeletonRenderer::new);
+	        EntityRenderers.register(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedGuardianRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandManRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.MOUVET.get(), MouvetRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.JUGER.get(), JugerRenderer::new);
