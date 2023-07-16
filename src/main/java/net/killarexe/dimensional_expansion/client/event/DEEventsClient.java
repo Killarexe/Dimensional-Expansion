@@ -3,7 +3,7 @@ package net.killarexe.dimensional_expansion.client.event;
 import net.killarexe.dimensional_expansion.client.gui.screen.DETitleScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
-import net.killarexe.dimensional_expansion.core.init.DEKeyBindings;
+import net.killarexe.dimensional_expansion.init.DEKeyBindings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraftforge.api.distmarker.Dist;

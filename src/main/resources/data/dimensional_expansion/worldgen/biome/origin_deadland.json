@@ -1,9 +1,9 @@
 {
-  "temperature": 2,
-  "downfall": 0.4,
+  "temperature": 1,
+  "downfall": 0,
   "has_precipitation": false,
   "effects": {
-    "sky_color": 7907327,
+    "sky_color": 8103167,
     "fog_color": 12638463,
     "water_color": 4159204,
     "water_fog_color": 329011,
@@ -14,16 +14,7 @@
       "replace_current_music": false
     }
   },
-  "spawners": {
-    "ambient": [
-      {
-        "type": "dimensional_expansion:blue_sand_man",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 5
-      }
-    ]
-  },
+  "spawners": {},
   "spawn_costs": {},
   "carvers": {
     "air": [
@@ -32,18 +23,5 @@
       "minecraft:canyon"
     ]
   },
-  "features": [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [
-      "dimensional_expansion:purpleish_cactus_placed"
-    ]
-  ]
+  "features": []
 }

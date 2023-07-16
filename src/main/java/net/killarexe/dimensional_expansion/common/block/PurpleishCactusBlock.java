@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;

@@ -3,7 +3,7 @@ package net.killarexe.dimensional_expansion.common.block;
 import java.util.List;
 import java.util.Optional;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;

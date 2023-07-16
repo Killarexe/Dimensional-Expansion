@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.network.chat.Component;

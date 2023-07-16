@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
 
 import com.google.common.collect.ImmutableSet;
 

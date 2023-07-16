@@ -1,7 +1,5 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -17,10 +15,12 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
-import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
+import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 
 import net.killarexe.dimensional_expansion.common.block.SavorleafCropBlock;
 import net.killarexe.dimensional_expansion.common.block.VioletCarrotCropBlock;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEItems;
 
 public class DEBlocksLootTables extends VanillaBlockLoot {
 

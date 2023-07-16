@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block;
 
-import net.killarexe.dimensional_expansion.core.init.DEDamageTypes;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEDamageTypes;
+import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

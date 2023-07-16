@@ -1,6 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item.material;
 
-import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 

@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.common.block;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

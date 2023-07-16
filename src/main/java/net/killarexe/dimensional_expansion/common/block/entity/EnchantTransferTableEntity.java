@@ -8,7 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
+import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;

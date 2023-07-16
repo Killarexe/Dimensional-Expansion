@@ -5,7 +5,7 @@ import java.util.Optional;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginPortalShape;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginTeleporter;
-import net.killarexe.dimensional_expansion.core.init.DEDimensions;
+import net.killarexe.dimensional_expansion.init.DEDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;

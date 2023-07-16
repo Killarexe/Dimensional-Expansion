@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block;
 
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
-import net.killarexe.dimensional_expansion.core.init.DEBlockEntityTypes;
+import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

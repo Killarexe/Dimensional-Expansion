@@ -2,8 +2,8 @@ package net.killarexe.dimensional_expansion.common.container;
 
 import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.killarexe.dimensional_expansion.common.container.slot.ResultSlot;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEMenuTypes;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEMenuTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;

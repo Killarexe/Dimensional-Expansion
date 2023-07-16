@@ -65,7 +65,7 @@ public class BlueSandManModel<T extends BlueSandMan> extends EntityModel<T> {
 		if (f < 1.0F) {
 			f = 1.0F;
 		}
-		head.xRot = headPitch * ((float)Math.PI / 180F);
+		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		rightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
 		leftArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
 	}

@@ -7,7 +7,7 @@ import java.util.function.Function;
 import com.google.common.collect.ImmutableSet;
 
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

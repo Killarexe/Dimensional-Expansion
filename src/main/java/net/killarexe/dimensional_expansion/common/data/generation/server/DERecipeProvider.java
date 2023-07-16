@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -12,9 +12,9 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
 
+import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
+import static net.killarexe.dimensional_expansion.init.DEItems.*;
 import static net.minecraft.world.item.Items.*;
-import static net.killarexe.dimensional_expansion.core.init.DEItems.*;
-import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
 public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
 

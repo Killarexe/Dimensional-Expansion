@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.common.item;
 
 import java.util.Random;
 
-import net.killarexe.dimensional_expansion.core.init.DEPoitions;
+import net.killarexe.dimensional_expansion.init.DEPoitions;
 import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

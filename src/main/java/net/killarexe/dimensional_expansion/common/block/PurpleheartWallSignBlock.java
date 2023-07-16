@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block;
 
 import net.killarexe.dimensional_expansion.common.block.entity.PurpleheartSignBlockEntity;
-import net.killarexe.dimensional_expansion.core.init.DEWoodTypes;
+import net.killarexe.dimensional_expansion.init.DEWoodTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.WallSignBlock;

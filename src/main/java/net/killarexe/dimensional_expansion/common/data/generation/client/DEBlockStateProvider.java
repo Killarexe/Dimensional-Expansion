@@ -1,5 +1,7 @@
 package net.killarexe.dimensional_expansion.common.data.generation.client;
 
+import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
+
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -7,8 +9,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import static net.killarexe.dimensional_expansion.core.init.DEBlocks.*;
 
 public class DEBlockStateProvider extends BlockStateProvider{
 	

@@ -1,9 +1,9 @@
 package net.killarexe.dimensional_expansion.common.data.generation.client.lang;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEEntityTypes;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEEntityTypes;
+import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 

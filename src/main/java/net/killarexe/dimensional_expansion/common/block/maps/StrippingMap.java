@@ -1,9 +1,9 @@
-package net.killarexe.dimensional_expansion.common.block;
+package net.killarexe.dimensional_expansion.common.block.maps;
 
 import com.google.common.collect.ImmutableMap;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
 

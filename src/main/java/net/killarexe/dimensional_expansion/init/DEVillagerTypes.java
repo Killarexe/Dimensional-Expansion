@@ -1,14 +1,25 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.event.DEVillagerTrades;
+import net.killarexe.dimensional_expansion.common.event.villager.trades.EmeraldForItems;
+import net.killarexe.dimensional_expansion.common.event.villager.trades.EmeraldsForVillagerTypeItem;
+import net.killarexe.dimensional_expansion.common.event.villager.trades.EnchantedItemForEmeralds;
+import net.killarexe.dimensional_expansion.common.event.villager.trades.ItemsAndEmeraldsToItems;
+import net.killarexe.dimensional_expansion.common.event.villager.trades.ItemsForEmeralds;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -16,13 +27,9 @@ import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.registries.*;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Nullable;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class DEVillagerTypes {
 
@@ -80,26 +87,26 @@ public class DEVillagerTypes {
 	        		new Int2ObjectOpenHashMap<>(
 	        				ImmutableMap.of(
 	        						1,new VillagerTrades.ItemListing[]{
-	        								new DEVillagerTrades.EmeraldForItems(Items.STRING, 20, 16, 2),
-	        								new DEVillagerTrades.EmeraldForItems(Items.COAL, 10, 16, 2),
-	        								new DEVillagerTrades.ItemsAndEmeraldsToItems(Items.COD, 6, Items.COOKED_COD, 6, 16, 1),
-	        								new DEVillagerTrades.ItemsForEmeralds(Items.COD_BUCKET, 3, 1, 16, 1)
+	        								new EmeraldForItems(Items.STRING, 20, 16, 2),
+	        								new EmeraldForItems(Items.COAL, 10, 16, 2),
+	        								new ItemsAndEmeraldsToItems(Items.COD, 6, Items.COOKED_COD, 6, 16, 1),
+	        								new ItemsForEmeralds(Items.COD_BUCKET, 3, 1, 16, 1)
 	        						},
 	        						2,new VillagerTrades.ItemListing[]{
-	        								new DEVillagerTrades.EmeraldForItems(Items.COD, 15, 16, 10),
-	        								new DEVillagerTrades.ItemsAndEmeraldsToItems(Items.SALMON, 6, Items.COOKED_SALMON, 6, 16, 5),
-	        								new DEVillagerTrades.ItemsForEmeralds(Items.CAMPFIRE, 2, 1, 5)
+	        								new EmeraldForItems(Items.COD, 15, 16, 10),
+	        								new ItemsAndEmeraldsToItems(Items.SALMON, 6, Items.COOKED_SALMON, 6, 16, 5),
+	        								new ItemsForEmeralds(Items.CAMPFIRE, 2, 1, 5)
 	        						},
 	        						3, new VillagerTrades.ItemListing[]{
-	        								new DEVillagerTrades.EmeraldForItems(Items.SALMON, 13, 16, 20),
-	        								new DEVillagerTrades.EnchantedItemForEmeralds(Items.FISHING_ROD, 3, 3, 10, 0.2F)
+	        								new EmeraldForItems(Items.SALMON, 13, 16, 20),
+	        								new EnchantedItemForEmeralds(Items.FISHING_ROD, 3, 3, 10, 0.2F)
 	        						},
 	        						4, new VillagerTrades.ItemListing[]{
-	        								new DEVillagerTrades.EmeraldForItems(Items.TROPICAL_FISH, 6, 12, 30)
+	        								new EmeraldForItems(Items.TROPICAL_FISH, 6, 12, 30)
 	        						},
 	        						5, new VillagerTrades.ItemListing[]{
-	        								new DEVillagerTrades.EmeraldForItems(Items.PUFFERFISH, 4, 12, 30),
-	        								new DEVillagerTrades.EmeraldsForVillagerTypeItem(
+	        								new EmeraldForItems(Items.PUFFERFISH, 4, 12, 30),
+	        								new EmeraldsForVillagerTypeItem(
 	        										1,
 	        										12,
 	        										30,

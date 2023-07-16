@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.damagesource.DamageSource;

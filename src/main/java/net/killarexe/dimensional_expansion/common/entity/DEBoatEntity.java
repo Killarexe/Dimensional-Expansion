@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
-import net.killarexe.dimensional_expansion.core.init.DEEntityTypes;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEEntityTypes;
+import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

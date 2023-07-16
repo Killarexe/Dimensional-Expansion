@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

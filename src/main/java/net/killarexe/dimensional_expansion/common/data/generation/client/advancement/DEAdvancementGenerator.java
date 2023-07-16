@@ -5,10 +5,10 @@ import java.util.function.Consumer;
 import javax.annotation.Nullable;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DEDimensions;
-import net.killarexe.dimensional_expansion.core.init.DEItems;
-import net.killarexe.dimensional_expansion.core.init.DEStructures;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEDimensions;
+import net.killarexe.dimensional_expansion.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEStructures;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriteriaTriggers;

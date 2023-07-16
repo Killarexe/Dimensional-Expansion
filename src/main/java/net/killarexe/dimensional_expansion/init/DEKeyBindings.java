@@ -1,4 +1,4 @@
-package net.killarexe.dimensional_expansion.core.init;
+package net.killarexe.dimensional_expansion.init;
 
 import java.util.ArrayList;
 import java.util.List;
