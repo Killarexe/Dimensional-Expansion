@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dimensional_expansion:stripped_purpleheart_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "dimensional_expansion:purpleheart_planks"
+  }
+}

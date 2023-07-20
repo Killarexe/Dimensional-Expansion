@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    }
+  },
+  "pattern": [
+    "   ",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "dimensional_expansion:purpleheart_boat"
+  },
+  "show_notification": true
+}

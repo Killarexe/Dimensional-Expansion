@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_savanna",
+  "biomes": "dimensional_expansion:purpleheart_forest",
   "features": "dimensional_expansion:purple_berry_bush",
   "step": "vegetal_decoration"
 }

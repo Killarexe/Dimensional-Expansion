@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dimensional_expansion:emertyst_ore"
+  },
+  "result": "dimensional_expansion:emertyst_gem"
+}

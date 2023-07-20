@@ -1,6 +1,8 @@
 package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.init.DEBiomes;
+import net.killarexe.dimensional_expansion.init.DETags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -18,6 +20,6 @@ public class DEBiomeTagsProvider extends BiomeTagsProvider {
 
 	@Override
 	protected void addTags(Provider pProvider) {
-		super.addTags(pProvider);
+		tag(DETags.IS_ORIGIN).add(DEBiomes.BLUE_SAND_DESERT, DEBiomes.ORIGIN_DEADLAND, DEBiomes.ORIGIN_PLAINS, DEBiomes.PURPLEHEART_FOREST);
 	}
 }

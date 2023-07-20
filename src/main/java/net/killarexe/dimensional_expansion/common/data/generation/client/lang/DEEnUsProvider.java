@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.killarexe.dimensional_expansion.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.init.DEItems;
+import net.killarexe.dimensional_expansion.init.DEPoitions;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -76,6 +77,8 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.PURPLE_BERRY_BUSH.get(), "Purple Berry Block");
         add(DEBlocks.SAVORLEAF_BLOCK.get(), "Savorleaf Block");
         add(DEBlocks.PURPLEISH_CACTUS.get(), "Purpleish Cactus");
+        add(DEBlocks.ORIGIN_TALL_GRASS.get(), "Origin Tall Grass");
+        add(DEBlocks.PURPLE_BERRY_DEAD_BUSH.get(), "Purple Berry Dead Bush");
 
         /*ITEMS*/
         add(DEItems.RAW_PALON.get(), "Raw Palon");
@@ -151,10 +154,10 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.DOCTOR_WHO_DISC.get().getDescriptionId() + ".desc", "Doctor Who by Killar.exe");
         
         /*ItemGroups*/
-        add("itemGroup." + DEMod.MOD_ID + ".combat", "DE Combat");
-        add("itemGroup." + DEMod.MOD_ID + ".tools", "DE Tools");
-        add("itemGroup." + DEMod.MOD_ID + ".misc", "DE Misc");
-        add("itemGroup." + DEMod.MOD_ID + ".blocks", "DE Blocks");
+        add("itemGroup." + DEMod.MOD_ID + ".combat", "Dimensional Expansion Combat");
+        add("itemGroup." + DEMod.MOD_ID + ".tools", "Dimensional Expansion Tools");
+        add("itemGroup." + DEMod.MOD_ID + ".misc", "Dimensional Expansion Misc");
+        add("itemGroup." + DEMod.MOD_ID + ".blocks", "Dimensional Expansion Blocks");
         add("itemGroup." + DEMod.MOD_ID + ".mobs", "Dimensional Expansion Mobs");
 
         /*Screens*/
@@ -242,9 +245,9 @@ public class DEEnUsProvider extends LanguageProvider {
         /*
          * Potions
          */
-        add("effect.remote", "Remote");
+        add(DEPoitions.REMOTE_EFFECT.get(), "Remote");
         add("item.minecraft.potion.effect.remote", "Potion of Remote");
-        add("item.minecraft.tripped_arrow.effect.remote", "Arrow of Remote");
+        add("item.minecraft.tipped_arrow.effect.remote", "Arrow of Remote");
         add("item.minecraft.splash_potion.effect.remote", "Splash Potion of Remote");
         add("item.minecraft.lingering_potion.effect.remote", "Lingering Potion of Remote");
         

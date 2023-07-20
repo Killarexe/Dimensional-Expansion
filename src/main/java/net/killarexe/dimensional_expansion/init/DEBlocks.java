@@ -86,6 +86,8 @@ public class DEBlocks {
     
     public static final RegistryObject<SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block", () -> new SavorleafBlock(), DECreativeTabs.BLOCKS);
     
+    public static final RegistryObject<FlowerBlock> PURPLE_BERRY_DEAD_BUSH = createFlowerBlock("purple_berry_dead_bush", MobEffects.HEAL, 1, Material.GRASS, MaterialColor.COLOR_BLACK, 0, 10, 0, SoundType.SWEET_BERRY_BUSH, DECreativeTabs.BLOCKS);
+    
     public static final RegistryObject<Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush", () -> new PurpleBerryBush());
     public static final RegistryObject<SavorleafCropBlock> SAVORLEAF_CROP = createCustomBlock("savorleaf_crop", () -> new SavorleafCropBlock());
     public static final RegistryObject<VioletCarrotCropBlock> VIOLET_CARROT_CROP = createCustomBlock("violet_carrot_crop", () -> new VioletCarrotCropBlock());

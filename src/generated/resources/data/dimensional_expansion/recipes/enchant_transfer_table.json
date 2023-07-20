@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:origin_frame"
+    },
+    "/": {
+      "item": "dimensional_expansion:simix_ingot"
+    }
+  },
+  "pattern": [
+    "   ",
+    "/#/",
+    "###"
+  ],
+  "result": {
+    "item": "dimensional_expansion:enchant_transfer_table"
+  },
+  "show_notification": true
+}

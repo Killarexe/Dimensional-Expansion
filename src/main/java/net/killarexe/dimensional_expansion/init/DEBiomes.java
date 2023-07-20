@@ -16,6 +16,7 @@ public class DEBiomes {
 
     public static final ResourceKey<Biome> PURPLEHEART_FOREST = registerBiome("purpleheart_forest", BiomeType.WARM, 10, false);
     public static final ResourceKey<Biome> BLUE_SAND_DESERT = registerBiome("blue_sand_desert", BiomeType.DESERT, 10, false);
+    public static final ResourceKey<Biome> ORIGIN_DEADLAND = registerBiome("origin_deadland", BiomeType.DESERT, 10, false);
     public static final ResourceKey<Biome> ORIGIN_PLAINS = registerBiome("origin_plains", BiomeType.WARM, 10, false);
 
     private static ResourceKey<Biome> registerBiome(String name, BiomeManager.BiomeType type, int weight, boolean addToOverworld){

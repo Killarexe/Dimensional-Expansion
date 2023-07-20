@@ -473,21 +473,6 @@
                         "Name": "dimensional_expansion:blue_sand"
                       }
                     }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "dimensional_expansion:origin_mountains"
-                      ]
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "dimensional_expansion:sulfur_stone"
-                      }
-                    }
                   }
                 ]
               }
@@ -532,21 +517,6 @@
                       "type": "minecraft:block",
                       "result_state": {
                         "Name": "dimensional_expansion:blue_sandstone"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:condition",
-                    "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "dimensional_expansion:origin_mountains"
-                      ]
-                    },
-                    "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "dimensional_expansion:sulfur_stone"
                       }
                     }
                   }

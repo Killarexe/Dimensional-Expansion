@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "I": {
+      "item": "dimensional_expansion:palon_ingot"
+    }
+  },
+  "pattern": [
+    "II ",
+    "## ",
+    "## "
+  ],
+  "result": {
+    "item": "dimensional_expansion:mineral_storage"
+  },
+  "show_notification": true
+}

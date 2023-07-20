@@ -24,95 +24,138 @@ import net.killarexe.dimensional_expansion.init.DEItems;
 
 public class DEBlocksLootTables extends VanillaBlockLoot {
 
-    @Override
-    protected void generate() {
-        add(PALON_ORE.get(), (block) ->{return createOreDrop(PALON_ORE.get(), DEItems.RAW_PALON.get());});
-        dropSelf(PALON_BLOCK.get());
-        add(BASSMITE_ORE.get(), (block) ->{return createOreDrop(BASSMITE_ORE.get(), DEItems.BASSMITE_GEM.get());});
-        dropSelf(BASSMITE_BLOCK.get());
-        add(SIMIX_ORE.get(), (block) ->{return createOreDrop(SIMIX_ORE.get(), DEItems.RAW_SIMIX.get());});
-        dropSelf(SIMIX_BLOCK.get());
-        add(EMERTYST_ORE.get(), (block) ->{return createOreDrop(EMERTYST_ORE.get(), DEItems.EMERTYST_GEM.get());});
-        dropSelf(EMERTYST_BLOCK.get());
-        add(ORIGIN_PORTAL.get(), (block) -> {return noDrop();});
+	@Override
+	protected void generate() {
+		add(PALON_ORE.get(), (block) -> {
+			return createOreDrop(PALON_ORE.get(), DEItems.RAW_PALON.get());
+		});
+		dropSelf(PALON_BLOCK.get());
+		add(BASSMITE_ORE.get(), (block) -> {
+			return createOreDrop(BASSMITE_ORE.get(), DEItems.BASSMITE_GEM.get());
+		});
+		dropSelf(BASSMITE_BLOCK.get());
+		add(SIMIX_ORE.get(), (block) -> {
+			return createOreDrop(SIMIX_ORE.get(), DEItems.RAW_SIMIX.get());
+		});
+		dropSelf(SIMIX_BLOCK.get());
+		add(EMERTYST_ORE.get(), (block) -> {
+			return createOreDrop(EMERTYST_ORE.get(), DEItems.EMERTYST_GEM.get());
+		});
+		dropSelf(EMERTYST_BLOCK.get());
+		add(ORIGIN_PORTAL.get(), (block) -> {
+			return noDrop();
+		});
 
-        add(ORIGIN_GRASS_BLOCK.get(), (block) -> {return createSilkTouchOrShearsDispatchTable(ORIGIN_GRASS_BLOCK.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
-        add(ORIGIN_GRASS.get(), (block) -> {return createGrassDrops(ORIGIN_GRASS.get());});
-        add(ORIGIN_TALL_GRASS.get(), (block) -> {return createGrassDrops(block);});
-        dropSelf(ORIGIN_DIRT.get());
-        add(ORIGIN_FARMLAND.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_FARMLAND.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
-        add(ORIGIN_DIRT_PATH.get(), (block) -> {return createSilkTouchDispatchTable(ORIGIN_DIRT_PATH.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));});
-        dropSelf(PURPLEISH_CACTUS.get());
-        
-        LootItemCondition.Builder savorleafCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SavorleafCropBlock.AGE, SavorleafCropBlock.MAX_AGE));
-        add(SAVORLEAF_CROP.get(), createCropDrops(SAVORLEAF_CROP.get(), DEItems.SAVORLEAF.get(), DEItems.SAVORLEAF.get(), savorleafCondition));
-        LootItemCondition.Builder violetCarrotCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(VIOLET_CARROT_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(VioletCarrotCropBlock.AGE, VioletCarrotCropBlock.MAX_AGE));
-        add(VIOLET_CARROT_CROP.get(), createCropDrops(VIOLET_CARROT_CROP.get(), DEItems.VIOLET_CARROT.get(), DEItems.VIOLET_CARROT.get(), violetCarrotCondition));
-       
-        dropSelf(PURPLEHEART_LOG.get());
-        dropSelf(STRIPPED_PURPLEHEART_LOG.get());
-        dropSelf(PURPLEHEART_PLANKS.get());
-        add(PURPLEHEART_SLAB.get(), (block) -> {return createSlabItemTable(PURPLEHEART_SLAB.get());});
-        dropSelf(PURPLEHEART_FENCE.get());
-        dropSelf(PURPLEHEART_FENCE_GATE.get());
-        dropSelf(PURPLEHEART_BUTTON.get());
-        dropSelf(PURPLEHEART_PRESSURE_PLATE.get());
-        add(PURPLEHEART_DOOR.get(), (block) -> {return createDoorTable(PURPLEHEART_DOOR.get());});
-        dropSelf(PURPLEHEART_TRAPDOOR.get());
-        add(PURPLEHEART_LEAVES.get(), (block) -> {return createLeavesDrops(PURPLEHEART_LEAVES.get(), PURPLEHEART_SAPLING.get(), 1);});
-        dropSelf(PURPLEHEART_STAIRS.get());
-        dropSelf(PURPLEHEART_BOOKSHELF.get());
-        dropOther(DEBlocks.PURPLEHEART_SIGN.get(), DEItems.PURPLEHEART_SIGN.get());
-        dropOther(PURPLEHEART_WALL_SIGN.get(), DEItems.PURPLEHEART_SIGN.get());
-        dropSelf(PURPLE_ROSE.get());
-        dropSelf(PURPLEHEART_SAPLING.get());
-        dropOther(SULFUR_STONE.get(), SULFUR_COBBLESTONE.get().asItem());
-        dropSelf(SULFUR_COBBLESTONE.get());
-        add(SULFUR_COBBLESTONE_SLAB.get(), (block) -> {return createSlabItemTable(SULFUR_COBBLESTONE_SLAB.get());});
-        dropSelf(SULFUR_COBBLESTONE_STAIRS.get());
-        dropSelf(SULFUR_STONE_BUTTON.get());
-        dropSelf(SULFUR_STONE_PRESSURE_PLATE.get());
-        dropSelf(SULFUR_STONE_STAIRS.get());
-        add(SULFUR_STONE_SLAB.get(), (block) -> {return createSlabItemTable(SULFUR_STONE_SLAB.get());});
-        dropSelf(SULFUR_COBBLESTONE_WALL.get());
-        dropSelf(BLUE_SAND.get());
-        dropSelf(BLUE_SANDSTONE.get());
-        
-        dropPottedContents(POTTED_PURPLE_ROSE.get());
-        dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
-        dropPottedContents(POTTED_PURPLEISH_CACTUS.get());
-        dropSelf(ORIGIN_FRAME.get());
-        dropSelf(SAVORLEAF_BLOCK.get());
+		add(ORIGIN_GRASS_BLOCK.get(), (block) -> {
+			return createSilkTouchOrShearsDispatchTable(ORIGIN_GRASS_BLOCK.get(),
+					LootItem.lootTableItem(ORIGIN_DIRT.get()));
+		});
+		add(ORIGIN_GRASS.get(), (block) -> {
+			return createGrassDrops(ORIGIN_GRASS.get());
+		});
+		add(ORIGIN_TALL_GRASS.get(), (block) -> {
+			return createGrassDrops(block);
+		});
+		add(PURPLE_BERRY_DEAD_BUSH.get(), (block) -> {
+			return noDrop();
+		});
+		dropSelf(ORIGIN_DIRT.get());
+		add(ORIGIN_FARMLAND.get(), (block) -> {
+			return createSilkTouchDispatchTable(ORIGIN_FARMLAND.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));
+		});
+		add(ORIGIN_DIRT_PATH.get(), (block) -> {
+			return createSilkTouchDispatchTable(ORIGIN_DIRT_PATH.get(), LootItem.lootTableItem(ORIGIN_DIRT.get()));
+		});
+		dropSelf(PURPLEISH_CACTUS.get());
 
-        dropSelf(FORGE.get());
-        dropSelf(MINERAL_STORAGE.get());
-        add(ESSENCE_EXTRACTOR.get(), (block) -> {return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());});
-        add(ENCHANT_TRANSFER_TABLE.get(), (block) -> {return createNameableBlockEntityTable(ENCHANT_TRANSFER_TABLE.get());});
-        dropSelf(DISPLAY_BLOCK.get());
-        
-        add(PURPLE_BERRY_BUSH.get(), (block) -> {
-            return applyExplosionDecay(
-            		block,
-            		LootTable.lootTable()
-            		.withPool(LootPool.lootPool()
-            				.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
-            						.setProperties(StatePropertiesPredicate.Builder.properties()
-            								.hasProperty(SweetBerryBushBlock.AGE, 3)))
-            				.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
-            				.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
-            				.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))
-            		.withPool(LootPool.lootPool()
-            				.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
-            						.setProperties(StatePropertiesPredicate.Builder.properties()
-            								.hasProperty(SweetBerryBushBlock.AGE, 2)))
-            				.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
-            				.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
-            				.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
-         });
-    }
+		LootItemCondition.Builder savorleafCondition = LootItemBlockStatePropertyCondition
+				.hasBlockStateProperties(SAVORLEAF_CROP.get()).setProperties(StatePropertiesPredicate.Builder
+						.properties().hasProperty(SavorleafCropBlock.AGE, SavorleafCropBlock.MAX_AGE));
+		add(SAVORLEAF_CROP.get(), createCropDrops(SAVORLEAF_CROP.get(), DEItems.SAVORLEAF.get(),
+				DEItems.SAVORLEAF.get(), savorleafCondition));
+		LootItemCondition.Builder violetCarrotCondition = LootItemBlockStatePropertyCondition
+				.hasBlockStateProperties(VIOLET_CARROT_CROP.get()).setProperties(StatePropertiesPredicate.Builder
+						.properties().hasProperty(VioletCarrotCropBlock.AGE, VioletCarrotCropBlock.MAX_AGE));
+		add(VIOLET_CARROT_CROP.get(), createCropDrops(VIOLET_CARROT_CROP.get(), DEItems.VIOLET_CARROT.get(),
+				DEItems.VIOLET_CARROT.get(), violetCarrotCondition));
 
-    @Override
-    protected Iterable<Block> getKnownBlocks() {
-        return BLOCK.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
+		dropSelf(PURPLEHEART_LOG.get());
+		dropSelf(STRIPPED_PURPLEHEART_LOG.get());
+		dropSelf(PURPLEHEART_PLANKS.get());
+		add(PURPLEHEART_SLAB.get(), (block) -> {
+			return createSlabItemTable(PURPLEHEART_SLAB.get());
+		});
+		dropSelf(PURPLEHEART_FENCE.get());
+		dropSelf(PURPLEHEART_FENCE_GATE.get());
+		dropSelf(PURPLEHEART_BUTTON.get());
+		dropSelf(PURPLEHEART_PRESSURE_PLATE.get());
+		add(PURPLEHEART_DOOR.get(), (block) -> {
+			return createDoorTable(PURPLEHEART_DOOR.get());
+		});
+		dropSelf(PURPLEHEART_TRAPDOOR.get());
+		add(PURPLEHEART_LEAVES.get(), (block) -> {
+			return createLeavesDrops(PURPLEHEART_LEAVES.get(), PURPLEHEART_SAPLING.get(), 1);
+		});
+		dropSelf(PURPLEHEART_STAIRS.get());
+		dropSelf(PURPLEHEART_BOOKSHELF.get());
+		dropOther(DEBlocks.PURPLEHEART_SIGN.get(), DEItems.PURPLEHEART_SIGN.get());
+		dropOther(PURPLEHEART_WALL_SIGN.get(), DEItems.PURPLEHEART_SIGN.get());
+		dropSelf(PURPLE_ROSE.get());
+		dropSelf(PURPLEHEART_SAPLING.get());
+		dropOther(SULFUR_STONE.get(), SULFUR_COBBLESTONE.get().asItem());
+		dropSelf(SULFUR_COBBLESTONE.get());
+		add(SULFUR_COBBLESTONE_SLAB.get(), (block) -> {
+			return createSlabItemTable(SULFUR_COBBLESTONE_SLAB.get());
+		});
+		dropSelf(SULFUR_COBBLESTONE_STAIRS.get());
+		dropSelf(SULFUR_STONE_BUTTON.get());
+		dropSelf(SULFUR_STONE_PRESSURE_PLATE.get());
+		dropSelf(SULFUR_STONE_STAIRS.get());
+		add(SULFUR_STONE_SLAB.get(), (block) -> {
+			return createSlabItemTable(SULFUR_STONE_SLAB.get());
+		});
+		dropSelf(SULFUR_COBBLESTONE_WALL.get());
+		dropSelf(BLUE_SAND.get());
+		dropSelf(BLUE_SANDSTONE.get());
+
+		dropPottedContents(POTTED_PURPLE_ROSE.get());
+		dropPottedContents(POTTED_PURPLEHEART_SAPLING.get());
+		dropPottedContents(POTTED_PURPLEISH_CACTUS.get());
+		dropSelf(ORIGIN_FRAME.get());
+		dropSelf(SAVORLEAF_BLOCK.get());
+
+		dropSelf(FORGE.get());
+		dropSelf(MINERAL_STORAGE.get());
+		add(ESSENCE_EXTRACTOR.get(), (block) -> {
+			return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());
+		});
+		add(ENCHANT_TRANSFER_TABLE.get(), (block) -> {
+			return createNameableBlockEntityTable(ENCHANT_TRANSFER_TABLE.get());
+		});
+		dropSelf(DISPLAY_BLOCK.get());
+
+		add(PURPLE_BERRY_BUSH.get(), (block) -> {
+			return applyExplosionDecay(block,
+					LootTable.lootTable().withPool(LootPool.lootPool()
+							.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
+									.setProperties(StatePropertiesPredicate.Builder.properties()
+											.hasProperty(SweetBerryBushBlock.AGE, 3)))
+							.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
+							.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))
+							.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))
+							.withPool(LootPool.lootPool()
+									.when(LootItemBlockStatePropertyCondition
+											.hasBlockStateProperties(PURPLE_BERRY_BUSH.get())
+											.setProperties(StatePropertiesPredicate.Builder.properties()
+													.hasProperty(SweetBerryBushBlock.AGE, 2)))
+									.add(LootItem.lootTableItem(DEItems.PURPLE_BERRY.get()))
+									.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+									.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+		});
+	}
+
+	@Override
+	protected Iterable<Block> getKnownBlocks() {
+		return BLOCK.getEntries().stream().map(RegistryObject::get)::iterator;
+	}
 }

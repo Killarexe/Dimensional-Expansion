@@ -12,6 +12,7 @@ import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements.Type;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -73,14 +74,17 @@ public class DEEntityTypes {
     );
     
     public static void registerAttributes(EntityAttributeCreationEvent e) {
-    	e.put(DEEntityTypes.HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
-    	e.put(DEEntityTypes.HEADED_GUARDIAN.get(), HeadedSkeleton.ATTRIBUTES.build());
-    	e.put(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandMan.ATTRIBUTES.build());
-    	e.put(DEEntityTypes.MOUVET.get(), Mouvet.ATTRIBUTES.build());
-    	e.put(DEEntityTypes.JUGER.get(), Juger.ATTRIBUTES.build());
+    	e.put(HEADED_SKELETON.get(), HeadedSkeleton.ATTRIBUTES.build());
+    	e.put(HEADED_GUARDIAN.get(), HeadedSkeleton.ATTRIBUTES.build());
+    	e.put(BLUE_SAND_MAN.get(), BlueSandMan.ATTRIBUTES.build());
+    	e.put(MOUVET.get(), Mouvet.ATTRIBUTES.build());
+    	e.put(JUGER.get(), Juger.ATTRIBUTES.build());
     }
     
     public static void registerSpawns(SpawnPlacementRegisterEvent e) {
     	e.register(BLUE_SAND_MAN.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, AgeableMob::checkMobSpawnRules, Operation.AND);
+    	e.register(HEADED_SKELETON.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, Operation.AND);
+    	e.register(MOUVET.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, AgeableMob::checkMobSpawnRules, Operation.AND);
+    	e.register(JUGER.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, Operation.AND);
     }
 }

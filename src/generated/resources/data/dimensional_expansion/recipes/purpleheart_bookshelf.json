@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:purpleheart_planks"
+    },
+    "I": {
+      "item": "minecraft:book"
+    }
+  },
+  "pattern": [
+    "###",
+    "III",
+    "###"
+  ],
+  "result": {
+    "item": "dimensional_expansion:purpleheart_bookshelf"
+  },
+  "show_notification": true
+}

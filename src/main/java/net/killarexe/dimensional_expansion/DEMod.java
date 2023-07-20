@@ -24,6 +24,6 @@ public class DEMod {
 		DEConfig.registerAll();
 		DEEvents.addListeners(MinecraftForge.EVENT_BUS, bus);
 		MinecraftForge.EVENT_BUS.register(this);
-		LOGGER.info("Init Dimensional Expansion Complete!");
+		LOGGER.info("Dimensional Expansion Init Complete!");
 	}
 }

@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 public class BlueSandMan extends AgeableMob{
 
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMobAttributes()
-			.add(Attributes.MOVEMENT_SPEED, 0.5f)
+			.add(Attributes.MOVEMENT_SPEED, 0.25f)
 			.add(Attributes.JUMP_STRENGTH, 1.5f)
 			.add(Attributes.MAX_HEALTH, 15.0f);
 	

@@ -9,23 +9,11 @@
         {
           "biome": "dimensional_expansion:purpleheart_forest",
           "parameters": {
-            "temperature": [
-              -0.5,
-              0.5
-            ],
-            "humidity": [
-              0.5,
-              1
-            ],
-            "continentalness": [
-              0,
-              1
-            ],
-            "erosion": -0.5,
-            "weirdness": [
-              -0.5,
-              0.5
-            ],
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
             "depth": 0,
             "offset": 0
           }
@@ -33,19 +21,10 @@
         {
           "biome": "dimensional_expansion:origin_plains",
           "parameters": {
-            "temperature": [
-              0,
-              0.5
-            ],
-            "humidity": [
-              -0.5,
-              0.5
-            ],
-            "continentalness": [
-              -1,
-              0
-            ],
-            "erosion": -0.5,
+            "temperature": 0,
+            "humidity": -0.2,
+            "continentalness": 0,
+            "erosion": 0,
             "weirdness": 0,
             "depth": 0,
             "offset": 0
@@ -54,43 +33,22 @@
         {
           "biome": "dimensional_expansion:blue_sand_desert",
           "parameters": {
-            "temperature": [
-              0.5,
-              1
-            ],
-            "humidity": [
-              -1,
-              -0.5
-            ],
-            "continentalness": [
-              0,
-              1
-            ],
-            "erosion": 0.5,
+            "temperature": 0.75,
+            "humidity": -0.75,
+            "continentalness": 0,
+            "erosion": 0,
             "weirdness": 0,
             "depth": 0,
             "offset": 0
           }
         },
         {
-          "biome": "dimensional_expansion:origin_mountains",
-          "parameters": {
-            "temperature": -1,
-            "humidity": -1,
-            "continentalness": -1,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": -0.5,
-            "offset": 1
-          }
-        },
-        {
           "biome": "dimensional_expansion:origin_deadland",
           "parameters": {
-            "temperature": 0.5,
-            "humidity": -0.5,
-            "continentalness": 0.5,
-            "erosion": 0.5,
+            "temperature": 1,
+            "humidity": 1,
+            "continentalness": 0,
+            "erosion": 0,
             "weirdness": 0,
             "depth": 1,
             "offset": 0

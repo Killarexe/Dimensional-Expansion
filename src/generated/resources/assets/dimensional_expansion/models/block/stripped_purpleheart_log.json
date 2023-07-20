@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dimensional_expansion:block/stripped_purpleheart_log_top",
+    "side": "dimensional_expansion:block/stripped_purpleheart_log"
+  }
+}

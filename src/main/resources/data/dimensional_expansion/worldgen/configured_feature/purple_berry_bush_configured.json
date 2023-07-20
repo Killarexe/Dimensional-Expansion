@@ -36,7 +36,7 @@
 									-1,
 									0
 								],
-								"blocks": "minecraft:grass_block"
+								"blocks": "dimensional_expansion:origin_grass_block"
 							}
 						]
 					}

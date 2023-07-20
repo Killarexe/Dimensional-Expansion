@@ -134,6 +134,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);
         simpleBlockItem(DEBlocks.MINERAL_STORAGE);
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
+        oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS);
+        oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH);
     }
 
     private <T extends Block> void simpleBlockItem(RegistryObject<T> block){

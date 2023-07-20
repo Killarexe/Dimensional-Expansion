@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:simix_ingot"
+    },
+    "&": {
+      "item": "minecraft:compass"
+    },
+    "@": {
+      "item": "dimensional_expansion:pearl_essence"
+    }
+  },
+  "pattern": [
+    "#@#",
+    "@&@",
+    "#@#"
+  ],
+  "result": {
+    "item": "dimensional_expansion:coord_linker"
+  },
+  "show_notification": true
+}
