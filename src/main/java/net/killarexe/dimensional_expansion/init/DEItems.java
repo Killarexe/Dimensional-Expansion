@@ -107,7 +107,7 @@ public class DEItems {
     public static final RegistryObject<ForgeSpawnEggItem> MOUVET_SPAWN_EGG = createSpawnEggItem("mouvet_spawn_egg", DEEntityTypes.MOUVET, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.MOBS);
     
-    public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem());
+    public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem(), DECreativeTabs.MISC);
     
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);

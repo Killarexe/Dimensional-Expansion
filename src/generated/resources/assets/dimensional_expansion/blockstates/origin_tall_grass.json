@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "dimensional_expansion:block/origin_tall_grass_bottom"
+    },
+    "half=upper": {
+      "model": "dimensional_expansion:block/origin_tall_grass_top"
+    }
+  }
+}

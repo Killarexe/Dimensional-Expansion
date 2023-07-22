@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "-": {
+      "item": "dimensional_expansion:simix_ingot"
+    },
+    "/": {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    "0": {
+      "item": "minecraft:ender_eye"
+    },
+    "O": {
+      "item": "minecraft:lead"
+    },
+    "_": {
+      "item": "dimensional_expansion:palon_ingot"
+    }
+  },
+  "pattern": [
+    " 0 ",
+    "-O_",
+    " / "
+  ],
+  "result": {
+    "item": "dimensional_expansion:mobox"
+  },
+  "show_notification": true
+}

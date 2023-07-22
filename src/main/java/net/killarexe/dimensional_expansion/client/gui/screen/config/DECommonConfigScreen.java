@@ -67,7 +67,7 @@ public class DECommonConfigScreen extends Screen {
         		this.height / 4 + 78,
         		256,
         		20,
-        		Component.translatable("config." + DEMod.MOD_ID + ".power_stone_delay"),
+        		Component.translatable("config." + DEMod.MOD_ID + ".power_stones_delay").append(": "),
         		Component.translatable(DEMod.MOD_ID + ".seconds"),
         		50,
         		200,

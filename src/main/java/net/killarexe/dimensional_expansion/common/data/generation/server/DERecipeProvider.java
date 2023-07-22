@@ -163,6 +163,14 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         		EMERALD, EMERTYST_GEM.get(), LAPIS_LAZULI,
         		DIAMOND, SIMIX_HAMMER.get(), DIAMOND, "alloy_crystal"
         );
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, MOBOX.get(), 1)
+			.define('/', BASSMITE_GEM.get()).define('-', SIMIX_INGOT.get()).define('_', PALON_INGOT.get()).define('O', LEAD).define('0', ENDER_EYE)
+			.pattern(" 0 ")
+			.pattern("-O_")
+			.pattern(" / ")
+			.unlockedBy("has_material", has(LEAD))
+			.save(r);
     }
 
     private void createDoorRecipe(Consumer<FinishedRecipe> r, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){

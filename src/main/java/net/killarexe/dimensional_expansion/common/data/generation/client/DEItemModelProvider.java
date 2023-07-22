@@ -134,8 +134,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);
         simpleBlockItem(DEBlocks.MINERAL_STORAGE);
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
-        oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS);
-        oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH);
+        oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");
+        oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS, new ResourceLocation(DEMod.MOD_ID, "origin_tall_grass_top"), false, "block");
     }
 
     private <T extends Block> void simpleBlockItem(RegistryObject<T> block){
@@ -150,8 +150,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_bottom")));
     }
 
-    private void oneLayerItem(RegistryObject<?> item, ResourceLocation texture, boolean handheld){
-        ResourceLocation itemTexture = new ResourceLocation(texture.getNamespace(), "item/" + texture.getPath());
+    private void oneLayerItem(RegistryObject<?> item, ResourceLocation texture, boolean handheld, String baseDir){
+        ResourceLocation itemTexture = new ResourceLocation(texture.getNamespace(), baseDir + "/" + texture.getPath());
         if(existingFileHelper.exists(itemTexture, PackType.CLIENT_RESOURCES, ".png", "textures")){
             if(!handheld) {
                 getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/generated"))).texture("layer0", itemTexture);
@@ -168,10 +168,14 @@ public class DEItemModelProvider extends ItemModelProvider {
     }
 
     private void oneLayerItem(RegistryObject<?> item, boolean handheld){
-        oneLayerItem(item, item.getId(), handheld);
+        oneLayerItem(item, item.getId(), handheld, "item");
     }
 
     private void oneLayerItem(RegistryObject<?> item){
         oneLayerItem(item, false);
+    }
+    
+    private void oneLayerItem(RegistryObject<?> item, String baseDir) {
+    	oneLayerItem(item, item.getId(), false, baseDir);
     }
 }

@@ -183,14 +183,16 @@ public class DEEnUsProvider extends LanguageProvider {
         add("config." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
         add("config." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
         add("config." + DEMod.MOD_ID + ".enable_power_stones", "Enable Power Stones");
-        add("config." + DEMod.MOD_ID + ".power_stone_delay", "Power Stones Delay");
+        add("config." + DEMod.MOD_ID + ".power_stones_delay", "Power Stones Delay");
         
         add("config." + DEMod.MOD_ID + ".show_version_desc", "Shows the version on the screen.");
         add("config." + DEMod.MOD_ID + ".discord_rpc_desc", "Shows on your Discord profile my mod.");
         add("config." + DEMod.MOD_ID + ".modded_screens_desc", "Adds a custom title screen.");
         add("config." + DEMod.MOD_ID + ".dev_mod_desc", "Developper Mode.");
         add("config." + DEMod.MOD_ID + ".enable_power_stones_desc", "Enable ALL Power Stones (Not recommended on big servers!)");
-        add("config." + DEMod.MOD_ID + ".power_stone_delay_desc", "Power Stones Delay on Seconds");
+        add("config." + DEMod.MOD_ID + ".power_stones_delay_desc", "Power Stones Delay on Seconds");
+        
+        add(DEMod.MOD_ID + ".seconds", " Seconds");
         
         /*KeyBinds*/
         add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");
