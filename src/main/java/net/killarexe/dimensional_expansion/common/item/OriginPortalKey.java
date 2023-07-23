@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.Level.ExplosionInteraction;
 
 public class OriginPortalKey extends Item{
 
@@ -29,11 +28,6 @@ public class OriginPortalKey extends Item{
 			item.hurtAndBreak(1, player, c -> c.broadcastBreakEvent(pContext.getHand()));
 			OriginPortalBlock.portalSpawn(level, pos);
 			return InteractionResult.SUCCESS;
-		}else{
-			if(!level.isClientSide()) {
-				level.explode(player, pos.getX(), pos.getY(), pos.getZ(), 10F, true, ExplosionInteraction.TNT);
-				item.hurtAndBreak(1, player, c -> c.broadcastBreakEvent(pContext.getHand()));
-			}
 		}
 		return InteractionResult.FAIL;
 	}

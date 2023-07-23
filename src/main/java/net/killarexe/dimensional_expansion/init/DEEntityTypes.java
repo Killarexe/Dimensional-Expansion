@@ -82,7 +82,7 @@ public class DEEntityTypes {
     }
     
     public static void registerSpawns(SpawnPlacementRegisterEvent e) {
-    	e.register(BLUE_SAND_MAN.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, AgeableMob::checkMobSpawnRules, Operation.AND);
+    	e.register(BLUE_SAND_MAN.get(), Type.ON_GROUND, Types.WORLD_SURFACE_WG, AgeableMob::checkMobSpawnRules, Operation.AND);
     	e.register(HEADED_SKELETON.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, Operation.AND);
     	e.register(MOUVET.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, AgeableMob::checkMobSpawnRules, Operation.AND);
     	e.register(JUGER.get(), Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, Operation.AND);

@@ -184,6 +184,7 @@
   "key.dimensional_expansion.config": "Dimensional Expansion Config",
   "message.dimensional_expansion.cost_too_high": "Not enough experience to do this...",
   "message.dimensional_expansion.need_enchanted_item": "You need to put a enchanted item first!",
+  "tooltip.dimensional_expansion.mobox.current_entity": "Current entity: %s",
   "tooltip.dimensional_expansion.remote_teleporter": "Give you an effect of Remote for 30 seconds.",
   "tooltip.dimensional_expansion.shift": "Hold §eSHIFT §ffor more info.",
   "tooltip.dimensional_expansion.time_power_stone": "Change between day and night.",

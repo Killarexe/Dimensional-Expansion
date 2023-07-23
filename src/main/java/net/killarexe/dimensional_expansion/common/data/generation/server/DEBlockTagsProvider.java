@@ -161,5 +161,6 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         		DEBlocks.POTTED_PURPLEHEART_SAPLING.get(),
         		DEBlocks.POTTED_PURPLEISH_CACTUS.get()
         );
+        tag(BlockTags.DEAD_BUSH_MAY_PLACE_ON).add(DEBlocks.BLUE_SAND.get());
     }
 }

@@ -204,6 +204,7 @@ public class DEEnUsProvider extends LanguageProvider {
         add("tooltip." + DEMod.MOD_ID + ".time_power_stone", "Change between day and night.");
         add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point.");
         add("tooltip." + DEMod.MOD_ID + ".weather_power_stone", "Switch between raing and sun.");
+        add("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", "Current entity: %s");
         
         /*
          *Advancements 

@@ -1,9 +1,10 @@
-// 1.19.4	2023-07-20T09:50:10.776575707	Tags for minecraft:block mod id dimensional_expansion
+// 1.19.4	2023-07-23T14:40:23.23658528	Tags for minecraft:block mod id dimensional_expansion
 aa3c4afb31b044ca786da1bfa1c6c74228616ee2 data/forge/tags/blocks/needs_netherite_tool.json
 42378a96912642b8f06066705aaa090d17c0f5cb data/forge/tags/blocks/ores.json
 248d45c3637d9297e4e3b82a8e98755f0ffdcc5e data/minecraft/tags/blocks/bamboo_plantable_on.json
 74983ac712306e5b949580ee16dd26d862870ada data/minecraft/tags/blocks/buttons.json
 460a8065dcae779b07fe62d6d1839286401f1149 data/minecraft/tags/blocks/crops.json
+9becc1b06f6e3a7fe641a88757f5fe784d873425 data/minecraft/tags/blocks/dead_bush_may_place_on.json
 248d45c3637d9297e4e3b82a8e98755f0ffdcc5e data/minecraft/tags/blocks/dirt.json
 bac2fc3d646db34c59032b9a03042556ccc34b0e data/minecraft/tags/blocks/doors.json
 e7150a695ceaa96bc28d8322c626eefd157ea309 data/minecraft/tags/blocks/flower_pots.json
