@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:simix_ingot"
-  }
+  },
+  "show_notification": true
 }

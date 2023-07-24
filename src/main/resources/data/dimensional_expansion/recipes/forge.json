@@ -37,5 +37,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:forge"
-  }
+  },
+  "show_notification": true
 }

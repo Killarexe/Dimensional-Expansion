@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:simix_hammer"
-  }
+  },
+  "show_notification": true
 }

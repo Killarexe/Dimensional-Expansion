@@ -23,5 +23,6 @@
   "result": {
     "count": 4,
     "item": "dimensional_expansion:origin_frame"
-  }
+  },
+  "show_notification": true
 }

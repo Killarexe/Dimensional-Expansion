@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:bassmite_boots"
-  }
+  },
+  "show_notification": true
 }

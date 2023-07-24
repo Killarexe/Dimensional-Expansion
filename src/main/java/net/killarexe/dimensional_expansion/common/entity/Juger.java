@@ -66,7 +66,9 @@ public class Juger extends Monster{
 	
 	@Override
 	public void tick() {
-		handleAnimationStates();
+		if(level.isClientSide) {
+			handleAnimationStates();
+		}
 		super.tick();
 	}
 	

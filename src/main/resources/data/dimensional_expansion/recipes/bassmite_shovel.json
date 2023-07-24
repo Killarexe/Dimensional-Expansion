@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:bassmite_shovel"
-  }
+  },
+  "show_notification": true
 }

@@ -29,7 +29,7 @@ public class MoboxItem extends Item {
 		if(Screen.hasShiftDown() && pStack.hasTag()){
 			CompoundTag currentEntity = pStack.getOrCreateTagElement("current_entity");
         	String entityName = currentEntity.isEmpty() ? "none" : currentEntity.getString("id");
-            pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", entityName));
+            pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", Component.translatable(entityName)));
         }else{
             pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".shift"));
         }

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "dimensional_expansion:block/sulfur_cobblestone",
-    "side": "dimensional_expansion:block/sulfur_cobblestone",
-    "top": "dimensional_expansion:block/sulfur_cobblestone"
-  }
-}

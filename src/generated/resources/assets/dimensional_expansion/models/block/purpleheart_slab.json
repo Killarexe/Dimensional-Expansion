@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "dimensional_expansion:block/purpleheart_planks",
-    "side": "dimensional_expansion:block/purpleheart_planks",
-    "top": "dimensional_expansion:block/purpleheart_planks"
-  }
-}

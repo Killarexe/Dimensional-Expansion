@@ -14,5 +14,6 @@
   "result": {
     "count": 3,
     "item": "dimensional_expansion:purpleheart_door"
-  }
+  },
+  "show_notification": true
 }

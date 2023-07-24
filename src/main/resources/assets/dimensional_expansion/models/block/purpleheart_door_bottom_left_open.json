@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left_open",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "dimensional_expansion:block/purpleheart_door_bottom",
     "top": "dimensional_expansion:block/purpleheart_door_top"

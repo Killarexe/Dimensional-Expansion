@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:display_block"
-  }
+  },
+  "show_notification": true
 }

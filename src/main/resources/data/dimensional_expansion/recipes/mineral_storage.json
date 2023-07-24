@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "dimensional_expansion:mineral_storage"
-  }
+  },
+  "show_notification": true
 }
