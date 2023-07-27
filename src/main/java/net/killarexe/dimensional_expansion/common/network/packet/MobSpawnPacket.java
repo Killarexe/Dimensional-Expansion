@@ -29,7 +29,7 @@ public class MobSpawnPacket extends ToServerPacket{
 		NetworkEvent.Context context = supplier.get();
 		context.enqueueWork(() -> {
 			ServerPlayer player = context.getSender();
-			ServerLevel level = player.getLevel();
+			ServerLevel level = (ServerLevel) player.level();
 			EntityType.TNT.spawn(level, player.blockPosition(), MobSpawnType.COMMAND);
 		});
 		return true;

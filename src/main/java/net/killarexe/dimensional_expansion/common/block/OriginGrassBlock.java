@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.lighting.LayerLightEngine;
+import net.minecraft.world.level.lighting.LightEngine;
 
 public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlock{
 
@@ -38,7 +38,7 @@ public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlo
 	    } else if (blockstate.getFluidState().getAmount() == 8) {
 	        return false;
 	    } else {
-	        int i = LayerLightEngine.getLightBlockInto(pLevelReader, pState, pPos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(pLevelReader, blockpos));
+	        int i = LightEngine.getLightBlockInto(pLevelReader, pState, pPos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(pLevelReader, blockpos));
 	        return i < pLevelReader.getMaxLightLevel();
 	    }
 	}

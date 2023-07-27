@@ -164,7 +164,7 @@ public class OriginTeleporter implements ITeleporter{
 		for(int i = -1; i < 3; ++i) {
 			for(int j = -1; j < 4; ++j) {
 				pOffsetPos.setWithOffset(pOriginalPos, pDirection.getStepX() * i + direction.getStepX() * pOffsetScale, j, pDirection.getStepZ() * i + direction.getStepZ() * pOffsetScale);
-				if (j < 0 && !this.level.getBlockState(pOffsetPos).getMaterial().isSolid()) {
+				if (j < 0 && this.level.getBlockState(pOffsetPos).isAir()) {
 					return false;
 				}
 				if (j >= 0 && !this.level.isEmptyBlock(pOffsetPos)) {
@@ -180,7 +180,7 @@ public class OriginTeleporter implements ITeleporter{
 		PortalInfo info = getPortalInfo(entity, nextLevel);
 		
 		if(entity instanceof ServerPlayer player) {
-			player.setLevel(nextLevel);
+			player.setServerLevel(nextLevel);
 			nextLevel.addDuringPortalTeleport(player);
 			entity.setYRot(info.yRot % 360.0f);
 			entity.setXRot(info.xRot % 360.0f);
@@ -204,7 +204,7 @@ public class OriginTeleporter implements ITeleporter{
 		double d1 = Math.max(-2.9999872E7D, border.getMinZ() + 16.);
 		//double d2 = Math.min(2.9999872E7D, border.getMaxX() - 16.);
 		double d3 = Math.min(2.9999872E7D, border.getMaxZ() - 16.);
-		double d4 = DimensionType.getTeleportationScale(entity.level.dimensionType(), level.dimensionType());
+		double d4 = DimensionType.getTeleportationScale(entity.level().dimensionType(), level.dimensionType());
 		BlockPos pos = new BlockPos(
 				new Vec3i(
 						(int)Mth.clamp(entity.getX() * d4, d1, d3),
@@ -214,14 +214,14 @@ public class OriginTeleporter implements ITeleporter{
 		);
 		
 		return this.getExitPortal(entity, pos, border).map(repositioner -> {
-			BlockState state = entity.level.getBlockState(this.entityPos);
+			BlockState state = entity.level().getBlockState(this.entityPos);
 			Direction.Axis dir;
 			Vec3 vec;
 			
 			if(state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
 				dir = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
 				BlockUtil.FoundRectangle result = BlockUtil.getLargestRectangleAround(this.entityPos, dir, 21, Direction.Axis.Z, 21,
-						_pos ->entity.level.getBlockState(_pos) == state
+						_pos ->entity.level().getBlockState(_pos) == state
 				);
 				vec = OriginPortalShape.getRelativePosition(result, dir, entity.position(), entity.getDimensions(entity.getPose()));
 			}else {
@@ -240,7 +240,7 @@ public class OriginTeleporter implements ITeleporter{
 			if(result.isPresent()) {
 				return result;
 			}
-			Direction.Axis dir = entity.level.getBlockState(pos).getOptionalValue(OriginPortalBlock.AXIS).orElse(Direction.Axis.X);
+			Direction.Axis dir = entity.level().getBlockState(pos).getOptionalValue(OriginPortalBlock.AXIS).orElse(Direction.Axis.X);
 			return this.createPortal(pos, dir);
 		}
 		return result;

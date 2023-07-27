@@ -29,7 +29,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
             current.setCount(0);
         }
         
-        if (!current.isEmpty() && !ItemStack.isSame(stack, current))
+        if (!current.isEmpty() && !ItemStack.isSameItem(stack, current))
             return false;
         
         if (stack.getCount() < 0) {

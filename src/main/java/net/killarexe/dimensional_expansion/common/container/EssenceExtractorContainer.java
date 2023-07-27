@@ -25,7 +25,7 @@ public class EssenceExtractorContainer extends AbstractContainerMenu {
     // Server constructor
     private EssenceExtractorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
         super(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), id);
-        this.containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
+        this.containerAccess = ContainerLevelAccess.create(playerInv.player.level(), pos);
         this.data = data;
 
         final int slotSizePlus2 = 18, startX = 8, startY = 86, hotbarY = 144;

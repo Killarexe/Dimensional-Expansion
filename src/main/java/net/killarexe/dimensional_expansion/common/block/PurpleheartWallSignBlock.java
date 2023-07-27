@@ -8,13 +8,11 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 
 public class PurpleheartWallSignBlock extends WallSignBlock {
 
     public PurpleheartWallSignBlock() {
-        super(BlockBehaviour.Properties.of(Material.WOOD).color(MaterialColor.COLOR_MAGENTA).strength(1, 10).requiresCorrectToolForDrops().destroyTime(1).sound(SoundType.WOOD), DEWoodTypes.PURPLEHEART);
+        super(BlockBehaviour.Properties.of().strength(1, 10).requiresCorrectToolForDrops().destroyTime(1).sound(SoundType.WOOD), DEWoodTypes.PURPLEHEART);
     }
 
     @Override

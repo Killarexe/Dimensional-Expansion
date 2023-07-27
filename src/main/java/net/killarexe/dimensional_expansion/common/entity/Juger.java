@@ -66,6 +66,7 @@ public class Juger extends Monster{
 	
 	@Override
 	public void tick() {
+		Level level = level();	//Don't worry about that. It's here just to remove a warning...	-	Killar.exe
 		if(level.isClientSide) {
 			handleAnimationStates();
 		}

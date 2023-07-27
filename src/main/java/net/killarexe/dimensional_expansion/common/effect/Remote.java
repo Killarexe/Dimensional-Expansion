@@ -24,7 +24,7 @@ public class Remote extends MobEffect{
 	public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
 		super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
 		savedPos = pLivingEntity.blockPosition();
-		savedDimension = pLivingEntity.getLevel().dimension();
+		savedDimension = pLivingEntity.level().dimension();
 		pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
 	}
 	
@@ -36,7 +36,7 @@ public class Remote extends MobEffect{
 			EntityManager.teleportEntityTo(savedDimension, player, savedPos);
 			pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
 		}else {
-			if(pLivingEntity.getLevel().dimension() != savedDimension && pLivingEntity.canChangeDimensions()) {
+			if(pLivingEntity.level().dimension() != savedDimension && pLivingEntity.canChangeDimensions()) {
 				pLivingEntity.changeDimension(pLivingEntity.getServer().getLevel(savedDimension));
 			}
 			pLivingEntity.teleportTo(savedPos.getX(), savedPos.getY(), savedPos.getZ());

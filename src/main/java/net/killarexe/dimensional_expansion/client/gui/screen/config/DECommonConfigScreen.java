@@ -1,10 +1,10 @@
 package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.io.WindowManager;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -26,20 +26,20 @@ public class DECommonConfigScreen extends Screen {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBackground(pPoseStack);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        renderBackground(guiGraphics);
         WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
         
         if(enablePowerStones.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".enable_power_stones_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".enable_power_stones_desc"), pMouseX, pMouseY);
         }
         
         powerStonesDelay.active = enablePowerStones.isEnabled();
-        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".common"), width/2, 10, 0xffffff);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.drawCenteredString(font, Component.translatable("config." + DEMod.MOD_ID + ".common"), width/2, 10, 0xffffff);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         if(powerStonesDelay.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".power_stones_delay_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".power_stones_delay_desc"), pMouseX, pMouseY);
         }
     }
 

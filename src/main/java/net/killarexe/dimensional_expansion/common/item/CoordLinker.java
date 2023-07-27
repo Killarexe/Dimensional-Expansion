@@ -45,7 +45,7 @@ public class CoordLinker extends Item {
 	@Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
         super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        ResourceKey<Level> dimension = pEntity.level.dimension();
+        ResourceKey<Level> dimension = pEntity.level().dimension();
         if(Level.END.equals(dimension)){
             return;
         }else if (Level.OVERWORLD.equals(dimension)) {

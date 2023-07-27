@@ -20,23 +20,19 @@ public class DEInfoOverlay {
     	Minecraft mc = Minecraft.getInstance();
     	if(!mc.options.renderDebug) {
 	        if(DEConfig.showVersion.get()){
-	        	mc.font.draw(event.getPoseStack(), "Dimensional Expansion " + DEMod.VERSION, posX, posY, 255);
+	        	event.getGuiGraphics().drawString(mc.font, "Dimensional Expansion " + DEMod.VERSION, posX, posY, 255);
 	        }
 	        if(DEConfig.devMod.get()) {
-	        	mc.font.draw(event.getPoseStack(), "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
-	        	mc.font.draw(event.getPoseStack(), "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
-	        	mc.font.draw(event.getPoseStack(), "FPS " + WindowManager.getFPS(), posX, posY + 30, getFPSColor());
+	        	event.getGuiGraphics().drawString(mc.font, "Minecraft " + SharedConstants.getCurrentVersion().getName(), posX, posY + 10, 255);
+	        	event.getGuiGraphics().drawString(mc.font, "Forge " + ForgeVersion.getVersion(), posX, posY + 20, 255);
+	        	event.getGuiGraphics().drawString(mc.font, "FPS " + WindowManager.getFPS(), posX, posY + 30, getFPSColor());
 	        }
     	}
     }
     
     private static int getFPSColor() {
     	int fps = Integer.parseInt(WindowManager.getFPS());
-    	if(fps > 60) {
-    		fps = 60;
-    	}else if(fps <= 0) {
-    		fps = 1;
-    	}
+    	fps = DEMath.clamp(fps, 1, 60);
     	return DEMath.rgbToHex(256 - ((256/60) * fps), (256/60) * fps, 0);
     }
 }

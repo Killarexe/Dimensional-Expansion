@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CactusBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 
 public class PurpleishCactusBlock extends CactusBlock{
 
@@ -21,13 +20,12 @@ public class PurpleishCactusBlock extends CactusBlock{
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		for(Direction direction : Direction.Plane.HORIZONTAL) {
 			BlockState blockstate = pLevel.getBlockState(pPos.relative(direction));
-	        Material material = blockstate.getMaterial();
-	        if (material.isSolid() || pLevel.getFluidState(pPos.relative(direction)).is(FluidTags.LAVA)) {
+	        if (!blockstate.isAir() || pLevel.getFluidState(pPos.relative(direction)).is(FluidTags.LAVA)) {
 	        	return false;
 	        }
 	    }
 	    BlockState blockstate1 = pLevel.getBlockState(pPos.below());
-	    return canSustainPlant(blockstate1) && !pLevel.getBlockState(pPos.above()).getMaterial().isLiquid();
+	    return canSustainPlant(blockstate1) && !pLevel.getBlockState(pPos.above()).liquid();
 	}
 	
 	private boolean canSustainPlant(BlockState state) {

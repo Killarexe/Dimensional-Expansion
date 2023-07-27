@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.client.gui.screen;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,10 +14,10 @@ public class TeleporterScreen extends Screen{
 	}
 	
 	@Override
-	public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBackground(pPoseStack);
-		super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-		this.renderTooltip(pPoseStack, title, pMouseX, pMouseY);
+	public void render(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
+		this.renderBackground(graphics);
+		super.render(graphics, pMouseX, pMouseY, pPartialTick);
+		graphics.renderTooltip(font, title, pMouseX, pMouseY);
 	}
 	
 	@Override

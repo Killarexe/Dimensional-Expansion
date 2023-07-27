@@ -77,10 +77,10 @@ public class OriginPortalBlock extends NetherPortalBlock{
 	
 	@Override
 	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		if(!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions() && !pEntity.level.isClientSide) {
+		if(!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions() && !pEntity.level().isClientSide) {
 			if(pEntity.isOnPortalCooldown()) {
 				pEntity.setPortalCooldown();
-			}else if(pEntity.level.dimension() != DEDimensions.ORIGIN) {
+			}else if(pEntity.level().dimension() != DEDimensions.ORIGIN) {
 				pEntity.setPortalCooldown();
 				teleport(pEntity, pPos, DEDimensions.ORIGIN);
 			}else {

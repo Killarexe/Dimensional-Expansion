@@ -7,7 +7,7 @@ plugins {
 	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '0.9a'
+version = '0.9.1a'
 group = 'net.killarexe.dimensional_expansion' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dimensional_expansion'
 

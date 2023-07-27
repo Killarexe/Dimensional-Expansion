@@ -20,7 +20,7 @@ public class OriginDirtPathBlock extends DirtPathBlock{
 	@Override
 	public boolean canSurvive(BlockState p_153148_, LevelReader p_153149_, BlockPos p_153150_) {
 		BlockState blockstate = p_153149_.getBlockState(p_153150_.above());
-	    return !blockstate.getMaterial().isSolid() || blockstate.getBlock() instanceof FenceGateBlock;
+	    return blockstate.isAir() || blockstate.getBlock() instanceof FenceGateBlock;
 	}
 	
 	@Override

@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 public class EntityManager {
 	public static boolean teleportEntityTo(ResourceKey<Level> dim, Player player, BlockPos pos) {
 		if(player instanceof ServerPlayer serverPlayer) {
-			if(serverPlayer.level.dimension() != dim && serverPlayer.canChangeDimensions()) {
+			if(serverPlayer.level().dimension() != dim && serverPlayer.canChangeDimensions()) {
 				ServerLevel dimLevel = serverPlayer.server.getLevel(dim);
 				if(dimLevel != null) {
 					serverPlayer.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));

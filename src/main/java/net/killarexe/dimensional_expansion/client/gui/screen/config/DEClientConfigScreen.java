@@ -1,10 +1,10 @@
 package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.gui.component.SwitchButton;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.io.WindowManager;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -24,25 +24,25 @@ public class DEClientConfigScreen extends Screen {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBackground(pPoseStack);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        renderBackground(guiGraphics);
         WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
         
         if(showVersionCheckbox.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".show_version_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".show_version_desc"), pMouseX, pMouseY);
         }
         if(moddedScreensCheckbox.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".modded_screens_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".modded_screens_desc"), pMouseX, pMouseY);
         }
         if(discordRPCCheckbox.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".discord_rpc_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".discord_rpc_desc"), pMouseX, pMouseY);
         }
         if(debugModCheckBox.isHovered()) {
-        	renderTooltip(pPoseStack, Component.translatable("config." + DEMod.MOD_ID + ".dev_mod_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".dev_mod_desc"), pMouseX, pMouseY);
         }
         
-        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".client"), width / 2, 10, 0xffffff);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.drawCenteredString(font, Component.translatable("config." + DEMod.MOD_ID + ".client"), width / 2, 10, 0xffffff);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override

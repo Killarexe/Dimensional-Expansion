@@ -2,9 +2,9 @@ package net.killarexe.dimensional_expansion.client.gui.screen.config;
 
 import java.util.concurrent.Callable;
 
-import com.mojang.blaze3d.vertex.*;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.io.WindowManager;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Button.OnPress;
 import net.minecraft.client.gui.screens.Screen;
@@ -23,19 +23,19 @@ public class DEConfigScreen extends Screen {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
     	WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Config screen");
-        this.renderBackground(pPoseStack);
+        this.renderBackground(guiGraphics);
 
         if(clientButton.isHoveredOrFocused()) {
-        	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".client_button_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("button." + DEMod.MOD_ID + ".client_button_desc"), pMouseX, pMouseY);
         }
         if(commonButton.isHoveredOrFocused()) {
-        	this.renderTooltip(pPoseStack, Component.translatable("button." + DEMod.MOD_ID + ".common_button_desc"), pMouseX, pMouseY);
+        	guiGraphics.renderTooltip(font, Component.translatable("button." + DEMod.MOD_ID + ".common_button_desc"), pMouseX, pMouseY);
         }
         
-        drawCenteredString(pPoseStack, font, Component.translatable("config." + DEMod.MOD_ID + ".title"), width/2, 10, 0xffffff);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.drawCenteredString(font, Component.translatable("config." + DEMod.MOD_ID + ".title"), width/2, 10, 0xffffff);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     public static OnPress funcOnPress(Callable<Void> func) {

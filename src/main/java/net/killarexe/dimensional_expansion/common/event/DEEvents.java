@@ -25,7 +25,6 @@ public class DEEvents {
         forgeBus.addListener(DEVillagerTrades::addTrades);
         modBus.addListener(DEEvents::commonSetup);
         modBus.addListener(DEEntityTypes::registerAttributes);
-        modBus.addListener(DECreativeTabs::registerCreativeTabs);
         modBus.addListener(DECreativeTabs::addItemsToCreativeTabs);
 	}
 	

@@ -19,8 +19,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -33,7 +31,7 @@ import java.util.stream.Stream;
 public class EssenceExtractor extends Block implements EntityBlock {
     public EssenceExtractor() {
         super(BlockBehaviour.Properties
-        		.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY)
+        		.of()
         		.strength(4, 20)
         		.requiresCorrectToolForDrops()
         		.destroyTime(3)

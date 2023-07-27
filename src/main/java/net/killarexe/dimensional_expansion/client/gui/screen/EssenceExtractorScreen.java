@@ -1,9 +1,9 @@
 package net.killarexe.dimensional_expansion.client.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.container.EssenceExtractorContainer;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -22,20 +22,20 @@ public class EssenceExtractorScreen extends AbstractContainerScreen<EssenceExtra
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        this.renderBackground(pPoseStack);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(pPoseStack, pMouseX, pMouseY);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        this.renderBackground(guiGraphics);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
 
     @Override
-    protected void renderBg(PoseStack poseStack, float v, int i, int i1) {
+    protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {
         RenderSystem.setShader(GameRenderer::getPositionShader);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderTexture(0, GUI);
-        blit(poseStack, leftPos, topPos, 0, -2, getXSize(), getYSize());
+        guiGraphics.blit(GUI, leftPos, topPos, 0, -2, getXSize(), getYSize());
         RenderSystem.disableBlend();
     }
 

@@ -41,7 +41,7 @@ public class Smelt extends DiggingEnchantment {
 				&& e.isCancelable() && e.getResult() != Result.DENY && !e.getPlayer().isCreative()) {
 			e.setCanceled(true);
 			BlockPos pos = e.getPos();
-			Level level = e.getPlayer().getLevel();
+			Level level = e.getPlayer().level();
 			ItemStack item = new ItemStack(e.getState().getBlock());
 			if (level.getRecipeManager().getRecipeFor(RecipeType.SMELTING,
 					new SimpleContainer(new ItemStack(e.getState().getBlock())), level).isPresent()) {

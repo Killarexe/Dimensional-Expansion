@@ -8,6 +8,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarratedElementType;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -51,10 +52,10 @@ public class SwitchButton extends AbstractButton{
 	@Override
 	public void onPress() {
 		this.enabled = !this.enabled;
-	}
+	} 
 	
 	@Override
-	public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+	public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
 		Minecraft minecraft = Minecraft.getInstance();
 		Font font = minecraft.font;
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -67,13 +68,13 @@ public class SwitchButton extends AbstractButton{
 	    RenderSystem.enableBlend();
 	    RenderSystem.defaultBlendFunc();
 	    RenderSystem.enableDepthTest();
-	    blit(pPoseStack, getX(), getY(), 0, 46 + i * 20, this.width / 2, this.height);
-	    blit(pPoseStack, getX() + this.width / 2, getY(), 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
+	    guiGraphics.blit(DE_WIDGETS_LOCATION, getX(), getY(), 0, 46 + i * 20, this.width / 2, this.height);
+	    guiGraphics.blit(DE_WIDGETS_LOCATION, getX() + this.width / 2, getY(), 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
 	    //this.renderBg(pPoseStack, minecraft, pMouseX, pMouseY);
 	    int j = getFGColor();
-	    drawString(pPoseStack, font, this.getMessage(), getX() + this.width + 16, getY() + (this.height - 8) / 2, j | Mth.ceil(this.alpha * 255.0F) << 24);
+	    guiGraphics.drawString(font, this.getMessage(), getX() + this.width + 16, getY() + (this.height - 8) / 2, j | Mth.ceil(this.alpha * 255.0F) << 24);
 		if (this.isHoveredOrFocused()) {
-			this.renderToolTip(pPoseStack, pMouseX, pMouseY);
+			this.renderToolTip(guiGraphics.pose(), pMouseX, pMouseY);
 		}
         this.isHovered = pMouseX >= this.getX() && pMouseY >= this.getY() && pMouseX < this.getX() + this.width && pMouseY < this.getY() + this.height;
 	}

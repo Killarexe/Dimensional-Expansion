@@ -14,7 +14,7 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.ChangeDimensionTrigger;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
@@ -186,7 +186,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 					true,
 					true,
 					hidden
-				).addCriterion("tick", new PlayerTrigger.TriggerInstance(CriteriaTriggers.TICK.getId(), EntityPredicate.Composite.ANY)).save(saver, new ResourceLocation(DEMod.MOD_ID, name), helper);
+				).addCriterion("tick", new PlayerTrigger.TriggerInstance(CriteriaTriggers.TICK.getId(), ContextAwarePredicate.ANY)).save(saver, new ResourceLocation(DEMod.MOD_ID, name), helper);
 	}
 	
 	/*private AdvancementRewards unlockRecipes(String... names) {
