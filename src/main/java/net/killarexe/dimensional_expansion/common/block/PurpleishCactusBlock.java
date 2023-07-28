@@ -16,6 +16,7 @@ public class PurpleishCactusBlock extends CactusBlock{
 		super(BlockBehaviour.Properties.copy(Blocks.CACTUS).noOcclusion());
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		for(Direction direction : Direction.Plane.HORIZONTAL) {
