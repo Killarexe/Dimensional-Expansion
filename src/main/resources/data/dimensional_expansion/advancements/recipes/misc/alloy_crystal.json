@@ -134,5 +134,6 @@
     "recipes": [
       "dimensional_expansion:alloy_crystal"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

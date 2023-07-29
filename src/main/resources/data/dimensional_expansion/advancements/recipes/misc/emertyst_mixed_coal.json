@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:emertyst_mixed_coal"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

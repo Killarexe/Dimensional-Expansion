@@ -38,5 +38,6 @@
     [
       "in_structure"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

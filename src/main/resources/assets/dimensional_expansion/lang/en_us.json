@@ -90,8 +90,6 @@
   "config.dimensional_expansion.common": "Dimensional Expansion §6Common §fConfig",
   "config.dimensional_expansion.dev_mod": "Dev Mod",
   "config.dimensional_expansion.dev_mod_desc": "Developper Mode.",
-  "config.dimensional_expansion.discord_rpc": "Discord RPC",
-  "config.dimensional_expansion.discord_rpc_desc": "Shows on your Discord profile my mod.",
   "config.dimensional_expansion.enable_power_stones": "Enable Power Stones",
   "config.dimensional_expansion.enable_power_stones_desc": "Enable ALL Power Stones (Not recommended on big servers!)",
   "config.dimensional_expansion.modded_screens": "Modded Screens",

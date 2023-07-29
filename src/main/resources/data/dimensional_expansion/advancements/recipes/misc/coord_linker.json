@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:coord_linker"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -128,8 +128,8 @@ public class JugerModel<T extends Juger> extends HierarchicalModel<T> {
 		this.head.xRot = headPitch * ((float)Math.PI / 180F);
 		
 		animateWalk(JugerAnimations.JUGER_WALK, limbSwing, limbSwingAmount, 2.5F, 2.0F);
-		animate(entity.getAttackState(), JugerAnimations.JUGER_ATTACK, ageInTicks, 1.0F);
 		animate(entity.getStandState(), JugerAnimations.JUGER_STAND, ageInTicks, 1.0F);
+		animate(entity.getAttackState(), JugerAnimations.JUGER_ATTACK, ageInTicks, 1.0F);
 	}
 
 	@Override

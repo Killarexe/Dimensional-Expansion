@@ -53,6 +53,13 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
 	}
+	@Override
+	public void aiStep() {
+		if(isSunBurnTick()) {
+			setSecondsOnFire(8);
+		}
+		super.aiStep();
+	}
 	
 	@SuppressWarnings("deprecation")
 	@Override

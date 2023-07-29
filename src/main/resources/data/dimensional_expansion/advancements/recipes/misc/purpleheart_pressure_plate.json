@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:purpleheart_pressure_plate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

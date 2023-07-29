@@ -11,16 +11,17 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
 
-public class Mouvet extends AgeableMob{
+public class Mouvet extends Animal{
 
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMobAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.75f)
 			.add(Attributes.JUMP_STRENGTH, 1.0f)
 			.add(Attributes.MAX_HEALTH, 10.0f);
 	
-	public Mouvet(EntityType<? extends AgeableMob> pEntityType, Level pLevel) {
+	public Mouvet(EntityType<? extends Animal> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
 	

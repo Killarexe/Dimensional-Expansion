@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:display_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

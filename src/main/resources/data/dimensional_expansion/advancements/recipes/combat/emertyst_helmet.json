@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:emertyst_helmet"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

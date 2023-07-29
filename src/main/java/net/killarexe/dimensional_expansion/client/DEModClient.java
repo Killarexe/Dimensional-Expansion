@@ -5,14 +5,12 @@ import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
-import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPC;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
 import net.killarexe.dimensional_expansion.client.models.JugerModel;
 import net.killarexe.dimensional_expansion.client.models.MouvetModel;
 import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.init.*;
 import net.killarexe.dimensional_expansion.io.WindowManager;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -78,10 +76,6 @@ public class DEModClient {
 	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon16x16.png"),
 	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon32x32.png")
 	        );
-	        if(DEConfig.discordRPC.get()) {
-	        	setWindowTitle("Init Dimensional Expansion Discord RPC", "Discord RPC...");
-	        	DiscordRPC.start();
-	        }
 	        setWindowTitle("Dimensional Expansion Client Setup Complete!", "Client Setup Complete!");
     	});
     }

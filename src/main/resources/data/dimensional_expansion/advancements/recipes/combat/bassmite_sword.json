@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:bassmite_sword"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

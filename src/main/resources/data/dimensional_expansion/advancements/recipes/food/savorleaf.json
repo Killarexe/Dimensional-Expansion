@@ -30,5 +30,6 @@
     "recipes": [
       "dimensional_expansion:savorleaf"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

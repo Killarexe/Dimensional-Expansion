@@ -27,5 +27,6 @@
     [
       "is_in_dimension"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

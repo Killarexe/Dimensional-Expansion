@@ -18,7 +18,7 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -26,9 +26,9 @@ import net.minecraft.world.level.Level;
 public class Juger extends Monster{
 
 	private static final EntityDataAccessor<Boolean> IS_ATTACKING = SynchedEntityData.defineId(Juger.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Integer> ATTACK_COOLDOWN = SynchedEntityData.defineId(Juger.class, EntityDataSerializers.INT);
 	private final AnimationState ATTACK_STATE = new AnimationState();
 	private final AnimationState STAND_STATE = new AnimationState();
-	private int attackAnimationCooldown = 0;
 	
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMonsterAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.25f)
@@ -49,14 +49,15 @@ public class Juger extends Monster{
 
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AgeableMob.class, false, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractGolem.class, true, true));
 	}
 	
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		entityData.define(IS_ATTACKING, false);
+		entityData.define(ATTACK_COOLDOWN, tickCount);
 	}
 	
 	@Override
@@ -76,12 +77,12 @@ public class Juger extends Monster{
 	private void handleAnimationStates() {
 		if(isAttacking()) {
 			ATTACK_STATE.startIfStopped(tickCount);
-			if(attackAnimationCooldown + JugerAnimations.JUGER_ATTACK.lengthInSeconds() * 20 < tickCount) {
-				setAttacking(false);
+			if(getAttackCooldown() + JugerAnimations.JUGER_ATTACK.lengthInSeconds() * 20 < tickCount) {
 				ATTACK_STATE.stop();
+				setAttacking(false);
 			}
 		}else {
-			attackAnimationCooldown = tickCount;
+			setAttackCooldown(tickCount);
 		}
 	}
 	
@@ -97,13 +98,21 @@ public class Juger extends Monster{
 	}
 	
 	@Override
-	protected void updateWalkAnimation(float unknown) {
+	protected void updateWalkAnimation(float pPartialTick) {
 		this.walkAnimation.update(0.0F, 0.2F);
-		super.updateWalkAnimation(unknown);
+		super.updateWalkAnimation(pPartialTick);
+	}
+	
+	public void setAttackCooldown(int value) {
+		entityData.set(ATTACK_COOLDOWN, value, true);
+	}
+	
+	public int getAttackCooldown() {
+		return entityData.get(ATTACK_COOLDOWN);
 	}
 	
 	public void setAttacking(boolean value) {
-		entityData.set(IS_ATTACKING, value);
+		entityData.set(IS_ATTACKING, value, true);
 	}
 	
 	public boolean isAttacking() {
