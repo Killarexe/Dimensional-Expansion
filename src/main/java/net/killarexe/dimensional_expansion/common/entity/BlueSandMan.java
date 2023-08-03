@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.animal.AbstractGolem;
@@ -35,6 +36,7 @@ public class BlueSandMan extends AbstractGolem implements RangedAttackMob{
 		this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.targetSelector.addGoal(0, new HurtByTargetGoal(this, AbstractGolem.class));
+		this.targetSelector.addGoal(4, new RangedAttackGoal(this, 1.0D, 20, 15.0F));
 	}
 
 	@Override

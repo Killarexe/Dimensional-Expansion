@@ -55,7 +55,6 @@ public class MouvetModel<T extends Mouvet> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
 	}
 
 	@Override
@@ -63,4 +62,5 @@ public class MouvetModel<T extends Mouvet> extends EntityModel<T> {
 		face.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
+	
 }
