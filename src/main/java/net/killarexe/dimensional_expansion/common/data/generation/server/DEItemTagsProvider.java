@@ -41,7 +41,7 @@ public class DEItemTagsProvider extends ItemTagsProvider {
         		DEItems.SIMIX_MIXED_COAL.get(), DEItems.EMERTYST_MIXED_COAL.get()
         );
         tag(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
-        		DEItems.DOCTOR_WHO_DISC.get(), DEItems.SWEDEN_DISC.get()
+        		DEItems.SWEDEN_DISC.get()
         );
         tag(ItemTags.SAND).add(DEBlocks.BLUE_SAND.get().asItem());
         tag(ItemTags.FENCE_GATES).add(DEBlocks.PURPLEHEART_FENCE_GATE.get().asItem());

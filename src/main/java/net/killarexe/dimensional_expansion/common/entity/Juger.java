@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.client.animations.JugerAnimations;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
@@ -61,6 +62,18 @@ public class Juger extends Monster{
 	}
 	
 	@Override
+	protected SoundEvent getAmbientSound() {
+		// TODO Auto-generated method stub
+		return super.getAmbientSound();
+	}
+	
+	@Override
+	protected SoundEvent getDeathSound() {
+		// TODO Auto-generated method stub
+		return super.getDeathSound();
+	}
+	
+	@Override
 	public MobType getMobType() {
 		return MobType.ARTHROPOD;
 	}
@@ -94,6 +107,7 @@ public class Juger extends Monster{
 	@Override
 	public boolean doHurtTarget(Entity pEntity) {
 		setAttacking(true);
+		
 		return super.doHurtTarget(pEntity);
 	}
 	

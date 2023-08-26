@@ -75,7 +75,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.PURPLEHEART_CHEST_BOAT);
     	
     	oneLayerItem(DEItems.SWEDEN_DISC);
-    	oneLayerItem(DEItems.DOCTOR_WHO_DISC);
     	oneLayerItem(DEItems.PURPLE_BERRY);
     	oneLayerItem(DEItems.SAVORLEAF);
     	oneLayerItem(DEItems.VIOLET_CARROT);

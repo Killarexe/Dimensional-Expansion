@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public class DEBlocks {
-
+	
 	public static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, DEMod.MOD_ID);
 
 	public static final RegistryObject<DropExperienceBlock> PALON_ORE = createOreBlock("palon_ore",

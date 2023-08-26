@@ -4,7 +4,7 @@
     "subtitle": "music.dimensional_expansion.doctor_who.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:doctor_who",
+        "name": "dimensional_expansion:records/doctor_who",
         "stream": true
       }
     ]
@@ -14,7 +14,7 @@
     "subtitle": "music.dimensional_expansion.sweden_remix.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:sweden_remix",
+        "name": "dimensional_expansion:records/sweden_remix",
         "stream": true
       }
     ]
@@ -24,7 +24,7 @@
     "subtitle": "music.dimensional_expansion.nightly_walk.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:nightly_walk",
+        "name": "dimensional_expansion:music/nightly_walk",
         "stream": true
       }
     ]
@@ -34,7 +34,7 @@
     "subtitle": "music.dimensional_expansion.seeing_the_stars.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:seeing_the_stars",
+        "name": "dimensional_expansion:music/seeing_the_stars",
         "stream": true
       }
     ]
@@ -44,7 +44,7 @@
     "subtitle": "music.dimensional_expansion.the_origin.subtitle",
     "sounds": [
       {
-        "name": "dimensional_expansion:the_origin",
+        "name": "dimensional_expansion:music/the_origin",
         "stream": true
       }
     ]

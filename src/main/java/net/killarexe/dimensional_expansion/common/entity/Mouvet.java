@@ -1,11 +1,13 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
 import net.killarexe.dimensional_expansion.common.entity.goals.StealFoodGoal;
+import net.killarexe.dimensional_expansion.init.DESoundEvents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -85,5 +87,18 @@ public class Mouvet extends Animal{
 
 	public ItemStack getCurrentItem() {
 		return entityData.get(CURRENT_ITEM);
+	}
+	
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return DESoundEvents.MOUVET_AMBIENT.get();
+	}	
+	
+	@Override
+	protected SoundEvent getDeathSound() {
+		if(random.nextFloat() >= 0.90F) {
+			return DESoundEvents.MOUVET_EASTER_DEATH.get();
+		}
+		return DESoundEvents.MOUVET_DEATH.get();
 	}
 }

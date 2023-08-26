@@ -45,5 +45,7 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeServer(), new DEItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Recipes...");
 		generator.addProvider(e.includeServer(), new DERecipeProvider(output));
+		DEMod.LOGGER.info("Generating Dimensional Expansion Sound Definitions...");
+		generator.addProvider(e.includeServer(), new DESoundDefinitions(output, helper));
 	}
 }
