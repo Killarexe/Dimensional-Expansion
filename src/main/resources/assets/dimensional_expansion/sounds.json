@@ -1,52 +1,59 @@
 {
-  "doctor_who": {
-    "category": "record",
-    "subtitle": "music.dimensional_expansion.doctor_who.subtitle",
+  "disc.sweden_remix": {
     "sounds": [
-      {
-        "name": "dimensional_expansion:records/doctor_who",
-        "stream": true
-      }
-    ]
+      "dimensional_expansion:record/sweden_remix"
+    ],
+    "subtitle": "record.dimensional_expansion.sweden_remix.subtitle"
   },
-  "sweden_remix": {
-    "category": "record",
-    "subtitle": "music.dimensional_expansion.sweden_remix.subtitle",
+  "entity.blue_sand_man.ambient": {
     "sounds": [
-      {
-        "name": "dimensional_expansion:records/sweden_remix",
-        "stream": true
-      }
-    ]
+      "dimensional_expansion:entity/blue_sand_man/say1",
+      "dimensional_expansion:entity/blue_sand_man/say2"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.ambient"
   },
-  "nightly_walk": {
-  	"category": "music",
-    "subtitle": "music.dimensional_expansion.nightly_walk.subtitle",
+  "entity.blue_sand_man.death": {
     "sounds": [
-      {
-        "name": "dimensional_expansion:music/nightly_walk",
-        "stream": true
-      }
-    ]
+      "dimensional_expansion:entity/blue_sand_man/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.death"
   },
-  "seeing_the_stars": {
-  	"category": "music",
-    "subtitle": "music.dimensional_expansion.seeing_the_stars.subtitle",
+  "entity.juger.ambient": {
     "sounds": [
-      {
-        "name": "dimensional_expansion:music/seeing_the_stars",
-        "stream": true
-      }
-    ]
+      "dimensional_expansion:entity/juger/say1"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.ambient"
   },
-  "the_origin": {
-  	"category": "music",
-    "subtitle": "music.dimensional_expansion.the_origin.subtitle",
+  "entity.juger.attack": {
     "sounds": [
-      {
-        "name": "dimensional_expansion:music/the_origin",
-        "stream": true
-      }
+      "dimensional_expansion:entity/juger/attack"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.attack"
+  },
+  "entity.juger.death": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.death"
+  },
+  "entity.mouvet.ambient": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/say1",
+      "dimensional_expansion:entity/mouvet/say2"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.ambient"
+  },
+  "entity.mouvet.death": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.death"
+  },
+  "music.origin": {
+    "sounds": [
+      "dimensional_expansion:music/nightly_walk",
+      "dimensional_expansion:music/seeing_the_stars",
+      "dimensional_expansion:music/the_origin"
     ]
   }
 }

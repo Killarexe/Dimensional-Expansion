@@ -32,15 +32,15 @@ public class DESoundDefinitions extends SoundDefinitionsProvider{
 	}
 	
 	private void addEntitySound(RegistryObject<SoundEvent> sound, String entityId, String title, String... files) {
-		addMultiple(sound, "entity." + entityId + "." + title, "entity/" + entityId, files);
+		addMultiple(sound, "entity." + DEMod.MOD_ID + "." + entityId + "." + title, "entity/" + entityId, files);
 	}
 	
 	private void addMusicDisc(RegistryObject<SoundEvent> sound, String name) {
-		addSingle(sound, "record." + name + ".subtitle", "record/", name);
+		addSingle(sound, "record." + DEMod.MOD_ID + "." + name + ".subtitle", "record", name);
 	}
 	
 	private void addMusic(RegistryObject<SoundEvent> sound, String title, String... files) {
-		addMultiple(sound, title, "music/", files);
+		addMultiple(sound, title, "music", files);
 	}
 	
 	private void addMultiple(RegistryObject<SoundEvent> sound, String title, String path, String... files) {

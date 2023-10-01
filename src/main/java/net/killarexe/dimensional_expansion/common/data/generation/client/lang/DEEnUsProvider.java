@@ -263,5 +263,21 @@ public class DEEnUsProvider extends LanguageProvider {
         add("enchantment." + DEMod.MOD_ID + ".burn_protection", "Burn Protection");
         add("enchantment." + DEMod.MOD_ID + ".no_magic", "No Magic");
         add("enchantment." + DEMod.MOD_ID + ".smelt", "Smelt");
+        
+        /*
+         * Records
+         */
+        add("record." + DEMod.MOD_ID + ".sweden_remix.subtitle", "Sweden Remix by Killar.exe");
+        
+        /*
+         * Sounds
+         */
+        add("entity." + DEMod.MOD_ID + ".blue_sand_man.ambient", "Blue Sand Man Ambient");
+        add("entity." + DEMod.MOD_ID + ".blue_sand_man.death", "Blue Sand Man Death");
+        add("entity." + DEMod.MOD_ID + ".juger.ambient", "Juger Ambient");
+        add("entity." + DEMod.MOD_ID + ".juger.attack", "Juger Attack");
+        add("entity." + DEMod.MOD_ID + ".juger.death", "Juger Death");
+        add("entity." + DEMod.MOD_ID + ".mouvet.ambient", "Mouvet Ambient");
+        add("entity." + DEMod.MOD_ID + ".mouvet.death", "Mouvet Death");
     }
 }
