@@ -96,9 +96,6 @@ public class Mouvet extends Animal{
 	
 	@Override
 	protected SoundEvent getDeathSound() {
-		if(random.nextFloat() >= 0.90F) {
-			return DESoundEvents.MOUVET_EASTER_DEATH.get();
-		}
 		return DESoundEvents.MOUVET_DEATH.get();
 	}
 }

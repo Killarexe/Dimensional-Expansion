@@ -32,7 +32,11 @@
     "0.9a": "Added musics, mobs, blocks, items, crafts, features. Patched the Enchant Transfer Table. Tweaked Origin Generation. Improved config. And other things which I forgor..."
   },
   "1.20.1": {
-  	"0.9.1a": "Updated to 1.20.1"
+  	"0.9.1a": "Updated to 1.20.1",
+  	"0.9.2a": "Removed Discord RPC, Added new abilites to the Blue Sand Man and the Movet, Added new musics, Added SFXs for the mobs"
+  },
+  "1.20.2": {
+  	"0.9.2a": "Updated to 1.20.2"
   },
   "promos": {
     "1.16.4-latest": "0.1a",

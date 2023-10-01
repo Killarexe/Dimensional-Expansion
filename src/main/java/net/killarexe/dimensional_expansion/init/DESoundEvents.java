@@ -12,7 +12,6 @@ public class DESoundEvents{
 	
 	public static final RegistryObject<SoundEvent> MOUVET_AMBIENT = createFixedSound("entity.mouvet.ambient", 16.0f);
 	public static final RegistryObject<SoundEvent> MOUVET_DEATH = createFixedSound("entity.mouvet.death", 16.0f);
-	public static final RegistryObject<SoundEvent> MOUVET_EASTER_DEATH = createFixedSound("entity.mouvet.easter_death", 16.0f);
 	public static final RegistryObject<SoundEvent> JUGER_AMBIENT = createFixedSound("entity.juger.ambient", 16.0f);
 	public static final RegistryObject<SoundEvent> JUGER_ATTACK = createFixedSound("entity.juger.attack", 16.0F);
 	public static final RegistryObject<SoundEvent> JUGER_DEATH = createFixedSound("entity.juger.death", 16.0f);

@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -17,43 +18,40 @@ public class DESoundDefinitions extends SoundDefinitionsProvider{
 	
 	@Override
 	public void registerSounds() {
-		addEntitySound(DESoundEvents.BLUE_SAND_MAN_AMBIENT, "blue_sand_man", "ambient");
-		addEntitySound(DESoundEvents.BLUE_SAND_MAN_DEATH, "blue_sand_man", "death");
-		addEntitySound(DESoundEvents.JUGER_AMBIENT, "juger", "ambient");
-		addEntitySound(DESoundEvents.JUGER_ATTACK, "juger", "attack");
-		addEntitySound(DESoundEvents.JUGER_DEATH, "juger", "death");
-		addEntitySound(DESoundEvents.MOUVET_AMBIENT, "mouvet", "ambient");
-		addEntitySound(DESoundEvents.MOUVET_DEATH, "mouvet", "death");
-		addEntitySound(DESoundEvents.MOUVET_EASTER_DEATH, "mouvet", "easter_death");
+		addEntitySound(DESoundEvents.BLUE_SAND_MAN_AMBIENT, "blue_sand_man", "ambient", "say1", "say2");
+		addEntitySound(DESoundEvents.BLUE_SAND_MAN_DEATH, "blue_sand_man", "death", "death");
+		addEntitySound(DESoundEvents.JUGER_AMBIENT, "juger", "ambient", "say1");
+		addEntitySound(DESoundEvents.JUGER_ATTACK, "juger", "attack", "attack");
+		addEntitySound(DESoundEvents.JUGER_DEATH, "juger", "death", "death");
+		addEntitySound(DESoundEvents.MOUVET_AMBIENT, "mouvet", "ambient", "say1", "say2");
+		addEntitySound(DESoundEvents.MOUVET_DEATH, "mouvet", "death", "death");
 		
 		addMusicDisc(DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, "sweden_remix");
 		
-		addMusic(DESoundEvents.ORIGIN_MUSIC, "origin");
+		addMusic(DESoundEvents.ORIGIN_MUSIC, null, "nightly_walk", "seeing_the_stars", "the_origin");
 	}
 	
-	private void addEntitySound(RegistryObject<SoundEvent> sound, String entityId, String name) {
-		add(
-			sound.get(),
-			definition()
-				.subtitle("entity." + entityId + "." + name)
-				.with(sound(new ResourceLocation(DEMod.MOD_ID, "entity/" + entityId + "/" + name)))
-		);
+	private void addEntitySound(RegistryObject<SoundEvent> sound, String entityId, String title, String... files) {
+		addMultiple(sound, "entity." + entityId + "." + title, "entity/" + entityId, files);
 	}
 	
 	private void addMusicDisc(RegistryObject<SoundEvent> sound, String name) {
-		add(
-			sound.get(),
-			definition()
-				.subtitle("record." + name + ".subtitle")
-				.with(sound(new ResourceLocation(DEMod.MOD_ID, "record/" + name)))
-		);
+		addSingle(sound, "record." + name + ".subtitle", "record/", name);
 	}
 	
-	private void addMusic(RegistryObject<SoundEvent> sound, String name) {
-		add(
-			sound.get(),
-			definition()
-				.with(sound(new ResourceLocation(DEMod.MOD_ID, "record/" + name)))
-		);
+	private void addMusic(RegistryObject<SoundEvent> sound, String title, String... files) {
+		addMultiple(sound, title, "music/", files);
+	}
+	
+	private void addMultiple(RegistryObject<SoundEvent> sound, String title, String path, String... files) {
+		SoundDefinition definition = definition().subtitle(title);
+		for(String file: files) {
+			definition.with(sound(new ResourceLocation(DEMod.MOD_ID, path + "/" + file)));
+		}
+		add(sound.get(), definition);
+	}
+	
+	private void addSingle(RegistryObject<SoundEvent> sound, String title, String path, String file) {
+		add(sound.get(), definition().subtitle(title).with(sound(new ResourceLocation(DEMod.MOD_ID, path + "/" + file))));
 	}
 }
