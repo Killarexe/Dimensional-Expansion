@@ -1,155 +1,114 @@
 plugins {
-    id 'java'
-    id 'java-library'
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '0.9.2a'
-group = 'net.killarexe.dimensional_expansion' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'dimensional_expansion'
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
 minecraft {
-
-    mappings channel: "${map_channel}", version: "${map_version}"
-
+    mappings channel: mapping_channel, version: mapping_version
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
+    copyIdeResources = true
     runs {
-        client {
+        configureEach {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
-
             mods {
-                dimensional_expansion {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
+        }
+
+        client {
+            property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
-
-            mods {
-                dimensional_expansion {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', mod_id
+            args '--nogui'
         }
-
+        
         gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'dimensional_expansion'
-
-            mods {
-                dimensional_expansion {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'dimensional_expansion', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                dimensional_expansion {
-                    source sourceSets.main
-                }
-            }
+            workingDirectory project.file('run-data')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
 
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-configurations {
-	// Create the library configuration, where our non-mod libraries will be added to
-	library
-	// Any dependency in the library configuration will also be added to the implementation configuration
-	implementation.extendsFrom library
-}
-
 repositories {
-    mavenCentral()
-    maven {
-	    // location of the maven that hosts JEI files since January 2023
+  maven {
 	    name = "Jared's maven"
 	    url = "https://maven.blamejared.com/mezz/jei/"
 	}
-    maven {
-    	// location of a maven mirror for JEI files, as a fallback
-    	name = "ModMaven"
-   		url = "https://modmaven.dev"
-    }
-    maven { url 'https://jitpack.io' }
+  maven {
+    name = "ModMaven"
+    url = "https://modmaven.dev"
+  }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI
-    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
-minecraft.runs.all {
-	// Set the minecraft_classpath token to the paths of all jars in the library configuration
-	// This is added with the actual Minecraft classpath to get the real classpath information later on
-	lazyToken('minecraft_classpath') {
-		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
-	}
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
 }
 
-jar {
-    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF', "META-INF/versions/9/module-info.class"
+tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-                "Specification-Title"     : "dimensional_expansion",
-                "Specification-Vendor"    : "Killar.exe",
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "Killar.exe",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : mod_authors,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-    from { configurations.library.copyRecursive().resolve().collect { it.isDirectory() ? it.absolutePath : zipTree(it.absolutePath) } }
+    finalizedBy 'reobfJar'
 }
-
-jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        register('mavenJava', MavenPublication) {
+            build
             artifact jar
         }
     }
@@ -161,5 +120,5 @@ publishing {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' 
+    options.encoding = 'UTF-8'
 }

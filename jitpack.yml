@@ -2,4 +2,3 @@ jdk:
   - openjdk17
 before_install:
   - echo "Starting building Dimensional Expansion"
-  - ./gradlew eclipse

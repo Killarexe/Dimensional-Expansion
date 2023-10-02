@@ -1,27 +1,27 @@
 modLoader="javafml"
-loaderVersion="[47,)"
-license="CC0 1.0 Universal"
-[[mods]]
-modId="dimensional_expansion"
-version="0.9.2a"
-displayName="Dimensional Expansion"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 logoFile="logo.png"
-credits="This Mod made by Killar.exe and with the help of the community and 9è_Docteur."
-authors="Killar.exe" #optional
-description='''Dimensional Expansion is a Minecraft mod avaliable on Forge(maybe Fabric later)
-who adds new tools and weapons for your gears, blocks and for builders, items with special poperities
-and the main feature that is currenly in progress is a new dimension with dungeons, villages and other structures.'''
-updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
-[[dependencies.dimensional_expansion]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[47.0.0,)" #mandatory
+issueTrackerURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
+
+[[mods]]
+
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
-# Here's another dependency
-[[dependencies.dimensional_expansion]]
+
+[[dependencies.${mod_id}]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20, 1.21)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"

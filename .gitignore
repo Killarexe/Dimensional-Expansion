@@ -13,9 +13,6 @@ out
 *.iml
 .idea
 
-#vim
-.swp
-
 # gradle
 build
 .gradle
