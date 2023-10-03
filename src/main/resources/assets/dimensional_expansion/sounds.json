@@ -38,8 +38,7 @@
   },
   "entity.mouvet.ambient": {
     "sounds": [
-      "dimensional_expansion:entity/mouvet/say1",
-      "dimensional_expansion:entity/mouvet/say2"
+      "dimensional_expansion:entity/mouvet/say1"
     ],
     "subtitle": "entity.dimensional_expansion.mouvet.ambient"
   },
