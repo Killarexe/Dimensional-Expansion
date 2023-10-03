@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
 import net.killarexe.dimensional_expansion.client.animations.JugerAnimations;
+import net.killarexe.dimensional_expansion.init.DESoundEvents;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -63,14 +64,12 @@ public class Juger extends Monster{
 	
 	@Override
 	protected SoundEvent getAmbientSound() {
-		// TODO Auto-generated method stub
-		return super.getAmbientSound();
+		return DESoundEvents.JUGER_AMBIENT.get();
 	}
 	
 	@Override
 	protected SoundEvent getDeathSound() {
-		// TODO Auto-generated method stub
-		return super.getDeathSound();
+		return DESoundEvents.JUGER_DEATH.get();
 	}
 	
 	@Override
@@ -107,7 +106,7 @@ public class Juger extends Monster{
 	@Override
 	public boolean doHurtTarget(Entity pEntity) {
 		setAttacking(true);
-		
+		playSound(DESoundEvents.JUGER_ATTACK.get(), 1.0F, random.nextFloat());
 		return super.doHurtTarget(pEntity);
 	}
 	
@@ -139,5 +138,10 @@ public class Juger extends Monster{
 	
 	public AnimationState getStandState() {
 		return STAND_STATE;
+	}
+	
+	@Override
+	public int getExperienceReward() {
+		return 5;
 	}
 }

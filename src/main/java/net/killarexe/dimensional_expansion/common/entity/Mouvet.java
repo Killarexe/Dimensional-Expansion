@@ -98,4 +98,9 @@ public class Mouvet extends Animal{
 	protected SoundEvent getDeathSound() {
 		return DESoundEvents.MOUVET_DEATH.get();
 	}
+	
+	@Override
+	public boolean shouldDropExperience() {
+		return true;
+	}
 }

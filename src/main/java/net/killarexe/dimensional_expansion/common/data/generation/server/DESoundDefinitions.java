@@ -23,7 +23,7 @@ public class DESoundDefinitions extends SoundDefinitionsProvider{
 		addEntitySound(DESoundEvents.JUGER_AMBIENT, "juger", "ambient", "say1");
 		addEntitySound(DESoundEvents.JUGER_ATTACK, "juger", "attack", "attack");
 		addEntitySound(DESoundEvents.JUGER_DEATH, "juger", "death", "death");
-		addEntitySound(DESoundEvents.MOUVET_AMBIENT, "mouvet", "ambient", "say1", "say2");
+		addEntitySound(DESoundEvents.MOUVET_AMBIENT, "mouvet", "ambient", "say1");
 		addEntitySound(DESoundEvents.MOUVET_DEATH, "mouvet", "death", "death");
 		
 		addMusicDisc(DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, "sweden_remix");

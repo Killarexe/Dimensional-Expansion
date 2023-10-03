@@ -1,5 +1,7 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
+import net.killarexe.dimensional_expansion.init.DESoundEvents;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -51,5 +53,19 @@ public class BlueSandMan extends AbstractGolem implements RangedAttackMob{
 		this.playSound(SoundEvents.SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 		this.level().addFreshEntity(snowball);
 	}
-
+	
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return DESoundEvents.BLUE_SAND_MAN_AMBIENT.get();
+	}
+	
+	@Override
+	protected SoundEvent getDeathSound() {
+		return DESoundEvents.BLUE_SAND_MAN_DEATH.get();
+	}
+	
+	@Override
+	public boolean shouldDropExperience() {
+		return true;
+	}
 }

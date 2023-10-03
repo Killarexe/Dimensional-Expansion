@@ -31,7 +31,7 @@ public final class DEConfig {
         CLIENT_BUILDER.push("Config for Dimensional Expansion Client");
         devMod = CLIENT_BUILDER.comment("Set Dimensional Expansion to dev mode. Not Recommended with huge modpack. By Default is false.").define("Dev Mod", false);
         showVersion = CLIENT_BUILDER.comment("Show the version of Dimensional Expansion. Not Recommended with huge modpack. By Default is false.").define("Show Version", false);
-        moddedScreens = CLIENT_BUILDER.comment("Show a custom title screen and pause screen. Not Recommended with huge modpack. By default is true.").define("Modded Screens", true);
+        moddedScreens = CLIENT_BUILDER.comment("Show a custom title screen and pause screen. Not Recommended with huge modpack. By default is false.").define("Modded Screens", false);
         CLIENT_BUILDER.pop();
         CLIENT_SPEC = CLIENT_BUILDER.build();
 
@@ -54,6 +54,6 @@ public final class DEConfig {
 
     public static boolean isDevAccount(){
     	String playerName = Minecraft.getInstance().getUser().getName();
-        return playerName.equalsIgnoreCase("Killarexe") || playerName.equalsIgnoreCase("9e_Docteur");
+        return playerName.equalsIgnoreCase("Killarexe");
     }
 }
