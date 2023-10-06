@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion.common.entity;
 import net.killarexe.dimensional_expansion.init.DESoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -62,6 +63,11 @@ public class BlueSandMan extends AbstractGolem implements RangedAttackMob{
 	@Override
 	protected SoundEvent getDeathSound() {
 		return DESoundEvents.BLUE_SAND_MAN_DEATH.get();
+	}
+	
+	@Override
+	protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return DESoundEvents.BLUE_SAND_MAN_HURT.get();
 	}
 	
 	@Override

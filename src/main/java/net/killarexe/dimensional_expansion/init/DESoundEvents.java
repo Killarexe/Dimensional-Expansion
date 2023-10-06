@@ -12,11 +12,14 @@ public class DESoundEvents{
 	
 	public static final RegistryObject<SoundEvent> MOUVET_AMBIENT = createFixedSound("entity.mouvet.ambient", 5.0f);
 	public static final RegistryObject<SoundEvent> MOUVET_DEATH = createFixedSound("entity.mouvet.death", 5.0f);
+	public static final RegistryObject<SoundEvent> MOUVET_HURT = createFixedSound("entity.mouvet.hurt", 5.0f);
 	public static final RegistryObject<SoundEvent> JUGER_AMBIENT = createFixedSound("entity.juger.ambient", 3.0f);
-	public static final RegistryObject<SoundEvent> JUGER_ATTACK = createFixedSound("entity.juger.attack", 16.0F);
-	public static final RegistryObject<SoundEvent> JUGER_DEATH = createFixedSound("entity.juger.death", 16.0f);
-	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_DEATH = createFixedSound("entity.blue_sand_man.death", 16.0f);
-	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_AMBIENT = createFixedSound("entity.blue_sand_man.ambient", 16.0F);
+	public static final RegistryObject<SoundEvent> JUGER_ATTACK = createFixedSound("entity.juger.attack", 7.0F);
+	public static final RegistryObject<SoundEvent> JUGER_DEATH = createFixedSound("entity.juger.death", 7.0f);
+	public static final RegistryObject<SoundEvent> JUGER_HURT = createFixedSound("entity.juger.hurt", 10.0f);
+	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_DEATH = createFixedSound("entity.blue_sand_man.death", 6.0f);
+	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_AMBIENT = createFixedSound("entity.blue_sand_man.ambient", 6.0F);
+	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_HURT = createFixedSound("entity.blue_sand_man.hurt", 6.0F);
 	
 	public static final RegistryObject<SoundEvent> ORIGIN_MUSIC = createVariableSound("music.origin");
 	public static final RegistryObject<SoundEvent> MUSIC_DISC_SWEDEN_REMIX = createVariableSound("disc.sweden_remix");

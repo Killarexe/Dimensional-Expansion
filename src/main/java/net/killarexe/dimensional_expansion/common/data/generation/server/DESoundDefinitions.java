@@ -20,11 +20,14 @@ public class DESoundDefinitions extends SoundDefinitionsProvider{
 	public void registerSounds() {
 		addEntitySound(DESoundEvents.BLUE_SAND_MAN_AMBIENT, "blue_sand_man", "ambient", "say1", "say2");
 		addEntitySound(DESoundEvents.BLUE_SAND_MAN_DEATH, "blue_sand_man", "death", "death");
+		addEntitySound(DESoundEvents.BLUE_SAND_MAN_HURT, "blue_sand_man", "hurt", "hurt");
 		addEntitySound(DESoundEvents.JUGER_AMBIENT, "juger", "ambient", "say1");
 		addEntitySound(DESoundEvents.JUGER_ATTACK, "juger", "attack", "attack");
 		addEntitySound(DESoundEvents.JUGER_DEATH, "juger", "death", "death");
+		addEntitySound(DESoundEvents.JUGER_HURT, "juger", "hurt", "hurt");
 		addEntitySound(DESoundEvents.MOUVET_AMBIENT, "mouvet", "ambient", "say1");
 		addEntitySound(DESoundEvents.MOUVET_DEATH, "mouvet", "death", "death");
+		addEntitySound(DESoundEvents.MOUVET_HURT, "mouvet", "hurt", "hurt");
 		
 		addMusicDisc(DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, "sweden_remix");
 		

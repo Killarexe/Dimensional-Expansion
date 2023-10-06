@@ -6,6 +6,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
@@ -70,6 +71,11 @@ public class Juger extends Monster{
 	@Override
 	protected SoundEvent getDeathSound() {
 		return DESoundEvents.JUGER_DEATH.get();
+	}
+	
+	@Override
+	protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return DESoundEvents.JUGER_HURT.get();
 	}
 	
 	@Override

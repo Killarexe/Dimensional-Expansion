@@ -274,10 +274,13 @@ public class DEEnUsProvider extends LanguageProvider {
          */
         add("entity." + DEMod.MOD_ID + ".blue_sand_man.ambient", "Blue Sand Man Ambient");
         add("entity." + DEMod.MOD_ID + ".blue_sand_man.death", "Blue Sand Man Death");
+        add("entity." + DEMod.MOD_ID + ".blue_sand_man.hurt", "Blue Sand Man Hurt");
         add("entity." + DEMod.MOD_ID + ".juger.ambient", "Juger Ambient");
         add("entity." + DEMod.MOD_ID + ".juger.attack", "Juger Attack");
         add("entity." + DEMod.MOD_ID + ".juger.death", "Juger Death");
-        add("entity." + DEMod.MOD_ID + ".mouvet.ambient", "Mouvet Ambient");
+        add("entity." + DEMod.MOD_ID + ".juger.hurt", "Juger Hurt");
+        add("entity." + DEMod.MOD_ID + ".mouvet.ambient", "Mouvet Squick");
         add("entity." + DEMod.MOD_ID + ".mouvet.death", "Mouvet Death");
+        add("entity." + DEMod.MOD_ID + ".mouvet.hurt", "Mouvet Hurt");
     }
 }

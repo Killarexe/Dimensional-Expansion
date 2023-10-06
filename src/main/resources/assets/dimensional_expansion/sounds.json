@@ -18,6 +18,12 @@
     ],
     "subtitle": "entity.dimensional_expansion.blue_sand_man.death"
   },
+  "entity.blue_sand_man.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/blue_sand_man/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.hurt"
+  },
   "entity.juger.ambient": {
     "sounds": [
       "dimensional_expansion:entity/juger/say1"
@@ -36,6 +42,12 @@
     ],
     "subtitle": "entity.dimensional_expansion.juger.death"
   },
+  "entity.juger.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.hurt"
+  },
   "entity.mouvet.ambient": {
     "sounds": [
       "dimensional_expansion:entity/mouvet/say1"
@@ -47,6 +59,12 @@
       "dimensional_expansion:entity/mouvet/death"
     ],
     "subtitle": "entity.dimensional_expansion.mouvet.death"
+  },
+  "entity.mouvet.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.hurt"
   },
   "music.origin": {
     "sounds": [

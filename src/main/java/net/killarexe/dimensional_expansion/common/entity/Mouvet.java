@@ -8,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -97,6 +98,11 @@ public class Mouvet extends Animal{
 	@Override
 	protected SoundEvent getDeathSound() {
 		return DESoundEvents.MOUVET_DEATH.get();
+	}
+	
+	@Override
+	protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return DESoundEvents.MOUVET_HURT.get();
 	}
 	
 	@Override
