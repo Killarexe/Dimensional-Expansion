@@ -25,7 +25,7 @@ public class DEConfigScreen extends Screen {
     @Override
     public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
     	WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Config screen");
-        this.renderBackground(guiGraphics);
+        renderBackground(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         if(clientButton.isHoveredOrFocused()) {
         	guiGraphics.renderTooltip(font, Component.translatable("button." + DEMod.MOD_ID + ".client_button_desc"), pMouseX, pMouseY);

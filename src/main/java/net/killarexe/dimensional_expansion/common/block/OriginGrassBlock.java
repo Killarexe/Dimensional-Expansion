@@ -77,11 +77,6 @@ public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlo
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
-		return pLevel.getBlockState(pPos.above()).isAir();
-	}
-
-	@Override
 	public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
 		return true;
 	}
@@ -128,6 +123,11 @@ public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlo
 	            holder.value().place(pLevel, pLevel.getChunkSource().getGenerator(), pRandom, blockpos1);
 	        }
 	    }
+	}
+
+	@Override
+	public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState p_50899_) {
+		return pLevel.getBlockState(pPos.above()).isAir();
 	}
 	
 	

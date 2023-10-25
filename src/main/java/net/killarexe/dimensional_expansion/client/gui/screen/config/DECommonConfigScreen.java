@@ -27,7 +27,7 @@ public class DECommonConfigScreen extends Screen {
 
     @Override
     public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBackground(guiGraphics);
+        renderBackground(guiGraphics, pMouseX, pMouseY, pPartialTick);
         WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Common Config screen");
         
         if(enablePowerStones.isHovered()) {
@@ -59,7 +59,7 @@ public class DECommonConfigScreen extends Screen {
         		20,
         		20,
         		Component.translatable("config." + DEMod.MOD_ID + ".enable_power_stones"),
-        		DEConfig.moddedScreens.get()
+        		DEConfig.enablePowerStones.get()
         );
         
         powerStonesDelay = new ForgeSlider(

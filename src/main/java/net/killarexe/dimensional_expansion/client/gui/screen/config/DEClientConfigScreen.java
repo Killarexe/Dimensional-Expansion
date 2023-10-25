@@ -16,7 +16,7 @@ public class DEClientConfigScreen extends Screen {
 
     private final Screen previousScreen;
     private Button cancelButton, applyButton;
-    private SwitchButton moddedScreensCheckbox, showVersionCheckbox, debugModCheckBox;
+    private SwitchButton showVersionCheckbox, debugModCheckBox;
 
     public DEClientConfigScreen(Screen previousScreen) {
         super(Component.empty());
@@ -25,14 +25,11 @@ public class DEClientConfigScreen extends Screen {
 
     @Override
     public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBackground(guiGraphics);
+        renderBackground(guiGraphics, pMouseX, pMouseY, pPartialTick);
         WindowManager.setWindowTitle("Dimensional Expansion v" + DEMod.VERSION + " | Client Config screen");
         
         if(showVersionCheckbox.isHovered()) {
         	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".show_version_desc"), pMouseX, pMouseY);
-        }
-        if(moddedScreensCheckbox.isHovered()) {
-        	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".modded_screens_desc"), pMouseX, pMouseY);
         }
         if(debugModCheckBox.isHovered()) {
         	guiGraphics.renderTooltip(font, Component.translatable("config." + DEMod.MOD_ID + ".dev_mod_desc"), pMouseX, pMouseY);
@@ -53,11 +50,9 @@ public class DEClientConfigScreen extends Screen {
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        moddedScreensCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 8, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".modded_screens"), DEConfig.moddedScreens.get());
         showVersionCheckbox = new SwitchButton(this.width / 2 - 200, this.height / 4 + 78, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".show_version"), DEConfig.showVersion.get());
         debugModCheckBox = new SwitchButton(this.width / 2 - 200, this.height / 4 - 22, 20, 20, Component.translatable("config." + DEMod.MOD_ID + ".dev_mod"), DEConfig.devMod.get());
         addRenderableWidget(showVersionCheckbox);
-        addRenderableWidget(moddedScreensCheckbox);
         if(DEConfig.isDev() || DEConfig.isDevAccount()) {
             addRenderableWidget(debugModCheckBox);
         }
@@ -66,7 +61,6 @@ public class DEClientConfigScreen extends Screen {
 
     private void apply(){
         DEConfig.showVersion.set(showVersionCheckbox.isEnabled());
-        DEConfig.moddedScreens.set(moddedScreensCheckbox.isEnabled());
         DEConfig.devMod.set(debugModCheckBox.isEnabled());
         onClose();
     }

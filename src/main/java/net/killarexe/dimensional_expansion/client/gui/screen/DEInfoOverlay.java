@@ -18,7 +18,7 @@ public class DEInfoOverlay {
     	int posX = 10;
     	int posY = 10;
     	Minecraft mc = Minecraft.getInstance();
-    	if(!mc.options.renderDebug) {
+    	if(!mc.options.reducedDebugInfo().get()) {
 	        if(DEConfig.showVersion.get()){
 	        	event.getGuiGraphics().drawString(mc.font, "Dimensional Expansion " + DEMod.VERSION, posX, posY, 255);
 	        }

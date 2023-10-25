@@ -69,7 +69,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ORIGIN_PORTAL.get(), "Origin Portal");
 
         add(DEBlocks.FORGE.get(), "Forge");
-        add(DEBlocks.ESSENCE_EXTRACTOR.get(), "Essence Extractor");
         add(DEBlocks.MINERAL_STORAGE.get(), "Mineral Storage");
         add(DEBlocks.DISPLAY_BLOCK.get(), "Display Block");
         add(DEBlocks.ENCHANT_TRANSFER_TABLE.get(), "Enchant Transfer Table");
@@ -256,13 +255,6 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add("message." + DEMod.MOD_ID + ".need_enchanted_item", "You need to put a enchanted item first!");
         add("message." + DEMod.MOD_ID + ".cost_too_high", "Not enough experience to do this...");
-        
-        /*
-         * Enchantements
-         */
-        add("enchantment." + DEMod.MOD_ID + ".burn_protection", "Burn Protection");
-        add("enchantment." + DEMod.MOD_ID + ".no_magic", "No Magic");
-        add("enchantment." + DEMod.MOD_ID + ".smelt", "Smelt");
         
         /*
          * Records

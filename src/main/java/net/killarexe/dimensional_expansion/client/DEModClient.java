@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.client;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
-import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.config.DEConfigScreen;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
@@ -13,7 +12,6 @@ import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
 import net.killarexe.dimensional_expansion.init.*;
 import net.killarexe.dimensional_expansion.io.WindowManager;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -34,7 +32,6 @@ public class DEModClient {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
-        forgeEventBus.addListener(DEEventsClient::onScreenPost);
         forgeEventBus.addListener(DEEventsClient::onKeyInput);
         forgeEventBus.addListener(DEInfoOverlay::render);
         bus.addListener(DEKeyBindings::onKeyRegister);
@@ -67,8 +64,6 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.BLUE_SAND_MAN.get(), BlueSandManRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.MOUVET.get(), MouvetRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.JUGER.get(), JugerRenderer::new);
-	        setWindowTitle("Register Dimensional Expansion Container", "Containers...");
-	        MenuScreens.register(DEMenuTypes.ESSENCE_EXTRACTOR_MENU_TYPE.get(), EssenceExtractorScreen::new);
 	        setWindowTitle("Add Dimensional Expansion Items Properties", "Items Properties...");
 	        DEItems.addItemsProperites();
 	        setWindowTitle("Set Dimensional Expansion Window Icon...", "Window Icon...");

@@ -15,7 +15,7 @@ public class TeleporterScreen extends Screen{
 	
 	@Override
 	public void render(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBackground(graphics);
+        renderBackground(graphics, pMouseX, pMouseY, pPartialTick);
 		super.render(graphics, pMouseX, pMouseY, pPartialTick);
 		graphics.renderTooltip(font, title, pMouseX, pMouseY);
 	}

@@ -175,9 +175,6 @@ public class DEBlocks {
 	public static final RegistryObject<Block> FORGE = createBlock("forge", MapColor.COLOR_BLACK, 3, 50, 2,
 			SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final RegistryObject<Block> ESSENCE_EXTRACTOR = createCustomBlock("essence_extractor",
-			() -> new EssenceExtractor(), DECreativeTabs.Tabs.BLOCKS);
-
 	public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", MapColor.COLOR_BLACK, 3,
 			50, 2, SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
 
@@ -360,7 +357,7 @@ public class DEBlocks {
 			MapColor color, float hardness, float resistance, float harvestLevel, SoundType sound,
 			DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<FlowerBlock> block = BLOCK.register(id,
-				() -> new FlowerBlock(() -> effect, duration,
+				() -> new FlowerBlock(effect, duration,
 						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
 								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion()
 								.instabreak().dynamicShape().noCollission()));

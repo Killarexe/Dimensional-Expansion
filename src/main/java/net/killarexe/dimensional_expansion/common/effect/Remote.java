@@ -1,17 +1,15 @@
 package net.killarexe.dimensional_expansion.common.effect;
 
-import net.killarexe.dimensional_expansion.common.world.EntityManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public class Remote extends MobEffect{
+	
+	//TODO: Reimplement Remote Effect features.
 	
 	private BlockPos savedPos;
 	private ResourceKey<Level> savedDimension;
@@ -19,28 +17,14 @@ public class Remote extends MobEffect{
 	public Remote() {
 		super(MobEffectCategory.NEUTRAL, 4299070);
 	}
-	
+
 	@Override
-	public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-		super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-		savedPos = pLivingEntity.blockPosition();
-		savedDimension = pLivingEntity.level().dimension();
-		pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
+	public void addAttributeModifiers(AttributeMap pAttributeMap, int pAmplifier) {
+		super.addAttributeModifiers(pAttributeMap, pAmplifier);
 	}
 	
 	@Override
-	public void removeAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-		super.removeAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-		pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
-		if(pLivingEntity instanceof Player player) {
-			EntityManager.teleportEntityTo(savedDimension, player, savedPos);
-			pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
-		}else {
-			if(pLivingEntity.level().dimension() != savedDimension && pLivingEntity.canChangeDimensions()) {
-				pLivingEntity.changeDimension(pLivingEntity.getServer().getLevel(savedDimension));
-			}
-			pLivingEntity.teleportTo(savedPos.getX(), savedPos.getY(), savedPos.getZ());
-			pLivingEntity.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);;
-		}
+	public void removeAttributeModifiers(AttributeMap pAttributeMap) {
+		super.removeAttributeModifiers(pAttributeMap);
 	}
 }

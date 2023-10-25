@@ -126,9 +126,6 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
 
 		dropSelf(FORGE.get());
 		dropSelf(MINERAL_STORAGE.get());
-		add(ESSENCE_EXTRACTOR.get(), (block) -> {
-			return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());
-		});
 		add(ENCHANT_TRANSFER_TABLE.get(), (block) -> {
 			return createNameableBlockEntityTable(ENCHANT_TRANSFER_TABLE.get());
 		});

@@ -4,7 +4,6 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
 import net.killarexe.dimensional_expansion.common.block.entity.EnchantTransferTableEntity;
 import net.killarexe.dimensional_expansion.common.block.entity.PurpleheartSignBlockEntity;
-import net.killarexe.dimensional_expansion.common.block.entity.EssenceExtractorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,13 +23,6 @@ public class DEBlockEntityTypes {
     				PurpleheartSignBlockEntity::new,
     				DEBlocks.PURPLEHEART_SIGN.get(),
     				DEBlocks.PURPLEHEART_WALL_SIGN.get()
-    		)
-    );
-    public static final RegistryObject<BlockEntityType<EssenceExtractorBlockEntity>> ESSENCE_EXTRACTOR = register(
-    		"essence_extractor",
-    		() -> BlockEntityType.Builder.of(
-    				EssenceExtractorBlockEntity::new,
-    				DEBlocks.ESSENCE_EXTRACTOR.get()
     		)
     );
     public static final RegistryObject<BlockEntityType<DisplayBlockEntity>> DISPLAY_BLOCK = register(

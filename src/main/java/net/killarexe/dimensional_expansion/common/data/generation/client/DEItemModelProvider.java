@@ -130,7 +130,6 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SAVORLEAF_BLOCK);
         
         simpleBlockItem(DEBlocks.FORGE);
-        simpleBlockItem(DEBlocks.ESSENCE_EXTRACTOR);
         simpleBlockItem(DEBlocks.MINERAL_STORAGE);
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
         oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");

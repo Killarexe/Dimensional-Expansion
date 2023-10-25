@@ -3,6 +3,7 @@ package net.killarexe.dimensional_expansion;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.init.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -25,5 +26,9 @@ public class DEMod {
 		DEEvents.addListeners(MinecraftForge.EVENT_BUS, bus);
 		MinecraftForge.EVENT_BUS.register(this);
 		LOGGER.info("Dimensional Expansion Init Complete!");
+	}
+	
+	public static ResourceLocation res(String location) {
+		return new ResourceLocation(DEMod.MOD_ID, location);
 	}
 }

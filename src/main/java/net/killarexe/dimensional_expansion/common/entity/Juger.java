@@ -11,7 +11,6 @@ import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -102,11 +101,6 @@ public class Juger extends Monster{
 		}else {
 			setAttackCooldown(tickCount);
 		}
-	}
-	
-	@Override
-	public double getMeleeAttackRangeSqr(LivingEntity pEntity) {
-		return (double)(this.getBbWidth() * 1.0F * this.getBbWidth() * 1.0F + pEntity.getBbWidth());
 	}
 	
 	@Override

@@ -10,11 +10,9 @@ import net.killarexe.dimensional_expansion.init.DEDimensions;
 import net.killarexe.dimensional_expansion.init.DEItems;
 import net.killarexe.dimensional_expansion.init.DEStructures;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.FrameType;
-import net.minecraft.advancements.critereon.ChangeDimensionTrigger;
-import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
@@ -28,65 +26,65 @@ import net.minecraftforge.common.data.ForgeAdvancementProvider.AdvancementGenera
 public class DEAdvancementGenerator implements AdvancementGenerator{
 
 	@Override
-	public void generate(Provider registries, Consumer<Advancement> saver, ExistingFileHelper existingFileHelper) {
-		Advancement root = createRootAdvancement(
+	public void generate(Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
+		AdvancementHolder root = createRootAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				new ResourceLocation(DEMod.MOD_ID, "textures/block/palon_block.png"),
 				"dimensional_expansion",
 				FrameType.TASK,
 				false,
-				saver,
-				existingFileHelper
+				saver
 		);
 		
-		Advancement the_palon = createAdvancement(
+		AdvancementHolder the_palon = createPreAdvancement(
 				DEItems.PALON_INGOT.get(),
 				"the_palon",
 				FrameType.TASK,
 				root,
-				false,
-				saver,
-				existingFileHelper
-		);
+				false
+		).rewards(unlockRecipes(
+				""	//TODO: Add reward recipes for the palon.
+		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_palon"));
 		
-		Advancement bassmite = createAdvancement(
+		AdvancementHolder bassmite = createPreAdvancement(
 				DEItems.BASSMITE_GEM.get(),
 				"bassmite",
 				FrameType.TASK,
 				the_palon,
-				false,
-				saver, 
-				existingFileHelper
-		);
+				false
+		).rewards(unlockRecipes(
+				""	//TODO: Add reward recipes for the Emertyst.
+		)).save(saver, DEMod.res("bassmite"));
 		
-		Advancement simix = createAdvancement(
+		AdvancementHolder simix = createPreAdvancement(
 				DEItems.SIMIX_INGOT.get(),
 				"simix",
 				FrameType.TASK,
 				bassmite,
-				false,
-				saver,
-				existingFileHelper
-		);
+				false
+		).rewards(unlockRecipes(
+				""	//TODO: Add reward recipes for the simix.
+		)).save(saver, DEMod.res("simix"));
 		
-		Advancement emertyst = createAdvancement(
+		AdvancementHolder emertyst = createPreAdvancement(
 				DEItems.EMERTYST_GEM.get(),
 				"emertyst",
 				FrameType.TASK,
 				simix,
-				false,
-				saver,
-				existingFileHelper
-		);
+				false
+		).rewards(unlockRecipes(
+				""	//TODO: Add reward recipes for the emertyst.
+		)).save(saver, DEMod.res("emertyst"));
 		
-		Advancement the_origin = createPreAdvancement(
+		AdvancementHolder the_origin = createPreAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				"the_origin",
 				FrameType.TASK,
 				root,
 				false
-		).addCriterion("is_in_dimension", ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(DEDimensions.ORIGIN))
-		.save(saver, new ResourceLocation(DEMod.MOD_ID, "the_origin"), existingFileHelper);
+		).addCriterion("is_in_dimension", PlayerTrigger.TriggerInstance.located(
+				LocationPredicate.Builder.inDimension(DEDimensions.ORIGIN)
+		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_origin"));
 		
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_LOG.get(),
@@ -95,7 +93,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				the_origin,
 				false
 		).addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEBlocks.PURPLEHEART_LOG.get()))
-		.save(saver, new ResourceLocation(DEMod.MOD_ID, "purpleheart_wood"), existingFileHelper);
+		.save(saver, new ResourceLocation(DEMod.MOD_ID, "purpleheart_wood"));
 		
 		createPreAdvancement(
 				DEItems.EMERTYST_CHESTPLATE.get(),
@@ -109,7 +107,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEItems.EMERTYST_CHESTPLATE.get(),
 				DEItems.EMERTYST_LEGGINGS.get(),
 				DEItems.EMERTYST_BOOTS.get())
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "cover_me_with_emertyst"), existingFileHelper);
+		).save(saver, new ResourceLocation(DEMod.MOD_ID, "cover_me_with_emertyst"));
 		
 		createPreAdvancement(
 				DEItems.WARP_POWER_STONE.get(),
@@ -126,7 +124,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEItems.REMOTE_POWER_STONE.get()
 		)).addCriterion("weather", InventoryChangeTrigger.TriggerInstance.hasItems(
 				DEItems.WEATHER_POWER_STONE.get()
-		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "power_stones"), existingFileHelper);
+		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "power_stones"));
 		
 		createPreAdvancement(
 				DEItems.ORIGIN_PORTAL_KEY.get(),
@@ -137,9 +135,9 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.inStructure(DEStructures.ABANDONNED_PORTAL)
+						LocationPredicate.Builder.inStructure(DEStructures.ABANDONNED_PORTAL)
 				)
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "origin_abandonned_portal"), existingFileHelper);
+		).save(saver, new ResourceLocation(DEMod.MOD_ID, "origin_abandonned_portal"));
 		
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_SAPLING.get(),
@@ -150,18 +148,19 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.inStructure(DEStructures.VILLAGE_ORIGIN_PLAINS)
+						LocationPredicate.Builder.inStructure(DEStructures.VILLAGE_ORIGIN_PLAINS)
 				)
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "village_origin_plains"), existingFileHelper);
+		).save(saver, new ResourceLocation(DEMod.MOD_ID, "village_origin_plains"));
 	}
 
-	private Advancement createAdvancement(ItemLike icon, String name, FrameType type, Advancement parent, boolean hidden, Consumer<Advancement> saver, ExistingFileHelper helper) {
+	@SuppressWarnings("unused")
+	private AdvancementHolder createAdvancement(ItemLike icon, String name, FrameType type, AdvancementHolder parent, boolean hidden, Consumer<AdvancementHolder> saver) {
 		return createPreAdvancement(icon, name, type, parent, hidden)
 				.addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(icon))
-				.save(saver, new ResourceLocation(DEMod.MOD_ID, name), helper);
+				.save(saver, new ResourceLocation(DEMod.MOD_ID, name));
 	}
 	
-	private Advancement.Builder createPreAdvancement(ItemLike icon, String name, FrameType type, Advancement parent, boolean hidden) {
+	private Advancement.Builder createPreAdvancement(ItemLike icon, String name, FrameType type, AdvancementHolder parent, boolean hidden) {
 		return Advancement.Builder.advancement()
 				.display(
 					icon,
@@ -175,7 +174,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				).parent(parent);
 	}
 	
-	private Advancement createRootAdvancement(ItemLike icon, @Nullable ResourceLocation bkg, String name, FrameType type, boolean hidden, Consumer<Advancement> saver, ExistingFileHelper helper) {
+	private AdvancementHolder createRootAdvancement(ItemLike icon, @Nullable ResourceLocation bkg, String name, FrameType type, boolean hidden, Consumer<AdvancementHolder> saver) {
 		return Advancement.Builder.advancement()
 				.display(
 					icon,
@@ -186,14 +185,14 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 					true,
 					true,
 					hidden
-				).addCriterion("tick", new PlayerTrigger.TriggerInstance(CriteriaTriggers.TICK.getId(), ContextAwarePredicate.ANY)).save(saver, new ResourceLocation(DEMod.MOD_ID, name), helper);
+				).addCriterion("tick", PlayerTrigger.TriggerInstance.tick()).save(saver, new ResourceLocation(DEMod.MOD_ID, name));
 	}
-	
-	/*private AdvancementRewards unlockRecipes(String... names) {
+
+	private AdvancementRewards unlockRecipes(String... names) {
 		AdvancementRewards.Builder builder = new AdvancementRewards.Builder();
 		for(String id: names) {
 			builder.addRecipe(new ResourceLocation(DEMod.MOD_ID, id));
 		}
 		return builder.build();
-	}*/
+	}
 }
