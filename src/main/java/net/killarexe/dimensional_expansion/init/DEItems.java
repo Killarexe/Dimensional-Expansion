@@ -40,7 +40,6 @@ public class DEItems {
 	
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DEMod.MOD_ID);
 
-    /* ITEMS */
     public static final RegistryObject<Item> RAW_PALON = createItem("raw_palon", DECreativeTabs.Tabs.MISC, false);
     public static final RegistryObject<Item> PALON_INGOT = createItem("palon_ingot", DECreativeTabs.Tabs.MISC, false);
     public static final RegistryObject<Item> PALON_NUGGET = createItem("palon_nugget", DECreativeTabs.Tabs.MISC, false);
