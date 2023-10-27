@@ -11,8 +11,6 @@ public class DEEntityLootTables extends EntityLootSubProvider{
 
 	@Override
 	public void generate() {
-		// TODO Auto-generated method stub
-		
+		//TODO: Add loots to mobs...
 	}
-
 }

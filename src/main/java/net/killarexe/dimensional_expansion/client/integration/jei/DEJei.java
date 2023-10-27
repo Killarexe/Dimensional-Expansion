@@ -20,7 +20,6 @@ public class DEJei implements IModPlugin {
     }
 
 	@Override
-	@SuppressWarnings("resource")
     public void registerRecipes(IRecipeRegistration registration) {
     }
 }
