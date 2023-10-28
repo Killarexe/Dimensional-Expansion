@@ -28,8 +28,11 @@ public class MoboxItem extends Item {
 	public void appendHoverText(ItemStack pStack, Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
 		if(Screen.hasShiftDown() && pStack.hasTag()){
 			CompoundTag currentEntity = pStack.getOrCreateTagElement("current_entity");
-        	String entityName = currentEntity.isEmpty() ? "none" : currentEntity.getString("id");
-            pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", Component.translatable(entityName)));
+        	if(currentEntity.isEmpty()) {
+        		pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", Component.translatable(currentEntity.getString("id"))));
+        	}else {
+        		pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".mobox"));
+        	}
         }else{
             pTooltipComponents.add(Component.translatable("tooltip." + DEMod.MOD_ID + ".shift"));
         }

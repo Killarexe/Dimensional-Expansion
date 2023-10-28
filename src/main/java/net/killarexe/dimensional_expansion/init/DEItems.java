@@ -265,8 +265,8 @@ public class DEItems {
 			@Override
 			public float unclampedCall(ItemStack pStack, ClientLevel pLevel, LivingEntity pEntity, int pSeed) {
 				if(pEntity instanceof Player player) {
-					if(player.hasEffect(DEPoitions.REMOTE_EFFECT.get())) {
-						int value = DEMath.clamp(player.getEffect(DEPoitions.REMOTE_EFFECT.get()).getDuration() / 20, 0, 30);
+					if(player.hasEffect(DEEffects.REMOTE_EFFECT.get())) {
+						int value = DEMath.clamp(player.getEffect(DEEffects.REMOTE_EFFECT.get()).getDuration() / 20, 0, 30);
 						return value;
 					}
 				}

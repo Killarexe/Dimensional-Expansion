@@ -54,6 +54,14 @@ public class Juger extends Monster{
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AgeableMob.class, false, true));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractGolem.class, true, true));
 	}
+
+	@Override
+	public void aiStep() {
+		if(isSunBurnTick()) {
+			setSecondsOnFire(8);
+		}
+		super.aiStep();
+	}
 	
 	@Override
 	protected void defineSynchedData() {

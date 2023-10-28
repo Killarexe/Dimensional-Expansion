@@ -19,8 +19,8 @@ public class DERegistries {
         LOGGER.info("Init Dimensional Expansion Items");
         DEItems.ITEMS.register(bus);
         LOGGER.debug("Init Dimensional Expansion Effects");
-        DEPoitions.EFFECT.register(bus);
-        LOGGER.debug("Init Dimensional Expansion Potions Items");
+        DEEffects.EFFECTS.register(bus);
+        LOGGER.debug("Init Dimensional Expansion Potions");
         DEPoitions.POTION.register(bus);
         LOGGER.debug("Init Dimensional Expansion Block Entities");
         DEBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);

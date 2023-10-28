@@ -2,9 +2,9 @@ package net.killarexe.dimensional_expansion.common.data.generation.client.lang;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEEffects;
 import net.killarexe.dimensional_expansion.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.init.DEItems;
-import net.killarexe.dimensional_expansion.init.DEPoitions;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -243,7 +243,7 @@ public class DEEnUsProvider extends LanguageProvider {
         /*
          * Potions
          */
-        add(DEPoitions.REMOTE_EFFECT.get(), "Remote");
+        add(DEEffects.REMOTE_EFFECT.get(), "Remote");
         add("item.minecraft.potion.effect.remote", "Potion of Remote");
         add("item.minecraft.tipped_arrow.effect.remote", "Arrow of Remote");
         add("item.minecraft.splash_potion.effect.remote", "Splash Potion of Remote");

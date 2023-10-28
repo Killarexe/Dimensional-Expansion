@@ -126,7 +126,9 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 	        .unlockedBy("has_material", has(PURPLEHEART_PLANKS.get()))
 	        .save(output);
         
-        createMixRecipe(output, RecipeCategory.TRANSPORTATION, PURPLEHEART_CHEST_BOAT.get(), PURPLEHEART_BOAT.get(), CHEST, "purpleheart_chest_boat");
+    	ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, PURPLEHEART_CHEST_BOAT.get(), 1).requires(PURPLEHEART_BOAT.get()).requires(CHEST)
+                .unlockedBy("has_material", has(PURPLEHEART_BOAT.get()))
+                .save(output, new ResourceLocation(DEMod.MOD_ID, "purpleheart_chest_boat"));
         
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, MINERAL_STORAGE.get(), 1).define('I', PALON_INGOT.get()).define('#', PURPLEHEART_PLANKS.get())
 	        .pattern("II ")

@@ -41,6 +41,6 @@ public class Remote extends MobEffect{
 	
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return duration == 0;
+		return duration == 1;
 	}
 }
