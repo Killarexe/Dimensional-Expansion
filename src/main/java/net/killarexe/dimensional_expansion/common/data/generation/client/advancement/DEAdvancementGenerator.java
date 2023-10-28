@@ -42,9 +42,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				root,
 				false
-		).rewards(unlockRecipes(
-				""	//TODO: Add reward recipes for the palon.
-		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_palon"));
+		).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_palon"));
 		
 		AdvancementHolder bassmite = createPreAdvancement(
 				DEItems.BASSMITE_GEM.get(),
@@ -52,9 +50,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				the_palon,
 				false
-		).rewards(unlockRecipes(
-				""	//TODO: Add reward recipes for the Emertyst.
-		)).save(saver, DEMod.res("bassmite"));
+		).save(saver, DEMod.res("bassmite"));
 		
 		AdvancementHolder simix = createPreAdvancement(
 				DEItems.SIMIX_INGOT.get(),
@@ -62,9 +58,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				bassmite,
 				false
-		).rewards(unlockRecipes(
-				""	//TODO: Add reward recipes for the simix.
-		)).save(saver, DEMod.res("simix"));
+		).save(saver, DEMod.res("simix"));
 		
 		AdvancementHolder emertyst = createPreAdvancement(
 				DEItems.EMERTYST_GEM.get(),
@@ -72,9 +66,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				simix,
 				false
-		).rewards(unlockRecipes(
-				""	//TODO: Add reward recipes for the emertyst.
-		)).save(saver, DEMod.res("emertyst"));
+		).save(saver, DEMod.res("emertyst"));
 		
 		AdvancementHolder the_origin = createPreAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
@@ -186,13 +178,5 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 					true,
 					hidden
 				).addCriterion("tick", PlayerTrigger.TriggerInstance.tick()).save(saver, new ResourceLocation(DEMod.MOD_ID, name));
-	}
-
-	private AdvancementRewards unlockRecipes(String... names) {
-		AdvancementRewards.Builder builder = new AdvancementRewards.Builder();
-		for(String id: names) {
-			builder.addRecipe(new ResourceLocation(DEMod.MOD_ID, id));
-		}
-		return builder.build();
 	}
 }
