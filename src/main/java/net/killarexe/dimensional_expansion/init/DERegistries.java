@@ -37,5 +37,6 @@ public class DERegistries {
         DEBiomes.BIOMES.register(bus);
         DEDimensions.register();
         DEStructures.register();
+        DEGameRules.register();
 	}
 }

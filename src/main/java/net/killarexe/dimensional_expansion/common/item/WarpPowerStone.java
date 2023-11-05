@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.world.EntityManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -33,7 +32,6 @@ public class WarpPowerStone extends PowerStone{
         if(player instanceof ServerPlayer serverPlayer) {
         	level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
             setDamage(item, 1);
-            player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
             BlockPos respawnPos = serverPlayer.getRespawnPosition();
             if(respawnPos == null && level instanceof ServerLevel serverLevel) {
                 respawnPos = serverLevel.getSharedSpawnPos();

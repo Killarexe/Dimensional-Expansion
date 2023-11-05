@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.common.item;
 
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,7 +26,6 @@ public class WeatherPowerStone extends PowerStone{
     public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand pUsedHand, ItemStack item) {
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
         if(level instanceof ServerLevel serverLevel){
-            player.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
             if (serverLevel.isRaining()) {
                 serverLevel.setWeatherParameters(0, 0, false, false);
                 return InteractionResultHolder.success(item);

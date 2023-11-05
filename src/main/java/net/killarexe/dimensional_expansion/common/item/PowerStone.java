@@ -1,7 +1,7 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.config.DEConfig;
+import net.killarexe.dimensional_expansion.init.DEGameRules;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -36,9 +36,9 @@ public abstract class PowerStone extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
-        if(!pPlayer.getCooldowns().isOnCooldown(this) && DEConfig.enablePowerStones.get()) {
+        if(!pPlayer.getCooldowns().isOnCooldown(this) && pLevel.getGameRules().getBoolean(DEGameRules.ENABLE_POWER_STONES)) {
             item.hurtAndBreak(1, pPlayer, (a) -> a.broadcastBreakEvent(pUsedHand));
-            pPlayer.getCooldowns().addCooldown(this, DEConfig.powerStoneDelay.get() * 20);
+            pPlayer.getCooldowns().addCooldown(this, pLevel.getGameRules().getInt(DEGameRules.POWER_STONES_DELAY) * 20);
             return onUse(pLevel, pPlayer, pUsedHand, item);
         }else{
             pPlayer.displayClientMessage(Component.translatable("text." + DEMod.MOD_ID + ".power_stones_disable").withStyle(ChatFormatting.BOLD, ChatFormatting.RED), false);
