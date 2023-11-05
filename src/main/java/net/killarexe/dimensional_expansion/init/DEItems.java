@@ -6,7 +6,6 @@ import net.killarexe.dimensional_expansion.common.entity.DEChestBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.BoatItem;
 import net.killarexe.dimensional_expansion.common.item.material.*;
-import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
@@ -190,7 +189,7 @@ public class DEItems {
     }
 
     private static RegistryObject<RecordItem> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, DECreativeTabs.Tabs tab, int seconds){
-        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().stacksTo(1), DEMath.secondsToTicks(seconds)));
+        return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().stacksTo(1), seconds * 20));
     }
 
     private static RegistryObject<HorseArmorItem> createHorseArmorItem(String id, int armorValue, String tierID, DECreativeTabs.Tabs tab, boolean isFireProof){
@@ -266,7 +265,7 @@ public class DEItems {
 			public float unclampedCall(ItemStack pStack, ClientLevel pLevel, LivingEntity pEntity, int pSeed) {
 				if(pEntity instanceof Player player) {
 					if(player.hasEffect(DEEffects.REMOTE_EFFECT.get())) {
-						int value = DEMath.clamp(player.getEffect(DEEffects.REMOTE_EFFECT.get()).getDuration() / 20, 0, 30);
+						int value = Mth.clamp(player.getEffect(DEEffects.REMOTE_EFFECT.get()).getDuration() / 20, 0, 30);
 						return value;
 					}
 				}

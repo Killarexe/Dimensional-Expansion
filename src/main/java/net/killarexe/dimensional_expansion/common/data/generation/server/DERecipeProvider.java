@@ -113,12 +113,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 	        .unlockedBy("has_material", has(PALON_INGOT.get()))
 	        .save(output);
         
-        createCustomRecipe(output, RecipeCategory.BUILDING_BLOCKS, FORGE.get(), 1,
-        		PALON_INGOT.get(), PALON_INGOT.get(), PALON_INGOT.get(),
-        		PALON_INGOT.get(), PURPLEHEART_PLANKS.get(), PALON_INGOT.get(),
-        		PALON_INGOT.get(), PURPLEHEART_PLANKS.get(), PALON_INGOT.get(), "forge"
-        );
-        
         ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, PURPLEHEART_BOAT.get(), 1).define('#', PURPLEHEART_PLANKS.get())
 	        .pattern("   ")
 	        .pattern("# #")

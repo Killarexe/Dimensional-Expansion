@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.server.DEModServer;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
@@ -19,7 +18,6 @@ public class DEEvents {
 	public static void addListeners(IEventBus forgeBus, IEventBus modBus) {
         DEMod.LOGGER.info("Set Dimensional Expansion Event Listeners");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(modBus, forgeBus));
-        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(modBus, forgeBus));
         forgeBus.addListener(DEVillagerTrades::addTrades);
         modBus.addListener(DEEvents::commonSetup);
         modBus.addListener(DEEntityTypes::registerAttributes);

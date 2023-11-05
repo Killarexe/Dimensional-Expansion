@@ -39,8 +39,6 @@ public class DEVillagerTypes {
     private static final Map<VillagerType, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
 
     //Villager Professions
-    public static final RegistryObject<VillagerProfession> FORGER = createProfession("forger", DEPois.FORGER_POI, SoundEvents.ANVIL_LAND);
-    public static final RegistryObject<VillagerProfession> FARMER = createProfession("farmer", DEPois.FARMER_POI, SoundEvents.COMPOSTER_FILL);
     public static final RegistryObject<VillagerProfession> MINER = createProfession("miner", DEPois.MINER_POI, SoundEvents.STONE_BREAK);
     
     //Villager Types
@@ -81,6 +79,8 @@ public class DEVillagerTypes {
 	    		}
     		}
     	}
+    	
+    	//Well I don't remember for why this part of code is here but I think it's related to the Purpleheart Boat...
     	try {
 	    	VillagerTrades.TRADES.replace(
 	        		VillagerProfession.FISHERMAN,
@@ -117,7 +117,7 @@ public class DEVillagerTypes {
 	        				)
 	        );
     	}catch(Exception e) {
-    		DEMod.LOGGER.error("Failed to put trades! Error: " + e.getMessage());
+    		DEMod.LOGGER.error("Failed refresh Fishman Trades! Error: " + e.getMessage());
     	}
     }
 }

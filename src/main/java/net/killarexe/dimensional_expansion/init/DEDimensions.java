@@ -14,5 +14,6 @@ public class DEDimensions {
 
     public static void register(){
         DEMod.LOGGER.info("Init Dimensional Expansion Dimensions");
+        //It's just to initialize the constants...
     }
 }

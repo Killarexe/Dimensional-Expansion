@@ -17,5 +17,6 @@ public class DEStructures {
 	
 	public static void register(){
 		DEMod.LOGGER.info("Init Dimensional Expansion Structures");
+        //It's just to initialize the constants...
 	}
 }

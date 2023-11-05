@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
-import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -69,7 +69,7 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 	public void transferEnchant(Player player) {
 		ItemStack enchantedItem = getItemInSlot(0);
 		ItemStack targetItem = getItemInSlot(1);
-		int costValue = DEMath.clamp(enchantedItem.getBaseRepairCost() + targetItem.getBaseRepairCost(), 1, 5);
+		int costValue = Mth.clamp(enchantedItem.getBaseRepairCost() + targetItem.getBaseRepairCost(), 1, 5);
 		if(!enchantedItem.isEnchanted() || targetItem.isEmpty() || targetItem.is(Items.AIR)) {
 			return;
 		}

@@ -94,15 +94,6 @@ public class DEBlockStateProvider extends BlockStateProvider {
 						blockTexture(PURPLEHEART_BOOKSHELF.get()), blockTexture(PURPLEHEART_PLANKS.get()),
 						blockTexture(PURPLEHEART_PLANKS.get()))));
 		
-		getVariantBuilder(FORGE.get()).partialState()
-				.setModels(new ConfiguredModel(
-						models().cube(FORGE.getId().getPath(), new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
-								new ResourceLocation(blockTexture(FORGE.get()) + "_top"),
-								new ResourceLocation(blockTexture(FORGE.get()) + "_front"),
-								new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
-								new ResourceLocation(blockTexture(FORGE.get()) + "_side"),
-								new ResourceLocation(blockTexture(FORGE.get()) + "_side"))));
-		
 		getVariantBuilder(MINERAL_STORAGE.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(MINERAL_STORAGE.getId().getPath(),
 						new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_side"),

@@ -1,7 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
@@ -50,10 +49,10 @@ public class CoordLinker extends Item {
             return;
         }else if (Level.OVERWORLD.equals(dimension)) {
         	BlockPos overworldPos = pEntity.getOnPos();
-        	setPoses(pStack, overworldPos, DEMath.overworldPosToNetherPos(overworldPos), false);
+        	setPoses(pStack, overworldPos, overworldPosToNetherPos(overworldPos), false);
         } else if (Level.NETHER.equals(dimension)) {
             BlockPos netherPos = pEntity.getOnPos();
-            setPoses(pStack, netherPos, DEMath.netherPosToOverworldPos(netherPos), false);
+            setPoses(pStack, netherPos, netherPosToOverworldPos(netherPos), false);
         }else {
         	setPoses(pStack, Vec3i.ZERO, Vec3i.ZERO, true);
         }
@@ -64,4 +63,13 @@ public class CoordLinker extends Item {
 		stack.addTagElement("nether_pos", new IntArrayTag(new int[] {nether.getX(), nether.getY(), nether.getZ()}));
 		stack.addTagElement("is_lost", ByteTag.valueOf(isLost));
 	}
+	
+	private Vec3i overworldPosToNetherPos(Vec3i position) {
+		return new Vec3i(position.getX() / 8, position.getY(), position.getZ() / 8);
+	}
+	
+	private Vec3i netherPosToOverworldPos(Vec3i position) {
+		return new Vec3i(position.getX() * 8, position.getY(), position.getZ() * 8);
+	}
+	
 }

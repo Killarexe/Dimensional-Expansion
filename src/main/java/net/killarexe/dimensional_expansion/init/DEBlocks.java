@@ -172,9 +172,6 @@ public class DEBlocks {
 	public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
 			SoundType.METAL, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final RegistryObject<Block> FORGE = createBlock("forge", MapColor.COLOR_BLACK, 3, 50, 2,
-			SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
-
 	public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", MapColor.COLOR_BLACK, 3,
 			50, 2, SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
 
@@ -201,6 +198,10 @@ public class DEBlocks {
 			() -> new DeadBushBlock(BlockBehaviour.Properties.copy(DEBlocks.PURPLE_BERRY_BUSH.get())),
 			DECreativeTabs.Tabs.BLOCKS);
 
+	/*
+	 * Functions to create blocks 
+	 */
+	
 	private static RegistryObject<Block> createBlock(@Nonnull String id, MapColor color, float hardness,
 			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of().mapColor(color)

@@ -68,7 +68,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.ORIGIN_FRAME.get(), "Origin Frame");
         add(DEBlocks.ORIGIN_PORTAL.get(), "Origin Portal");
 
-        add(DEBlocks.FORGE.get(), "Forge");
         add(DEBlocks.MINERAL_STORAGE.get(), "Mineral Storage");
         add(DEBlocks.DISPLAY_BLOCK.get(), "Display Block");
         add(DEBlocks.ENCHANT_TRANSFER_TABLE.get(), "Enchant Transfer Table");

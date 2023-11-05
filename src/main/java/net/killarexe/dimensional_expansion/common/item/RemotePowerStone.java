@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.common.item;
 import java.util.Random;
 
 import net.killarexe.dimensional_expansion.init.DEEffects;
-import net.killarexe.dimensional_expansion.utils.DEMath;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -28,7 +27,7 @@ public class RemotePowerStone extends PowerStone{
 	@Override
 	public InteractionResultHolder<ItemStack> onUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand, ItemStack item) {
 		pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
-		pPlayer.addEffect(new MobEffectInstance(DEEffects.REMOTE_EFFECT.get(), DEMath.secondsToTicks(30)));
+		pPlayer.addEffect(new MobEffectInstance(DEEffects.REMOTE_EFFECT.get(), 600));
 		return InteractionResultHolder.success(item);
 	}
 }
