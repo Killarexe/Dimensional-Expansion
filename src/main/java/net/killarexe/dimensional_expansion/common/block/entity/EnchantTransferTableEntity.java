@@ -24,8 +24,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class EnchantTransferTableEntity extends InventoryBlockEntity{
-
-	public static final Component TITLE = Component.translatable("block." + DEMod.MOD_ID + ".enchant_transfer_table");
 	
 	public EnchantTransferTableEntity(BlockPos pos, BlockState state) {
 		super(DEBlockEntityTypes.ENCHANT_TRANSFER_TABLE.get(), pos, state, 2);

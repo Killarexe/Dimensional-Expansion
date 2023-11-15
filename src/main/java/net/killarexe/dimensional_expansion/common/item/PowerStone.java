@@ -39,12 +39,12 @@ public abstract class PowerStone extends Item {
         if(!pPlayer.getCooldowns().isOnCooldown(this) && pLevel.getGameRules().getBoolean(DEGameRules.ENABLE_POWER_STONES)) {
             item.hurtAndBreak(1, pPlayer, (a) -> a.broadcastBreakEvent(pUsedHand));
             pPlayer.getCooldowns().addCooldown(this, pLevel.getGameRules().getInt(DEGameRules.POWER_STONES_DELAY) * 20);
-            return onUse(pLevel, pPlayer, pUsedHand, item);
+            return onPowerStoneUse(pLevel, pPlayer, pUsedHand, item);
         }else{
             pPlayer.displayClientMessage(Component.translatable("text." + DEMod.MOD_ID + ".power_stones_disable").withStyle(ChatFormatting.BOLD, ChatFormatting.RED), false);
         }
         return InteractionResultHolder.pass(item);
     }
 
-    public abstract InteractionResultHolder<ItemStack> onUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand, ItemStack item);
+    public abstract InteractionResultHolder<ItemStack> onPowerStoneUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand, ItemStack item);
 }

@@ -25,7 +25,7 @@ public class RemotePowerStone extends PowerStone{
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> onUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand, ItemStack item) {
+	public InteractionResultHolder<ItemStack> onPowerStoneUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand, ItemStack item) {
 		pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
 		pPlayer.addEffect(new MobEffectInstance(DEEffects.REMOTE_EFFECT.get(), 600));
 		return InteractionResultHolder.success(item);

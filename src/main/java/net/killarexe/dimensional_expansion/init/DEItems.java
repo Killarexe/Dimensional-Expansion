@@ -88,8 +88,6 @@ public class DEItems {
     public static final RegistryObject<Item> WARP_POWER_STONE = createItem("warp_power_stone", () -> new WarpPowerStone(), DECreativeTabs.Tabs.MISC);
     public static final RegistryObject<Item> COORD_LINKER = createItem("coord_linker", () -> new CoordLinker(), DECreativeTabs.Tabs.MISC);
 
-    public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DECreativeTabs.Tabs.MISC, false);
-
     public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = createItem("origin_portal_key", () -> new OriginPortalKey(), DECreativeTabs.Tabs.TOOLS);
     
     public static final RegistryObject<Item> PURPLEHEART_SIGN = createItem("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()), DECreativeTabs.Tabs.BLOCKS);

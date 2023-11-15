@@ -23,7 +23,7 @@ public class WeatherPowerStone extends PowerStone{
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand pUsedHand, ItemStack item) {
+    public InteractionResultHolder<ItemStack> onPowerStoneUse(Level level, Player player, InteractionHand pUsedHand, ItemStack item) {
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.PLAYERS, 1f, new Random().nextFloat() * 0.1F + 0.9F);
         if(level instanceof ServerLevel serverLevel){
             if (serverLevel.isRaining()) {

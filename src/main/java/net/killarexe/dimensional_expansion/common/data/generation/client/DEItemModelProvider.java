@@ -66,8 +66,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.COORD_LINKER);
     	oneLayerItem(DEItems.REMOTE_POWER_STONE);
     	
-    	oneLayerItem(DEItems.PEARL_ESSENCE);
-    	
     	oneLayerItem(DEItems.ORIGIN_PORTAL_KEY);
     	
     	oneLayerItem(DEItems.PURPLEHEART_SIGN);

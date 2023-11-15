@@ -59,8 +59,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createTrapDoorRecipe(output, RecipeCategory.MISC, PURPLEHEART_TRAPDOOR.get(), PURPLEHEART_PLANKS.get(), "purpleheart_trapdoor");
         createSignRecipe(output, RecipeCategory.MISC, DEItems.PURPLEHEART_SIGN.get(), PURPLEHEART_PLANKS.get(), "purpleheart_sign");
         
-        createMixRecipe(output, RecipeCategory.MISC, PEARL_ESSENCE.get(), SIMIX_HAMMER.get(), ENDER_PEARL, "pearl_essence");
-        
         createSmelting(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE.get(), SULFUR_STONE.get(), 0.1f, 150, "sulfur_cobblestone");
         createStairsRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE_STAIRS.get(), SULFUR_COBBLESTONE.get(), "sulfur_cobblestone_stairs");
         createStairsRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_STONE_STAIRS.get(), SULFUR_STONE.get(), "sulfur_stone_stairs");
@@ -68,8 +66,8 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createSlabRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_STONE_SLAB.get(), SULFUR_STONE.get(), "sulfur_stone_slab");
         createTrapDoorRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE_WALL.get(), SULFUR_COBBLESTONE.get(), "sulfur_cobblestone_wall");
         
-        createCrossRecipe(output, RecipeCategory.MISC, COORD_LINKER.get(), 1, SIMIX_INGOT.get(), PEARL_ESSENCE.get(), COMPASS, "coord_linker");
-        createCrossRecipe(output, RecipeCategory.MISC, ORIGIN_FRAME.get(), 4, BASSMITE_GEM.get(), PALON_INGOT.get(), PEARL_ESSENCE.get(), SIMIX_INGOT.get(), "origin_frame");
+        createCrossRecipe(output, RecipeCategory.MISC, COORD_LINKER.get(), 1, SIMIX_INGOT.get(), ENDER_PEARL, COMPASS, "coord_linker");
+        createCrossRecipe(output, RecipeCategory.MISC, ORIGIN_FRAME.get(), 4, BASSMITE_GEM.get(), PALON_INGOT.get(), ENDER_PEARL, SIMIX_INGOT.get(), "origin_frame");
         
         createHelmetRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_HELMET.get(), "bassmite_helmet");
         createChestplateRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get(), "bassmite_chestplate");

@@ -169,6 +169,7 @@ public class DEBlocks {
 
 	public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal",
 			() -> new OriginPortalBlock());
+	
 	public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
 			SoundType.METAL, DECreativeTabs.Tabs.BLOCKS);
 
@@ -178,8 +179,10 @@ public class DEBlocks {
 	public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block",
 			() -> new DisplayBlock(), DECreativeTabs.Tabs.BLOCKS);
 
-	public static final RegistryObject<Block> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table",
+	public static final RegistryObject<EnchantTransferTable> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table",
 			() -> new EnchantTransferTable(), DECreativeTabs.Tabs.BLOCKS);
+	
+	public static final RegistryObject<ForgeBlock> FORGE = createCustomBlock("forge", () -> new ForgeBlock(), DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block",
 			() -> new SavorleafBlock(), DECreativeTabs.Tabs.BLOCKS);
@@ -373,8 +376,7 @@ public class DEBlocks {
 		return block;
 	}
 
-	private static RegistryObject<TallGrassBlock> createGrassBlock(String id, MapColor color, SoundType sound,
-			DECreativeTabs.Tabs itemGroup) {
+	private static RegistryObject<TallGrassBlock> createGrassBlock(String id, MapColor color, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<TallGrassBlock> block = BLOCK.register(id,
 				() -> new TallGrassBlock(BlockBehaviour.Properties.of().mapColor(color).sound(sound).lightLevel(s -> 5)
 						.instabreak().noCollission().offsetType(OffsetType.XYZ).noOcclusion()));
@@ -382,8 +384,7 @@ public class DEBlocks {
 		return block;
 	}
 
-	private static RegistryObject<DoublePlantBlock> createDoublePlantBlock(String id, MapColor color, SoundType sound,
-			DECreativeTabs.Tabs tab) {
+	private static RegistryObject<DoublePlantBlock> createDoublePlantBlock(String id, MapColor color, SoundType sound, DECreativeTabs.Tabs tab) {
 		RegistryObject<DoublePlantBlock> block = BLOCK.register(id,
 				() -> new DoublePlantBlock(BlockBehaviour.Properties.of().mapColor(color).sound(sound)
 						.lightLevel(s -> 5).instabreak().noCollission().offsetType(OffsetType.XYZ).noOcclusion()));
@@ -391,8 +392,7 @@ public class DEBlocks {
 		return block;
 	}
 
-	private static <T extends Block> RegistryObject<T> createCustomBlock(@Nonnull String id, Supplier<T> block,
-			DECreativeTabs.Tabs itemGroup) {
+	private static <T extends Block> RegistryObject<T> createCustomBlock(@Nonnull String id, Supplier<T> block, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<T> cBlock = BLOCK.register(id, block);
 		DEItems.createItem(id, () -> new BlockItem(cBlock.get(), new Item.Properties().fireResistant()), itemGroup);
 		return cBlock;

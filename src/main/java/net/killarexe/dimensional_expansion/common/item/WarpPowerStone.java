@@ -25,7 +25,7 @@ public class WarpPowerStone extends PowerStone{
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> onUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
+    public InteractionResultHolder<ItemStack> onPowerStoneUse(Level level, Player player, InteractionHand usedHand, ItemStack item) {
     	if(level.isClientSide) {
     		return InteractionResultHolder.sidedSuccess(item, false);
     	}

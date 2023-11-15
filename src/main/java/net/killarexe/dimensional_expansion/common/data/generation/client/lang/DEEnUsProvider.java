@@ -125,8 +125,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.REMOTE_POWER_STONE.get(), "Remote Power Stone");
         add(DEItems.TIME_POWER_STONE.get(), "Timer Power Stone");
 
-        add(DEItems.PEARL_ESSENCE.get(), "Pearl Essence");
-        
         add(DEItems.PURPLE_BERRY.get(), "Purple Berry");
         
         add(DEItems.ORIGIN_PORTAL_KEY.get(), "Origin Portal Key");
