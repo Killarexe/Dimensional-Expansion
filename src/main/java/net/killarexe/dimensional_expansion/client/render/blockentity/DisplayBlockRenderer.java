@@ -5,7 +5,7 @@ import org.joml.Vector3d;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.*;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
-import net.killarexe.dimensional_expansion.io.RenderManager;
+import net.killarexe.dimensional_expansion.client.render.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -28,7 +28,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
             return;
         Component label = Component.literal(pBlockEntity.getItemInSlot(0).getHoverName().getString());
         float delta = Minecraft.getInstance().getDeltaFrameTime();
-        RenderManager.renderItem(
+        RenderUtils.renderItem(
         		pBlockEntity.getItemInSlot(0),
         		new Vector3d(0.5, 1.5 + Mth.sin(pPartialTick * delta), 0.5),
         		Axis.XP.rotation(0),
@@ -38,7 +38,7 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         		0.8f
         );
         if(pBlockEntity.isShowName()) {
-        	RenderManager.renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
+        	RenderUtils.renderLabel(pPoseStack, pBufferSource, LightTexture.FULL_BRIGHT, new Vector3d(0.5, 1.75, 0.5), label, 0xffffff);
         }
     }
 

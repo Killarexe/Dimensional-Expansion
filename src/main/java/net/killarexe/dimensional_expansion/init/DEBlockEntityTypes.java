@@ -3,7 +3,6 @@ package net.killarexe.dimensional_expansion.init;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.entity.DisplayBlockEntity;
 import net.killarexe.dimensional_expansion.common.block.entity.EnchantTransferTableEntity;
-import net.killarexe.dimensional_expansion.common.block.entity.ForgeBlockEntity;
 import net.killarexe.dimensional_expansion.common.block.entity.PurpleheartSignBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -32,11 +31,6 @@ public class DEBlockEntityTypes {
 			"enchant_transfer_table",
 			() -> BlockEntityType.Builder.of(EnchantTransferTableEntity::new, DEBlocks.ENCHANT_TRANSFER_TABLE.get())
 	);
-
-	public static final RegistryObject<BlockEntityType<ForgeBlockEntity>> FORGE = register(
-    		"forge",
-    		() -> BlockEntityType.Builder.of(ForgeBlockEntity::new, DEBlocks.FORGE.get())
-    );
 
 	private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(@Nonnull String name, @Nonnull Supplier<BlockEntityType.Builder<T>> initializer) {
 		return BLOCK_ENTITY_TYPES.register(name, () -> initializer.get().build(null));

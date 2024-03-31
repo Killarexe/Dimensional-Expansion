@@ -181,8 +181,6 @@ public class DEBlocks {
 
 	public static final RegistryObject<EnchantTransferTable> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table",
 			() -> new EnchantTransferTable(), DECreativeTabs.Tabs.BLOCKS);
-	
-	public static final RegistryObject<ForgeBlock> FORGE = createCustomBlock("forge", () -> new ForgeBlock(), DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block",
 			() -> new SavorleafBlock(), DECreativeTabs.Tabs.BLOCKS);

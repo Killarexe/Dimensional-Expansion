@@ -59,12 +59,7 @@ public class DEItemModelProvider extends ItemModelProvider {
     	
     	oneLayerItem(DEItems.ALLOY_CRYSTAL);
     	
-    	oneLayerItem(DEItems.WEATHER_POWER_STONE);
-    	oneLayerItem(DEItems.TIME_POWER_STONE);
-    	oneLayerItem(DEItems.WARP_POWER_STONE);
-    	
     	oneLayerItem(DEItems.COORD_LINKER);
-    	oneLayerItem(DEItems.REMOTE_POWER_STONE);
     	
     	oneLayerItem(DEItems.ORIGIN_PORTAL_KEY);
     	

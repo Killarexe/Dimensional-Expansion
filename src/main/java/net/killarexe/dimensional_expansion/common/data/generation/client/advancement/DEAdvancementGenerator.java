@@ -100,24 +100,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEItems.EMERTYST_LEGGINGS.get(),
 				DEItems.EMERTYST_BOOTS.get())
 		).save(saver, new ResourceLocation(DEMod.MOD_ID, "cover_me_with_emertyst"));
-		
-		createPreAdvancement(
-				DEItems.WARP_POWER_STONE.get(),
-				"power_stones",
-				FrameType.CHALLENGE,
-				emertyst,
-				false
-		).rewards(AdvancementRewards.Builder.experience(100))
-		.addCriterion("warp", InventoryChangeTrigger.TriggerInstance.hasItems(
-				DEItems.WARP_POWER_STONE.get()
-		)).addCriterion("time", InventoryChangeTrigger.TriggerInstance.hasItems(
-				DEItems.TIME_POWER_STONE.get()
-		)).addCriterion("remote", InventoryChangeTrigger.TriggerInstance.hasItems(
-				DEItems.REMOTE_POWER_STONE.get()
-		)).addCriterion("weather", InventoryChangeTrigger.TriggerInstance.hasItems(
-				DEItems.WEATHER_POWER_STONE.get()
-		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "power_stones"));
-		
+
 		createPreAdvancement(
 				DEItems.ORIGIN_PORTAL_KEY.get(),
 				"origin_abandonned_portal",

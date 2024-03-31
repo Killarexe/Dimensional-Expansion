@@ -2,7 +2,6 @@ package net.killarexe.dimensional_expansion.common.data.generation.client.lang;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlocks;
-import net.killarexe.dimensional_expansion.init.DEEffects;
 import net.killarexe.dimensional_expansion.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
@@ -118,12 +117,7 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add(DEItems.ALLOY_CRYSTAL.get(), "Alloy Crystal");
 
-        add(DEItems.WEATHER_POWER_STONE.get(), "Weather Power Stone");
-        add(DEItems.WARP_POWER_STONE.get(), "Warp Power Stone");
-
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
-        add(DEItems.REMOTE_POWER_STONE.get(), "Remote Power Stone");
-        add(DEItems.TIME_POWER_STONE.get(), "Timer Power Stone");
 
         add(DEItems.PURPLE_BERRY.get(), "Purple Berry");
         
@@ -236,15 +230,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add("entity." + DEMod.MOD_ID + ".blue_sand_man", "Blue Sand Man");
         add("entity." + DEMod.MOD_ID + ".mouvet", "Mouvet");
         add(DEEntityTypes.JUGER.get(), "Juger");
-        
-        /*
-         * Potions
-         */
-        add(DEEffects.REMOTE_EFFECT.get(), "Remote");
-        add("item.minecraft.potion.effect.remote", "Potion of Remote");
-        add("item.minecraft.tipped_arrow.effect.remote", "Arrow of Remote");
-        add("item.minecraft.splash_potion.effect.remote", "Splash Potion of Remote");
-        add("item.minecraft.lingering_potion.effect.remote", "Lingering Potion of Remote");
         
         /*
          * Messages

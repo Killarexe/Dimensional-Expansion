@@ -1,6 +1,5 @@
 package net.killarexe.dimensional_expansion.client;
 
-import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
 import net.killarexe.dimensional_expansion.client.models.JugerModel;
@@ -8,11 +7,10 @@ import net.killarexe.dimensional_expansion.client.models.MouvetModel;
 import net.killarexe.dimensional_expansion.client.render.blockentity.*;
 import net.killarexe.dimensional_expansion.client.render.entity.*;
 import net.killarexe.dimensional_expansion.init.*;
-import net.killarexe.dimensional_expansion.io.WindowManager;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ForgeHooksClient;
@@ -27,7 +25,6 @@ public class DEModClient {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
-        bus.addListener(DEKeyBindings::onKeyRegister);
         bus.addListener(DEModClient::clientSetup);
     }
     
@@ -53,12 +50,8 @@ public class DEModClient {
 	        EntityRenderers.register(DEEntityTypes.MOUVET.get(), MouvetRenderer::new);
 	        EntityRenderers.register(DEEntityTypes.JUGER.get(), JugerRenderer::new);
 	        setWindowTitle("Items Properties");
-	        DEItems.addItemsProperites();
+	        DEItems.addItemsProperties();
 	        setWindowTitle("Window Icon");
-	        WindowManager.setWindowIcon(
-	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon16x16.png"),
-	        		new ResourceLocation(DEMod.MOD_ID, "textures/icons/icon32x32.png")
-	        );
 	        setWindowTitle("Client Setup Complete!");
     	});
     }
@@ -66,6 +59,6 @@ public class DEModClient {
     private static void setWindowTitle(String title) {
     	String message = String.format("Dimensional Expansion Client Setup: %s...", title);
     	LOGGER.debug(message);
-    	WindowManager.setWindowTitle(message);
+		Minecraft.getInstance().getWindow().setTitle(message);
     }
 }
