@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "dimensional_expansion:savorleaf"
+              "dimensional_expansion:bassmite_gem"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dimensional_expansion:savorleaf_block"
+        "recipe": "dimensional_expansion:bassmite_pickaxe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "dimensional_expansion:savorleaf_block"
+      "dimensional_expansion:bassmite_pickaxe_smithing"
     ]
   },
   "sends_telemetry_event": false

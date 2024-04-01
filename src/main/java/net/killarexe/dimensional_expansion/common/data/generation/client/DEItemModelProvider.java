@@ -57,8 +57,6 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.EMERTYST_HORSE_ARMOR);
     	oneLayerItem(DEItems.EMERTYST_MIXED_COAL);
     	
-    	oneLayerItem(DEItems.ALLOY_CRYSTAL);
-    	
     	oneLayerItem(DEItems.COORD_LINKER);
     	
     	oneLayerItem(DEItems.ORIGIN_PORTAL_KEY);
@@ -72,6 +70,9 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.SAVORLEAF);
     	oneLayerItem(DEItems.VIOLET_CARROT);
     	oneLayerItem(DEItems.MOBOX);
+
+        oneLayerItem(DEItems.BASSMITE_TEMPLATE);
+        oneLayerItem(DEItems.EMERTYST_TEMPLATE);
     	
     	spawnEgg(DEItems.HEADED_SKELETON_SPAWN_EGG);
     	spawnEgg(DEItems.HEADED_GUARDIAN_SPAWN_EGG);

@@ -115,8 +115,6 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.EMERTYST_HORSE_ARMOR.get(), "Emertyst Horse Armor");
         add(DEItems.EMERTYST_MIXED_COAL.get(), "Emertyst Mixed Coal");
         
-        add(DEItems.ALLOY_CRYSTAL.get(), "Alloy Crystal");
-
         add(DEItems.COORD_LINKER.get(), "Coord Linker");
 
         add(DEItems.PURPLE_BERRY.get(), "Purple Berry");
@@ -131,6 +129,10 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEItems.VIOLET_CARROT.get(), "Violet Carrot");
         
         add(DEItems.MOBOX.get(), "Mobox");
+
+        add(DEItems.BASSMITE_TEMPLATE.get(), "Bassmite Template");
+        add(DEItems.EMERTYST_TEMPLATE.get(), "Emertyst Template");
+
         add(DEItems.HEADED_SKELETON_SPAWN_EGG.get(), "Headed Skeleton Spawn Egg");
         add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");
         add(DEItems.BLUE_SAND_MAN_SPAWN_EGG.get(), "Blue Sand Man Spawn Egg");

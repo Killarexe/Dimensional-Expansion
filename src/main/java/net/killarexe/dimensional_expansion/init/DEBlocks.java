@@ -51,16 +51,16 @@ public class DEBlocks {
 			40, 5, SoundType.AMETHYST, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block",
-			() -> new OriginGrassBlock(), DECreativeTabs.Tabs.BLOCKS);
+            OriginGrassBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> ORIGIN_DIRT_PATH = createCustomBlock("origin_dirt_path",
-			() -> new OriginDirtPathBlock(), DECreativeTabs.Tabs.BLOCKS);
+            OriginDirtPathBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> ORIGIN_DIRT = createCustomBlock("origin_dirt",
-			() -> new OriginDirtBlock(), DECreativeTabs.Tabs.BLOCKS);
+            OriginDirtBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FarmBlock> ORIGIN_FARMLAND = createCustomBlock("origin_farmland",
-			() -> new OriginFarmlandBlock(), DECreativeTabs.Tabs.BLOCKS);
+            OriginFarmlandBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<TallGrassBlock> ORIGIN_GRASS = createGrassBlock("origin_grass",
 			MapColor.COLOR_BLACK, SoundType.GRASS, DECreativeTabs.Tabs.BLOCKS);
@@ -106,26 +106,26 @@ public class DEBlocks {
 			PURPLEHEART_PLANKS, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> PURPLEHEART_BOOKSHELF = createCustomBlock("purpleheart_bookshelf",
-			() -> new PurpleheartBookself(), DECreativeTabs.Tabs.BLOCKS);
+            PurpleheartBookself::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> PURPLEHEART_SIGN = createCustomBlock("purpleheart_sign",
-			() -> new PurpleheartStandingSignBlock());
+            PurpleheartStandingSignBlock::new);
 
 	public static final RegistryObject<Block> PURPLEHEART_WALL_SIGN = createCustomBlock("purpleheart_wall_sign",
-			() -> new PurpleheartWallSignBlock());
+            PurpleheartWallSignBlock::new);
 
 	public static final RegistryObject<FlowerBlock> PURPLE_ROSE = createFlowerBlock("purple_rose",
 			MobEffects.LEVITATION, 10, MapColor.COLOR_MAGENTA, 0, 10, 0, SoundType.FLOWERING_AZALEA,
 			DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_ROSE = createFlowerPotBlock("potted_purple_rose",
-			() -> PURPLE_ROSE.get());
+            PURPLE_ROSE::get);
 
 	public static final RegistryObject<SaplingBlock> PURPLEHEART_SAPLING = createSaplingBlock("purpleheart_sapling",
 			new PurpleheartTreeGrower(), MapColor.COLOR_BLACK, 0, 50, 1, SoundType.GRASS, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_PURPLEHEART_SAPLING = createFlowerPotBlock(
-			"potted_purpleheart_sapling", () -> PURPLEHEART_SAPLING.get());
+			"potted_purpleheart_sapling", PURPLEHEART_SAPLING::get);
 
 	public static final RegistryObject<Block> SULFUR_STONE = createBlock("sulfur_stone", MapColor.COLOR_YELLOW, 4, 10,
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
@@ -162,13 +162,13 @@ public class DEBlocks {
 			10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> PURPLEISH_CACTUS = createCustomBlock("purpleish_cactus",
-			() -> new PurpleishCactusBlock(), DECreativeTabs.Tabs.BLOCKS);
+            PurpleishCactusBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_PURPLEISH_CACTUS = createFlowerPotBlock(
-			"potted_purpleish_cactus", () -> PURPLEISH_CACTUS.get());
+			"potted_purpleish_cactus", PURPLEISH_CACTUS);
 
 	public static final RegistryObject<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal",
-			() -> new OriginPortalBlock());
+            OriginPortalBlock::new);
 	
 	public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
 			SoundType.METAL, DECreativeTabs.Tabs.BLOCKS);
@@ -177,22 +177,22 @@ public class DEBlocks {
 			50, 2, SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block",
-			() -> new DisplayBlock(), DECreativeTabs.Tabs.BLOCKS);
+            DisplayBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<EnchantTransferTable> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table",
-			() -> new EnchantTransferTable(), DECreativeTabs.Tabs.BLOCKS);
+			EnchantTransferTable::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block",
-			() -> new SavorleafBlock(), DECreativeTabs.Tabs.BLOCKS);
+            SavorleafBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush",
-			() -> new PurpleBerryBush());
+            PurpleBerryBush::new);
 
 	public static final RegistryObject<SavorleafCropBlock> SAVORLEAF_CROP = createCustomBlock("savorleaf_crop",
-			() -> new SavorleafCropBlock());
+            SavorleafCropBlock::new);
 
 	public static final RegistryObject<VioletCarrotCropBlock> VIOLET_CARROT_CROP = createCustomBlock(
-			"violet_carrot_crop", () -> new VioletCarrotCropBlock());
+			"violet_carrot_crop", VioletCarrotCropBlock::new);
 
 	public static final RegistryObject<DeadBushBlock> PURPLE_BERRY_DEAD_BUSH = createCustomBlock(
 			"purple_berry_dead_bush",

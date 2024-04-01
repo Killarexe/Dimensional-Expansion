@@ -3,9 +3,19 @@
   "criteria": {
     "is_in_dimension": {
       "conditions": {
-        "to": "dimensional_expansion:origin"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "dimensional_expansion:origin"
+              }
+            }
+          }
+        ]
       },
-      "trigger": "minecraft:changed_dimension"
+      "trigger": "minecraft:location"
     }
   },
   "display": {

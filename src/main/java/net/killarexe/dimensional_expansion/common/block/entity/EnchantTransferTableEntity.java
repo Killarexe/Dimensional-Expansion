@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.block.entity;
 
 import java.util.Map;
 
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -21,6 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class EnchantTransferTableEntity extends InventoryBlockEntity{
@@ -55,11 +57,9 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 	}
 	
 	public void prependItem(Player player) {
-		ItemEntity item;
+		ItemEntity item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), extractItem(1));
 		if(getItemInSlot(1).isEmpty()) {
 			item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), extractItem(0));
-		}else {
-			item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), extractItem(1));
 		}
 		level.addFreshEntity(item);
 	}
@@ -109,14 +109,12 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		}
 		player.level().playSound(null, getBlockPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, new Random().nextFloat() * 0.1F + 0.9F);
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-		executor.schedule(() -> {
-			dropAll();
-		}, 1, TimeUnit.SECONDS);
+		executor.schedule(this::dropAll, 1, TimeUnit.SECONDS);
 		executor.shutdown();
 	}
 		
 	private void dropAll() {
-		level.addFreshEntity(
+        level.addFreshEntity(
 			new ItemEntity(level, getBlockPos().getX() + 0.314, getBlockPos().getY() + 1, getBlockPos().getZ() + 0.25, extractItem(0))
 		);
 		level.addFreshEntity(

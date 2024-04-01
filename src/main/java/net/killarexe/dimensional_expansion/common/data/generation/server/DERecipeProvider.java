@@ -5,10 +5,13 @@ import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import org.jetbrains.annotations.NotNull;
 
 import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 import static net.killarexe.dimensional_expansion.init.DEItems.*;
@@ -21,7 +24,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 	}
 
 	@Override
-    protected void buildRecipes(RecipeOutput output) {
+    protected void buildRecipes(@NotNull RecipeOutput output) {
 		createBlasting(output, RecipeCategory.MISC, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, "palon_ingot_blast");
         createSmelting(output, RecipeCategory.MISC, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, "palon_ingot_smelt");
         createMaterialRecipe(output, RecipeCategory.MISC, PALON_NUGGET.get(), PALON_INGOT.get(), "palon_nugget");
@@ -68,26 +71,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         
         createCrossRecipe(output, RecipeCategory.MISC, COORD_LINKER.get(), 1, SIMIX_INGOT.get(), ENDER_PEARL, COMPASS, "coord_linker");
         createCrossRecipe(output, RecipeCategory.MISC, ORIGIN_FRAME.get(), 4, BASSMITE_GEM.get(), PALON_INGOT.get(), ENDER_PEARL, SIMIX_INGOT.get(), "origin_frame");
-        
-        createHelmetRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_HELMET.get(), "bassmite_helmet");
-        createChestplateRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get(), "bassmite_chestplate");
-        createLeggingsRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get(), "bassmite_leggings");
-        createBootsRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_BOOTS.get(), "bassmite_boots");
-        createSwordRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_SWORD.get(), "bassmite_sword");
-        createPickaxeRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get(), "bassmite_pickaxe");
-        createAxeRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_AXE.get(), "bassmite_axe");
-        createShovelRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_SHOVEL.get(), "bassmite_shovel");
-        createHoeRecipe(output, RecipeCategory.COMBAT, BASSMITE_GEM.get(), BASSMITE_HOE.get(), "bassmite_hoe");
-        
-        createHelmetRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_HELMET.get(), "emertyst_helmet");
-        createChestplateRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get(), "emertyst_chestplate");
-        createLeggingsRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get(), "emertyst_leggings");
-        createBootsRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_BOOTS.get(), "emertyst_boots");
-        createSwordRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_SWORD.get(), "emertyst_sword");
-        createPickaxeRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_PICKAXE.get(), "emertyst_pickaxe");
-        createAxeRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_AXE.get(), "emertyst_axe");
-        createShovelRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_SHOVEL.get(), "emertyst_shovel");
-        createHoeRecipe(output, RecipeCategory.COMBAT, EMERTYST_GEM.get(), EMERTYST_HOE.get(), "emertyst_hoe");
         
         createOreBlockRecipe(output, RecipeCategory.BUILDING_BLOCKS, SAVORLEAF_BLOCK.get(), SAVORLEAF.get(), "savorleaf_block");
         createMaterialRecipe(output, RecipeCategory.FOOD, SAVORLEAF.get(), SAVORLEAF_BLOCK.get(), "savorleaf");
@@ -150,12 +133,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         	.unlockedBy("has_material", has(ORIGIN_FRAME.get()))
         	.save(output);
         
-        createCustomRecipe(output, RecipeCategory.MISC, ALLOY_CRYSTAL.get(), 1,
-        		DIAMOND, BASSMITE_GEM.get(), DIAMOND,
-        		EMERALD, EMERTYST_GEM.get(), LAPIS_LAZULI,
-        		DIAMOND, SIMIX_HAMMER.get(), DIAMOND, "alloy_crystal"
-        );
-        
         ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, MOBOX.get(), 1)
 			.define('/', BASSMITE_GEM.get()).define('-', SIMIX_INGOT.get()).define('_', PALON_INGOT.get()).define('O', LEAD).define('0', ENDER_EYE)
 			.pattern(" 0 ")
@@ -163,6 +140,26 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 			.pattern(" / ")
 			.unlockedBy("has_material", has(LEAD))
 			.save(output);
+
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_SWORD, BASSMITE_GEM.get(), BASSMITE_SWORD.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_PICKAXE, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_AXE, BASSMITE_GEM.get(), BASSMITE_AXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_SHOVEL, BASSMITE_GEM.get(), BASSMITE_SHOVEL.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_HOE, BASSMITE_GEM.get(), BASSMITE_HOE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_HELMET, BASSMITE_GEM.get(), BASSMITE_HELMET.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_CHESTPLATE, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_LEGGINGS, BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_BOOTS, BASSMITE_GEM.get(), BASSMITE_BOOTS.get());
+
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_SWORD.get(), EMERTYST_GEM.get(), EMERTYST_SWORD.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_PICKAXE.get(), EMERTYST_GEM.get(), EMERTYST_PICKAXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_AXE.get(), EMERTYST_GEM.get(), EMERTYST_AXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_SHOVEL.get(), EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_HOE.get(), EMERTYST_GEM.get(), EMERTYST_HOE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_HELMET.get(), EMERTYST_GEM.get(), EMERTYST_HELMET.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_CHESTPLATE.get(), EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_LEGGINGS.get(), EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_BOOTS.get(), EMERTYST_GEM.get(), EMERTYST_BOOTS.get());
     }
 
     private void createDoorRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -183,87 +180,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .save(output, new ResourceLocation(DEMod.MOD_ID, name));
     }
     
-    private void createHelmetRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem)
-                .pattern("###")
-                .pattern("# #")
-                .pattern("   ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createChestplateRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem)
-                .pattern("# #")
-                .pattern("###")
-                .pattern("###")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createLeggingsRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem)
-                .pattern("###")
-                .pattern("# #")
-                .pattern("# #")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createBootsRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem)
-                .pattern("# #")
-                .pattern("# #")
-                .pattern("   ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createSwordRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem).define('/', STICK)
-                .pattern(" # ")
-                .pattern(" # ")
-                .pattern(" / ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createPickaxeRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem).define('/', STICK)
-                .pattern("###")
-                .pattern(" / ")
-                .pattern(" / ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createAxeRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem).define('/', STICK)
-                .pattern(" ##")
-                .pattern(" /#")
-                .pattern(" / ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createShovelRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem).define('/', STICK)
-                .pattern(" # ")
-                .pattern(" / ")
-                .pattern(" / ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-    
-    private void createHoeRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem).define('#', requireItem).define('/', STICK)
-                .pattern(" ##")
-                .pattern(" / ")
-                .pattern(" / ")
-                .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-
     private void createSignRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
         ShapedRecipeBuilder.shaped(category, resultItem, 6).define('#', requireItem).define('/', STICK)
                 .pattern("###")
@@ -392,5 +308,9 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
     
     private void createBlasting(RecipeOutput output, RecipeCategory category, ItemLike smeltItem, ItemLike resultItem, float time, int xp, String name){
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp).unlockedBy("has_material", has(smeltItem)).save(output, new ResourceLocation(DEMod.MOD_ID, name));
+    }
+
+    private static void createSmithingTransform(RecipeOutput pRecipeOutput, RecipeCategory pCategory, SmithingTemplateItem template, Item toolItem, Item ingredientItem, Item pResultItem) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(toolItem), Ingredient.of(ingredientItem), pCategory, pResultItem).unlocks("has_material", has(ingredientItem)).save(pRecipeOutput, new ResourceLocation(DEMod.MOD_ID, getItemName(pResultItem) + "_smithing"));
     }
 }

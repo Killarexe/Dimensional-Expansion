@@ -6,10 +6,13 @@ import net.killarexe.dimensional_expansion.common.entity.DEChestBoatEntity;
 import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.BoatItem;
 import net.killarexe.dimensional_expansion.common.item.material.*;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -28,6 +31,7 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
@@ -75,8 +79,6 @@ public class DEItems {
     public static final RegistryObject<HorseArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.Tabs.COMBAT, true);
     public static final RegistryObject<FuelItem> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.Tabs.MISC, true);
 
-    public static final RegistryObject<Item> ALLOY_CRYSTAL = createItem("alloy_crystal", AlloyCrystal::new, DECreativeTabs.Tabs.MISC);
-    
     public static final RegistryObject<PurpleBerry> PURPLE_BERRY = createItem("purple_berry", PurpleBerry::new, DECreativeTabs.Tabs.MISC);
     public static final RegistryObject<SavorleafItem> SAVORLEAF = createItem("savorleaf", SavorleafItem::new, DECreativeTabs.Tabs.MISC);
     public static final RegistryObject<VioletCarrot> VIOLET_CARROT = createItem("violet_carrot", VioletCarrot::new, DECreativeTabs.Tabs.MISC);
@@ -97,7 +99,11 @@ public class DEItems {
     public static final RegistryObject<ForgeSpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     
     public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", MoboxItem::new, DECreativeTabs.Tabs.MISC);
-    
+
+    public static final RegistryObject<SmithingTemplateItem> BASSMITE_TEMPLATE = createSmithingTransformItem("bassmite_template", "bassmite", DECreativeTabs.Tabs.MISC);
+
+    public static final RegistryObject<SmithingTemplateItem> EMERTYST_TEMPLATE = createSmithingTransformItem("emertyst_template", "emertyst", DECreativeTabs.Tabs.MISC);
+
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);
     }
@@ -194,6 +200,28 @@ public class DEItems {
     
     private static RegistryObject<ForgeSpawnEggItem> createSpawnEggItem(String id, RegistryObject<? extends EntityType<? extends Mob>> entityType, int backgroundColor, int forgroundColor, DECreativeTabs.Tabs tab){
     	return createItem(id, () -> new ForgeSpawnEggItem(entityType, backgroundColor, forgroundColor, new Item.Properties()), tab);
+    }
+
+    private static RegistryObject<SmithingTemplateItem> createSmithingTransformItem(String id, String baseItemId, DECreativeTabs.Tabs tab) {
+        return createItem(id, () -> new SmithingTemplateItem(
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(baseItemId + "_upgrade"))).withStyle(ChatFormatting.GRAY),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.base_slot_description"))),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.additions_slot_description"))),
+                List.of(
+                        new ResourceLocation("item/empty_armor_slot_helmet"),
+                        new ResourceLocation("item/empty_armor_slot_chestplate"),
+                        new ResourceLocation("item/empty_armor_slot_leggings"),
+                        new ResourceLocation("item/empty_armor_slot_boots"),
+                        new ResourceLocation("item/empty_slot_sword"),
+                        new ResourceLocation("item/empty_slot_pickaxe"),
+                        new ResourceLocation("item/empty_slot_axe"),
+                        new ResourceLocation("item/empty_slot_shovel"),
+                        new ResourceLocation("item/empty_slot_hoe")
+                ),
+                List.of(new ResourceLocation("item/empty_slot_" + baseItemId))
+        ), tab);
     }
 
     @OnlyIn(Dist.CLIENT)

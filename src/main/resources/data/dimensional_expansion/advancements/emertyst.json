@@ -1,19 +1,6 @@
 {
   "parent": "dimensional_expansion:simix",
-  "criteria": {
-    "has_item": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "dimensional_expansion:emertyst_gem"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    }
-  },
+  "criteria": {},
   "display": {
     "announce_to_chat": true,
     "description": {
@@ -29,10 +16,6 @@
       "translate": "advancement.dimensional_expansion.emertyst.title"
     }
   },
-  "requirements": [
-    [
-      "has_item"
-    ]
-  ],
+  "requirements": [],
   "sends_telemetry_event": true
 }

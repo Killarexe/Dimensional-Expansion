@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "dimensional_expansion:bassmite_gem"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "item": "dimensional_expansion:bassmite_pickaxe"
+  },
+  "template": {
+    "item": "dimensional_expansion:bassmite_template"
+  }
+}
