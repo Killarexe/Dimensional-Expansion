@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "dimensional_expansion:emertyst_gem"
+  },
+  "base": {
+    "item": "dimensional_expansion:bassmite_pickaxe"
+  },
+  "result": {
+    "item": "dimensional_expansion:emertyst_pickaxe"
+  },
+  "template": {
+    "item": "dimensional_expansion:emertyst_upgrade_smithing_template"
+  }
+}

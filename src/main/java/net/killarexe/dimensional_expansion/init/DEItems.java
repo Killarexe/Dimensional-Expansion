@@ -8,23 +8,17 @@ import net.killarexe.dimensional_expansion.common.item.BoatItem;
 import net.killarexe.dimensional_expansion.common.item.material.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -33,8 +27,6 @@ import net.minecraftforge.registries.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
 
 public class DEItems {
 
@@ -100,9 +92,9 @@ public class DEItems {
     
     public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", MoboxItem::new, DECreativeTabs.Tabs.MISC);
 
-    public static final RegistryObject<SmithingTemplateItem> BASSMITE_TEMPLATE = createSmithingTransformItem("bassmite_template", "bassmite", DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<SmithingTemplateItem> BASSMITE_UPGRADE_SMITHING_TEMPLATE = createSmithingTransformItem("bassmite_upgrade_smithing_template", "bassmite", DECreativeTabs.Tabs.MISC);
 
-    public static final RegistryObject<SmithingTemplateItem> EMERTYST_TEMPLATE = createSmithingTransformItem("emertyst_template", "emertyst", DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<SmithingTemplateItem> EMERTYST_UPGRADE_SMITHING_TEMPLATE = createSmithingTransformItem("emertyst_upgrade_smithing_template", "emertyst", DECreativeTabs.Tabs.MISC);
 
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
     	return ITEMS.register(id, item);

@@ -4,15 +4,40 @@
 		{
 			"rolls": {
 				"type": "minecraft:uniform",
-				"min": 1,
-				"max": 5
+				"min": 2,
+				"max": 8
 			},
-			"bonus_rolls": 0,
+			"bonus_rolls": 2,
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 2,
+					"name": "minecraft:diamond_boots",
+					"weight": 6,
+					"quality": 1
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:diamond_leggings",
+					"weight": 6,
+					"quality": 1
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:diamond_chestplate",
+					"weight": 6,
+					"quality": 1
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:diamond_helmet",
+					"weight": 6,
+					"quality": 1
+				},
+				{
+					"type": "minecraft:item",
 					"name": "dimensional_expansion:palon_ingot",
+					"weight": 5,
+					"quality": 2,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -27,15 +52,38 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 4,
-					"name": "minecraft:bread",
+					"name": "dimensional_expansion:bassmite_upgrade_smithing_template",
+					"weight": 3,
+					"quality": 3
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:obsidian",
+					"weight": 18,
+					"quality": 0,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"type": "minecraft:uniform",
 								"min": 1,
-								"max": 4
+								"max": 8
+							}
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bread",
+					"weight": 16,
+					"quality": 0,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 16
 							},
 							"add": false
 						}
@@ -43,11 +91,15 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "dimensional_expansion:bassmite_helmet"
+					"name": "minecraft:emerald",
+					"weight": 12,
+					"quality": 0
 				},
 				{
 					"type": "minecraft:item",
-					"name": "minecraft:emerald"
+					"name": "dimensional_expansion:emertyst_upgrade_smithing_template",
+					"weight": 1,
+					"quality": 10
 				}
 			]
 		}

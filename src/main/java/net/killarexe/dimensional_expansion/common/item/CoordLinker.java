@@ -28,7 +28,7 @@ public class CoordLinker extends Item {
                     setPoses(player, overworldPos, overworldPosToNetherPos(overworldPos), false);
                 } else if (Level.NETHER.equals(dimension)) {
                     BlockPos netherPos = player.getOnPos();
-                    setPoses(player, netherPos, netherPosToOverworldPos(netherPos), false);
+                    setPoses(player, netherPosToOverworldPos(netherPos), netherPos, false);
                 } else {
                     setPoses(player, Vec3i.ZERO, Vec3i.ZERO, true);
                 }

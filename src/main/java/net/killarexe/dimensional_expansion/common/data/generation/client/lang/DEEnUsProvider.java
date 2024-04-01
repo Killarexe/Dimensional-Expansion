@@ -130,8 +130,8 @@ public class DEEnUsProvider extends LanguageProvider {
         
         add(DEItems.MOBOX.get(), "Mobox");
 
-        add(DEItems.BASSMITE_TEMPLATE.get(), "Bassmite Template");
-        add(DEItems.EMERTYST_TEMPLATE.get(), "Emertyst Template");
+        add(DEItems.BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), "Bassmite Template");
+        add(DEItems.EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), "Emertyst Template");
 
         add(DEItems.HEADED_SKELETON_SPAWN_EGG.get(), "Headed Skeleton Spawn Egg");
         add(DEItems.HEADED_GUARDIAN_SPAWN_EGG.get(), "Headed Guardian Spawn Egg");

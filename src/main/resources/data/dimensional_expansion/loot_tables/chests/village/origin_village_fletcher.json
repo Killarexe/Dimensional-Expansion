@@ -11,16 +11,6 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "minecraft:tipped_arrow",
-					"functions": [
-						{
-							"function": "minecraft:set_potion",
-							"id": "dimensional_expansion:remote"
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
 					"name": "minecraft:emerald"
 				},
 				{

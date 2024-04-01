@@ -4,18 +4,15 @@
 		{
 			"rolls": {
 				"type": "minecraft:uniform",
-				"min": 3,
+				"min": 2,
 				"max": 8
 			},
 			"bonus_rolls": 0,
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "dimensional_expansion:simix_hammer"
-				},
-				{
-					"type": "minecraft:item",
 					"name": "dimensional_expansion:emertyst_gem",
+					"weight": 1,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -30,8 +27,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
 					"name": "dimensional_expansion:palon_ingot",
+					"weight": 5,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -47,6 +44,7 @@
 				{
 					"type": "minecraft:item",
 					"name": "dimensional_expansion:simix_ingot",
+					"weight": 2,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -61,8 +59,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 15,
 					"name": "minecraft:bread",
+					"weight": 15,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -77,19 +75,20 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_pickaxe"
+					"name": "minecraft:diamond_pickaxe",
+					"weight": 5
 				},
 				{
 					"type": "minecraft:item",
 					"name": "dimensional_expansion:palon_mixed_coal",
+					"weight": 3,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"type": "minecraft:uniform",
 								"min": 1,
-								"max": 3
+								"max": 4
 							},
 							"add": false
 						}
@@ -97,8 +96,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 20,
 					"name": "minecraft:stick",
+					"weight": 20,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -113,8 +112,18 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_shovel"
+					"name": "minecraft:diamond_shovel",
+					"weight": 5
+				},
+				{
+					"type": "minecraft:item",
+					"name": "dimensional_expansion:bassmite_upgrade_smithing_template",
+					"weight": 1
+				},
+				{
+					"type": "minecraft:item",
+					"name": "dimensional_expansion:emertyst_upgrade_smithing_template",
+					"weight": 1
 				}
 			]
 		}

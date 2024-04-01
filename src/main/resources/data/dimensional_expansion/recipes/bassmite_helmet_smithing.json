@@ -4,10 +4,10 @@
     "item": "dimensional_expansion:bassmite_gem"
   },
   "base": {
-    "item": "minecraft:netherite_pickaxe"
+    "item": "minecraft:netherite_helmet"
   },
   "result": {
-    "item": "dimensional_expansion:bassmite_pickaxe"
+    "item": "dimensional_expansion:bassmite_helmet"
   },
   "template": {
     "item": "dimensional_expansion:bassmite_upgrade_smithing_template"

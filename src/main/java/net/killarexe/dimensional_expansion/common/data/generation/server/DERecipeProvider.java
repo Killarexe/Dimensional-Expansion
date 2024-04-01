@@ -141,25 +141,25 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 			.unlockedBy("has_material", has(LEAD))
 			.save(output);
 
-        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_SWORD, BASSMITE_GEM.get(), BASSMITE_SWORD.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_PICKAXE, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_AXE, BASSMITE_GEM.get(), BASSMITE_AXE.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_SHOVEL, BASSMITE_GEM.get(), BASSMITE_SHOVEL.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_TEMPLATE.get(), NETHERITE_HOE, BASSMITE_GEM.get(), BASSMITE_HOE.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_HELMET, BASSMITE_GEM.get(), BASSMITE_HELMET.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_CHESTPLATE, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_LEGGINGS, BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_TEMPLATE.get(), NETHERITE_BOOTS, BASSMITE_GEM.get(), BASSMITE_BOOTS.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_SWORD, BASSMITE_GEM.get(), BASSMITE_SWORD.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_PICKAXE, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_AXE, BASSMITE_GEM.get(), BASSMITE_AXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_SHOVEL, BASSMITE_GEM.get(), BASSMITE_SHOVEL.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_HOE, BASSMITE_GEM.get(), BASSMITE_HOE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_HELMET, BASSMITE_GEM.get(), BASSMITE_HELMET.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_CHESTPLATE, BASSMITE_GEM.get(), BASSMITE_CHESTPLATE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_LEGGINGS, BASSMITE_GEM.get(), BASSMITE_LEGGINGS.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_BOOTS, BASSMITE_GEM.get(), BASSMITE_BOOTS.get());
 
-        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_SWORD.get(), EMERTYST_GEM.get(), EMERTYST_SWORD.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_PICKAXE.get(), EMERTYST_GEM.get(), EMERTYST_PICKAXE.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_AXE.get(), EMERTYST_GEM.get(), EMERTYST_AXE.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_SHOVEL.get(), EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
-        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_TEMPLATE.get(), BASSMITE_HOE.get(), EMERTYST_GEM.get(), EMERTYST_HOE.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_HELMET.get(), EMERTYST_GEM.get(), EMERTYST_HELMET.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_CHESTPLATE.get(), EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_LEGGINGS.get(), EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get());
-        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_TEMPLATE.get(), BASSMITE_BOOTS.get(), EMERTYST_GEM.get(), EMERTYST_BOOTS.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_SWORD.get(), EMERTYST_GEM.get(), EMERTYST_SWORD.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_PICKAXE.get(), EMERTYST_GEM.get(), EMERTYST_PICKAXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_AXE.get(), EMERTYST_GEM.get(), EMERTYST_AXE.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_SHOVEL.get(), EMERTYST_GEM.get(), EMERTYST_SHOVEL.get());
+        createSmithingTransform(output, RecipeCategory.TOOLS, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_HOE.get(), EMERTYST_GEM.get(), EMERTYST_HOE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_HELMET.get(), EMERTYST_GEM.get(), EMERTYST_HELMET.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_CHESTPLATE.get(), EMERTYST_GEM.get(), EMERTYST_CHESTPLATE.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_LEGGINGS.get(), EMERTYST_GEM.get(), EMERTYST_LEGGINGS.get());
+        createSmithingTransform(output, RecipeCategory.COMBAT, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), BASSMITE_BOOTS.get(), EMERTYST_GEM.get(), EMERTYST_BOOTS.get());
     }
 
     private void createDoorRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){

@@ -71,8 +71,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.VIOLET_CARROT);
     	oneLayerItem(DEItems.MOBOX);
 
-        oneLayerItem(DEItems.BASSMITE_TEMPLATE);
-        oneLayerItem(DEItems.EMERTYST_TEMPLATE);
+        oneLayerItem(DEItems.BASSMITE_UPGRADE_SMITHING_TEMPLATE);
+        oneLayerItem(DEItems.EMERTYST_UPGRADE_SMITHING_TEMPLATE);
     	
     	spawnEgg(DEItems.HEADED_SKELETON_SPAWN_EGG);
     	spawnEgg(DEItems.HEADED_GUARDIAN_SPAWN_EGG);

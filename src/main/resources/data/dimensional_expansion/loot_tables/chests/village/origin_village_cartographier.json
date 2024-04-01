@@ -11,11 +11,6 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 1,
-					"name": "dimensional_expansion:warp_power_stone"
-				},
-				{
-					"type": "minecraft:item",
 					"name": "dimensional_expansion:coord_linker"
 				},
 				{

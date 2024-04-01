@@ -11,11 +11,6 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 1,
-					"name": "dimensional_expansion:weather_power_stone"
-				},
-				{
-					"type": "minecraft:item",
 					"name": "minecraft:emerald"
 				},
 				{
