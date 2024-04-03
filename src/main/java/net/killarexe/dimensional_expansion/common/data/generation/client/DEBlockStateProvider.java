@@ -94,12 +94,6 @@ public class DEBlockStateProvider extends BlockStateProvider {
 						blockTexture(PURPLEHEART_BOOKSHELF.get()), blockTexture(PURPLEHEART_PLANKS.get()),
 						blockTexture(PURPLEHEART_PLANKS.get()))));
 		
-		getVariantBuilder(MINERAL_STORAGE.get()).partialState()
-				.setModels(new ConfiguredModel(models().cubeBottomTop(MINERAL_STORAGE.getId().getPath(),
-						new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_side"),
-						new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_bottom"),
-						new ResourceLocation(blockTexture(MINERAL_STORAGE.get()) + "_top"))));
-
 		getVariantBuilder(DISPLAY_BLOCK.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.getId().getPath(),
 						new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),

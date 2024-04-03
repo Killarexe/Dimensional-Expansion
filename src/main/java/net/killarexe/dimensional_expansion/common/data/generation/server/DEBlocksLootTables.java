@@ -124,7 +124,6 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
 		dropSelf(ORIGIN_FRAME.get());
 		dropSelf(SAVORLEAF_BLOCK.get());
 
-		dropSelf(MINERAL_STORAGE.get());
 		add(ENCHANT_TRANSFER_TABLE.get(), (block) -> {
 			return createNameableBlockEntityTable(ENCHANT_TRANSFER_TABLE.get());
 		});

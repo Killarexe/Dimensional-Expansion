@@ -105,13 +105,6 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_material", has(PURPLEHEART_BOAT.get()))
                 .save(output, new ResourceLocation(DEMod.MOD_ID, "purpleheart_chest_boat"));
         
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, MINERAL_STORAGE.get(), 1).define('I', PALON_INGOT.get()).define('#', PURPLEHEART_PLANKS.get())
-	        .pattern("II ")
-	        .pattern("## ")
-	        .pattern("## ")
-	        .unlockedBy("has_material", has(PURPLEHEART_PLANKS.get()))
-	        .save(output);
-        
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_BOOKSHELF.get(), 1).define('I', BOOK).define('#', PURPLEHEART_PLANKS.get())
         .pattern("###")
         .pattern("III")

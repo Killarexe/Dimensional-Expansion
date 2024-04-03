@@ -22,17 +22,12 @@ public class DERegistries {
         DEBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         LOGGER.debug("Init Dimensional Expansion Entities");
         DEEntityTypes.ENTITY_TYPES.register(bus);
-        LOGGER.debug("Init Dimensional Expansion POIs");
-        DEPois.POI_TYPE.register(bus);
-        LOGGER.debug("Init Dimensional Expansion Villager Professions");
-        DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
-        DEVillagerTypes.setTypeByBiome();
-        LOGGER.debug("Init Dimensional Expansion Villager Types");
-        DEVillagerTypes.VILLAGER_TYPE.register(bus);
         LOGGER.debug("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
+        LOGGER.debug("Init Dimensional Expansion Villager Types");
+        DEVillagerTypes.setTypeByBiome(); //FIXME: Doesn't work do to regisrty object not present.
+        DEVillagerTypes.VILLAGER_TYPE.register(bus);
         DEDimensions.register();
         DEStructures.register();
-        DEGameRules.register();
 	}
 }

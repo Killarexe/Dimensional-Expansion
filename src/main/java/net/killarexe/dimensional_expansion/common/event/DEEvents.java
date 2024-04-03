@@ -10,7 +10,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.killarexe.dimensional_expansion.common.block.maps.CompostableMap;
 import net.killarexe.dimensional_expansion.common.block.maps.FlowerPotMap;
 import net.killarexe.dimensional_expansion.common.block.maps.StrippingMap;
-import net.killarexe.dimensional_expansion.common.event.villager.DEVillagerTrades;
 import net.killarexe.dimensional_expansion.init.*;
 
 public class DEEvents {
@@ -18,7 +17,6 @@ public class DEEvents {
 	public static void addListeners(IEventBus forgeBus, IEventBus modBus) {
         DEMod.LOGGER.info("Set Dimensional Expansion Event Listeners");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(modBus, forgeBus));
-        forgeBus.addListener(DEVillagerTrades::addTrades);
         modBus.addListener(DEEvents::commonSetup);
         modBus.addListener(DEEntityTypes::registerAttributes);
         modBus.addListener(DECreativeTabs::addItemsToCreativeTabs);

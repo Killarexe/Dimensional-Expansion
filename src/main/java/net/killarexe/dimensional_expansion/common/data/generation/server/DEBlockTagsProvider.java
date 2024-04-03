@@ -63,7 +63,6 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         		DEBlocks.SULFUR_STONE_SLAB.get(),
         		DEBlocks.SULFUR_STONE_STAIRS.get(),
         		DEBlocks.BLUE_SANDSTONE.get(),
-        		DEBlocks.MINERAL_STORAGE.get(),
         		DEBlocks.ORIGIN_FRAME.get(),
         		DEBlocks.DISPLAY_BLOCK.get()
         );

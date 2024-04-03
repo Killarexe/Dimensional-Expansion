@@ -123,7 +123,6 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ORIGIN_FRAME);
         simpleBlockItem(DEBlocks.SAVORLEAF_BLOCK);
         
-        simpleBlockItem(DEBlocks.MINERAL_STORAGE);
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
         oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");
         oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS, new ResourceLocation(DEMod.MOD_ID, "origin_tall_grass_top"), false, "block");

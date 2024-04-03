@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DECreativeTabs {
 	
-	public static enum Tabs{
+	public enum Tabs{
 		BLOCKS,
 		MISC,
 		TOOLS,

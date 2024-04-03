@@ -173,9 +173,6 @@ public class DEBlocks {
 	public static final RegistryObject<Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
 			SoundType.METAL, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final RegistryObject<Block> MINERAL_STORAGE = createBlock("mineral_storage", MapColor.COLOR_BLACK, 3,
-			50, 2, SoundType.ANVIL, DECreativeTabs.Tabs.BLOCKS);
-
 	public static final RegistryObject<Block> DISPLAY_BLOCK = createCustomBlock("display_block",
             DisplayBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
