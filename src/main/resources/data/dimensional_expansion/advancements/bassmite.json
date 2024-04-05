@@ -1,6 +1,19 @@
 {
   "parent": "dimensional_expansion:the_palon",
-  "criteria": {},
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:bassmite_gem"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
     "announce_to_chat": true,
     "description": {
@@ -16,6 +29,10 @@
       "translate": "advancement.dimensional_expansion.bassmite.title"
     }
   },
-  "requirements": [],
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ],
   "sends_telemetry_event": true
 }

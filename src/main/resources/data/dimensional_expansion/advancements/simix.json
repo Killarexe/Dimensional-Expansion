@@ -1,6 +1,19 @@
 {
   "parent": "dimensional_expansion:bassmite",
-  "criteria": {},
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dimensional_expansion:simix_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
     "announce_to_chat": true,
     "description": {
@@ -16,6 +29,10 @@
       "translate": "advancement.dimensional_expansion.simix.title"
     }
   },
-  "requirements": [],
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ],
   "sends_telemetry_event": true
 }

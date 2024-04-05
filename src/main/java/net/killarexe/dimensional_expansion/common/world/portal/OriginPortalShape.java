@@ -227,12 +227,10 @@ public class OriginPortalShape {
 		if (!(pDimensions.width > 4.0F) && !(pDimensions.height > 4.0F)) {
 			double d0 = (double)pDimensions.height / 2.0;
 			Vec3 vec3 = pPos.add(0.0, d0, 0.0);
-			VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, (double)pDimensions.width, 0.0, (double)pDimensions.width).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
-			Optional<Vec3> optional = pLevel.findFreePosition(pEntity, voxelshape, vec3, (double)pDimensions.width, (double)pDimensions.height, (double)pDimensions.width);
-			Optional<Vec3> optional1 = optional.map((p_259019_) -> {
-				return p_259019_.subtract(0.0, d0, 0.0);
-			});
-			return (Vec3)optional1.orElse(pPos);
+			VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, pDimensions.width, 0.0, pDimensions.width).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));
+			Optional<Vec3> optional = pLevel.findFreePosition(pEntity, voxelshape, vec3, pDimensions.width, pDimensions.height, pDimensions.width);
+			Optional<Vec3> optional1 = optional.map((p_259019_) -> p_259019_.subtract(0.0, d0, 0.0));
+			return optional1.orElse(pPos);
 		} else {
 			return pPos;
 		}

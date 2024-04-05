@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "dimensional_expansion:block/mineral_storage_bottom",
-    "side": "dimensional_expansion:block/mineral_storage_side",
-    "top": "dimensional_expansion:block/mineral_storage_top"
-  }
-}

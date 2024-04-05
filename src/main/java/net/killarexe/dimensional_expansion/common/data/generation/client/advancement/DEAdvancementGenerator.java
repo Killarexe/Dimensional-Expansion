@@ -42,6 +42,8 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				root,
 				false
+		).addCriterion(
+				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.PALON_INGOT.get())
 		).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_palon"));
 		
 		AdvancementHolder bassmite = createPreAdvancement(
@@ -50,6 +52,8 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				the_palon,
 				false
+		).addCriterion(
+				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.BASSMITE_GEM.get())
 		).save(saver, DEMod.res("bassmite"));
 		
 		AdvancementHolder simix = createPreAdvancement(
@@ -58,6 +62,8 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				bassmite,
 				false
+		).addCriterion(
+				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.SIMIX_INGOT.get())
 		).save(saver, DEMod.res("simix"));
 		
 		AdvancementHolder emertyst = createPreAdvancement(
@@ -66,6 +72,8 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				FrameType.TASK,
 				simix,
 				false
+		).addCriterion(
+				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.EMERTYST_GEM.get())
 		).save(saver, DEMod.res("emertyst"));
 		
 		AdvancementHolder the_origin = createPreAdvancement(
