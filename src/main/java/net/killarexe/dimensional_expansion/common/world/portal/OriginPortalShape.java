@@ -30,9 +30,8 @@ public class OriginPortalShape {
 	public static final int MAX_WIDTH = 21;
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = (p_77720_, p_77721_, p_77722_) -> {
-		return p_77720_.isPortalFrame(p_77721_, p_77722_);
-	};
+	private static final BlockBehaviour.StatePredicate FRAME = (state, level, pos) -> state.isPortalFrame(level, pos);
+
 	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0F;
 	private static final double SAFE_TRAVEL_MAX_VERTICAL_DELTA = 1.0;
 	private final LevelAccessor level;
@@ -45,9 +44,7 @@ public class OriginPortalShape {
 	private final int width;
 
 	public static Optional<OriginPortalShape> findEmptyPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Direction.Axis pAxis) {
-		return findPortalShape(pLevel, pBottomLeft, (shape) -> {
-			return shape.isValid() && shape.numPortalBlocks == 0;
-		}, pAxis);
+		return findPortalShape(pLevel, pBottomLeft, (shape) -> shape.isValid() && shape.numPortalBlocks == 0, pAxis);
 	}
 
 	public static Optional<OriginPortalShape> findPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Predicate<OriginPortalShape> pPredicate, Direction.Axis pAxis) {
@@ -170,8 +167,8 @@ public class OriginPortalShape {
 
 	public void createPortalBlocks() {
 		BlockState blockstate = DEBlocks.ORIGIN_PORTAL.get().defaultBlockState().setValue(OriginPortalBlock.AXIS, this.axis);
-		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((p_77725_) -> {
-			this.level.setBlock(p_77725_, blockstate, 18);
+		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((pos) -> {
+			this.level.setBlock(pos, blockstate, 18);
 		});
 	}
 

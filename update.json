@@ -36,7 +36,10 @@
   	"0.9.2a": "Removed Discord RPC, Added new abilites to the Blue Sand Man and the Movet, Added new musics, Added SFXs for the mobs"
   },
   "1.20.2": {
-  	"0.9.3a": "Updated to 1.20.2"
+  	"0.9.3a": "Updated to 1.20.2, Remove unused features, code, data & assets"
+  },
+  "1.20.4": {
+    "0.9.4a": "Updated to 1.20.4."
   },
   "promos": {
     "1.16.4-latest": "0.1a",
@@ -56,6 +59,8 @@
     "1.19.4-latest": "0.9a",
     "1.19.4-recommended": "0.9a",
     "1.20.1-latest": "0.9.2a",
-    "1.20.1-recommended": "0.9.2a"
+    "1.20.1-recommended": "0.9.2a",
+    "1.20.2-latest": "0.9.3a",
+    "1.20.2-recommended": "0.9.3a"
   }
 }

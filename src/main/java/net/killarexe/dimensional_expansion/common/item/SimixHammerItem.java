@@ -11,6 +11,7 @@ public class SimixHammerItem extends Item{
 	
 	@Override
 	public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+		itemStack.shrink(1);
 		ItemStack retval = new ItemStack(this);
 		retval.setDamageValue(itemStack.getDamageValue() + 1);
 		if(retval.getDamageValue() >= retval.getMaxDamage()) {

@@ -32,18 +32,15 @@ public class OriginPortalBlock extends NetherPortalBlock{
 
 	public static void portalSpawn(Level level, BlockPos pos) {
 		Optional<OriginPortalShape> shape = OriginPortalShape.findEmptyPortalShape(level, pos, Direction.Axis.X);
-		if(shape.isPresent()) {
-			shape.get().createPortalBlocks();;
-		}
+        shape.ifPresent(OriginPortalShape::createPortalBlocks);
 	}
 	
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 	}
-	
+
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel,
-			BlockPos pCurrentPos, BlockPos pFacingPos) {
+	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
 		Direction.Axis direction$axis = pFacing.getAxis();
 		Direction.Axis direction$axis1 = pState.getValue(AXIS);
 		boolean flag = direction$axis1 != direction$axis && direction$axis.isHorizontal();

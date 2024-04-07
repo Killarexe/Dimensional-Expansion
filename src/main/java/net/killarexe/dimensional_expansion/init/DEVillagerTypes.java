@@ -45,7 +45,7 @@ public class DEVillagerTypes {
 						trade.trades.put(entry.getKey(), DEItems.PURPLEHEART_BOAT.get());
 					}
 	    		}catch(Exception e) {
-	    			DEMod.LOGGER.error("Failed to register villager type!\n" + e.getMessage());
+	    			DEMod.LOGGER.error("Failed to register villager type \"" + entry.getKey() + "\" for biome: \"" + biome + "\":\n\t" + e.getMessage());
 	    		}
     		}
     	}

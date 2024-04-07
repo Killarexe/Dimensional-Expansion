@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 public class PurpleheartTreeGrower extends AbstractTreeGrower {
 
     @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean vlaue) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DEMod.MOD_ID, "purpleheart_tree_spawn"));
     }
 }

@@ -14,6 +14,9 @@ public class DERegistries {
 		DESoundEvents.SOUND_EVENTS.register(bus);
         LOGGER.info("Init Dimensional Expansion Creative Tabs");
         DECreativeTabs.CREATIVE_MOD_TABS.register(bus);
+        LOGGER.debug("Init Dimensional Expansion Villager Types");
+        DEVillagerTypes.setTypeByBiome(); //FIXME: Doesn't work do to regisrty object not present.
+        DEVillagerTypes.VILLAGER_TYPE.register(bus);
         LOGGER.debug("Init Dimensional Expansion Blocks");
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
@@ -24,9 +27,6 @@ public class DERegistries {
         DEEntityTypes.ENTITY_TYPES.register(bus);
         LOGGER.debug("Init Dimensional Expansion Biomes");
         DEBiomes.BIOMES.register(bus);
-        LOGGER.debug("Init Dimensional Expansion Villager Types");
-        DEVillagerTypes.setTypeByBiome(); //FIXME: Doesn't work do to regisrty object not present.
-        DEVillagerTypes.VILLAGER_TYPE.register(bus);
         DEDimensions.register();
         DEStructures.register();
 	}
