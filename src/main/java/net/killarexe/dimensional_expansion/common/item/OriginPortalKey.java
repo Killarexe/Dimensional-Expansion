@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class OriginPortalKey extends Item{
 
@@ -16,6 +17,7 @@ public class OriginPortalKey extends Item{
 	}
 	
 	@Override
+	@NotNull
 	public InteractionResult useOn(UseOnContext pContext) {
 		Player player = pContext.getPlayer();
 		BlockPos pos = pContext.getClickedPos().relative(pContext.getClickedFace());
@@ -24,9 +26,8 @@ public class OriginPortalKey extends Item{
 		if(!player.mayUseItemAt(pos, pContext.getClickedFace(), item)) {
 			return InteractionResult.FAIL;
 		}
-		if(level.isEmptyBlock(pos)) {
+		if(level.isEmptyBlock(pos) && OriginPortalBlock.portalSpawn(level, pos)) {
 			item.hurtAndBreak(1, player, c -> c.broadcastBreakEvent(pContext.getHand()));
-			OriginPortalBlock.portalSpawn(level, pos);
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.FAIL;

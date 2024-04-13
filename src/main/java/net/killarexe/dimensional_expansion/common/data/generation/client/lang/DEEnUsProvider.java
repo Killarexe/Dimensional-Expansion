@@ -149,50 +149,23 @@ public class DEEnUsProvider extends LanguageProvider {
         add("itemGroup." + DEMod.MOD_ID + ".blocks", "Dimensional Expansion Blocks");
         add("itemGroup." + DEMod.MOD_ID + ".mobs", "Dimensional Expansion Mobs");
 
-        /*Screens*/
-        add("config." + DEMod.MOD_ID + ".title", "Dimensional Expansion Config");
-        add("config." + DEMod.MOD_ID + ".client", "Dimensional Expansion §3Client §fConfig");
-        add("config." + DEMod.MOD_ID + ".common", "Dimensional Expansion §6Common §fConfig");
-
-        add("button." + DEMod.MOD_ID + ".cancel_button", "§4Cancel");
-        add("button." + DEMod.MOD_ID + ".apply_button", "§2Apply");
-        add("button." + DEMod.MOD_ID + ".youtube", "Youtube");
-        add("button." + DEMod.MOD_ID + ".paypal", "§3Donate via Paypal");
-        add("button." + DEMod.MOD_ID + ".config", "Config");
-        add("button." + DEMod.MOD_ID + ".github", "Github");
-        add("button." + DEMod.MOD_ID + ".quit", "§4Quit");
-        add("button." + DEMod.MOD_ID + ".client_button", "§3Client §fConfig");
-        add("button." + DEMod.MOD_ID + ".common_button", "§6Common §fConfig");
-        
-        add("button." + DEMod.MOD_ID + ".client_button_desc", "Dimensional Expansion §3Client §fConfig");
-        add("button." + DEMod.MOD_ID + ".common_button_desc", "Dimensional Expansion §6Common §fConfig");
-
-        add("config." + DEMod.MOD_ID + ".show_version", "Show Version");
-        add("config." + DEMod.MOD_ID + ".modded_screens", "Modded Screens");
-        add("config." + DEMod.MOD_ID + ".dev_mod", "Dev Mod");
-        add("config." + DEMod.MOD_ID + ".enable_power_stones", "Enable Power Stones");
-        add("config." + DEMod.MOD_ID + ".power_stones_delay", "Power Stones Delay");
-        
-        add("config." + DEMod.MOD_ID + ".show_version_desc", "Shows the version on the screen.");
-        add("config." + DEMod.MOD_ID + ".modded_screens_desc", "Adds a custom title screen.");
-        add("config." + DEMod.MOD_ID + ".dev_mod_desc", "Developper Mode.");
-        add("config." + DEMod.MOD_ID + ".enable_power_stones_desc", "Enable ALL Power Stones (Not recommended on big servers!)");
-        add("config." + DEMod.MOD_ID + ".power_stones_delay_desc", "Power Stones Delay on Seconds");
-        
-        add(DEMod.MOD_ID + ".seconds", " Seconds");
-        
-        /*KeyBinds*/
-        add("key.category." + DEMod.MOD_ID + ".dev_keys", "Dimensional Expansion Dev Keys");
-        add("key." + DEMod.MOD_ID + ".config", "Dimensional Expansion Config");
-        
         /*Tooltips*/
         add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");
-        add("tooltip." + DEMod.MOD_ID + ".remote_teleporter", "Give you an effect of Remote for 30 seconds.");
-        add("tooltip." + DEMod.MOD_ID + ".time_power_stone", "Change between day and night.");
-        add("tooltip." + DEMod.MOD_ID + ".warp_power_stone", "Teleport you at spawn point.");
-        add("tooltip." + DEMod.MOD_ID + ".weather_power_stone", "Switch between raing and sun.");
         add("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", "Current entity: %s");
-        
+
+        add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.applies_to", "Netherite Armors & Gears");
+        add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.ingredients", "Bassmite Gem");
+        add("upgrade." + DEMod.MOD_ID + ".bassmite_upgrade", "Bassmite Upgrade");
+        add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.base_slot_description", "Add netherite armor, weapon or tool");
+        add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.additions_slot_description", "Add Bassmite Gem");
+
+        add("item." + DEMod.MOD_ID + ".smithing_template.emertyst_upgrade.applies_to", "Bassmite Armors & Gears");
+        add("item." + DEMod.MOD_ID + "smithing_template.emertyst_upgrade.ingredients", "Emertyst Gem");
+        add("upgrade." + DEMod.MOD_ID + ".emertyst_upgrade", "Emertyst Upgrade");
+        add("item." + DEMod.MOD_ID + ".smithing_template.emertyst_upgrade.base_slot_description", "Add bassmite armor, weapon or tool");
+        add("item." + DEMod.MOD_ID + ".smithing_template.emertyst_upgrade.additions_slot_description", "Add Emertyst Gem");
+
+
         /*
          *Advancements 
          */

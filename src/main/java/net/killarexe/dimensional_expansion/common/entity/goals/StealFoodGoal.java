@@ -43,21 +43,23 @@ public class StealFoodGoal extends TargetGoal{
 			return;
 		}
 		targetMob = mob.getTarget();
-		if(!mob.canAttack(targetMob, TargetingConditions.forCombat().range(range))) {
-			mob.getNavigation().moveTo(targetMob, 0.75F);
-			return;
-		}
-		for(ItemStack stack: targetMob.getAllSlots()) {
-			if(stack.isEdible() && mob instanceof Mouvet mouvet) {
-				mouvet.setCurrentItem(stack.copy());
-				stack.shrink(stack.getCount());
-				targetMob.hurt(targetMob.damageSources().mobAttack(mouvet), 1.0F);
-				mouvet.setTarget(null);
-				Vec3 randomPos = DefaultRandomPos.getPos(mouvet, 5, 4);
-				if(randomPos != null) {
-					mouvet.getNavigation().moveTo(randomPos.x, randomPos.y, randomPos.z, 0.75F);
+		if(targetMob != null) {
+			if (!mob.canAttack(targetMob, TargetingConditions.forCombat().range(range))) {
+				mob.getNavigation().moveTo(targetMob, 0.75F);
+				return;
+			}
+			for (ItemStack stack : targetMob.getAllSlots()) {
+				if (stack.isEdible() && mob instanceof Mouvet mouvet) {
+					mouvet.setCurrentItem(stack.copy());
+					stack.shrink(stack.getCount());
+					targetMob.hurt(targetMob.damageSources().mobAttack(mouvet), 1.0F);
+					mouvet.setTarget(null);
+					Vec3 randomPos = DefaultRandomPos.getPos(mouvet, 5, 4);
+					if (randomPos != null) {
+						mouvet.getNavigation().moveTo(randomPos.x, randomPos.y, randomPos.z, 0.75F);
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}

@@ -30,7 +30,7 @@ public class OriginPortalShape {
 	public static final int MAX_WIDTH = 21;
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = (state, level, pos) -> state.isPortalFrame(level, pos);
+	private static final BlockBehaviour.StatePredicate FRAME = (state, level, pos) -> state.is(DEBlocks.ORIGIN_FRAME.get());
 
 	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0F;
 	private static final double SAFE_TRAVEL_MAX_VERTICAL_DELTA = 1.0;
@@ -51,10 +51,9 @@ public class OriginPortalShape {
 		Optional<OriginPortalShape> optional = Optional.of(new OriginPortalShape(pLevel, pBottomLeft, pAxis)).filter(pPredicate);
 		if (optional.isPresent()) {
 			return optional;
-		} else {
-			Direction.Axis direction$axis = pAxis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
-			return Optional.of(new OriginPortalShape(pLevel, pBottomLeft, direction$axis)).filter(pPredicate);
 		}
+		Direction.Axis direction$axis = pAxis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
+		return Optional.of(new OriginPortalShape(pLevel, pBottomLeft, direction$axis)).filter(pPredicate);
 	}
 
 	public OriginPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Direction.Axis pAxis) {
@@ -87,13 +86,13 @@ public class OriginPortalShape {
 
 	private int calculateWidth() {
 		int i = this.getDistanceUntilEdgeAboveFrame(this.bottomLeft, this.rightDir);
-		return i >= 2 && i <= 21 ? i : 0;
+		return i >= MIN_WIDTH && i <= MAX_WIDTH ? i : 0;
 	}
 
 	private int getDistanceUntilEdgeAboveFrame(BlockPos pPos, Direction pDirection) {
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-		for(int i = 0; i <= 21; ++i) {
+		for(int i = 0; i <= MAX_WIDTH; ++i) {
 			blockpos$mutableblockpos.set(pPos).move(pDirection, i);
 			BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
 			if (!isEmpty(blockstate)) {
@@ -115,7 +114,7 @@ public class OriginPortalShape {
 	private int calculateHeight() {
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 		int i = this.getDistanceUntilTop(blockpos$mutableblockpos);
-		return i >= 3 && i <= 21 && this.hasTopFrame(blockpos$mutableblockpos, i) ? i : 0;
+		return i >= MIN_WIDTH && i <= MAX_HEIGHT && this.hasTopFrame(blockpos$mutableblockpos, i) ? i : 0;
 	}
 
 	private boolean hasTopFrame(BlockPos.MutableBlockPos pPos, int pDistanceToTop) {
@@ -130,7 +129,7 @@ public class OriginPortalShape {
 	}
 
 	private int getDistanceUntilTop(BlockPos.MutableBlockPos pPos) {
-		for(int i = 0; i < 21; ++i) {
+		for(int i = 0; i < MAX_HEIGHT; ++i) {
 			pPos.set(this.bottomLeft).move(Direction.UP, i).move(this.rightDir, -1);
 			if (!FRAME.test(this.level.getBlockState(pPos), this.level, pPos)) {
 				return i;
@@ -154,7 +153,7 @@ public class OriginPortalShape {
 			}
 		}
 
-		return 21;
+		return MAX_HEIGHT;
 	}
 
 	private static boolean isEmpty(BlockState pState) {
@@ -162,7 +161,7 @@ public class OriginPortalShape {
 	}
 
 	public boolean isValid() {
-		return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
+		return this.bottomLeft != null && this.width >= MIN_WIDTH && this.width <= MAX_WIDTH && this.height >= MIN_HEIGHT && this.height <= MAX_HEIGHT;
 	}
 
 	public void createPortalBlocks() {
@@ -221,7 +220,7 @@ public class OriginPortalShape {
 	}
 
 	private static Vec3 findCollisionFreePosition(Vec3 pPos, ServerLevel pLevel, Entity pEntity, EntityDimensions pDimensions) {
-		if (!(pDimensions.width > 4.0F) && !(pDimensions.height > 4.0F)) {
+		if (!(pDimensions.width > SAFE_TRAVEL_MAX_ENTITY_XY) && !(pDimensions.height > SAFE_TRAVEL_MAX_ENTITY_XY)) {
 			double d0 = (double)pDimensions.height / 2.0;
 			Vec3 vec3 = pPos.add(0.0, d0, 0.0);
 			VoxelShape voxelshape = Shapes.create(AABB.ofSize(vec3, pDimensions.width, 0.0, pDimensions.width).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6));

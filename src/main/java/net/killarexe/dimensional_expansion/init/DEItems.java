@@ -196,11 +196,11 @@ public class DEItems {
 
     private static RegistryObject<SmithingTemplateItem> createSmithingTransformItem(String id, String baseItemId, DECreativeTabs.Tabs tab) {
         return createItem(id, () -> new SmithingTemplateItem(
-                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
-                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
-                Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(baseItemId + "_upgrade"))).withStyle(ChatFormatting.GRAY),
-                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.base_slot_description"))),
-                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template." + baseItemId + "_upgrade.additions_slot_description"))),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DEMod.MOD_ID, "smithing_template." + baseItemId + "_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DEMod.MOD_ID, "smithing_template." + baseItemId + "_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(DEMod.MOD_ID, baseItemId + "_upgrade"))).withStyle(ChatFormatting.GRAY),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DEMod.MOD_ID, "smithing_template." + baseItemId + "_upgrade.base_slot_description"))),
+                Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DEMod.MOD_ID, "smithing_template." + baseItemId + "_upgrade.additions_slot_description"))),
                 List.of(
                         new ResourceLocation("item/empty_armor_slot_helmet"),
                         new ResourceLocation("item/empty_armor_slot_chestplate"),
@@ -212,7 +212,7 @@ public class DEItems {
                         new ResourceLocation("item/empty_slot_shovel"),
                         new ResourceLocation("item/empty_slot_hoe")
                 ),
-                List.of(new ResourceLocation("item/empty_slot_" + baseItemId))
+                List.of(new ResourceLocation(DEMod.MOD_ID, "item/empty_slot_" + baseItemId))
         ), tab);
     }
 

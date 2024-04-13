@@ -30,9 +30,13 @@ public class OriginPortalBlock extends NetherPortalBlock{
 		super(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noOcclusion());
 	}
 
-	public static void portalSpawn(Level level, BlockPos pos) {
+	public static boolean portalSpawn(Level level, BlockPos pos) {
 		Optional<OriginPortalShape> shape = OriginPortalShape.findEmptyPortalShape(level, pos, Direction.Axis.X);
-        shape.ifPresent(OriginPortalShape::createPortalBlocks);
+        if(shape.isPresent()) {
+			shape.get().createPortalBlocks();
+			return true;
+		}
+		return false;
 	}
 	
 	@Override
