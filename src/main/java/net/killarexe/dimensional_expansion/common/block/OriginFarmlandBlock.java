@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class OriginFarmlandBlock extends FarmBlock{
 
 	public OriginFarmlandBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.FARMLAND));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
 	}
 	
 	public static void turnToOriginDirt(BlockState pState, Level pLevel, BlockPos pPos) {

@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,14 +25,14 @@ import net.minecraft.world.phys.Vec3;
 public class PurpleBerryBush extends SweetBerryBushBlock{
 
 	public PurpleBerryBush() {
-		super(Properties.copy(Blocks.SWEET_BERRY_BUSH));
+		super(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH));
 	}
 	
 	@Override
-	public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
+	public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(DEItems.PURPLE_BERRY.get());
 	}
-	
+
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		int i = pState.getValue(AGE);

@@ -15,7 +15,7 @@ import net.minecraftforge.common.ToolActions;
 public class OriginDirtBlock extends Block{
 
 	public OriginDirtBlock() {
-		this(BlockBehaviour.Properties.copy(Blocks.DIRT_PATH).sound(SoundType.GRAVEL));
+		this(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH).sound(SoundType.GRAVEL));
 	}
 	
 	protected OriginDirtBlock(Properties pProperties) {

@@ -27,7 +27,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class OriginPortalBlock extends NetherPortalBlock{
 
 	public OriginPortalBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noOcclusion());
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL).noOcclusion());
 	}
 
 	public static boolean portalSpawn(Level level, BlockPos pos) {

@@ -15,7 +15,7 @@ public class SavorleafCropBlock extends DMCropBlock{
 	public static final IntegerProperty AGE = IntegerProperty.create("age", 0, MAX_AGE);
 	
 	public SavorleafCropBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.WHEAT));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
 	}
 	
 	@Override

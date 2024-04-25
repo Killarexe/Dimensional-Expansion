@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class PurpleishCactusBlock extends CactusBlock{
 
 	public PurpleishCactusBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.CACTUS).noOcclusion());
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion());
 	}
 	
 	@SuppressWarnings("deprecation")

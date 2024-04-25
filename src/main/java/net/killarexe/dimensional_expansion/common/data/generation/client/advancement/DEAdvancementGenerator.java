@@ -12,7 +12,7 @@ import net.killarexe.dimensional_expansion.init.DEStructures;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.FrameType;
+import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
@@ -31,7 +31,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				new ResourceLocation(DEMod.MOD_ID, "textures/block/palon_block.png"),
 				"dimensional_expansion",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				false,
 				saver
 		);
@@ -39,7 +39,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		AdvancementHolder the_palon = createPreAdvancement(
 				DEItems.PALON_INGOT.get(),
 				"the_palon",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				root,
 				false
 		).addCriterion(
@@ -49,7 +49,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		AdvancementHolder bassmite = createPreAdvancement(
 				DEItems.BASSMITE_GEM.get(),
 				"bassmite",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				the_palon,
 				false
 		).addCriterion(
@@ -59,7 +59,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		AdvancementHolder simix = createPreAdvancement(
 				DEItems.SIMIX_INGOT.get(),
 				"simix",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				bassmite,
 				false
 		).addCriterion(
@@ -69,7 +69,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		AdvancementHolder emertyst = createPreAdvancement(
 				DEItems.EMERTYST_GEM.get(),
 				"emertyst",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				simix,
 				false
 		).addCriterion(
@@ -79,7 +79,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		AdvancementHolder the_origin = createPreAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				"the_origin",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				root,
 				false
 		).addCriterion("is_in_dimension", PlayerTrigger.TriggerInstance.located(
@@ -89,7 +89,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_LOG.get(),
 				"purpleheart_wood",
-				FrameType.TASK,
+				AdvancementType.TASK,
 				the_origin,
 				false
 		).addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEBlocks.PURPLEHEART_LOG.get()))
@@ -98,7 +98,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		createPreAdvancement(
 				DEItems.EMERTYST_CHESTPLATE.get(),
 				"cover_me_with_emertyst",
-				FrameType.CHALLENGE,
+				AdvancementType.CHALLENGE,
 				emertyst,
 				false
 		).rewards(AdvancementRewards.Builder.experience(50))
@@ -112,7 +112,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		createPreAdvancement(
 				DEItems.ORIGIN_PORTAL_KEY.get(),
 				"origin_abandonned_portal",
-				FrameType.GOAL,
+				AdvancementType.GOAL,
 				root,
 				false)
 		.addCriterion(
@@ -125,7 +125,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_SAPLING.get(),
 				"village_origin_plains",
-				FrameType.GOAL,
+				AdvancementType.GOAL,
 				the_origin,
 				false)
 		.addCriterion(
@@ -137,13 +137,13 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 	}
 
 	@SuppressWarnings("unused")
-	private AdvancementHolder createAdvancement(ItemLike icon, String name, FrameType type, AdvancementHolder parent, boolean hidden, Consumer<AdvancementHolder> saver) {
+	private AdvancementHolder createAdvancement(ItemLike icon, String name, AdvancementType type, AdvancementHolder parent, boolean hidden, Consumer<AdvancementHolder> saver) {
 		return createPreAdvancement(icon, name, type, parent, hidden)
 				.addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(icon))
 				.save(saver, new ResourceLocation(DEMod.MOD_ID, name));
 	}
 	
-	private Advancement.Builder createPreAdvancement(ItemLike icon, String name, FrameType type, AdvancementHolder parent, boolean hidden) {
+	private Advancement.Builder createPreAdvancement(ItemLike icon, String name, AdvancementType type, AdvancementHolder parent, boolean hidden) {
 		return Advancement.Builder.advancement()
 				.display(
 					icon,
@@ -157,7 +157,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				).parent(parent);
 	}
 	
-	private AdvancementHolder createRootAdvancement(ItemLike icon, @Nullable ResourceLocation bkg, String name, FrameType type, boolean hidden, Consumer<AdvancementHolder> saver) {
+	private AdvancementHolder createRootAdvancement(ItemLike icon, @Nullable ResourceLocation bkg, String name, AdvancementType type, boolean hidden, Consumer<AdvancementHolder> saver) {
 		return Advancement.Builder.advancement()
 				.display(
 					icon,

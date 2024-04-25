@@ -14,19 +14,19 @@ import net.minecraft.world.level.block.state.BlockState;
 public class OriginDirtPathBlock extends DirtPathBlock{
 	
 	public OriginDirtPathBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.DIRT_PATH).sound(SoundType.GRASS));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH).sound(SoundType.GRASS));
 	}
 
 	@Override
-	public boolean canSurvive(BlockState p_153148_, LevelReader p_153149_, BlockPos p_153150_) {
-		BlockState blockstate = p_153149_.getBlockState(p_153150_.above());
+	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+		BlockState blockstate = level.getBlockState(pos.above());
 	    return blockstate.isAir() || blockstate.getBlock() instanceof FenceGateBlock;
 	}
 	
 	@Override
-	public void tick(BlockState p_221070_, ServerLevel p_221071_, BlockPos p_221072_, RandomSource p_221073_) {
-		if(!canSurvive(p_221070_, p_221071_, p_221072_)) {
-			OriginFarmlandBlock.turnToOriginDirt(p_221070_, p_221071_, p_221072_);
+	public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+		if(!canSurvive(state, level, pos)) {
+			OriginFarmlandBlock.turnToOriginDirt(state, level, pos);
 		}
 	}
 }

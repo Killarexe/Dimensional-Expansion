@@ -12,7 +12,10 @@ import net.minecraft.world.level.block.state.BlockState;
 public class PurpleheartStandingSignBlock extends StandingSignBlock {
 
     public PurpleheartStandingSignBlock() {
-        super(BlockBehaviour.Properties.of().strength(1, 10).requiresCorrectToolForDrops().destroyTime(1).sound(SoundType.WOOD), DEWoodTypes.PURPLEHEART);
+        super(
+                DEWoodTypes.PURPLEHEART,
+                Properties.of().strength(1, 10).requiresCorrectToolForDrops().destroyTime(1).sound(SoundType.WOOD)
+        );
     }
 
     @Override

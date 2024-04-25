@@ -27,7 +27,7 @@ import net.minecraft.world.level.lighting.LightEngine;
 public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlock{
 
 	public OriginGrassBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK));
 	}
 	
 	private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {

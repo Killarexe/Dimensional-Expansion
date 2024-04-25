@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class DisplayBlock extends Block implements EntityBlock {
 
     public DisplayBlock() {
-        super(Properties.copy(Blocks.STONE));
+        super(Properties.ofFullCopy(Blocks.STONE));
     }
 
     @Override

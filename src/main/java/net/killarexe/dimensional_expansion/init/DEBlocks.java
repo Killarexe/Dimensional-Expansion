@@ -2,18 +2,17 @@ package net.killarexe.dimensional_expansion.init;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.*;
-import net.killarexe.dimensional_expansion.common.world.feature.tree.PurpleheartTreeGrower;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -84,14 +83,13 @@ public class DEBlocks {
 			MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FenceGateBlock> PURPLEHEART_FENCE_GATE = createFenceGateBlock(
-			"purpleheart_fence_gate", MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
+			"purpleheart_fence_gate", MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, WoodType.OAK, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<ButtonBlock> PURPLEHEART_BUTTON = createButtonBlock("purpleheart_button",
-			MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, false, DECreativeTabs.Tabs.BLOCKS);
+			MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<PressurePlateBlock> PURPLEHEART_PRESSURE_PLATE = createPressurePlateBlock(
-			"purpleheart_pressure_plate", MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD,
-			PressurePlateBlock.Sensitivity.EVERYTHING, DECreativeTabs.Tabs.BLOCKS);
+			"purpleheart_pressure_plate", MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<DoorBlock> PURPLEHEART_DOOR = createDoorBlock("purpleheart_door",
 			MapColor.COLOR_BLACK, 5, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
@@ -122,7 +120,7 @@ public class DEBlocks {
             PURPLE_ROSE::get);
 
 	public static final RegistryObject<SaplingBlock> PURPLEHEART_SAPLING = createSaplingBlock("purpleheart_sapling",
-			new PurpleheartTreeGrower(), MapColor.COLOR_BLACK, 0, 50, 1, SoundType.GRASS, DECreativeTabs.Tabs.BLOCKS);
+			null, MapColor.COLOR_BLACK, 0, 50, 1, SoundType.GRASS, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_PURPLEHEART_SAPLING = createFlowerPotBlock(
 			"potted_purpleheart_sapling", PURPLEHEART_SAPLING::get);
@@ -131,11 +129,10 @@ public class DEBlocks {
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<ButtonBlock> SULFUR_STONE_BUTTON = createButtonBlock("sulfur_stone_button",
-			MapColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, false, DECreativeTabs.Tabs.BLOCKS);
+			MapColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<PressurePlateBlock> SULFUR_STONE_PRESSURE_PLATE = createPressurePlateBlock(
-			"sulfur_stone_pressure_plate", MapColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE,
-			PressurePlateBlock.Sensitivity.MOBS, DECreativeTabs.Tabs.BLOCKS);
+			"sulfur_stone_pressure_plate", MapColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<SlabBlock> SULFUR_STONE_SLAB = createSlabBlock("sulfur_stone_slab",
 			MapColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
@@ -193,7 +190,7 @@ public class DEBlocks {
 
 	public static final RegistryObject<DeadBushBlock> PURPLE_BERRY_DEAD_BUSH = createCustomBlock(
 			"purple_berry_dead_bush",
-			() -> new DeadBushBlock(BlockBehaviour.Properties.copy(DEBlocks.PURPLE_BERRY_BUSH.get())),
+			() -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(DEBlocks.PURPLE_BERRY_BUSH.get())),
 			DECreativeTabs.Tabs.BLOCKS);
 
 	/*
@@ -223,9 +220,9 @@ public class DEBlocks {
 			DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<DropExperienceBlock> block = BLOCK.register(id,
 				() -> new DropExperienceBlock(
-						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound),
-						xpDrop));
+                        xpDrop,
+                        BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+                                                .requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
@@ -258,13 +255,15 @@ public class DEBlocks {
 		return block;
 	}
 
-	private static RegistryObject<FenceGateBlock> createFenceGateBlock(@Nonnull String id, MapColor color,
-			float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
+	private static RegistryObject<FenceGateBlock> createFenceGateBlock(
+			@Nonnull String id, MapColor color, float hardness, float resistance, float harvestLevel, SoundType sound, WoodType type, DECreativeTabs.Tabs itemGroup
+	) {
 		RegistryObject<FenceGateBlock> block = BLOCK.register(id,
 				() -> new FenceGateBlock(
+						type,
 						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound),
-						SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN));
+								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)
+						));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
@@ -281,7 +280,7 @@ public class DEBlocks {
 	private static RegistryObject<FallingBlock> createFallingBlock(@Nonnull String id, MapColor color, float hardness,
 			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<FallingBlock> block = BLOCK.register(id,
-				() -> new FallingBlock(BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+				() -> new BlueSandBlock(BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
 						.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
@@ -290,31 +289,30 @@ public class DEBlocks {
 	private static RegistryObject<StairBlock> createStairBlock(@Nonnull String id, RegistryObject<Block> baseBlock,
 			DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<StairBlock> block = BLOCK.register(id,
-				() -> new StairBlock(() -> baseBlock.get().defaultBlockState(),
-						BlockBehaviour.Properties.copy(baseBlock.get())));
+				() -> new StairBlock(baseBlock.get().defaultBlockState(),
+						BlockBehaviour.Properties.ofFullCopy(baseBlock.get())));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
 
 	private static RegistryObject<ButtonBlock> createButtonBlock(@Nonnull String id, MapColor color, float hardness,
-			float resistance, float harvestLevel, SoundType sound, boolean isSensitive, DECreativeTabs.Tabs itemGroup) {
+			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<ButtonBlock> block = BLOCK.register(id,
 				() -> new ButtonBlock(
-						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound),
-						BlockSetType.OAK, 20, isSensitive));
+                        BlockSetType.OAK,
+                        20, BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+                                                .requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
 
 	private static RegistryObject<PressurePlateBlock> createPressurePlateBlock(@Nonnull String id, MapColor color,
-			float hardness, float resistance, float harvestLevel, SoundType sound,
-			PressurePlateBlock.Sensitivity sensitivity, DECreativeTabs.Tabs itemGroup) {
+			float hardness, float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<PressurePlateBlock> block = BLOCK.register(id,
-				() -> new PressurePlateBlock(sensitivity,
-						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound),
-						BlockSetType.OAK));
+				() -> new PressurePlateBlock(
+                        BlockSetType.OAK,
+                        BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+                                                .requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
@@ -323,9 +321,9 @@ public class DEBlocks {
 			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<DoorBlock> block = BLOCK.register(id,
 				() -> new DoorBlock(
-						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion(),
-						BlockSetType.OAK));
+                        BlockSetType.OAK,
+                        BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+                                                .requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion()));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
@@ -334,14 +332,14 @@ public class DEBlocks {
 			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<TrapDoorBlock> block = BLOCK.register(id,
 				() -> new TrapDoorBlock(
-						BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
-								.requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion(),
-						BlockSetType.OAK));
+                        BlockSetType.OAK,
+                        BlockBehaviour.Properties.of().mapColor(color).strength(hardness, resistance)
+                                                .requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound).noOcclusion()));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;
 	}
 
-	private static RegistryObject<SaplingBlock> createSaplingBlock(@Nonnull String id, AbstractTreeGrower grower,
+	private static RegistryObject<SaplingBlock> createSaplingBlock(@Nonnull String id, TreeGrower grower,
 			MapColor color, float hardness, float resistance, float harvestLevel, SoundType sound,
 			DECreativeTabs.Tabs itemGroup) {
 		RegistryObject<SaplingBlock> block = BLOCK.register(id,
@@ -365,10 +363,9 @@ public class DEBlocks {
 	}
 
 	private static RegistryObject<FlowerPotBlock> createFlowerPotBlock(String id, Supplier<Block> flowerBlock) {
-		RegistryObject<FlowerPotBlock> block = BLOCK.register(id,
+        return BLOCK.register(id,
 				() -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flowerBlock,
-						BlockBehaviour.Properties.copy(Blocks.POTTED_ACACIA_SAPLING)));
-		return block;
+						BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ACACIA_SAPLING)));
 	}
 
 	private static RegistryObject<TallGrassBlock> createGrassBlock(String id, MapColor color, SoundType sound, DECreativeTabs.Tabs itemGroup) {
