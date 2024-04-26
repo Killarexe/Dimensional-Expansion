@@ -4,16 +4,14 @@ license="${mod_license}"
 issueTrackerURL="https://github.com/Killarexe/Dimensional-Expansion/issues"
 
 [[mods]]
-
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-authors="${mod_authors}"
-description='''${mod_description}'''
-credits=''''''
-logoFile="assets/dimensional_expansion/logo.png"
 updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion/main/update.json"
 displayURL="https://github.com/Killarexe/Dimensional-Expansion"
+logoFile="logo.png"
+authors="${mod_authors}"
+description='''${mod_description}'''
 
 [[dependencies.${mod_id}]]
     modId="forge"

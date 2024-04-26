@@ -30,8 +30,8 @@ public class DisplayBlockRenderer<T extends BlockEntity> implements BlockEntityR
         float delta = Minecraft.getInstance().getDeltaFrameTime();
         RenderUtils.renderItem(
         		pBlockEntity.getItemInSlot(0),
-        		new Vector3d(0.5, 1.5 + Mth.sin(pPartialTick * delta / 10.0f), 0.5),
-        		Axis.XP.rotation(0),
+        		new Vector3d(0.5, 1.5 + Mth.sin(pPartialTick / 10.0f) * delta, 0.5),
+        		Axis.YP.rotation(0),
         		pPoseStack, pBufferSource,
         		pBlockEntity.getLevel(),
         		pBlockEntity.getBlockPos().above(),
