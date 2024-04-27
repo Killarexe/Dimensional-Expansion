@@ -152,6 +152,18 @@ public class DEBlocks {
 	public static final RegistryObject<WallBlock> SULFUR_COBBLESTONE_WALL = createWallBlock("sulfur_cobblestone_wall",
 			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
+	public static final RegistryObject<Block> SULFUR_STONE_BRICKS = createBlock("sulfur_stone_bricks", MapColor.COLOR_YELLOW, 4, 10,
+			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<SlabBlock> SULFUR_STONE_BRICKS_SLAB = createSlabBlock("sulfur_stone_bricks_slab",
+			MapColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<StairBlock> SULFUR_STONE_BRICKS_STAIRS = createStairBlock(
+			"sulfur_stone_bricks_stairs", SULFUR_COBBLESTONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<WallBlock> SULFUR_STONE_BRICKS_WALL = createWallBlock("sulfur_stone_bricks_wall",
+			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
 	public static final RegistryObject<FallingBlock> BLUE_SAND = createFallingBlock("blue_sand", MapColor.COLOR_BLACK,
 			1, 10, 1, SoundType.SAND, DECreativeTabs.Tabs.BLOCKS);
 

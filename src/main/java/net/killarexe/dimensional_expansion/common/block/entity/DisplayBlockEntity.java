@@ -14,12 +14,10 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
 
     private static final int LIMIT = 1;
     private boolean showName;
-    private float yOffset;
 
     public DisplayBlockEntity(BlockPos pos, BlockState state) {
         super(DEBlockEntityTypes.DISPLAY_BLOCK.get(), pos, state, LIMIT);
         this.showName = true;
-        this.yOffset = 0.0f;
     }
 
     public boolean appendItem(ItemStack stack) {
@@ -167,10 +165,6 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     
     @Override
     public void tick() {
-    	yOffset += 0.1f;
-    	if(yOffset >= 180.0f) {
-    		yOffset = 0.0f;
-    	}
     	update();
     	super.tick();
     }
@@ -178,9 +172,4 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     public boolean isShowName() {
 		return showName;
 	}
-    
-    public float getYOffset() {
-    	//DEMod.LOGGER.info("YOffset: " + yOffset);
-    	return (float) Math.sin(yOffset) * 2.0f;
-    }
 }

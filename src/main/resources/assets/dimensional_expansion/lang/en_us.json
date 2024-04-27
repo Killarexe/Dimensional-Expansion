@@ -159,6 +159,7 @@
   "record.dimensional_expansion.sweden_remix.subtitle": "Sweden Remix by Killar.exe",
   "tooltip.dimensional_expansion.mobox.current_entity": "Current entity: %s",
   "tooltip.dimensional_expansion.shift": "Hold §eSHIFT §ffor more info.",
+  "tooltip.dimensional_expansion.is_lost": "The Coord Linker is lost...",
   "upgrade.dimensional_expansion.emertyst_upgrade": "Emertyst Upgrade",
   "upgrade.dimensional_expansion.bassmite_upgrade": "Bassmite Upgrade"
 }

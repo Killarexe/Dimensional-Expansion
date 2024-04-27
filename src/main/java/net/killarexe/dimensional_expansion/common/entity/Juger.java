@@ -44,7 +44,7 @@ public class Juger extends Monster{
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.25F, true));
 		this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));

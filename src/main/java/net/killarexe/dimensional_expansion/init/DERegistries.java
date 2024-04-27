@@ -15,7 +15,7 @@ public class DERegistries {
         LOGGER.info("Init Dimensional Expansion Creative Tabs");
         DECreativeTabs.CREATIVE_MOD_TABS.register(bus);
         LOGGER.debug("Init Dimensional Expansion Villager Types");
-        DEVillagerTypes.setTypeByBiome(); //FIXME: Doesn't work do to regisrty object not present.
+        DEVillagerTypes.setTypeByBiome();
         DEVillagerTypes.VILLAGER_TYPE.register(bus);
         LOGGER.debug("Init Dimensional Expansion Blocks");
         DEBlocks.BLOCK.register(bus);

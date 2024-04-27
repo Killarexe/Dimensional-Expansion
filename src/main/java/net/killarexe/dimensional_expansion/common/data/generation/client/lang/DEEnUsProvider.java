@@ -152,6 +152,7 @@ public class DEEnUsProvider extends LanguageProvider {
         /*Tooltips*/
         add("tooltip." + DEMod.MOD_ID + ".shift", "Hold §eSHIFT §ffor more info.");
         add("tooltip." + DEMod.MOD_ID + ".mobox.current_entity", "Current entity: %s");
+        add("tooltip." + DEMod.MOD_ID + ".is_lost", "The Coord Linker is lost...");
 
         add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.applies_to", "Netherite Armors & Gears");
         add("item." + DEMod.MOD_ID + ".smithing_template.bassmite_upgrade.ingredients", "Bassmite Gem");

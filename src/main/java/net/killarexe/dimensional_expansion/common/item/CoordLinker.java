@@ -41,7 +41,7 @@ public class CoordLinker extends Item {
             player.displayClientMessage(
                     Component.translatable("tooltip." + DEMod.MOD_ID + ".is_lost")
                             .withStyle(ChatFormatting.BOLD)
-                            .withStyle(ChatFormatting.RED), true
+                            .withStyle(ChatFormatting.DARK_RED), true
             );
         } else {
            player.displayClientMessage(
