@@ -94,6 +94,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ORIGIN_DIRT_PATH);
         simpleBlockItem(DEBlocks.ORIGIN_DIRT);
         simpleBlockItem(DEBlocks.ORIGIN_FARMLAND);
+
         simpleBlockItem(DEBlocks.PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.STRIPPED_PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.PURPLEHEART_PLANKS);
@@ -107,8 +108,10 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.PURPLEHEART_LEAVES);
         simpleBlockItem(DEBlocks.PURPLEHEART_STAIRS);
         simpleBlockItem(DEBlocks.PURPLEHEART_BOOKSHELF);
+
         oneLayerItem(DEBlocks.PURPLE_ROSE);
         oneLayerItem(DEBlocks.PURPLEHEART_SAPLING);
+
         simpleBlockItem(DEBlocks.SULFUR_STONE);
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE);
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE_SLAB);
@@ -117,7 +120,10 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
         inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);
-        //inventoryItem(DEBlocks.SULFUR_COBBLESTONE_WALL);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_SLAB);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_STAIRS);
+
         simpleBlockItem(DEBlocks.BLUE_SAND);
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
         simpleBlockItem(DEBlocks.ORIGIN_FRAME);

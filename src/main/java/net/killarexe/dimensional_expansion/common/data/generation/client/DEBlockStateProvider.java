@@ -30,8 +30,8 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		simpleBlock(EMERTYST_BLOCK.get());
 		simpleBlock(ORIGIN_DIRT.get());
 		simpleBlock(SULFUR_STONE.get());
-		simpleBlock(SULFUR_COBBLESTONE.get());
 		simpleBlock(PURPLEHEART_PLANKS.get());
+		simpleBlock(SULFUR_STONE_BRICKS.get());
 		simpleBlock(PURPLEHEART_LEAVES.get());
 		simpleBlock(BLUE_SAND.get());
 
@@ -40,8 +40,8 @@ public class DEBlockStateProvider extends BlockStateProvider {
 
 		slabBlock(PURPLEHEART_SLAB.get(), PURPLEHEART_SLAB.getId(), blockTexture(PURPLEHEART_PLANKS.get()));
 		slabBlock(SULFUR_STONE_SLAB.get(), SULFUR_STONE_SLAB.getId(), blockTexture(SULFUR_STONE.get()));
-		slabBlock(SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE_SLAB.getId(),
-				blockTexture(SULFUR_COBBLESTONE.get()));
+		slabBlock(SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE_SLAB.getId(), blockTexture(SULFUR_COBBLESTONE.get()));
+		slabBlock(SULFUR_STONE_BRICKS_SLAB.get(), SULFUR_STONE_BRICKS_SLAB.getId(), blockTexture(SULFUR_STONE_BRICKS.get()));
 
 		fenceBlock(PURPLEHEART_FENCE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
 
@@ -62,7 +62,10 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		stairsBlock(PURPLEHEART_STAIRS.get(), blockTexture(PURPLEHEART_PLANKS.get()));
 		stairsBlock(SULFUR_STONE_STAIRS.get(), blockTexture(SULFUR_STONE.get()));
 		stairsBlock(SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
+		stairsBlock(SULFUR_STONE_BRICKS_STAIRS.get(), blockTexture(SULFUR_STONE_BRICKS.get()));
+
 		wallBlock(SULFUR_COBBLESTONE_WALL.get(), blockTexture(SULFUR_COBBLESTONE.get()));
+		wallBlock(SULFUR_STONE_BRICKS_WALL.get(), blockTexture(SULFUR_STONE_BRICKS.get()));
 
 		simpleBlock(SAVORLEAF_BLOCK.get());
 		simpleBlock(ORIGIN_FRAME.get());

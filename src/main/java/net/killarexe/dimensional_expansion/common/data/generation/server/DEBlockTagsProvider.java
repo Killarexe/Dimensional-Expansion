@@ -18,9 +18,7 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
 
     @SuppressWarnings("deprecation")
 	public DEBlockTagsProvider(PackOutput pOutput, CompletableFuture<Provider> pLookupProvider, ExistingFileHelper helper) {
-		super(pOutput, Registries.BLOCK, pLookupProvider, (p_255790_) -> {
-	         return p_255790_.builtInRegistryHolder().key();
-	      }, DEMod.MOD_ID, helper);
+		super(pOutput, Registries.BLOCK, pLookupProvider, (block) -> block.builtInRegistryHolder().key(), DEMod.MOD_ID, helper);
 	}
 
 	@Override
@@ -62,6 +60,10 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         		DEBlocks.SULFUR_STONE_PRESSURE_PLATE.get(),
         		DEBlocks.SULFUR_STONE_SLAB.get(),
         		DEBlocks.SULFUR_STONE_STAIRS.get(),
+				DEBlocks.SULFUR_STONE_BRICKS.get(),
+				DEBlocks.SULFUR_STONE_BRICKS_SLAB.get(),
+				DEBlocks.SULFUR_STONE_BRICKS_STAIRS.get(),
+				DEBlocks.SULFUR_STONE_BRICKS_WALL.get(),
         		DEBlocks.BLUE_SANDSTONE.get(),
         		DEBlocks.ORIGIN_FRAME.get(),
         		DEBlocks.DISPLAY_BLOCK.get()
