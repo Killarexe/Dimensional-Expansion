@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:emertyst_pickaxe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

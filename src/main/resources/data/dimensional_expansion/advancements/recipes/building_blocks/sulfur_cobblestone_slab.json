@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:sulfur_cobblestone_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

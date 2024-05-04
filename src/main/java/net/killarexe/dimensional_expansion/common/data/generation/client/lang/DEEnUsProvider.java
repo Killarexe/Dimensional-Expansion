@@ -66,6 +66,11 @@ public class DEEnUsProvider extends LanguageProvider {
         add(DEBlocks.SULFUR_STONE_BRICKS_STAIRS.get(), "Sulfur Stone Bricks Stairs");
         add(DEBlocks.SULFUR_STONE_BRICKS_WALL.get(), "Sulfur Stone Bricks Wall");
 
+        add(DEBlocks.VIOLET_STONE.get(), "Violet Stone");
+        add(DEBlocks.VIOLET_STONE_SLAB.get(), "Violet Stone Slab");
+        add(DEBlocks.VIOLET_STONE_STAIRS.get(), "Violet Stone Stairs");
+        add(DEBlocks.VIOLET_STONE_WALL.get(), "Violet Stone Wall");
+
         add(DEBlocks.BLUE_SAND.get(), "Blue Sand");
         add(DEBlocks.BLUE_SANDSTONE.get(), "Blue Sandstone");
         

@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:simix_ingot_smelt"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

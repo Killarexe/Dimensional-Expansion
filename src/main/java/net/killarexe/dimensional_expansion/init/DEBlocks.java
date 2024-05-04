@@ -104,7 +104,7 @@ public class DEBlocks {
 			PURPLEHEART_PLANKS, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<Block> PURPLEHEART_BOOKSHELF = createCustomBlock("purpleheart_bookshelf",
-            PurpleheartBookself::new, DECreativeTabs.Tabs.BLOCKS);
+            PurpleheartBookself::new, DECreativeTabs.Tabs.BLOCKS)	;
 
 	public static final RegistryObject<Block> PURPLEHEART_SIGN = createCustomBlock("purpleheart_sign",
             PurpleheartStandingSignBlock::new);
@@ -156,13 +156,25 @@ public class DEBlocks {
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<SlabBlock> SULFUR_STONE_BRICKS_SLAB = createSlabBlock("sulfur_stone_bricks_slab",
-			MapColor.COLOR_BLACK, 1, 10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+			MapColor.COLOR_YELLOW, 1, 10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<StairBlock> SULFUR_STONE_BRICKS_STAIRS = createStairBlock(
-			"sulfur_stone_bricks_stairs", SULFUR_COBBLESTONE, DECreativeTabs.Tabs.BLOCKS);
+			"sulfur_stone_bricks_stairs", SULFUR_STONE_BRICKS, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<WallBlock> SULFUR_STONE_BRICKS_WALL = createWallBlock("sulfur_stone_bricks_wall",
 			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<Block> VIOLET_STONE = createBlock("violet_stone", MapColor.COLOR_MAGENTA, 4, 10,
+			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<SlabBlock> VIOLET_STONE_SLAB = createSlabBlock("violet_stone_slab",
+			MapColor.COLOR_MAGENTA, 1, 10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<StairBlock> VIOLET_STONE_STAIRS = createStairBlock(
+			"violet_stone_stairs", VIOLET_STONE, DECreativeTabs.Tabs.BLOCKS);
+
+	public static final RegistryObject<WallBlock> VIOLET_STONE_WALL = createWallBlock("violet_stone_wall",
+			MapColor.COLOR_MAGENTA, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final RegistryObject<FallingBlock> BLUE_SAND = createFallingBlock("blue_sand", MapColor.COLOR_BLACK,
 			1, 10, 1, SoundType.SAND, DECreativeTabs.Tabs.BLOCKS);

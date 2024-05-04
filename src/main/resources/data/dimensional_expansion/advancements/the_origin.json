@@ -19,16 +19,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.dimensional_expansion.the_origin.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "dimensional_expansion:origin_grass_block"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.dimensional_expansion.the_origin.title"
     }

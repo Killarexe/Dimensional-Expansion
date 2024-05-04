@@ -19,16 +19,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.dimensional_expansion.village_origin_plains.desc"
     },
     "frame": "goal",
-    "hidden": false,
     "icon": {
       "item": "dimensional_expansion:purpleheart_sapling"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.dimensional_expansion.village_origin_plains.title"
     }

@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:purpleheart_planks_stripped_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

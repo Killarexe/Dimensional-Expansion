@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:origin_portal_key"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

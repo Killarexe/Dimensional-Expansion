@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:purpleheart_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

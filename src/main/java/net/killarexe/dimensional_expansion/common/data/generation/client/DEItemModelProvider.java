@@ -116,13 +116,19 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE);
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE_STAIRS);
+        inventoryItem(DEBlocks.SULFUR_COBBLESTONE_WALL);
         simpleBlockItem(DEBlocks.SULFUR_STONE_PRESSURE_PLATE);
         simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
-        inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);
+        simpleBlockItem(DEBlocks.SULFUR_STONE_BUTTON);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_STAIRS);
+        inventoryItem(DEBlocks.SULFUR_STONE_BRICKS_WALL);
+        simpleBlockItem(DEBlocks.VIOLET_STONE);
+        simpleBlockItem(DEBlocks.VIOLET_STONE_SLAB);
+        simpleBlockItem(DEBlocks.VIOLET_STONE_STAIRS);
+        inventoryItem(DEBlocks.VIOLET_STONE_WALL);
 
         simpleBlockItem(DEBlocks.BLUE_SAND);
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);

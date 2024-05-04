@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:bassmite_hoe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

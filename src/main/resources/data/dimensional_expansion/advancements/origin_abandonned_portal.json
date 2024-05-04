@@ -19,17 +19,14 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.dimensional_expansion.origin_abandonned_portal.desc"
     },
     "frame": "goal",
-    "hidden": false,
     "icon": {
       "item": "dimensional_expansion:origin_portal_key",
       "nbt": "{Damage:0}"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.dimensional_expansion.origin_abandonned_portal.title"
     }

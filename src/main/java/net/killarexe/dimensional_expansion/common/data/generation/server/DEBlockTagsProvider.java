@@ -64,6 +64,10 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
 				DEBlocks.SULFUR_STONE_BRICKS_SLAB.get(),
 				DEBlocks.SULFUR_STONE_BRICKS_STAIRS.get(),
 				DEBlocks.SULFUR_STONE_BRICKS_WALL.get(),
+				DEBlocks.VIOLET_STONE.get(),
+				DEBlocks.VIOLET_STONE_SLAB.get(),
+				DEBlocks.VIOLET_STONE_STAIRS.get(),
+				DEBlocks.VIOLET_STONE_WALL.get(),
         		DEBlocks.BLUE_SANDSTONE.get(),
         		DEBlocks.ORIGIN_FRAME.get(),
         		DEBlocks.DISPLAY_BLOCK.get()
@@ -121,7 +125,9 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         tag(BlockTags.STAIRS).add(
         	DEBlocks.PURPLEHEART_STAIRS.get(),
         	DEBlocks.SULFUR_COBBLESTONE_STAIRS.get(),
-        	DEBlocks.SULFUR_STONE_STAIRS.get()
+        	DEBlocks.SULFUR_STONE_STAIRS.get(),
+			DEBlocks.SULFUR_STONE_BRICKS_STAIRS.get(),
+			DEBlocks.VIOLET_STONE_STAIRS.get()
         );
         
         tag(BlockTags.WOODEN_STAIRS).add(DEBlocks.PURPLEHEART_STAIRS.get());
@@ -129,12 +135,18 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         tag(BlockTags.SLABS).add(
         	DEBlocks.PURPLEHEART_SLAB.get(),
         	DEBlocks.SULFUR_STONE_SLAB.get(),
-        	DEBlocks.SULFUR_COBBLESTONE_SLAB.get()
+        	DEBlocks.SULFUR_COBBLESTONE_SLAB.get(),
+			DEBlocks.SULFUR_STONE_BRICKS_SLAB.get(),
+			DEBlocks.VIOLET_STONE_SLAB.get()
         );
         
         tag(BlockTags.WOODEN_SLABS).add(DEBlocks.PURPLEHEART_SLAB.get());
         
-        tag(BlockTags.WALLS).add(DEBlocks.SULFUR_COBBLESTONE_WALL.get());
+        tag(BlockTags.WALLS).add(
+			DEBlocks.SULFUR_COBBLESTONE_WALL.get(),
+			DEBlocks.SULFUR_STONE_BRICKS_WALL.get(),
+			DEBlocks.VIOLET_STONE_WALL.get()
+		);
         
         tag(BlockTags.DOORS).add(DEBlocks.PURPLEHEART_DOOR.get());
         tag(BlockTags.WOODEN_DOORS).add(DEBlocks.PURPLEHEART_DOOR.get());

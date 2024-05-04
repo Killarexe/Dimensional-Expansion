@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "dimensional_expansion:block/sulfur_stone_bricks"
+  }
+}

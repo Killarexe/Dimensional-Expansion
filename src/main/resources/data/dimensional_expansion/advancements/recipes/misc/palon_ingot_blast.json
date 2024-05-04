@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:palon_ingot_blast"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

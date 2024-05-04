@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.dimensional_expansion.simix.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "dimensional_expansion:simix_ingot"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.dimensional_expansion.simix.title"
     }

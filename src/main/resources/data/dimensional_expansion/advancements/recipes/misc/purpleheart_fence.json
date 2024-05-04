@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:purpleheart_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

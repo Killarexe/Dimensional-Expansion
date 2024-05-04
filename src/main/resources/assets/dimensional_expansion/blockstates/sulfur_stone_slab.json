@@ -4,7 +4,7 @@
       "model": "dimensional_expansion:block/sulfur_stone_slab"
     },
     "type=double": {
-      "model": "dimensional_expansion:block/sulfur_stone_slab"
+      "model": "dimensional_expansion:block/sulfur_stone"
     },
     "type=top": {
       "model": "dimensional_expansion:block/sulfur_stone_slab_top"

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "dimensional_expansion:block/sulfur_stone_bricks",
+    "side": "dimensional_expansion:block/sulfur_stone_bricks",
+    "top": "dimensional_expansion:block/sulfur_stone_bricks"
+  }
+}

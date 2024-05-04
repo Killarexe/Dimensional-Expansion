@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:palon_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -85,6 +85,11 @@
       "when": {
         "west": "tall"
       }
+    },
+    {
+      "apply": {
+        "model": "dimensional_expansion:block/sulfur_cobblestone_wall_inventory"
+      }
     }
   ]
 }

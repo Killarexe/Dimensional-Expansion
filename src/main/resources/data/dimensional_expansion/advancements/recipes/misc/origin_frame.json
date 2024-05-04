@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:origin_frame"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

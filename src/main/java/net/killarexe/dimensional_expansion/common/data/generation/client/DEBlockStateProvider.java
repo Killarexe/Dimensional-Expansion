@@ -32,16 +32,18 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		simpleBlock(SULFUR_STONE.get());
 		simpleBlock(PURPLEHEART_PLANKS.get());
 		simpleBlock(SULFUR_STONE_BRICKS.get());
+		simpleBlock(VIOLET_STONE.get());
 		simpleBlock(PURPLEHEART_LEAVES.get());
 		simpleBlock(BLUE_SAND.get());
 
 		logBlock(PURPLEHEART_LOG.get());
 		logBlock(STRIPPED_PURPLEHEART_LOG.get());
 
-		slabBlock(PURPLEHEART_SLAB.get(), PURPLEHEART_SLAB.getId(), blockTexture(PURPLEHEART_PLANKS.get()));
-		slabBlock(SULFUR_STONE_SLAB.get(), SULFUR_STONE_SLAB.getId(), blockTexture(SULFUR_STONE.get()));
-		slabBlock(SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE_SLAB.getId(), blockTexture(SULFUR_COBBLESTONE.get()));
-		slabBlock(SULFUR_STONE_BRICKS_SLAB.get(), SULFUR_STONE_BRICKS_SLAB.getId(), blockTexture(SULFUR_STONE_BRICKS.get()));
+		slabBlock(PURPLEHEART_SLAB.get(), PURPLEHEART_PLANKS.getId(), blockTexture(PURPLEHEART_PLANKS.get()));
+		slabBlock(SULFUR_STONE_SLAB.get(), SULFUR_STONE.getId(), blockTexture(SULFUR_STONE.get()));
+		slabBlock(SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE.getId(), blockTexture(SULFUR_COBBLESTONE.get()));
+		slabBlock(SULFUR_STONE_BRICKS_SLAB.get(), SULFUR_STONE_BRICKS.getId(), blockTexture(SULFUR_STONE_BRICKS.get()));
+		slabBlock(VIOLET_STONE_SLAB.get(), VIOLET_STONE.getId(), blockTexture(VIOLET_STONE.get()));
 
 		fenceBlock(PURPLEHEART_FENCE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
 
@@ -63,15 +65,17 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		stairsBlock(SULFUR_STONE_STAIRS.get(), blockTexture(SULFUR_STONE.get()));
 		stairsBlock(SULFUR_COBBLESTONE_STAIRS.get(), blockTexture(SULFUR_COBBLESTONE.get()));
 		stairsBlock(SULFUR_STONE_BRICKS_STAIRS.get(), blockTexture(SULFUR_STONE_BRICKS.get()));
+		stairsBlock(VIOLET_STONE_STAIRS.get(), blockTexture(VIOLET_STONE.get()));
 
-		wallBlock(SULFUR_COBBLESTONE_WALL.get(), blockTexture(SULFUR_COBBLESTONE.get()));
-		wallBlock(SULFUR_STONE_BRICKS_WALL.get(), blockTexture(SULFUR_STONE_BRICKS.get()));
+		wallInventoryBlock(SULFUR_COBBLESTONE_WALL, blockTexture(SULFUR_COBBLESTONE.get()));
+		wallInventoryBlock(SULFUR_STONE_BRICKS_WALL, blockTexture(SULFUR_STONE_BRICKS.get()));
+		wallInventoryBlock(VIOLET_STONE_WALL, blockTexture(VIOLET_STONE.get()));
 
 		simpleBlock(SAVORLEAF_BLOCK.get());
 		simpleBlock(ORIGIN_FRAME.get());
 
 		crossBlock(PURPLE_BERRY_DEAD_BUSH, blockTexture(PURPLE_BERRY_DEAD_BUSH.get()));
-		
+
 		doublePlantBlock(ORIGIN_TALL_GRASS, new ResourceLocation(blockTexture(ORIGIN_TALL_GRASS.get()) + "_top"),
 				new ResourceLocation(blockTexture(ORIGIN_TALL_GRASS.get()) + "_bottom"));
 
@@ -96,12 +100,19 @@ public class DEBlockStateProvider extends BlockStateProvider {
 				.setModels(new ConfiguredModel(models().cubeBottomTop(PURPLEHEART_BOOKSHELF.getId().getPath(),
 						blockTexture(PURPLEHEART_BOOKSHELF.get()), blockTexture(PURPLEHEART_PLANKS.get()),
 						blockTexture(PURPLEHEART_PLANKS.get()))));
-		
+
 		getVariantBuilder(DISPLAY_BLOCK.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.getId().getPath(),
 						new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
 						blockTexture(Blocks.END_STONE),
 						new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_top"))));
+	}
+
+	private void wallInventoryBlock(RegistryObject<? extends WallBlock> block, ResourceLocation texture) {
+		WallBlock wallBlock = block.get();
+		wallBlock(wallBlock, texture);
+		getMultipartBuilder(wallBlock).part()
+				.modelFile(models().wallInventory(block.getId().getPath() + "_inventory", texture)).addModel();
 	}
 
 	private void crossBlock(RegistryObject<? extends Block> block, ResourceLocation texture) {

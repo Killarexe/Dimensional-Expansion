@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.dimensional_expansion.bassmite.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "dimensional_expansion:bassmite_gem"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.dimensional_expansion.bassmite.title"
     }

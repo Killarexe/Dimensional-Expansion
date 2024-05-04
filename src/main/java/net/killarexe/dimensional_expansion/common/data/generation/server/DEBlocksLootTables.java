@@ -85,7 +85,13 @@ public class DEBlocksLootTables extends VanillaBlockLoot {
 		add(SULFUR_STONE_SLAB.get(), this::createSlabItemTable);
 		dropSelf(SULFUR_COBBLESTONE_WALL.get());
 		dropSelf(SULFUR_STONE_BRICKS.get());
-		add(SULFUR_STONE_SLAB.get(), this::createSlabItemTable);
+		dropSelf(SULFUR_STONE_BRICKS_STAIRS.get());
+		dropSelf(SULFUR_STONE_BRICKS_WALL.get());
+		add(SULFUR_STONE_BRICKS_SLAB.get(), this::createSlabItemTable);
+		dropSelf(VIOLET_STONE.get());
+		dropSelf(VIOLET_STONE_STAIRS.get());
+		dropSelf(VIOLET_STONE_WALL.get());
+		add(VIOLET_STONE_SLAB.get(), this::createSlabItemTable);
 
 		dropSelf(BLUE_SAND.get());
 		dropSelf(BLUE_SANDSTONE.get());

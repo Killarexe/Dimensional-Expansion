@@ -30,6 +30,5 @@
     "recipes": [
       "dimensional_expansion:enchant_transfer_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

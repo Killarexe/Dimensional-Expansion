@@ -4,7 +4,7 @@
       "model": "dimensional_expansion:block/sulfur_cobblestone_slab"
     },
     "type=double": {
-      "model": "dimensional_expansion:block/sulfur_cobblestone_slab"
+      "model": "dimensional_expansion:block/sulfur_cobblestone"
     },
     "type=top": {
       "model": "dimensional_expansion:block/sulfur_cobblestone_slab_top"

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dimensional_expansion:block/sulfur_stone_bricks_slab"
+    },
+    "type=double": {
+      "model": "dimensional_expansion:block/sulfur_stone_bricks"
+    },
+    "type=top": {
+      "model": "dimensional_expansion:block/sulfur_stone_bricks_slab_top"
+    }
+  }
+}
