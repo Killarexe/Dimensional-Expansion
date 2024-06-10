@@ -1,9 +1,8 @@
 package net.killarexe.dimensional_expansion.init;
 
+import net.neoforged.bus.api.IEventBus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import net.minecraftforge.eventbus.api.IEventBus;
 
 public class DERegistries {
 

@@ -1,25 +1,21 @@
 package net.killarexe.dimensional_expansion.common.event;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.client.DEModClient;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.killarexe.dimensional_expansion.common.block.maps.CompostableMap;
 import net.killarexe.dimensional_expansion.common.block.maps.FlowerPotMap;
 import net.killarexe.dimensional_expansion.common.block.maps.StrippingMap;
 import net.killarexe.dimensional_expansion.init.*;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class DEEvents {
 	
-	public static void addListeners(IEventBus forgeBus, IEventBus modBus) {
+	public static void addListeners(IEventBus bus) {
         DEMod.LOGGER.info("Set Dimensional Expansion Event Listeners");
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(modBus, forgeBus));
-        modBus.addListener(DEEvents::commonSetup);
-        modBus.addListener(DEEntityTypes::registerAttributes);
-        modBus.addListener(DECreativeTabs::addItemsToCreativeTabs);
+        bus.addListener(DEEvents::commonSetup);
+        bus.addListener(DEEntityTypes::registerAttributes);
+        bus.addListener(DECreativeTabs::addItemsToCreativeTabs);
 	}
 	
 	private static void commonSetup(final FMLCommonSetupEvent event) {

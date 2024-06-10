@@ -8,7 +8,7 @@
 
 ## What is Dimensional Expansion?
 
-Dimensional Expansion is a Minecraft mod avaliable on Forge(maybe Fabric later) who adds new tools and weapons for your gears, blocks and for builders, items with special poperities and the main feature that is currenly in progress is a new dimension with dungeons, villages and other structures.
+Dimensional Expansion is a Minecraft mod avaliable on NeoForge who adds new tools and weapons for your gears, blocks and for builders, items with special poperities and the main feature that is currenly in progress is a new dimension with dungeons, villages and other structures.
 
 The mod got currently an OST made my me(of course) that also working in progress but you can see some preview [here](https://soundcloud.com/killarexe).
 

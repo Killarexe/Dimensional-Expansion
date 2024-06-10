@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.client;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.models.BlueSandManModel;
 import net.killarexe.dimensional_expansion.client.models.HeadedSkeletonModel;
 import net.killarexe.dimensional_expansion.client.models.JugerModel;
@@ -11,20 +12,21 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.ClientHooks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@OnlyIn(Dist.CLIENT)
+@Mod(value = DEMod.MOD_ID, dist = Dist.CLIENT)
 public class DEModClient {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
+    public DEModClient(IEventBus bus, ModContainer container){
         bus.addListener(DEModClient::clientSetup);
     }
     
@@ -33,10 +35,10 @@ public class DEModClient {
 	        setWindowTitle("Wood Types");
 	        DEWoodTypes.setWoodTypes();
 	        setWindowTitle("Layer Definitions");
-	        ForgeHooksClient.registerLayerDefinition(HeadedSkeletonModel.LAYER_LOCATION, HeadedSkeletonModel::createBodyLayer);
-	        ForgeHooksClient.registerLayerDefinition(BlueSandManModel.LAYER_LOCATION, BlueSandManModel::createBodyLayer);
-	        ForgeHooksClient.registerLayerDefinition(MouvetModel.LAYER_LOCATION, MouvetModel::createBodyLayer);
-	        ForgeHooksClient.registerLayerDefinition(JugerModel.LAYER_LOCATION, JugerModel::createBodyLayer);
+	        ClientHooks.registerLayerDefinition(HeadedSkeletonModel.LAYER_LOCATION, HeadedSkeletonModel::createBodyLayer);
+	        ClientHooks.registerLayerDefinition(BlueSandManModel.LAYER_LOCATION, BlueSandManModel::createBodyLayer);
+	        ClientHooks.registerLayerDefinition(MouvetModel.LAYER_LOCATION, MouvetModel::createBodyLayer);
+	        ClientHooks.registerLayerDefinition(JugerModel.LAYER_LOCATION, JugerModel::createBodyLayer);
 	        setWindowTitle("Block Entity Renders");
 	        BlockEntityRenderers.register(DEBlockEntityTypes.PURPLEHEART_SIGN.get(), SignRenderer::new);
 	        BlockEntityRenderers.register(DEBlockEntityTypes.DISPLAY_BLOCK.get(), DisplayBlockRenderer::new);
