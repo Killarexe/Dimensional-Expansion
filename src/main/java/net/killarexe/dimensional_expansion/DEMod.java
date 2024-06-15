@@ -23,6 +23,6 @@ public class DEMod {
 	}
 	
 	public static ResourceLocation res(String location) {
-		return new ResourceLocation(DEMod.MOD_ID, location);
+		return ResourceLocation.fromNamespaceAndPath(DEMod.MOD_ID, location);
 	}
 }

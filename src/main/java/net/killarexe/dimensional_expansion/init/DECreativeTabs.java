@@ -6,9 +6,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class DECreativeTabs {
 	
@@ -22,13 +23,13 @@ public class DECreativeTabs {
 	
 	public static final DeferredRegister<CreativeModeTab> CREATIVE_MOD_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DEMod.MOD_ID);
 	
-	public static final RegistryObject<CreativeModeTab> BLOCKS = createTab("blocks", DEBlocks.ORIGIN_GRASS_BLOCK);
-	public static final RegistryObject<CreativeModeTab> MISC = createTab("misc", DEItems.EMERTYST_GEM);
-	public static final RegistryObject<CreativeModeTab> TOOLS = createTab("tools", DEItems.SIMIX_HAMMER);
-	public static final RegistryObject<CreativeModeTab> COMBAT = createTab("combat", DEItems.BASSMITE_AXE);
-	public static final RegistryObject<CreativeModeTab> MOBS = createTab("mobs", DEItems.BLUE_SAND_MAN_SPAWN_EGG);
+	public static final Supplier<CreativeModeTab> BLOCKS = createTab("blocks", DEBlocks.ORIGIN_GRASS_BLOCK);
+	public static final Supplier<CreativeModeTab> MISC = createTab("misc", DEItems.EMERTYST_GEM);
+	public static final Supplier<CreativeModeTab> TOOLS = createTab("tools", DEItems.SIMIX_HAMMER);
+	public static final Supplier<CreativeModeTab> COMBAT = createTab("combat", DEItems.BASSMITE_AXE);
+	public static final Supplier<CreativeModeTab> MOBS = createTab("mobs", DEItems.BLUE_SAND_MAN_SPAWN_EGG);
 	
-	private static RegistryObject<CreativeModeTab> createTab(String id, RegistryObject<? extends ItemLike> icon){
+	private static Supplier<CreativeModeTab> createTab(String id, Supplier<? extends ItemLike> icon){
 		return CREATIVE_MOD_TABS.register(id, () -> 
 		CreativeModeTab.builder()
 			.icon(() -> new ItemStack(icon.get()))
