@@ -75,9 +75,6 @@ public class DEMod
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("Dimensional Expansion Common Setup");
-        DEVillagerTypes.registerPOI(DEVillagerTypes.FORGER_POI.get());
-        DEVillagerTypes.registerPOI(DEVillagerTypes.FARMER_POI.get());
-        DEVillagerTypes.registerPOI(DEVillagerTypes.MINER_POI.get());
         LOGGER.info("Register Dimensional Expansion WoodTypes");
         WoodType.register(DEWoodTypes.END);
         LOGGER.info("Put Dimensional Expansion Strippables");

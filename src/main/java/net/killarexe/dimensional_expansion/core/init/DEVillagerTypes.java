@@ -34,14 +34,4 @@ public class DEVillagerTypes {
     private static RegistryObject<VillagerProfession> createProfession(String name, RegistryObject<PoiType> type, SoundEvent workingSound){
         return VILLAGER_PROFESSION.register(name, () -> new VillagerProfession(name, type.get(), ImmutableSet.of(), ImmutableSet.of(), workingSound));
     }
-
-    public static void registerPOI(PoiType type){
-        try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, type);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
 }

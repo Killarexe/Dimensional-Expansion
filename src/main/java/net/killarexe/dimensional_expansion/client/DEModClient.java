@@ -4,9 +4,7 @@ import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
-import net.killarexe.dimensional_expansion.client.integration.discord.DiscordRPCManager;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -53,14 +51,5 @@ public class DEModClient {
         MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
         LOGGER.info("Add Dimensional Expansion Items Properties");
         DEItems.addItemsProperites();
-        DiscordRPCManager.start(
-                "945425580210389012",
-                "Playing Dimensional Expansion v" + DEMod.VERSION,
-                "Minecraft: " + SharedConstants.getCurrentVersion().getName(),
-                "logo",
-                "",
-                "",
-                ""
-        );
     }
 }
