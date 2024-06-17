@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
-import net.killarexe.dimensional_expansion.client.gui.screen.DEInfoOverlay;
+import net.killarexe.dimensional_expansion.client.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.client.Minecraft;
@@ -13,7 +13,9 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,8 +25,8 @@ public class DEModClient {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
+        ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
         forgeEventBus.addListener(DEEventsClient::onScreenPost);
-        forgeEventBus.addListener(DEInfoOverlay::render);
         bus.addListener(DEModClient::clientSetup);
     }
 

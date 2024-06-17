@@ -10,9 +10,7 @@ public final class DEConfig {
     public static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec CLIENT_SPEC;
 
-    public static final ForgeConfigSpec.ConfigValue<Boolean> showVersion;
     public static final ForgeConfigSpec.ConfigValue<Boolean> moddedTitleScreen;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> debugMod;
 
     /*
     SERVER
@@ -25,9 +23,7 @@ public final class DEConfig {
 
     static{
         CLIENT_BUILDER.push("Config for Dimensional Expansion Client");
-        showVersion = CLIENT_BUILDER.comment("Show the version of Dimensional Expansion. Not Recommended with multiple mods. By Default is true").define("Show Version", true);
-        moddedTitleScreen = CLIENT_BUILDER.comment("Add some things to the title screen. Not Recommended with multiple mods. By Default is true").define("Modded Title Screen", true);
-        debugMod = CLIENT_BUILDER.comment("Set Dimensional Expansion to debug mode. Not Recommended with multiple mods. By Default is false.").define("Debug Mod", false);
+        moddedTitleScreen = CLIENT_BUILDER.comment("Add some things to the title screen. Not Recommended with multiple mods. By Default is true").define("Modded Title Screen", false);
         CLIENT_BUILDER.pop();
         CLIENT_SPEC = CLIENT_BUILDER.build();
 

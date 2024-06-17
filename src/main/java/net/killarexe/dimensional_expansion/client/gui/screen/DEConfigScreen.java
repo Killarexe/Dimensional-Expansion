@@ -18,7 +18,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class DEConfigScreen extends Screen {
 
     private final Screen previousScreen;
-    private Checkbox showVersionCheckbox, moddedTitleScreenCheckbox, debugModCheckBox;
+    private Checkbox moddedTitleScreenCheckbox;
 
     public DEConfigScreen(Screen previousScreen) {
         super(new TranslatableComponent("narrator.screen.title"));
@@ -29,7 +29,6 @@ public class DEConfigScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
         drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".title"), width/2, 10, 0xffffff);
-        //this.drawCenteredString(pPoseStack, font, new TranslatableComponent("config." + DEMod.MODID + ".client"), width/2, height/2 - 20, 0xffffff);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
@@ -61,20 +60,14 @@ public class DEConfigScreen extends Screen {
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        showVersionCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 48 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".show_version"), DEConfig.showVersion.get());
         moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_title_screen"), DEConfig.moddedTitleScreen.get());
-        debugModCheckBox = new Checkbox(this.width / 2 -200, this.height / 4 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".debug_mod"), DEConfig.debugMod.get());
-        addRenderableWidget(showVersionCheckbox);
         addRenderableWidget(moddedTitleScreenCheckbox);
-        addRenderableWidget(debugModCheckBox);
 
         super.init();
     }
 
     private void apply(){
-        DEConfig.showVersion.set(showVersionCheckbox.selected());
         DEConfig.moddedTitleScreen.set(moddedTitleScreenCheckbox.selected());
-        DEConfig.debugMod.set(debugModCheckBox.selected());
         onClose();
     }
 

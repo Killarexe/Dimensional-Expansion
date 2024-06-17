@@ -1,18 +1,15 @@
 package net.killarexe.dimensional_expansion;
 
 import net.killarexe.dimensional_expansion.client.DEModClient;
-import net.killarexe.dimensional_expansion.client.gui.screen.DEConfigScreen;
 import net.killarexe.dimensional_expansion.common.block.StrippingMap;
 import net.killarexe.dimensional_expansion.common.config.DEConfig;
 import net.killarexe.dimensional_expansion.common.event.DEEvents;
 import net.killarexe.dimensional_expansion.core.init.*;
-import net.killarexe.dimensional_expansion.server.DEModServer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -30,7 +27,7 @@ public class DEMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "dimensional_expansion";
-    public static final String VERSION = "0.5.1a";
+    public static final String VERSION = "0.5.2a";
 
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
@@ -62,27 +59,26 @@ public class DEMod
         LOGGER.info("Init Dimensional Expansion Config");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
-        ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
         LOGGER.info("Set Dimensional Expansion Event Listener");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
-        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> DEModServer.serverFeatures(bus, MinecraftForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Dimensional Expansion Common Setup");
-        LOGGER.info("Register Dimensional Expansion WoodTypes");
-        WoodType.register(DEWoodTypes.END);
-        LOGGER.info("Put Dimensional Expansion Strippables");
-        StrippingMap.putStrippables(event);
         event.enqueueWork(() ->{
+            LOGGER.info("Dimensional Expansion Common Setup");
+            LOGGER.info("Register Dimensional Expansion WoodTypes");
+            WoodType.register(DEWoodTypes.END);
+            LOGGER.info("Put Dimensional Expansion Strippables");
+            StrippingMap.putStrippables(event);
+            LOGGER.info("Put Dimensional Expansion Compostables");
             ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
-
+            LOGGER.info("Put Dimensional Expansion Flower Pots");
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), () -> DEBlocks.POTTED_END_ROSE.get());
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), () -> DEBlocks.POTTED_END_SAPLING.get());
         });

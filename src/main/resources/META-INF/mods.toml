@@ -1,9 +1,9 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[40,)"
 license="Creative Commons Attribution-NonCommercial 3.0"
 [[mods]]
 modId="dimensional_expansion"
-version="0.5.1a"
+version="0.5.2a"
 displayName="Dimensional Expansion Mod"
 logoFile="pack.png"
 credits="This Mod made bt Killar.exe"
@@ -13,7 +13,7 @@ updateJSONURL="https://raw.githubusercontent.com/Killarexe/Dimensional-Expansion
 [[dependencies.dimensional_expansion]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[39,)" #mandatory
+    versionRange="[40,)" #mandatory
     ordering="NONE"
     side="BOTH"
 # Here's another dependency

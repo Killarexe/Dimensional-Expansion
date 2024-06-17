@@ -384,7 +384,7 @@ public class DETitleScreen extends Screen {
         if(configButton.isHoveredOrFocused()){
             drawString(pPoseStack, font, "Config", configButton.x + 16, configButton.y, 0xffffff);
         }
-        drawString(pPoseStack, font, "Dimensional Expansion 2020-2022", 0, this.height - 10, 0xffffff);
+        drawString(pPoseStack, font, "Dimensional Expansion 2021-2024", 0, this.height - 10, 0xffffff);
         drawString(pPoseStack, font, "Dimensional Expansion v" + DEMod.VERSION, 0, this.height - 20, 0xffffff);
         drawString(pPoseStack, font, "Minecraft " + SharedConstants.getCurrentVersion().getName(), 0, this.height - 30, 0xffffff);
         this.minecraft.getWindow().setTitle("Dimensional Expansion " + DEMod.VERSION);

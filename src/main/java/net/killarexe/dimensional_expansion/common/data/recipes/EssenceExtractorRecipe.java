@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.core.init.DEBlocks;
-import net.killarexe.dimensional_expansion.core.init.DERecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -61,7 +60,7 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return DERecipeTypes.ESSENCE_EXTRACTOR_RECIPE_SERIALIZER.get();
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -69,12 +68,9 @@ public class EssenceExtractorRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public ItemStack getIcon(){
+    @Override
+    public ItemStack getToastSymbol() {
         return new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get());
-    }
-
-    public NonNullList<Ingredient> getRecipeItems() {
-        return recipeItems;
     }
 
     public static class Type implements RecipeType<EssenceExtractorRecipe> {

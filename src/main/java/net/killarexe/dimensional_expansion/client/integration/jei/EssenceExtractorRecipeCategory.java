@@ -14,6 +14,7 @@ import net.killarexe.dimensional_expansion.core.init.DEBlocks;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -27,32 +28,32 @@ public class EssenceExtractorRecipeCategory implements IRecipeCategory<EssenceEx
 
     public EssenceExtractorRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(DEBlocks.ESSENCE_EXTRACTOR.get()));
     }
 
     @Override
-    public Component getTitle() {
+    public @NotNull Component getTitle() {
         return DEBlocks.ESSENCE_EXTRACTOR.get().getName();
     }
 
     @Override
-    public IDrawable getBackground() {
+    public @NotNull IDrawable getBackground() {
         return this.background;
     }
 
     @Override
-    public IDrawable getIcon() {
+    public @NotNull IDrawable getIcon() {
         return this.icon;
     }
 
     @Override
-    public RecipeType<EssenceExtractorRecipe> getRecipeType() {
+    public @NotNull RecipeType<EssenceExtractorRecipe> getRecipeType() {
         return new mezz.jei.api.recipe.RecipeType<>(UID, EssenceExtractorRecipe.class);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, EssenceExtractorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(VanillaTypes.ITEM, List.of(recipe.getIngredients().get(0).getItems()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(VanillaTypes.ITEM_STACK, List.of(recipe.getIngredients().get(0).getItems()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
     }
 

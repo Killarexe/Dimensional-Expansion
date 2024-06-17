@@ -15,7 +15,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '0.5.1a'
+version = '0.5.2a'
 group = 'net.killarexe.dimensional_expansion' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dimensional_expansion'
 
@@ -93,18 +93,18 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
 
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 }
 
 jar {
     manifest {
         attributes([
                 "Specification-Title"     : "dimensional_expansion",
-                "Specification-Vendor"    : "dimensional_expansionsareus",
+                "Specification-Vendor"    : "Killar",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "dimensional_expansionsareus",
+                "Implementation-Vendor"   : "Killar",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
