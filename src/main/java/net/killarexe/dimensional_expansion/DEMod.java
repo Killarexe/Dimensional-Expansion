@@ -8,7 +8,6 @@ import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -32,8 +31,6 @@ public class DEMod
     public DEMod() {
         LOGGER.info("Starting Init Dimensional Expansion");
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        LOGGER.info("Init Dimensional Expansion Sounds");
-        DESounds.SOUNDS.register(bus);
         LOGGER.info("Init Dimensional Expansion Biomes");
         DEBiomes.registerBiomes(bus);
         LOGGER.info("Init Dimensional Expansion Blocks");
@@ -42,27 +39,17 @@ public class DEMod
         DEFeatures.STRUCTURE_FEATURES.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
         DEItems.ITEMS.register(bus);
-        LOGGER.info("Init Dimensional Expansion Recipe Types");
-        DERecipeTypes.RECIPE_SERIALIZERS.register(bus);
-        LOGGER.info("Init Dimensional Potions Items");
-        DEPoitions.EFFECT.register(bus);
-        DEPoitions.POTION.register(bus);
-        LOGGER.info("Init Dimensional Enchantments");
-        DEEnchantments.ENCHANTMENT.register(bus);
         LOGGER.info("Init Dimensional Expansion Block Entities");
         DEBlockEntities.BLOCK_ENTITIES.register(bus);
-        LOGGER.info("Init Dimensional Expansion Containers");
-        DEContainers.CONTAINERS.register(bus);
         LOGGER.info("Init Dimensional Expansion Villager Professions");
         DEVillagerTypes.VILLAGER_PROFESSION.register(bus);
         DEVillagerTypes.POI_TYPE.register(bus);
         LOGGER.info("Init Dimensional Expansion Config");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DEConfig.CLIENT_SPEC, "dimensional_expansion-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DEConfig.SERVER_SPEC, "dimensional_expansion-server.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC, "dimensional_expansion-common.toml");
         LOGGER.info("Set Dimensional Expansion Event Listener");
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addFeatures);
         MinecraftForge.EVENT_BUS.addListener(DEEvents::addVillagerFeatures);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus, MinecraftForge.EVENT_BUS));
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> DEModClient.clientFeatures(bus));
         bus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Init Dimensional Expansion Complete!");
@@ -72,15 +59,15 @@ public class DEMod
         event.enqueueWork(() ->{
             LOGGER.info("Dimensional Expansion Common Setup");
             LOGGER.info("Register Dimensional Expansion WoodTypes");
-            WoodType.register(DEWoodTypes.END);
+            DEWoodTypes.register();
             LOGGER.info("Put Dimensional Expansion Strippables");
-            StrippingMap.putStrippables(event);
+            StrippingMap.putStrippables();
             LOGGER.info("Put Dimensional Expansion Compostables");
             ComposterBlock.COMPOSTABLES.put(DEItems.HEART_SEEDS.get(), 0.3f);
             ComposterBlock.COMPOSTABLES.put(DEItems.XP_SEEDS.get(), 0.3f);
             LOGGER.info("Put Dimensional Expansion Flower Pots");
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), () -> DEBlocks.POTTED_END_ROSE.get());
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), () -> DEBlocks.POTTED_END_SAPLING.get());
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_ROSE.getId(), DEBlocks.POTTED_END_ROSE::get);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(DEBlocks.END_SAPLING.getId(), DEBlocks.POTTED_END_SAPLING::get);
         });
     }
 }

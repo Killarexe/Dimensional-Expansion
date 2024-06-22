@@ -16,4 +16,8 @@ public class DEWoodTypes {
     public static void setWoodTypes(){
         Sheets.addWoodType(DEWoodTypes.END);
     }
+
+    public static void register() {
+
+    }
 }

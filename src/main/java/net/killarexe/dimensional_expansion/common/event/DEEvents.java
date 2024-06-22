@@ -7,6 +7,7 @@ import net.killarexe.dimensional_expansion.core.init.DEVillagerTypes;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -16,14 +17,12 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class DEEvents {
 
@@ -39,13 +38,15 @@ public class DEEvents {
 
         private static void addDecorations(final BiomeLoadingEvent e) {
             DEMod.LOGGER.info("Adding Dimensional Expansion Decoration...");
-            ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
-            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
-            List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
+            ResourceLocation biomeLocation = e.getName();
+            if(biomeLocation != null) {
+                ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, e.getName());
+                List<Holder<PlacedFeature>> base = e.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 
-            if (types.contains(BiomeDictionary.Type.END)) {
-                base.add(DEFeatures.Placed.END_ROSE_PLACED);
-                base.add(DEFeatures.Placed.END_TREE_PLACED);
+                if (key.location().getPath().contains("end")) {
+                    base.add(DEFeatures.Placed.END_ROSE_PLACED);
+                    base.add(DEFeatures.Placed.END_TREE_PLACED);
+                }
             }
         }
 

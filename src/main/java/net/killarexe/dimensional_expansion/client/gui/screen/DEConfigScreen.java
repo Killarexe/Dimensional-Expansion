@@ -18,7 +18,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class DEConfigScreen extends Screen {
 
     private final Screen previousScreen;
-    private Checkbox moddedTitleScreenCheckbox;
+    private Checkbox enableWeatherPowerStone, enableTimePowerStone;
 
     public DEConfigScreen(Screen previousScreen) {
         super(new TranslatableComponent("narrator.screen.title"));
@@ -60,14 +60,18 @@ public class DEConfigScreen extends Screen {
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 
-        moddedTitleScreenCheckbox = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".modded_title_screen"), DEConfig.moddedTitleScreen.get());
-        addRenderableWidget(moddedTitleScreenCheckbox);
+        enableTimePowerStone = new Checkbox(this.width / 2 -200, this.height / 4 + 48 + 0, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".time_power_stone"), DEConfig.enableTimePowerStone.get());
+        enableWeatherPowerStone = new Checkbox(this.width / 2 -200, this.height / 4 + 28, 20, 20, new TranslatableComponent("checkbox." + DEMod.MODID + ".weather_power_stone"), DEConfig.enableWeatherPowerStone.get());
+
+        addRenderableWidget(enableTimePowerStone);
+        addRenderableWidget(enableWeatherPowerStone);
 
         super.init();
     }
 
     private void apply(){
-        DEConfig.moddedTitleScreen.set(moddedTitleScreenCheckbox.selected());
+        DEConfig.enableTimePowerStone.set(enableTimePowerStone.selected());
+        DEConfig.enableWeatherPowerStone.set(enableWeatherPowerStone.selected());
         onClose();
     }
 

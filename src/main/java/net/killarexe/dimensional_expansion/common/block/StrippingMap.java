@@ -11,9 +11,7 @@ public class StrippingMap {
         AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES).put(input, output).build();
     }
 
-    public static void putStrippables(final FMLCommonSetupEvent event){
-        event.enqueueWork(() -> {
-            StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
-        });
+    public static void putStrippables(){
+        StrippingMap.putStrippable(DEBlocks.END_LOG.get(), DEBlocks.END_STRIPPED_LOG.get());
     }
 }

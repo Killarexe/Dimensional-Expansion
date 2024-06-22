@@ -53,7 +53,7 @@ public class DEBlocksLootTables extends BlockLoot {
 
         dropSelf(FORGE.get());
         dropSelf(MINERAL_STORAGE.get());
-        add(ESSENCE_EXTRACTOR.get(), (block) -> {return createNameableBlockEntityTable(ESSENCE_EXTRACTOR.get());});
+        dropSelf(ESSENCE_EXTRACTOR.get());
     }
 
     @Override

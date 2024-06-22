@@ -1,12 +1,9 @@
 package net.killarexe.dimensional_expansion.client;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.client.event.DEEventsClient;
 import net.killarexe.dimensional_expansion.client.gui.screen.DEConfigScreen;
-import net.killarexe.dimensional_expansion.client.gui.screen.EssenceExtractorScreen;
 import net.killarexe.dimensional_expansion.core.init.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -24,9 +21,8 @@ public class DEModClient {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static void clientFeatures(IEventBus bus, IEventBus forgeEventBus){
+    public static void clientFeatures(IEventBus bus){
         ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new DEConfigScreen(screen)));
-        forgeEventBus.addListener(DEEventsClient::onScreenPost);
         bus.addListener(DEModClient::clientSetup);
     }
 
@@ -49,8 +45,6 @@ public class DEModClient {
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.ESSENCE_EXTRACTOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_ROSE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DEBlocks.POTTED_END_SAPLING.get(), RenderType.cutout());
-        LOGGER.info("Register Dimensional Expansion Container");
-        MenuScreens.register(DEContainers.ESSENCE_EXTRACTOR_CONTAINER.get(), EssenceExtractorScreen::new);
         LOGGER.info("Add Dimensional Expansion Items Properties");
         DEItems.addItemsProperites();
     }

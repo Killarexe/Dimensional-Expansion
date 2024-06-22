@@ -22,7 +22,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.DeferredRegister;
@@ -162,10 +161,6 @@ public class DEItems {
         return ITEMS.register(id, item);
     }
 
-    private static RegistryObject<Item> createBannerPatternItem(String id, BannerPattern pattern, CreativeModeTab itemGroup){
-        return ITEMS.register(id, () -> new BannerPatternItem(pattern, new Item.Properties().tab(itemGroup)));
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static void addItemsProperites(){
         addClockProperties(TIME_POWER_STONE.get());
@@ -178,35 +173,35 @@ public class DEItems {
             private double rota;
             private long lastUpdateTick;
 
-            public float unclampedCall(ItemStack p_174665_, @Nullable ClientLevel p_174666_, @Nullable LivingEntity p_174667_, int p_174668_) {
-                Entity entity = p_174667_ != null ? p_174667_ : p_174665_.getEntityRepresentation();
+            public float unclampedCall(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity livingEntity, int p_174668_) {
+                Entity entity = livingEntity != null ? livingEntity : stack.getEntityRepresentation();
                 if (entity == null) {
                     return 0.0F;
                 } else {
-                    if (p_174666_ == null && entity.level instanceof ClientLevel) {
-                        p_174666_ = (ClientLevel) entity.level;
+                    if (level == null && entity.level instanceof ClientLevel clientLevel) {
+                        level = clientLevel;
                     }
 
-                    if (p_174666_ == null) {
+                    if (level == null) {
                         return 0.0F;
                     } else {
                         double d0;
-                        if (p_174666_.dimensionType().natural()) {
-                            d0 = p_174666_.getTimeOfDay(1.0F);
+                        if (level.dimensionType().natural()) {
+                            d0 = level.getTimeOfDay(1.0F);
                         } else {
                             d0 = Math.random();
                         }
 
-                        d0 = this.wobble(p_174666_, d0);
+                        d0 = this.wobble(level, d0);
                         return (float) d0;
                     }
                 }
             }
 
-            private double wobble(Level p_117904_, double p_117905_) {
-                if (p_117904_.getGameTime() != this.lastUpdateTick) {
-                    this.lastUpdateTick = p_117904_.getGameTime();
-                    double d0 = p_117905_ - this.rotation;
+            private double wobble(Level level, double rotation) {
+                if (level.getGameTime() != this.lastUpdateTick) {
+                    this.lastUpdateTick = level.getGameTime();
+                    double d0 = rotation - this.rotation;
                     d0 = Mth.positiveModulo(d0 + 0.5D, 1.0D) - 0.5D;
                     this.rota += d0 * 0.1D;
                     this.rota *= 0.9D;
