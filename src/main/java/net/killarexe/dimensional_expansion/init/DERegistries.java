@@ -11,6 +11,8 @@ public class DERegistries {
 	public static void registerAll(IEventBus bus){
 		LOGGER.debug("Init Dimensional Expansion Sound Events");
 		DESoundEvents.SOUND_EVENTS.register(bus);
+        LOGGER.debug("Init Dimensional Expansion Jukebox Sounds");
+        DEJukeboxSongs.JUKEBOX_SONG.register(bus);
         LOGGER.info("Init Dimensional Expansion Creative Tabs");
         DECreativeTabs.CREATIVE_MOD_TABS.register(bus);
         LOGGER.debug("Init Dimensional Expansion Villager Types");

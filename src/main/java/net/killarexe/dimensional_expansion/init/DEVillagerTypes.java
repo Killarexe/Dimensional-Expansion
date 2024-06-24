@@ -3,8 +3,7 @@ package net.killarexe.dimensional_expansion.init;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.function.Supplier;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.minecraft.core.registries.Registries;
@@ -12,11 +11,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DEVillagerTypes {
 
@@ -25,12 +21,12 @@ public class DEVillagerTypes {
     private static final Map<VillagerType, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
 
     //Villager Types
-    public static final RegistryObject<VillagerType> ORIGIN_PLAINS = createVillagerType("origin_plains", Set.of(DEBiomes.ORIGIN_PLAINS, DEBiomes.PURPLEHEART_FOREST));
-    public static final RegistryObject<VillagerType> BLUE_SAND_DESERT = createVillagerType("blue_sand_desert", Set.of(DEBiomes.BLUE_SAND_DESERT));
+    public static final Supplier<VillagerType> ORIGIN_PLAINS = createVillagerType("origin_plains", Set.of(DEBiomes.ORIGIN_PLAINS, DEBiomes.PURPLEHEART_FOREST));
+    public static final Supplier<VillagerType> BLUE_SAND_DESERT = createVillagerType("blue_sand_desert", Set.of(DEBiomes.BLUE_SAND_DESERT));
 
-    private static RegistryObject<VillagerType> createVillagerType(String name, Set<ResourceKey<Biome>> biomes) {
+    private static Supplier<VillagerType> createVillagerType(String name, Set<ResourceKey<Biome>> biomes) {
     	VillagerType villagerType = new VillagerType(name);
-    	RegistryObject<VillagerType> type = VILLAGER_TYPE.register(name, () -> villagerType);
+    	Supplier<VillagerType> type = VILLAGER_TYPE.register(name, () -> villagerType);
     	VILLAGER_TYPE_BY_BIOME.put(villagerType, biomes);
     	return type;
     }

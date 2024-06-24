@@ -3,14 +3,14 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DESoundEvents;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.SoundDefinition;
-import net.minecraftforge.common.data.SoundDefinitionsProvider;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.SoundDefinition;
+import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
-public class DESoundDefinitions extends SoundDefinitionsProvider{
+import java.util.function.Supplier;
+
+public class DESoundDefinitions extends SoundDefinitionsProvider {
 
 	public DESoundDefinitions(PackOutput output, ExistingFileHelper helper) {
 		super(output, DEMod.MOD_ID, helper);
@@ -34,27 +34,27 @@ public class DESoundDefinitions extends SoundDefinitionsProvider{
 		addMusic(DESoundEvents.ORIGIN_MUSIC, null, "nightly_walk", "seeing_the_stars", "the_origin");
 	}
 	
-	private void addEntitySound(RegistryObject<SoundEvent> sound, String entityId, String title, String... files) {
+	private void addEntitySound(Supplier<SoundEvent> sound, String entityId, String title, String... files) {
 		addMultiple(sound, "entity." + DEMod.MOD_ID + "." + entityId + "." + title, "entity/" + entityId, files);
 	}
 	
-	private void addMusicDisc(RegistryObject<SoundEvent> sound, String name) {
+	private void addMusicDisc(Supplier<SoundEvent> sound, String name) {
 		addSingle(sound, "record." + DEMod.MOD_ID + "." + name + ".subtitle", "record", name);
 	}
 	
-	private void addMusic(RegistryObject<SoundEvent> sound, String title, String... files) {
+	private void addMusic(Supplier<SoundEvent> sound, String title, String... files) {
 		addMultiple(sound, title, "music", files);
 	}
 	
-	private void addMultiple(RegistryObject<SoundEvent> sound, String title, String path, String... files) {
+	private void addMultiple(Supplier<SoundEvent> sound, String title, String path, String... files) {
 		SoundDefinition definition = definition().subtitle(title);
 		for(String file: files) {
-			definition.with(sound(new ResourceLocation(DEMod.MOD_ID, path + "/" + file)));
+			definition.with(sound(DEMod.res(path + "/" + file)));
 		}
 		add(sound.get(), definition);
 	}
 	
-	private void addSingle(RegistryObject<SoundEvent> sound, String title, String path, String file) {
-		add(sound.get(), definition().subtitle(title).with(sound(new ResourceLocation(DEMod.MOD_ID, path + "/" + file))));
+	private void addSingle(Supplier<SoundEvent> sound, String title, String path, String file) {
+		add(sound.get(), definition().subtitle(title).with(sound(DEMod.res(path + "/" + file))));
 	}
 }

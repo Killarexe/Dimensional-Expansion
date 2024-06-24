@@ -15,7 +15,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
@@ -85,13 +84,13 @@ public class DEItems {
     public static final DeferredHolder<Item, Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new BoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     public static final DeferredHolder<Item, Item> PURPLEHEART_CHEST_BOAT = createItem("purpleheart_chest_boat", () -> new ChestBoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEChestBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     
-    public static final DeferredHolder<Item, Item> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, DECreativeTabs.Tabs.MISC, 0);
+    public static final DeferredHolder<Item, Item> SWEDEN_DISC = createDiscItem("sweden_disc", DEJukeboxSongs.SWEDEN_REMIX.getB(), DECreativeTabs.Tabs.MISC, 0);
 
-    public static final DeferredHolder<Item, SpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
-    public static final DeferredHolder<Item, SpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
-    public static final DeferredHolder<Item, SpawnEggItem> BLUE_SAND_MAN_SPAWN_EGG = createSpawnEggItem("blue_sand_man_spawn_egg", DEEntityTypes.BLUE_SAND_MAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
-    public static final DeferredHolder<Item, SpawnEggItem> MOUVET_SPAWN_EGG = createSpawnEggItem("mouvet_spawn_egg", DEEntityTypes.MOUVET, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
-    public static final DeferredHolder<Item, SpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> BLUE_SAND_MAN_SPAWN_EGG = createSpawnEggItem("blue_sand_man_spawn_egg", DEEntityTypes.BLUE_SAND_MAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> MOUVET_SPAWN_EGG = createSpawnEggItem("mouvet_spawn_egg", DEEntityTypes.MOUVET, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     
     public static final DeferredHolder<Item, MoboxItem> MOBOX = createItem("mobox", MoboxItem::new, DECreativeTabs.Tabs.MISC);
 
@@ -194,7 +193,7 @@ public class DEItems {
     	return ITEMS.register(id, () -> new AnimalArmorItem(material, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties()));
     }
     
-    private static DeferredHolder<Item, DeferredSpawnEggItem> createSpawnEggItem(String id, Supplier<? extends EntityType<? extends Mob>> entityType, int backgroundColor, int forgroundColor, DECreativeTabs.Tabs tab){
+    private static DeferredHolder<Item, DeferredSpawnEggItem> createSpawnEggItem(String id, DeferredHolder<EntityType<?>, ? extends EntityType<? extends Mob>> entityType, int backgroundColor, int forgroundColor, DECreativeTabs.Tabs tab){
     	return createItem(id, () -> new DeferredSpawnEggItem(entityType, backgroundColor, forgroundColor, new Item.Properties()), tab);
     }
 
