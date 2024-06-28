@@ -29,34 +29,34 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, DropExperienceBlock> PALON_ORE = createOreBlock("palon_ore",
 			MapColor.COLOR_YELLOW, 4, 10, 4, UniformInt.of(0, 0), SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> PALON_BLOCK = createBlock("palon_block", MapColor.COLOR_BLACK, 4, 10, 4,
+	public static final DeferredHolder<Block, Block> PALON_BLOCK = createBlock("palon_block", MapColor.COLOR_BLACK, 4, 10, 4,
 			SoundType.NETHERITE_BLOCK, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, DropExperienceBlock> BASSMITE_ORE = createOreBlock("bassmite_ore",
 			MapColor.COLOR_LIGHT_GRAY, 4, 20, 4, UniformInt.of(2, 6), SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> BASSMITE_BLOCK = createBlock("bassmite_block", MapColor.COLOR_BLUE, 4, 20,
+	public static final DeferredHolder<Block, Block> BASSMITE_BLOCK = createBlock("bassmite_block", MapColor.COLOR_BLUE, 4, 20,
 			4, SoundType.AMETHYST, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, DropExperienceBlock> SIMIX_ORE = createOreBlock("simix_ore", MapColor.COLOR_RED,
 			5, 30, 5, UniformInt.of(0, 0), SoundType.NETHERRACK, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> SIMIX_BLOCK = createBlock("simix_block", MapColor.COLOR_RED, 5, 30, 5,
+	public static final DeferredHolder<Block, Block> SIMIX_BLOCK = createBlock("simix_block", MapColor.COLOR_RED, 5, 30, 5,
 			SoundType.NETHERITE_BLOCK, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, DropExperienceBlock> EMERTYST_ORE = createOreBlock("emertyst_ore",
 			MapColor.COLOR_GRAY, 5, 40, 5, UniformInt.of(4, 10), SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> EMERTYST_BLOCK = createBlock("emertyst_block", MapColor.COLOR_MAGENTA, 5,
+	public static final DeferredHolder<Block, Block> EMERTYST_BLOCK = createBlock("emertyst_block", MapColor.COLOR_MAGENTA, 5,
 			40, 5, SoundType.AMETHYST, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block",
+	public static final DeferredHolder<Block, Block> ORIGIN_GRASS_BLOCK = createCustomBlock("origin_grass_block",
             OriginGrassBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> ORIGIN_DIRT_PATH = createCustomBlock("origin_dirt_path",
+	public static final DeferredHolder<Block, Block> ORIGIN_DIRT_PATH = createCustomBlock("origin_dirt_path",
             OriginDirtPathBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> ORIGIN_DIRT = createCustomBlock("origin_dirt",
+	public static final DeferredHolder<Block, Block> ORIGIN_DIRT = createCustomBlock("origin_dirt",
             OriginDirtBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, FarmBlock> ORIGIN_FARMLAND = createCustomBlock("origin_farmland",
@@ -74,7 +74,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, RotatedPillarBlock> STRIPPED_PURPLEHEART_LOG = createPillarBlock(
 			"stripped_purpleheart_log", MapColor.COLOR_BLACK, 1, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> PURPLEHEART_PLANKS = createBlock("purpleheart_planks",
+	public static final DeferredHolder<Block, Block> PURPLEHEART_PLANKS = createBlock("purpleheart_planks",
 			MapColor.COLOR_BLACK, 1, 10, 1, SoundType.WOOD, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, SlabBlock> PURPLEHEART_SLAB = createSlabBlock("purpleheart_slab",
@@ -104,13 +104,13 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, StairBlock> PURPLEHEART_STAIRS = createStairBlock("purpleheart_stairs",
 			PURPLEHEART_PLANKS, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> PURPLEHEART_BOOKSHELF = createCustomBlock("purpleheart_bookshelf",
+	public static final DeferredHolder<Block, Block> PURPLEHEART_BOOKSHELF = createCustomBlock("purpleheart_bookshelf",
             PurpleheartBookself::new, DECreativeTabs.Tabs.BLOCKS)	;
 
-	public static final Supplier<Block> PURPLEHEART_SIGN = createCustomBlock("purpleheart_sign",
+	public static final DeferredHolder<Block, Block> PURPLEHEART_SIGN = createCustomBlock("purpleheart_sign",
             PurpleheartStandingSignBlock::new);
 
-	public static final Supplier<Block> PURPLEHEART_WALL_SIGN = createCustomBlock("purpleheart_wall_sign",
+	public static final DeferredHolder<Block, Block> PURPLEHEART_WALL_SIGN = createCustomBlock("purpleheart_wall_sign",
             PurpleheartWallSignBlock::new);
 
 	public static final DeferredHolder<Block, FlowerBlock> PURPLE_ROSE = createFlowerBlock("purple_rose",
@@ -126,7 +126,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, FlowerPotBlock> POTTED_PURPLEHEART_SAPLING = createFlowerPotBlock(
 			"potted_purpleheart_sapling", PURPLEHEART_SAPLING::get);
 
-	public static final Supplier<Block> SULFUR_STONE = createBlock("sulfur_stone", MapColor.COLOR_YELLOW, 4, 10,
+	public static final DeferredHolder<Block, Block> SULFUR_STONE = createBlock("sulfur_stone", MapColor.COLOR_YELLOW, 4, 10,
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, ButtonBlock> SULFUR_STONE_BUTTON = createButtonBlock("sulfur_stone_button",
@@ -141,7 +141,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, StairBlock> SULFUR_STONE_STAIRS = createStairBlock("sulfur_stone_stairs",
 			SULFUR_STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> SULFUR_COBBLESTONE = createBlock("sulfur_cobblestone",
+	public static final DeferredHolder<Block, Block> SULFUR_COBBLESTONE = createBlock("sulfur_cobblestone",
 			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, SlabBlock> SULFUR_COBBLESTONE_SLAB = createSlabBlock("sulfur_cobblestone_slab",
@@ -153,7 +153,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, WallBlock> SULFUR_COBBLESTONE_WALL = createWallBlock("sulfur_cobblestone_wall",
 			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> SULFUR_STONE_BRICKS = createBlock("sulfur_stone_bricks", MapColor.COLOR_YELLOW, 4, 10,
+	public static final DeferredHolder<Block, Block> SULFUR_STONE_BRICKS = createBlock("sulfur_stone_bricks", MapColor.COLOR_YELLOW, 4, 10,
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, SlabBlock> SULFUR_STONE_BRICKS_SLAB = createSlabBlock("sulfur_stone_bricks_slab",
@@ -165,7 +165,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, WallBlock> SULFUR_STONE_BRICKS_WALL = createWallBlock("sulfur_stone_bricks_wall",
 			MapColor.COLOR_YELLOW, 4, 10, 4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> VIOLET_STONE = createBlock("violet_stone", MapColor.COLOR_MAGENTA, 4, 10,
+	public static final DeferredHolder<Block, Block> VIOLET_STONE = createBlock("violet_stone", MapColor.COLOR_MAGENTA, 4, 10,
 			4, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, SlabBlock> VIOLET_STONE_SLAB = createSlabBlock("violet_stone_slab",
@@ -180,22 +180,22 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, FallingBlock> BLUE_SAND = createFallingBlock("blue_sand", MapColor.COLOR_BLACK,
 			1, 10, 1, SoundType.SAND, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> BLUE_SANDSTONE = createBlock("blue_sandstone", MapColor.COLOR_BLACK, 1,
+	public static final DeferredHolder<Block, Block> BLUE_SANDSTONE = createBlock("blue_sandstone", MapColor.COLOR_BLACK, 1,
 			10, 1, SoundType.STONE, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> PURPLEISH_CACTUS = createCustomBlock("purpleish_cactus",
+	public static final DeferredHolder<Block, Block> PURPLEISH_CACTUS = createCustomBlock("purpleish_cactus",
             PurpleishCactusBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, FlowerPotBlock> POTTED_PURPLEISH_CACTUS = createFlowerPotBlock(
 			"potted_purpleish_cactus", PURPLEISH_CACTUS);
 
-	public static final Supplier<Block> ORIGIN_PORTAL = createCustomBlock("origin_portal",
+	public static final DeferredHolder<Block, Block> ORIGIN_PORTAL = createCustomBlock("origin_portal",
             OriginPortalBlock::new);
 	
-	public static final Supplier<Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
+	public static final DeferredHolder<Block, Block> ORIGIN_FRAME = createBlock("origin_frame", MapColor.CLAY, 4, 10, 4,
 			SoundType.METAL, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> DISPLAY_BLOCK = createCustomBlock("display_block",
+	public static final DeferredHolder<Block, Block> DISPLAY_BLOCK = createCustomBlock("display_block",
             DisplayBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
 	public static final DeferredHolder<Block, EnchantTransferTable> ENCHANT_TRANSFER_TABLE = createCustomBlock("enchant_transfer_table",
@@ -204,7 +204,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block",
             SavorleafBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final Supplier<Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush",
+	public static final DeferredHolder<Block, Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush",
             PurpleBerryBush::new);
 
 	public static final DeferredHolder<Block, SavorleafCropBlock> SAVORLEAF_CROP = createCustomBlock("savorleaf_crop",
@@ -222,9 +222,9 @@ public class DEBlocks {
 	 * Functions to create blocks 
 	 */
 	
-	private static Supplier<Block> createBlock(@Nonnull String id, MapColor color, float hardness,
+	private static DeferredHolder<Block, Block> createBlock(@Nonnull String id, MapColor color, float hardness,
 			float resistance, float harvestLevel, SoundType sound, DECreativeTabs.Tabs itemGroup) {
-		Supplier<Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of().mapColor(color)
+		DeferredHolder<Block, Block> block = BLOCK.register(id, () -> new Block(BlockBehaviour.Properties.of().mapColor(color)
 				.strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(harvestLevel).sound(sound)));
 		DEItems.createItem(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()), itemGroup);
 		return block;

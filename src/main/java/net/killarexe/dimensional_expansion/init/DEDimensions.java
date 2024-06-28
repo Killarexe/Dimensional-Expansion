@@ -12,7 +12,6 @@ public class DEDimensions {
     public static final ResourceKey<DimensionType> ORIGIN_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, ORIGIN.registry());
 
     public static void register(){
-        DEMod.LOGGER.info("Init Dimensional Expansion Dimensions");
         //It's just to initialize the constants...
     }
 }

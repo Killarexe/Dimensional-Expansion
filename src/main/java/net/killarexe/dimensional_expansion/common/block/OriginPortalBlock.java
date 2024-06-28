@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginPortalShape;
-import net.killarexe.dimensional_expansion.common.world.portal.OriginTeleporter;
 import net.killarexe.dimensional_expansion.init.DEDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,8 +20,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.level.portal.DimensionTransition;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class OriginPortalBlock extends NetherPortalBlock{
 
@@ -78,15 +78,18 @@ public class OriginPortalBlock extends NetherPortalBlock{
 	
 	@Override
 	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		if(!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions() && !pEntity.level().isClientSide) {
-			if(pEntity.isOnPortalCooldown()) {
-				pEntity.setPortalCooldown();
-			}else if(pEntity.level().dimension() != DEDimensions.ORIGIN) {
-				pEntity.setPortalCooldown();
-				teleport(pEntity, pPos, DEDimensions.ORIGIN);
-			}else {
-				pEntity.setPortalCooldown();
-				teleport(pEntity, pPos, Level.OVERWORLD);
+		ServerLevel level = pLevel.getServer().getLevel(DEDimensions.ORIGIN);
+		if (level != null) {
+			if (!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions(pLevel, level) && !pEntity.level().isClientSide) {
+				if (pEntity.isOnPortalCooldown()) {
+					pEntity.setPortalCooldown();
+				} else if (pEntity.level().dimension() != DEDimensions.ORIGIN) {
+					pEntity.setPortalCooldown();
+					teleport(pEntity, pPos, DEDimensions.ORIGIN);
+				} else {
+					pEntity.setPortalCooldown();
+					teleport(pEntity, pPos, Level.OVERWORLD);
+				}
 			}
 		}
 	}
@@ -94,9 +97,9 @@ public class OriginPortalBlock extends NetherPortalBlock{
 	private void teleport(Entity entity, BlockPos pos, ResourceKey<Level> dimension) {
 		ServerLevel level = entity.getServer().getLevel(dimension);
 		if(level != null) {
-			entity.changeDimension(level, new OriginTeleporter(level, pos));
+			entity.changeDimension(new DimensionTransition(level, entity, DimensionTransition.PLACE_PORTAL_TICKET));
 		}else {
-			DEMod.LOGGER.error("Dimension "+ dimension.toString() +" don't exsit!");
+            DEMod.LOGGER.error("Dimension {} don't exsit!", dimension);
 		}
 	}
 }

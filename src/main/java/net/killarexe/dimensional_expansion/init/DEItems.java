@@ -34,43 +34,43 @@ import java.util.function.Supplier;
 public class DEItems {
 
 	public static final HashMap<String, DECreativeTabs.Tabs> ITEM_TAB_MAP = new HashMap<>();
-	
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, DEMod.MOD_ID);
-    public static final Supplier<Item> RAW_PALON = createItem("raw_palon", DECreativeTabs.Tabs.MISC, false);
-    public static final Supplier<Item> PALON_INGOT = createItem("palon_ingot", DECreativeTabs.Tabs.MISC, false);
-    public static final Supplier<Item> PALON_NUGGET = createItem("palon_nugget", DECreativeTabs.Tabs.MISC, false);
+
+    public static final DeferredHolder<Item, Item> RAW_PALON = createItem("raw_palon", DECreativeTabs.Tabs.MISC, false);
+    public static final DeferredHolder<Item, Item> PALON_INGOT = createItem("palon_ingot", DECreativeTabs.Tabs.MISC, false);
+    public static final DeferredHolder<Item, Item> PALON_NUGGET = createItem("palon_nugget", DECreativeTabs.Tabs.MISC, false);
     public static final DeferredHolder<Item, FuelItem> PALON_MIXED_COAL = createFuelItem("palon_mixed_coal", 3200, DECreativeTabs.Tabs.MISC, false);
 
-    public static final Supplier<Item> BASSMITE_GEM = createItem("bassmite_gem", DECreativeTabs.Tabs.MISC, false);
+    public static final DeferredHolder<Item, Item> BASSMITE_GEM = createItem("bassmite_gem", DECreativeTabs.Tabs.MISC, false);
     public static final DeferredHolder<Item, SwordItem> BASSMITE_SWORD = createSwordItem("bassmite_sword", DEItemTier.BASSMITE, DECreativeTabs.Tabs.COMBAT, false);
     public static final DeferredHolder<Item, PickaxeItem> BASSMITE_PICKAXE = createPickaxeItem("bassmite_pickaxe", DEItemTier.BASSMITE, DECreativeTabs.Tabs.TOOLS, false);
     public static final DeferredHolder<Item, AxeItem> BASSMITE_AXE = createAxeItem("bassmite_axe", DEItemTier.BASSMITE, DECreativeTabs.Tabs.COMBAT, false);
     public static final DeferredHolder<Item, ShovelItem> BASSMITE_SHOVEL = createShovelItem("bassmite_shovel", DEItemTier.BASSMITE, DECreativeTabs.Tabs.TOOLS, false);
     public static final DeferredHolder<Item, HoeItem> BASSMITE_HOE = createHoeItem("bassmite_hoe", DEItemTier.BASSMITE, DECreativeTabs.Tabs.TOOLS, false);
-    public static final DeferredHolder<Item, ArmorItem> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterial.BASSMITE, ArmorItem.Type.HELMET, DECreativeTabs.Tabs.COMBAT, false);
-    public static final DeferredHolder<Item, ArmorItem> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterial.BASSMITE, ArmorItem.Type.CHESTPLATE, DECreativeTabs.Tabs.COMBAT, false);
-    public static final DeferredHolder<Item, ArmorItem> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterial.BASSMITE, ArmorItem.Type.LEGGINGS, DECreativeTabs.Tabs.COMBAT, false);
-    public static final DeferredHolder<Item, ArmorItem> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterial.BASSMITE, ArmorItem.Type.BOOTS, DECreativeTabs.Tabs.COMBAT, false);
-    public static final DeferredHolder<Item, AnimalArmorItem> BASSMITE_HORSE_ARMOR = createHorseArmorItem("bassmite_horse_armor", 10, "bassmite", DECreativeTabs.Tabs.COMBAT, false);
+    public static final DeferredHolder<Item, ArmorItem> BASSMITE_HELMET = createArmorItem("bassmite_helmet", DEArmorMaterials.BASSMITE, ArmorItem.Type.HELMET, DECreativeTabs.Tabs.COMBAT, false);
+    public static final DeferredHolder<Item, ArmorItem> BASSMITE_CHESTPLATE = createArmorItem("bassmite_chestplate", DEArmorMaterials.BASSMITE, ArmorItem.Type.CHESTPLATE, DECreativeTabs.Tabs.COMBAT, false);
+    public static final DeferredHolder<Item, ArmorItem> BASSMITE_LEGGINGS = createArmorItem("bassmite_leggings", DEArmorMaterials.BASSMITE, ArmorItem.Type.LEGGINGS, DECreativeTabs.Tabs.COMBAT, false);
+    public static final DeferredHolder<Item, ArmorItem> BASSMITE_BOOTS = createArmorItem("bassmite_boots", DEArmorMaterials.BASSMITE, ArmorItem.Type.BOOTS, DECreativeTabs.Tabs.COMBAT, false);
+    public static final DeferredHolder<Item, AnimalArmorItem> BASSMITE_HORSE_ARMOR = createHorseArmorItem("bassmite_horse_armor", DEArmorMaterials.BASSMITE, DECreativeTabs.Tabs.COMBAT, false);
     public static final DeferredHolder<Item, FuelItem> BASSMITE_MIXED_COAL = createFuelItem("bassmite_mixed_coal", 6400, DECreativeTabs.Tabs.MISC, false);
 
-    public static final Supplier<Item> RAW_SIMIX = createItem("raw_simix", DECreativeTabs.Tabs.MISC, true);
-    public static final Supplier<Item> SIMIX_INGOT = createItem("simix_ingot", DECreativeTabs.Tabs.MISC, true);
-    public static final Supplier<Item> SIMIX_NUGGET = createItem("simix_nugget", DECreativeTabs.Tabs.MISC, true);
-    public static final DeferredHolder<Item, Item> SIMIX_HAMMER = createItem("simix_hammer", SimixHammerItem::new, DECreativeTabs.Tabs.TOOLS);
+    public static final DeferredHolder<Item, Item> RAW_SIMIX = createItem("raw_simix", DECreativeTabs.Tabs.MISC, true);
+    public static final DeferredHolder<Item, Item> SIMIX_INGOT = createItem("simix_ingot", DECreativeTabs.Tabs.MISC, true);
+    public static final DeferredHolder<Item, Item> SIMIX_NUGGET = createItem("simix_nugget", DECreativeTabs.Tabs.MISC, true);
+    public static final DeferredHolder<Item, SimixHammerItem> SIMIX_HAMMER = createItem("simix_hammer", SimixHammerItem::new, DECreativeTabs.Tabs.TOOLS);
     public static final DeferredHolder<Item, FuelItem> SIMIX_MIXED_COAL = createFuelItem("simix_mixed_coal", 12800, DECreativeTabs.Tabs.MISC, true);
 
-    public static final Supplier<Item> EMERTYST_GEM = createItem("emertyst_gem", DECreativeTabs.Tabs.MISC, true);
+    public static final DeferredHolder<Item, Item> EMERTYST_GEM = createItem("emertyst_gem", DECreativeTabs.Tabs.MISC, true);
     public static final DeferredHolder<Item, SwordItem> EMERTYST_SWORD = createSwordItem("emertyst_sword", DEItemTier.EMERTYST, DECreativeTabs.Tabs.COMBAT, true);
     public static final DeferredHolder<Item, PickaxeItem> EMERTYST_PICKAXE = createPickaxeItem("emertyst_pickaxe", DEItemTier.EMERTYST, DECreativeTabs.Tabs.TOOLS, true);
     public static final DeferredHolder<Item, AxeItem> EMERTYST_AXE = createAxeItem("emertyst_axe", DEItemTier.EMERTYST, DECreativeTabs.Tabs.COMBAT, true);
     public static final DeferredHolder<Item, ShovelItem> EMERTYST_SHOVEL = createShovelItem("emertyst_shovel", DEItemTier.EMERTYST, DECreativeTabs.Tabs.TOOLS, true);
     public static final DeferredHolder<Item, HoeItem> EMERTYST_HOE = createHoeItem("emertyst_hoe", DEItemTier.EMERTYST, DECreativeTabs.Tabs.TOOLS, true);
-    public static final DeferredHolder<Item, ArmorItem> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterial.EMERTYST, ArmorItem.Type.HELMET, DECreativeTabs.Tabs.COMBAT, true);
-    public static final DeferredHolder<Item, ArmorItem> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterial.EMERTYST, ArmorItem.Type.CHESTPLATE, DECreativeTabs.Tabs.COMBAT, true);
-    public static final DeferredHolder<Item, ArmorItem> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterial.EMERTYST, ArmorItem.Type.LEGGINGS, DECreativeTabs.Tabs.COMBAT, true);
-    public static final DeferredHolder<Item, ArmorItem> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterial.EMERTYST, ArmorItem.Type.BOOTS, DECreativeTabs.Tabs.COMBAT, true);
-    public static final DeferredHolder<Item, AnimalArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.Tabs.COMBAT, true);
+    public static final DeferredHolder<Item, ArmorItem> EMERTYST_HELMET = createArmorItem("emertyst_helmet", DEArmorMaterials.EMERTYST, ArmorItem.Type.HELMET, DECreativeTabs.Tabs.COMBAT, true);
+    public static final DeferredHolder<Item, ArmorItem> EMERTYST_CHESTPLATE = createArmorItem("emertyst_chestplate", DEArmorMaterials.EMERTYST, ArmorItem.Type.CHESTPLATE, DECreativeTabs.Tabs.COMBAT, true);
+    public static final DeferredHolder<Item, ArmorItem> EMERTYST_LEGGINGS = createArmorItem("emertyst_leggings", DEArmorMaterials.EMERTYST, ArmorItem.Type.LEGGINGS, DECreativeTabs.Tabs.COMBAT, true);
+    public static final DeferredHolder<Item, ArmorItem> EMERTYST_BOOTS = createArmorItem("emertyst_boots", DEArmorMaterials.EMERTYST, ArmorItem.Type.BOOTS, DECreativeTabs.Tabs.COMBAT, true);
+    public static final DeferredHolder<Item, AnimalArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", DEArmorMaterials.EMERTYST, DECreativeTabs.Tabs.COMBAT, true);
     public static final DeferredHolder<Item, FuelItem> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.Tabs.MISC, true);
 
     public static final DeferredHolder<Item, PurpleBerry> PURPLE_BERRY = createItem("purple_berry", PurpleBerry::new, DECreativeTabs.Tabs.MISC);
@@ -84,7 +84,7 @@ public class DEItems {
     public static final DeferredHolder<Item, Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new BoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     public static final DeferredHolder<Item, Item> PURPLEHEART_CHEST_BOAT = createItem("purpleheart_chest_boat", () -> new ChestBoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEChestBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     
-    public static final DeferredHolder<Item, Item> SWEDEN_DISC = createDiscItem("sweden_disc", DEJukeboxSongs.SWEDEN_REMIX.getB(), DECreativeTabs.Tabs.MISC, 0);
+    public static final DeferredHolder<Item, Item> SWEDEN_DISC = createDiscItem("sweden_disc", DEJukeboxSongs.SWEDEN_REMIX, DECreativeTabs.Tabs.MISC);
 
     public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
@@ -98,16 +98,12 @@ public class DEItems {
 
     public static final DeferredHolder<Item, SmithingTemplateItem> EMERTYST_UPGRADE_SMITHING_TEMPLATE = createSmithingTransformItem("emertyst_upgrade_smithing_template", "emertyst", DECreativeTabs.Tabs.MISC);
 
-    public static <T extends Item> DeferredHolder<Item, T> createItem(String id, Supplier<T> item){
-    	return ITEMS.register(id, item);
-    }
-    
     public static <T extends Item> DeferredHolder<Item, T> createItem(String id, Supplier<T> item, DECreativeTabs.Tabs tab){
     	ITEM_TAB_MAP.put(id, tab);
     	return ITEMS.register(id, item);
     }
     
-    private static Supplier<Item> createItem(String id, DECreativeTabs.Tabs tab, boolean isFireProof){
+    private static DeferredHolder<Item, Item> createItem(String id, DECreativeTabs.Tabs tab, boolean isFireProof){
     	ITEM_TAB_MAP.put(id, tab);
     	if(isFireProof){
             return ITEMS.register(id, () -> new Item(new Item.Properties().fireResistant()));
@@ -180,7 +176,7 @@ public class DEItems {
         return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties()));
     }
 
-    private static Supplier<Item> createDiscItem(String id, ResourceKey<JukeboxSong> music, DECreativeTabs.Tabs tab){
+    private static DeferredHolder<Item, Item> createDiscItem(String id, ResourceKey<JukeboxSong> music, DECreativeTabs.Tabs tab){
         ITEM_TAB_MAP.put(id, tab);
         return ITEMS.register(id, () -> new Item(new Item.Properties().stacksTo(1).jukeboxPlayable(music)));
     }

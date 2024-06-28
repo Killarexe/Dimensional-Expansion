@@ -17,19 +17,20 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.ForgeAdvancementProvider.AdvancementGenerator;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class DEAdvancementGenerator implements AdvancementGenerator{
+public class DEAdvancementGenerator implements AdvancementProvider.AdvancementGenerator {
 
 	@Override
 	public void generate(Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
 		AdvancementHolder root = createRootAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
-				new ResourceLocation(DEMod.MOD_ID, "textures/block/palon_block.png"),
+				DEMod.res("textures/block/palon_block.png"),
 				"dimensional_expansion",
 				AdvancementType.TASK,
 				false,
@@ -44,7 +45,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				false
 		).addCriterion(
 				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.PALON_INGOT.get())
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_palon"));
+		).save(saver, DEMod.res("the_palon").toString());
 		
 		AdvancementHolder bassmite = createPreAdvancement(
 				DEItems.BASSMITE_GEM.get(),
@@ -54,7 +55,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				false
 		).addCriterion(
 				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.BASSMITE_GEM.get())
-		).save(saver, DEMod.res("bassmite"));
+		).save(saver, DEMod.res("bassmite").toString());
 		
 		AdvancementHolder simix = createPreAdvancement(
 				DEItems.SIMIX_INGOT.get(),
@@ -64,7 +65,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				false
 		).addCriterion(
 				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.SIMIX_INGOT.get())
-		).save(saver, DEMod.res("simix"));
+		).save(saver, DEMod.res("simix").toString());
 		
 		AdvancementHolder emertyst = createPreAdvancement(
 				DEItems.EMERTYST_GEM.get(),
@@ -74,7 +75,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				false
 		).addCriterion(
 				"has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEItems.EMERTYST_GEM.get())
-		).save(saver, DEMod.res("emertyst"));
+		).save(saver, DEMod.res("emertyst").toString());
 		
 		AdvancementHolder the_origin = createPreAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
@@ -84,7 +85,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				false
 		).addCriterion("is_in_dimension", PlayerTrigger.TriggerInstance.located(
 				LocationPredicate.Builder.inDimension(DEDimensions.ORIGIN)
-		)).save(saver, new ResourceLocation(DEMod.MOD_ID, "the_origin"));
+		)).save(saver, DEMod.res("the_origin").toString());
 		
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_LOG.get(),
@@ -93,7 +94,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				the_origin,
 				false
 		).addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(DEBlocks.PURPLEHEART_LOG.get()))
-		.save(saver, new ResourceLocation(DEMod.MOD_ID, "purpleheart_wood"));
+		.save(saver, DEMod.res("purpleheart_wood").toString());
 		
 		createPreAdvancement(
 				DEItems.EMERTYST_CHESTPLATE.get(),
@@ -107,7 +108,7 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 				DEItems.EMERTYST_CHESTPLATE.get(),
 				DEItems.EMERTYST_LEGGINGS.get(),
 				DEItems.EMERTYST_BOOTS.get())
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "cover_me_with_emertyst"));
+		).save(saver, DEMod.res("cover_me_with_emertyst").toString());
 
 		createPreAdvancement(
 				DEItems.ORIGIN_PORTAL_KEY.get(),
@@ -118,9 +119,9 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.Builder.inStructure(DEStructures.ABANDONNED_PORTAL)
+						LocationPredicate.Builder.inStructure(registries.lookupOrThrow(Registries.STRUCTURE).getOrThrow(DEStructures.ABANDONNED_PORTAL))
 				)
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "origin_abandonned_portal"));
+		).save(saver, DEMod.res("origin_abandonned_portal").toString());
 		
 		createPreAdvancement(
 				DEBlocks.PURPLEHEART_SAPLING.get(),
@@ -131,16 +132,16 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.Builder.inStructure(DEStructures.VILLAGE_ORIGIN_PLAINS)
+						LocationPredicate.Builder.inStructure(registries.lookupOrThrow(Registries.STRUCTURE).getOrThrow(DEStructures.VILLAGE_ORIGIN_PLAINS))
 				)
-		).save(saver, new ResourceLocation(DEMod.MOD_ID, "village_origin_plains"));
+		).save(saver, DEMod.res("village_origin_plains").toString());
 	}
 
 	@SuppressWarnings("unused")
 	private AdvancementHolder createAdvancement(ItemLike icon, String name, AdvancementType type, AdvancementHolder parent, boolean hidden, Consumer<AdvancementHolder> saver) {
 		return createPreAdvancement(icon, name, type, parent, hidden)
 				.addCriterion("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(icon))
-				.save(saver, new ResourceLocation(DEMod.MOD_ID, name));
+				.save(saver, DEMod.res(name).toString());
 	}
 	
 	private Advancement.Builder createPreAdvancement(ItemLike icon, String name, AdvancementType type, AdvancementHolder parent, boolean hidden) {
@@ -168,6 +169,6 @@ public class DEAdvancementGenerator implements AdvancementGenerator{
 					true,
 					true,
 					hidden
-				).addCriterion("tick", PlayerTrigger.TriggerInstance.tick()).save(saver, new ResourceLocation(DEMod.MOD_ID, name));
+				).addCriterion("tick", PlayerTrigger.TriggerInstance.tick()).save(saver, DEMod.res(name).toString());
 	}
 }

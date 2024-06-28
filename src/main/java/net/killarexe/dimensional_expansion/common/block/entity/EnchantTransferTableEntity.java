@@ -2,16 +2,17 @@ package net.killarexe.dimensional_expansion.common.block.entity;
 
 import java.util.Map;
 
-import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -22,10 +23,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EnchantTransferTableEntity extends InventoryBlockEntity{
+public class EnchantTransferTableEntity extends InventoryBlockEntity {
 	
 	public EnchantTransferTableEntity(BlockPos pos, BlockState state) {
 		super(DEBlockEntityTypes.ENCHANT_TRANSFER_TABLE.get(), pos, state, 2);
@@ -81,7 +81,7 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity{
 		}
 		boolean transferedEnchant = false;
 		ItemStack copy = new ItemStack(enchantedItem.getItem());
-		for(Map.Entry<Enchantment, Integer> entry: enchantedItem.getAllEnchantments().entrySet()) {
+		for(Object2IntMap.Entry<Holder<Enchantment>> entry: enchantedItem.getAllEnchantments().entrySet()) {
 			if(entry.getKey().canEnchant(targetItem) && !targetItem.getAllEnchantments().containsKey(entry.getKey())){
 				targetItem.enchant(entry.getKey(), entry.getValue());
 				transferedEnchant = true;

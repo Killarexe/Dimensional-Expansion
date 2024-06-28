@@ -31,7 +31,7 @@ public class DESoundDefinitions extends SoundDefinitionsProvider {
 		
 		addMusicDisc(DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, "sweden_remix");
 		
-		addMusic(DESoundEvents.ORIGIN_MUSIC, null, "nightly_walk", "seeing_the_stars", "the_origin");
+		addMusic(DESoundEvents.ORIGIN_MUSIC, "origin_music", "nightly_walk", "seeing_the_stars", "the_origin");
 	}
 	
 	private void addEntitySound(Supplier<SoundEvent> sound, String entityId, String title, String... files) {

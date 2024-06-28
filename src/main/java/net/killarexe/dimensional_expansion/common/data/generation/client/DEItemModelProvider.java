@@ -6,11 +6,14 @@ import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.ForgeSpawnEggItem;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
+
+import java.util.function.Supplier;
 
 public class DEItemModelProvider extends ItemModelProvider {
     public DEItemModelProvider(PackOutput generator, ExistingFileHelper helper) {
@@ -137,23 +140,23 @@ public class DEItemModelProvider extends ItemModelProvider {
         
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
         oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");
-        oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS, new ResourceLocation(DEMod.MOD_ID, "origin_tall_grass_top"), false, "block");
+        oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS, DEMod.res("origin_tall_grass_top"), false, "block");
     }
 
-    private <T extends Block> void simpleBlockItem(RegistryObject<T> block){
-        getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath())));
+    private <T extends Block> void simpleBlockItem(DeferredHolder<Block, T> block){
+        getBuilder(block.getId().toString()).parent(getExistingFile(DEMod.res("block/" + block.getId().getPath())));
     }
 
-    private <T extends Block> void inventoryItem(RegistryObject<T> block) {
-    	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_inventory")));
+    private <T extends Block> void inventoryItem(DeferredHolder<Block, T> block) {
+    	getBuilder(block.getId().toString()).parent(getExistingFile(DEMod.res("block/" + block.getId().getPath() + "_inventory")));
     }
 
-    private <T extends Block> void trapDoorItem(RegistryObject<T> block) {
-    	getBuilder(block.getId().toString()).parent(getExistingFile(new ResourceLocation(DEMod.MOD_ID, "block/" + block.getId().getPath() + "_bottom")));
+    private <T extends Block> void trapDoorItem(DeferredHolder<Block, T> block) {
+    	getBuilder(block.getId().toString()).parent(getExistingFile(DEMod.res("block/" + block.getId().getPath() + "_bottom")));
     }
 
-    private void oneLayerItem(RegistryObject<?> item, ResourceLocation texture, boolean handheld, String baseDir){
-        ResourceLocation itemTexture = new ResourceLocation(texture.getNamespace(), baseDir + "/" + texture.getPath());
+    private void oneLayerItem(DeferredHolder<?, ?> item, ResourceLocation texture, boolean handheld, String baseDir){
+        ResourceLocation itemTexture = DEMod.res(baseDir + "/" + texture.getPath());
         if(existingFileHelper.exists(itemTexture, PackType.CLIENT_RESOURCES, ".png", "textures")){
             if(!handheld) {
                 getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/generated"))).texture("layer0", itemTexture);
@@ -165,19 +168,19 @@ public class DEItemModelProvider extends ItemModelProvider {
         }
     }
     
-    private void spawnEgg(RegistryObject<ForgeSpawnEggItem> item) {
+    private void spawnEgg(DeferredHolder<Item, ? extends DeferredSpawnEggItem> item) {
     	getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/template_spawn_egg")));
     }
 
-    private void oneLayerItem(RegistryObject<?> item, boolean handheld){
+    private void oneLayerItem(DeferredHolder<?, ?> item, boolean handheld){
         oneLayerItem(item, item.getId(), handheld, "item");
     }
 
-    private void oneLayerItem(RegistryObject<?> item){
+    private void oneLayerItem(DeferredHolder<?, ?> item){
         oneLayerItem(item, false);
     }
-    
-    private void oneLayerItem(RegistryObject<?> item, String baseDir) {
-    	oneLayerItem(item, item.getId(), false, baseDir);
+
+    private void oneLayerItem(DeferredHolder<?, ?> item, String baseDir) {
+        oneLayerItem(item, item.getId(), false, baseDir);
     }
 }

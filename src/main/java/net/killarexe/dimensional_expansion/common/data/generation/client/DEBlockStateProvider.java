@@ -7,10 +7,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DEBlockStateProvider extends BlockStateProvider {
 
@@ -56,8 +56,8 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		pressurePlateBlock(SULFUR_STONE_PRESSURE_PLATE.get(), blockTexture(SULFUR_STONE.get()));
 
 		doorBlockWithRenderType(PURPLEHEART_DOOR.get(),
-				new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_bottom"),
-				new ResourceLocation(blockTexture(PURPLEHEART_DOOR.get()) + "_top"), "cutout");
+				ResourceLocation.parse(blockTexture(PURPLEHEART_DOOR.get()) + "_bottom"),
+				ResourceLocation.parse(blockTexture(PURPLEHEART_DOOR.get()) + "_top"), "cutout");
 
 		trapdoorBlockWithRenderType(PURPLEHEART_TRAPDOOR.get(), blockTexture(PURPLEHEART_TRAPDOOR.get()), true, "cutout");
 
@@ -76,14 +76,14 @@ public class DEBlockStateProvider extends BlockStateProvider {
 
 		crossBlock(PURPLE_BERRY_DEAD_BUSH, blockTexture(PURPLE_BERRY_DEAD_BUSH.get()));
 
-		doublePlantBlock(ORIGIN_TALL_GRASS, new ResourceLocation(blockTexture(ORIGIN_TALL_GRASS.get()) + "_top"),
-				new ResourceLocation(blockTexture(ORIGIN_TALL_GRASS.get()) + "_bottom"));
+		doublePlantBlock(ORIGIN_TALL_GRASS, ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_top"),
+				ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_bottom"));
 
 		getVariantBuilder(BLUE_SANDSTONE.get()).partialState()
 				.setModels(new ConfiguredModel(
 						models().cubeBottomTop(BLUE_SANDSTONE.getId().getPath(), blockTexture(BLUE_SANDSTONE.get()),
-								new ResourceLocation(blockTexture(BLUE_SANDSTONE.get()) + "_bottom"),
-								new ResourceLocation(blockTexture(BLUE_SANDSTONE.get()) + "_top"))));
+								ResourceLocation.parse(blockTexture(BLUE_SANDSTONE.get()) + "_bottom"),
+								ResourceLocation.parse(blockTexture(BLUE_SANDSTONE.get()) + "_top"))));
 
 		getVariantBuilder(ORIGIN_FARMLAND.get()).partialState()
 				.setModels(new ConfiguredModel(
@@ -92,9 +92,9 @@ public class DEBlockStateProvider extends BlockStateProvider {
 
 		getVariantBuilder(ORIGIN_GRASS_BLOCK.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(ORIGIN_GRASS_BLOCK.getId().getPath(),
-						new ResourceLocation(blockTexture(ORIGIN_GRASS_BLOCK.get()) + "_side"),
+						ResourceLocation.parse(blockTexture(ORIGIN_GRASS_BLOCK.get()) + "_side"),
 						blockTexture(ORIGIN_DIRT.get()),
-						new ResourceLocation(blockTexture(ORIGIN_GRASS_BLOCK.get()) + "_top"))));
+						ResourceLocation.parse(blockTexture(ORIGIN_GRASS_BLOCK.get()) + "_top"))));
 		
 		getVariantBuilder(PURPLEHEART_BOOKSHELF.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(PURPLEHEART_BOOKSHELF.getId().getPath(),
@@ -103,24 +103,24 @@ public class DEBlockStateProvider extends BlockStateProvider {
 
 		getVariantBuilder(DISPLAY_BLOCK.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(DISPLAY_BLOCK.getId().getPath(),
-						new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
+						ResourceLocation.parse(blockTexture(DISPLAY_BLOCK.get()) + "_side"),
 						blockTexture(Blocks.END_STONE),
-						new ResourceLocation(blockTexture(DISPLAY_BLOCK.get()) + "_top"))));
+						ResourceLocation.parse(blockTexture(DISPLAY_BLOCK.get()) + "_top"))));
 	}
 
-	private void wallInventoryBlock(RegistryObject<? extends WallBlock> block, ResourceLocation texture) {
+	private void wallInventoryBlock(DeferredHolder<Block, ? extends WallBlock> block, ResourceLocation texture) {
 		WallBlock wallBlock = block.get();
 		wallBlock(wallBlock, texture);
 		getMultipartBuilder(wallBlock).part()
 				.modelFile(models().wallInventory(block.getId().getPath() + "_inventory", texture)).addModel();
 	}
 
-	private void crossBlock(RegistryObject<? extends Block> block, ResourceLocation texture) {
+	private void crossBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
 		getVariantBuilder(block.get()).partialState()
 				.setModels(new ConfiguredModel(models().cross(block.getId().getPath(), texture).renderType("cutout")));
 	}
 
-	private void doublePlantBlock(RegistryObject<? extends DoublePlantBlock> block, ResourceLocation top,
+	private void doublePlantBlock(DeferredHolder<Block, ? extends DoublePlantBlock> block, ResourceLocation top,
 			ResourceLocation bottom) {
 		getVariantBuilder(block.get()).partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
 				.addModels(new ConfiguredModel(models().cross(block.getId().getPath() + "_bottom", bottom).renderType("cutout")))

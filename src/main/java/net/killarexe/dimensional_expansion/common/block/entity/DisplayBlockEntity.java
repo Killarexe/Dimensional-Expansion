@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.block.entity;
 
 import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -69,7 +70,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     }
 
     @Override
-    public void load(CompoundTag compound) {
+    public void load(HolderLookup.Provider provider, CompoundTag compound) {
         final CompoundTag inventory = compound.getCompound("Inventory");
         this.inventory.setSize(
                 inventory.contains("Size", Tag.TAG_INT) ? inventory.getInt("Size") : this.inventory.getSlots());
@@ -84,7 +85,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
             final int slot = itemTags.getInt("Slot");
 
             if (slot >= 0 && slot < this.inventory.getSlots()) {
-                final var stack = ItemStack.of(itemTags);
+                final var stack = ItemStack.parseOptional(provider, itemTags);
                 stack.setCount(itemTags.getInt("RealCount"));
                 this.inventory.setStackInSlot(slot, stack);
             }
@@ -105,7 +106,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
 
         if (currentCount != current.getCount()) {
             copy.setCount(1);
-            final var item = new ItemEntity(this.level, player.getX(), player.getY() + 0.5D, player.getZ(), copy);
+            final ItemEntity item = new ItemEntity(this.level, player.getX(), player.getY() + 0.5D, player.getZ(), copy);
             this.level.addFreshEntity(item);
             update();
             return true;
@@ -133,7 +134,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
 
         if (currentCount != current.getCount() && count != 0) {
             copy.setCount(count);
-            final var item = new ItemEntity(this.level, player.getX(), player.getY() + 0.5D, player.getZ(), copy);
+            final ItemEntity item = new ItemEntity(this.level, player.getX(), player.getY() + 0.5D, player.getZ(), copy);
             this.level.addFreshEntity(item);
             update();
             return true;
@@ -143,13 +144,13 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     }
 
     @Override
-    public void saveAdditional(CompoundTag compound) {
-        final var items = new ListTag();
+    public void saveAdditional(HolderLookup.Provider provider, CompoundTag compound) {
+        final ListTag items = new ListTag();
         for (int slot = 0; slot < this.inventory.getSlots(); slot++) {
             if (!this.inventory.getStackInSlot(slot).isEmpty()) {
-                final var item = new CompoundTag();
+                final CompoundTag item = new CompoundTag();
                 item.putInt("Slot", slot);
-                this.inventory.getStackInSlot(slot).save(item);
+                this.inventory.getStackInSlot(slot).save(provider, item);
                 item.putInt("RealCount", this.inventory.getStackInSlot(slot).getCount());
                 items.add(item);
             }

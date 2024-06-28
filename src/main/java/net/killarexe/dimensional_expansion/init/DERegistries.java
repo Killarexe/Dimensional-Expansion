@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.init;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.neoforged.bus.api.IEventBus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +13,7 @@ public class DERegistries {
 		LOGGER.debug("Init Dimensional Expansion Sound Events");
 		DESoundEvents.SOUND_EVENTS.register(bus);
         LOGGER.debug("Init Dimensional Expansion Jukebox Sounds");
-        DEJukeboxSongs.JUKEBOX_SONG.register(bus);
+        DEJukeboxSongs.register();
         LOGGER.info("Init Dimensional Expansion Creative Tabs");
         DECreativeTabs.CREATIVE_MOD_TABS.register(bus);
         LOGGER.debug("Init Dimensional Expansion Villager Types");
@@ -27,8 +28,10 @@ public class DERegistries {
         LOGGER.debug("Init Dimensional Expansion Entities");
         DEEntityTypes.ENTITY_TYPES.register(bus);
         LOGGER.debug("Init Dimensional Expansion Biomes");
-        DEBiomes.BIOMES.register(bus);
+        DEBiomes.register();
+        DEMod.LOGGER.info("Init Dimensional Expansion Dimensions");
         DEDimensions.register();
+        DEMod.LOGGER.info("Init Dimensional Expansion Structures");
         DEStructures.register();
 	}
 }

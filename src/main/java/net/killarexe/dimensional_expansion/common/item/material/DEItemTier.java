@@ -1,18 +1,18 @@
 package net.killarexe.dimensional_expansion.common.item.material;
 
 import net.killarexe.dimensional_expansion.init.DEItems;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
 public enum DEItemTier implements Tier {
-	BASSMITE(5, 3096, 9.5f, 4.5f, 17, () -> {
-		return Ingredient.of(DEItems.BASSMITE_GEM.get());
-	}),
-	EMERTYST(6, 4096, 10.0f, 5f, 20, () -> {
-		return Ingredient.of(DEItems.EMERTYST_GEM.get());
-	});
+	BASSMITE(5, 3096, 9.5f, 4.5f, 17, () -> Ingredient.of(DEItems.BASSMITE_GEM.get())),
+	EMERTYST(6, 4096, 10.0f, 5f, 20, () -> Ingredient.of(DEItems.EMERTYST_GEM.get()));
 
 	private final int level;
 	private final int uses;
@@ -21,13 +21,13 @@ public enum DEItemTier implements Tier {
 	private final int enchantmentValue;
 	private final Supplier<Ingredient> repairIngredient;
 
-	DEItemTier(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
-		this.level = p_43332_;
-		this.uses = p_43333_;
-		this.speed = p_43334_;
-		this.damage = p_43335_;
-		this.enchantmentValue = p_43336_;
-		this.repairIngredient = p_43337_;
+	DEItemTier(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+		this.level = level;
+		this.uses = uses;
+		this.speed = speed;
+		this.damage = damage;
+		this.enchantmentValue = enchantmentValue;
+		this.repairIngredient = repairIngredient;
 	}
 
 	public int getUses() {
@@ -42,6 +42,11 @@ public enum DEItemTier implements Tier {
 		return this.damage;
 	}
 
+	@Override
+	public TagKey<Block> getIncorrectBlocksForDrops() {
+		return BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
+	}
+
 	public int getLevel() {
 		return this.level;
 	}
@@ -52,5 +57,10 @@ public enum DEItemTier implements Tier {
 
 	public Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
+	}
+
+	@Override
+	public Tool createToolProperties(TagKey<Block> pBlock) {
+		return Tier.super.createToolProperties(pBlock);
 	}
 }

@@ -21,4 +21,8 @@ public class DEBiomes {
         }
         return biome;
     }
+
+    public static void register() {
+
+    }
 }

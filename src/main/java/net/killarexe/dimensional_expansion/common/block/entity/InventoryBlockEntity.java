@@ -2,7 +2,7 @@ package net.killarexe.dimensional_expansion.common.block.entity;
 
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
@@ -13,10 +13,10 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.util.Lazy;
+import net.neoforged.neoforge.items.ItemStackHandler;
+
+import java.util.Optional;
 
 public class InventoryBlockEntity extends BlockEntity{
 
@@ -25,34 +25,24 @@ public class InventoryBlockEntity extends BlockEntity{
     protected boolean requiresUpdate;
 
     public final ItemStackHandler inventory;
-    protected LazyOptional<ItemStackHandler> handler;
+    protected Optional<Lazy<ItemStackHandler>> handler;
 
     public InventoryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int size) {
         super(type, pos, state);
         this.size = size;
         this.inventory = createInventory();
-        this.handler = LazyOptional.of(() -> this.inventory);
+        this.handler = Optional.of(Lazy.of(() -> this.inventory));
     }
 
     public ItemStack extractItem(int slot) {
         final int count = getItemInSlot(slot).getCount();
         this.requiresUpdate = true;
-        return this.handler.map(inv -> inv.extractItem(slot, count, false)).orElse(ItemStack.EMPTY);
-    }
-
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
-        return cap == ForgeCapabilities.ITEM_HANDLER ? this.handler.cast()
-                : super.getCapability(cap, side);
-    }
-
-    public LazyOptional<ItemStackHandler> getHandler() {
-        return this.handler;
+        return this.handler.map(inv -> inv.get().extractItem(slot, count, false)).orElse(ItemStack.EMPTY);
     }
 
     public ItemStack getItemInSlot(int slot) {
         this.requiresUpdate = true;
-        return this.handler.map(inv -> inv.getStackInSlot(slot)).orElse(ItemStack.EMPTY);
+        return this.handler.map(inv -> inv.get().getStackInSlot(slot)).orElse(ItemStack.EMPTY);
     }
 
     @Override
@@ -61,42 +51,36 @@ public class InventoryBlockEntity extends BlockEntity{
     }
 
     @Override
-    public CompoundTag getUpdateTag() {
-        return serializeNBT();
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return serializeAttachments(pRegistries);
     }
 
     @Override
-    public void handleUpdateTag(CompoundTag tag) {
-        super.handleUpdateTag(tag);
-        load(tag);
+    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider lookupProvider) {
+        super.handleUpdateTag(tag, lookupProvider);
+        loadAdditional(tag, lookupProvider);
     }
 
     public ItemStack insertItem(int slot, ItemStack stack) {
         final ItemStack copy = stack.copy();
         stack.shrink(copy.getCount());
         this.requiresUpdate = true;
-        return this.handler.map(inv -> inv.insertItem(slot, copy, false)).orElse(ItemStack.EMPTY);
+        return this.handler.map(inv -> inv.get().insertItem(slot, copy, false)).orElse(ItemStack.EMPTY);
     }
 
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        this.handler.invalidate();
+    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        super.loadAdditional(pTag, pRegistries);
+        this.inventory.deserializeNBT(pRegistries, pTag.getCompound("Inventory"));
     }
 
     @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        this.inventory.deserializeNBT(tag.getCompound("Inventory"));
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider lookupProvider) {
+        super.onDataPacket(net, pkt, lookupProvider);
+        handleUpdateTag(pkt.getTag(), lookupProvider);
     }
 
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-        super.onDataPacket(net, pkt);
-        handleUpdateTag(pkt.getTag());
-    }
-    
-	public void tick() {
+    public void tick() {
         this.timer++;
         if (this.requiresUpdate && this.level != null) {
             update();
@@ -115,9 +99,9 @@ public class InventoryBlockEntity extends BlockEntity{
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag) {
-        super.saveAdditional(tag);
-        tag.put("Inventory", this.inventory.serializeNBT());
+    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        super.saveAdditional(pTag, pRegistries);
+        pTag.put("Inventory", this.inventory.serializeNBT(pRegistries));
     }
 
     public int getLightLevel(){

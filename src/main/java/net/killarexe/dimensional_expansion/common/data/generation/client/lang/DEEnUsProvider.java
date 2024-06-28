@@ -5,7 +5,7 @@ import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.killarexe.dimensional_expansion.init.DEEntityTypes;
 import net.killarexe.dimensional_expansion.init.DEItems;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class DEEnUsProvider extends LanguageProvider {
 

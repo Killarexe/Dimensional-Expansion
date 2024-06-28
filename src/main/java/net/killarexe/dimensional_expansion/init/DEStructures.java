@@ -12,11 +12,10 @@ public class DEStructures {
 	public static final ResourceKey<Structure> VILLAGE_ORIGIN_PLAINS = createStructure("village_origin_plains");
 	
 	public static ResourceKey<Structure> createStructure(String name){
-		return ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(DEMod.MOD_ID, name));
+		return ResourceKey.create(Registries.STRUCTURE, DEMod.res(name));
 	}
 	
 	public static void register(){
-		DEMod.LOGGER.info("Init Dimensional Expansion Structures");
         //It's just to initialize the constants...
 	}
 }
