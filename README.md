@@ -16,7 +16,7 @@ The mod got currently an OST made my me(of course) that also working in progress
 
 [![Curseforge](http://cf.way2muchnoise.eu/versions/453574.svg)](https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion)
 [![Curseforge](http://cf.way2muchnoise.eu/full_453574_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/dimensional-expansion)
-[![ModRinth](https://modrinth-utils.vercel.app/api/badge/downloads?id=FSZZfnxw&logo=true)](https://modrinth.com/mod/dimensional-expansion)
+[![ModRinth](https://img.shields.io/modrinth/dt/FSZZfnxw?logo=modrinth)](https://modrinth.com/mod/dimensional-expansion)
 
 Also You can find a Trello bord [here](https://trello.com/b/kfmjAh6g/dimensional-expansion)
 
