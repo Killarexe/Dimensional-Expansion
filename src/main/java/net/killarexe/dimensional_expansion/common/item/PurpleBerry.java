@@ -14,7 +14,7 @@ public class PurpleBerry extends ItemNameBlockItem{
 	public PurpleBerry() {
 		super(
 			DEBlocks.PURPLE_BERRY_BUSH.get(),
-			new Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(1).build())
+			new Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(1).build())
 		);
 	}
 

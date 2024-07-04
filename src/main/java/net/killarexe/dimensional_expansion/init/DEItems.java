@@ -15,11 +15,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -117,15 +114,6 @@ public class DEItems {
             return ITEMS.register(id, () -> new FuelItem(new Item.Properties().fireResistant(), burnTime));
         }
         return ITEMS.register(id, () -> new FuelItem(new Item.Properties(), burnTime));
-    }
-
-    @SuppressWarnings("unused")
-	private static DeferredHolder<Item, Item> createFoodItem(String id, float staturation, int nutrition, Holder<MobEffect> effect, int level, int duration, float probability, DECreativeTabs.Tabs tab, boolean isFireProof){
-    	ITEM_TAB_MAP.put(id, tab);
-    	if(isFireProof){
-            return ITEMS.register(id, () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationModifier(staturation).alwaysEdible().nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build()).fireResistant()));
-        }
-        return ITEMS.register(id, () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationModifier(staturation).alwaysEdible().nutrition(nutrition).effect(() ->  new MobEffectInstance(effect, level, duration), probability).build())));
     }
 
     private static DeferredHolder<Item, SwordItem> createSwordItem(String id, Tier tier, DECreativeTabs.Tabs tab, boolean isFireProof){

@@ -31,20 +31,20 @@ public class AbstractBoatRenderer extends BoatRenderer {
     }
     
     private ListModel<Boat> createBoatModel(EntityRendererProvider.Context context) {
-    	ModelLayerLocation model = new ModelLayerLocation(new ResourceLocation("minecraft", "boat/oak"), "main");
+    	ModelLayerLocation model = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("boat/oak"), "main");
         if(has_chest) {
-        	model = new ModelLayerLocation(new ResourceLocation("minecraft", "chest_boat/oak"), "main");
+        	model = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("chest_boat/oak"), "main");
         }
         ModelPart modelpart = context.bakeLayer(model);
         if(style == Style.BAMBOO) {
-        	return (ListModel<Boat>)(has_chest ? new ChestRaftModel(modelpart) : new RaftModel(modelpart));
+        	return has_chest ? new ChestRaftModel(modelpart) : new RaftModel(modelpart);
         }
-        return (ListModel<Boat>)(has_chest ? new ChestBoatModel(modelpart) : new BoatModel(modelpart));
+        return has_chest ? new ChestBoatModel(modelpart) : new BoatModel(modelpart);
     }
     
     @Override
     public Pair<ResourceLocation, ListModel<Boat>> getModelWithLocation(Boat boat) {
-    	return Pair.of(new ResourceLocation(DEMod.MOD_ID, textureLocation), models);
+    	return Pair.of(DEMod.res(textureLocation), models);
     }
     
     public enum Style{

@@ -52,23 +52,28 @@ public class Mouvet extends Animal{
 	}
 	
 	@Override
-	protected void defineSynchedData() {
-		entityData.define(CURRENT_ITEM, ItemStack.EMPTY);
-		super.defineSynchedData();
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		entityData.set(CURRENT_ITEM, ItemStack.EMPTY);
+		super.defineSynchedData(builder);
 	}
 	
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
-		pCompound.put("current_item", getCurrentItem().serializeNBT());
+		pCompound.put("current_item", getCurrentItem().save(registryAccess()));
 		super.addAdditionalSaveData(pCompound);
 	}
-	
+
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
-		setCurrentItem(ItemStack.of(pCompound.getCompound("current_item")));
+		setCurrentItem(ItemStack.parseOptional(registryAccess(), pCompound.getCompound("current_item")));
 		super.readAdditionalSaveData(pCompound);
 	}
-	
+
+	@Override
+	public boolean isFood(ItemStack pStack) {
+		return false;
+	}
+
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
 		return this;

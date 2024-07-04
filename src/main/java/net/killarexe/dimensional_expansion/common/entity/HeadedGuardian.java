@@ -1,14 +1,12 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -30,15 +28,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 public class HeadedGuardian extends AbstractGolem implements RangedAttackMob{
 
-	public static final AttributeSupplier.Builder ATTRIBUTES = createLivingAttributes()
-			.add(Attributes.MOVEMENT_SPEED, 0.0f)
-			.add(Attributes.KNOCKBACK_RESISTANCE, 10.0f)
-			.add(Attributes.JUMP_STRENGTH, 0.0f)
-			.add(Attributes.MAX_HEALTH, 30.0f);
-	
 	public HeadedGuardian(EntityType<? extends HeadedGuardian> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
@@ -53,16 +46,12 @@ public class HeadedGuardian extends AbstractGolem implements RangedAttackMob{
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true));
 	}
 
+	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, SpawnGroupData pSpawnData, CompoundTag pDataTag) {
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-		this.goalSelector.addGoal(4, new RangedBowAttackGoal<HeadedGuardian>(this, 1.0D, 20, 15.0F));
-		return pSpawnData;
-	}
-	
-	@Override
-	public MobType getMobType() {
-		return MobType.UNDEAD;
+		this.goalSelector.addGoal(4, new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F));
+		return pSpawnGroupData;
 	}
 
 	protected void playStepSound(BlockPos pPos, BlockState pBlock) {
@@ -72,9 +61,9 @@ public class HeadedGuardian extends AbstractGolem implements RangedAttackMob{
 	@Override
 	public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
 	    ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem)));
-	    AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack, pVelocity);
+	    AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack, pVelocity, null);
 	    if (this.getMainHandItem().getItem() instanceof BowItem) {
-	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
+	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow, null);
 	    }
 	    double d0 = pTarget.getX() - this.getX();
 	    double d1 = pTarget.getY(0.33333333333D) - abstractarrow.getY() - 0.5F;

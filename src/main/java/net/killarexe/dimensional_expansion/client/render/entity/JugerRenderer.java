@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 
 public class JugerRenderer<T extends Juger> extends MobRenderer<T, JugerModel<T>>{
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(DEMod.MOD_ID, "textures/entity/juger.png");
+	public static final ResourceLocation TEXTURE = DEMod.res("textures/entity/juger.png");
 	
 	public JugerRenderer(Context pContext) {
 		super(pContext, new JugerModel<>(pContext.bakeLayer(JugerModel.LAYER_LOCATION)), 1.0f);

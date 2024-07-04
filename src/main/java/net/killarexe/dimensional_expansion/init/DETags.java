@@ -8,16 +8,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class DETags {
-	
-	public static final TagKey<Biome> IS_ORIGIN = createBiomeTag("is_origin");
-	public static final TagKey<Block> END_STONE_ORE_REPLACEABLES = createBlockTag("end_stone_ore_replaceables");
-	public static final TagKey<Block> SULFUR_STONE_ORE_REPLACEABLES = createBlockTag("sulfur_stone_ore_replaceables");
-	
-	private static TagKey<Block> createBlockTag(String pName) {
-		return TagKey.create(Registries.BLOCK, new ResourceLocation(DEMod.MOD_ID, pName));
-	}
-	
-	private static TagKey<Biome> createBiomeTag(String pName) {
-		return TagKey.create(Registries.BIOME, new ResourceLocation(DEMod.MOD_ID, pName));
-	}
+	public static final TagKey<Biome> IS_ORIGIN = TagKey.create(Registries.BIOME, DEMod.res("is_origin"));
+	public static final TagKey<Block> END_STONE_ORE_REPLACEABLES = TagKey.create(Registries.BLOCK, DEMod.res("end_stone_ore_replaceables"));
+	public static final TagKey<Block> SULFUR_STONE_ORE_REPLACEABLES = TagKey.create(Registries.BLOCK, DEMod.res("sulfur_stone_ore_replaceables"));
 }

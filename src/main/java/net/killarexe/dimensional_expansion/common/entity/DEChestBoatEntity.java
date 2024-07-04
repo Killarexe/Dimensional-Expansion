@@ -44,9 +44,9 @@ public class DEChestBoatEntity extends ChestBoat {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(DATA_ID_TYPE, Type.PURPLEHEART.ordinal());
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        entityData.set(DATA_ID_TYPE, Type.PURPLEHEART.ordinal());
     }
 
     @Override

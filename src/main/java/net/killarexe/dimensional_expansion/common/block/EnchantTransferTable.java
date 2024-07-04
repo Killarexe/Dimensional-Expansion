@@ -3,8 +3,9 @@ package net.killarexe.dimensional_expansion.common.block;
 import net.killarexe.dimensional_expansion.common.block.entity.EnchantTransferTableEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -50,7 +51,7 @@ public class EnchantTransferTable extends Block implements EntityBlock{
 	}
 	
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+	protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
 		if(!pLevel.isClientSide && pLevel.getBlockEntity(pPos) instanceof EnchantTransferTableEntity blockEntity) {
 			if(pPlayer.isCrouching()) {
 				blockEntity.prependItem(pPlayer);
@@ -61,8 +62,8 @@ public class EnchantTransferTable extends Block implements EntityBlock{
 					blockEntity.appendItem(pPlayer, pPlayer.getItemInHand(pHand));
 				}
 			}
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
-		return InteractionResult.sidedSuccess(true);
+		return ItemInteractionResult.sidedSuccess(true);
 	}
 }

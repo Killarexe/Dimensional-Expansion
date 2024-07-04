@@ -70,11 +70,11 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     }
 
     @Override
-    public void load(HolderLookup.Provider provider, CompoundTag compound) {
+    public void loadAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         final CompoundTag inventory = compound.getCompound("Inventory");
         this.inventory.setSize(
                 inventory.contains("Size", Tag.TAG_INT) ? inventory.getInt("Size") : this.inventory.getSlots());
-        
+
         if(compound.contains("showName")) {
         	showName = compound.getBoolean("showName");
         }
@@ -144,7 +144,7 @@ public class DisplayBlockEntity extends InventoryBlockEntity{
     }
 
     @Override
-    public void saveAdditional(HolderLookup.Provider provider, CompoundTag compound) {
+    public void saveAdditional(CompoundTag compound, HolderLookup.Provider provider) {
         final ListTag items = new ListTag();
         for (int slot = 0; slot < this.inventory.getSlots(); slot++) {
             if (!this.inventory.getStackInSlot(slot).isEmpty()) {

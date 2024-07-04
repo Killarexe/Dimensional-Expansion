@@ -8,8 +8,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.EnumMap;
@@ -22,21 +22,21 @@ public class DEArmorMaterials {
     public static final Holder<ArmorMaterial> BASSMITE = register(
             "bassmite",
             4, 7, 9 ,4, 12,
-            25, SoundEvents.ARMOR_EQUIP_NETHERITE, DEItems.BASSMITE_GEM.get(),
+            25, SoundEvents.ARMOR_EQUIP_NETHERITE, DEItems.BASSMITE_GEM,
             4.5F, 0.15F
     );
 
     public static final Holder<ArmorMaterial> EMERTYST = register(
             "emertyst",
             5, 8, 10 ,5, 13,
-            30, SoundEvents.ARMOR_EQUIP_NETHERITE, DEItems.EMERTYST_GEM.get(),
+            30, SoundEvents.ARMOR_EQUIP_NETHERITE, DEItems.EMERTYST_GEM,
             6.0F, 0.2F
     );
 
     private static Holder<ArmorMaterial> register(
             String id,
             int bootDefense, int leggingsDefense, int chestplateDefense, int helmetDefense, int bodyDefense,
-            int enchantementValue, Holder<SoundEvent> equipSound, ItemLike repearItem,
+            int enchantementValue, Holder<SoundEvent> equipSound, Holder<Item> repearItem,
             float thougness, float knockbackResistance
     ) {
         List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(DEMod.res(id)));
@@ -46,7 +46,7 @@ public class DEArmorMaterials {
             map.put(ArmorItem.Type.CHESTPLATE, chestplateDefense);
             map.put(ArmorItem.Type.HELMET, helmetDefense);
             map.put(ArmorItem.Type.BODY, bodyDefense);
-        }), enchantementValue, equipSound, () -> Ingredient.of(repearItem), list, thougness, knockbackResistance);
+        }), enchantementValue, equipSound, () -> Ingredient.of(repearItem.value()), list, thougness, knockbackResistance);
         return ARMOR_MATERIAL.register(id, () -> material);
     }
 }

@@ -1,5 +1,7 @@
 package net.killarexe.dimensional_expansion.common.block;
 
+import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 
 import net.killarexe.dimensional_expansion.init.DEBlocks;
@@ -9,8 +11,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
 
 public class OriginDirtBlock extends Block{
 

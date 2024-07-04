@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 
 public class MouvetRenderer<T extends Mouvet> extends MobRenderer<T, MouvetModel<T>>{
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(DEMod.MOD_ID, "textures/entity/mouvet.png");
+	public static final ResourceLocation TEXTURE = DEMod.res("textures/entity/mouvet.png");
 	
 	public MouvetRenderer(Context pContext) {
 		super(pContext, new MouvetModel<T>(pContext.bakeLayer(MouvetModel.LAYER_LOCATION)), 0.25f);

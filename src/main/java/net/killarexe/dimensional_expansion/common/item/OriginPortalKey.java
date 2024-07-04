@@ -27,7 +27,7 @@ public class OriginPortalKey extends Item{
 			return InteractionResult.FAIL;
 		}
 		if(level.isEmptyBlock(pos) && OriginPortalBlock.portalSpawn(level, pos)) {
-			item.hurtAndBreak(1, player, c -> c.broadcastBreakEvent(pContext.getHand()));
+			item.hurtAndBreak(1, player, item.getEquipmentSlot());
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.FAIL;

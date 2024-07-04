@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.mixin.EmeraldsForVillagerTypeItemAccessor;
+import net.killarexe.dimensional_expansion.mixin.VillagerTypeAccessor;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -18,7 +20,7 @@ public class DEVillagerTypes {
 
     public static final DeferredRegister<VillagerType> VILLAGER_TYPE = DeferredRegister.create(Registries.VILLAGER_TYPE, DEMod.MOD_ID);
     
-    private static final Map<VillagerType, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
+    public static final Map<VillagerType, Set<ResourceKey<Biome>>> VILLAGER_TYPE_BY_BIOME = new HashMap<>();
 
     //Villager Types
     public static final Supplier<VillagerType> ORIGIN_PLAINS = createVillagerType("origin_plains", Set.of(DEBiomes.ORIGIN_PLAINS, DEBiomes.PURPLEHEART_FOREST));
@@ -36,11 +38,9 @@ public class DEVillagerTypes {
     	for(Map.Entry<VillagerType, Set<ResourceKey<Biome>>> entry: VILLAGER_TYPE_BY_BIOME.entrySet()) {
     		for(ResourceKey<Biome> biome: entry.getValue()) {
 	    		try {
-	    			VillagerType.BY_BIOME.put(biome, entry.getKey());
+					VillagerTypeAccessor.getMap().put(biome, entry.getKey());
 					VillagerTrades.ItemListing[] fishermanTrades = VillagerTrades.TRADES.get(VillagerProfession.FISHERMAN).get(5);
-					if(fishermanTrades[fishermanTrades.length - 1] instanceof VillagerTrades.EmeraldsForVillagerTypeItem trade) {
-						trade.trades.put(entry.getKey(), DEItems.PURPLEHEART_BOAT.get());
-					}
+					((EmeraldsForVillagerTypeItemAccessor)fishermanTrades[fishermanTrades.length - 1]).getTrades().put(entry.getKey(), DEItems.PURPLEHEART_BOAT.get());
 	    		}catch(Exception e) {
 	    			DEMod.LOGGER.error("Failed to register villager type \"" + entry.getKey() + "\" for biome: \"" + biome + "\":\n\t" + e.getMessage());
 	    		}

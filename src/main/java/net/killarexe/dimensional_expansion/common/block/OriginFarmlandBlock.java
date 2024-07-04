@@ -13,6 +13,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.common.FarmlandWaterManager;
+import net.neoforged.neoforge.common.IPlantable;
 
 public class OriginFarmlandBlock extends FarmBlock{
 
@@ -45,7 +48,7 @@ public class OriginFarmlandBlock extends FarmBlock{
 	}
 
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
-		if (!pLevel.isClientSide && net.minecraftforge.common.ForgeHooks.onFarmlandTrample(pLevel, pPos, DEBlocks.ORIGIN_DIRT.get().defaultBlockState(), pFallDistance, pEntity)) { // Forge: Move logic to Entity#canTrample
+		if (!pLevel.isClientSide && CommonHooks.onFarmlandTrample(pLevel, pPos, DEBlocks.ORIGIN_DIRT.get().defaultBlockState(), pFallDistance, pEntity)) { // Forge: Move logic to Entity#canTrample
 			turnToOriginDirt(pState, pLevel, pPos);
 	    }
 	    super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
@@ -54,7 +57,7 @@ public class OriginFarmlandBlock extends FarmBlock{
 	private static boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
 		BlockState plant = pLevel.getBlockState(pPos.above());
 	    BlockState state = pLevel.getBlockState(pPos);
-	    return plant.getBlock() instanceof net.minecraftforge.common.IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (net.minecraftforge.common.IPlantable)plant.getBlock());
+	    return plant.getBlock() instanceof IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable)plant.getBlock());
 	}
 	
 	private static boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
@@ -64,6 +67,6 @@ public class OriginFarmlandBlock extends FarmBlock{
 	    		return true;
 	        }
 	    }
-	    return net.minecraftforge.common.FarmlandWaterManager.hasBlockWaterTicket(pLevel, pPos);
+	    return FarmlandWaterManager.hasBlockWaterTicket(pLevel, pPos);
 	}
 }

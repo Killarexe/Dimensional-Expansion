@@ -14,7 +14,6 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 //Made with Blockbench 4.7.4
@@ -23,7 +22,7 @@ import net.minecraft.util.Mth;
 
 public class BlueSandManModel<T extends BlueSandMan> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DEMod.MOD_ID, "blue_sand_man"), "blue_sand_man");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(DEMod.res("blue_sand_man"), "blue_sand_man");
 	private final ModelPart head;
 	private final ModelPart body;
 	private final ModelPart leftArm;
@@ -71,8 +70,8 @@ public class BlueSandManModel<T extends BlueSandMan> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

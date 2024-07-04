@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class HeadedSkeletonRenderer<T extends HeadedSkeleton> extends MobRenderer<T, HeadedSkeletonModel<T>> {
 
-	public static final ResourceLocation SKELETON_TEXTURE = new ResourceLocation(DEMod.MOD_ID, "textures/entity/headed/skeleton.png"); 
+	public static final ResourceLocation SKELETON_TEXTURE = DEMod.res("textures/entity/headed/skeleton.png");
 	
 	public HeadedSkeletonRenderer(Context pContext) {
 		super(pContext, new HeadedSkeletonModel<>(pContext.bakeLayer(HeadedSkeletonModel.LAYER_LOCATION)), 0.5F);

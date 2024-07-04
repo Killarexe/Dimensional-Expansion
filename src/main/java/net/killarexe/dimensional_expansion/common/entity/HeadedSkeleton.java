@@ -8,7 +8,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -30,6 +29,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	
@@ -56,23 +56,17 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	@Override
 	public void aiStep() {
 		if(isSunBurnTick()) {
-			setSecondsOnFire(8);
+			setRemainingFireTicks(160);
 		}
 		super.aiStep();
 	}
-	
-	@SuppressWarnings("deprecation")
+
+	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
-			MobSpawnType pReason, SpawnGroupData pSpawnData, CompoundTag pDataTag) {
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
 		this.goalSelector.addGoal(4, new RangedBowAttackGoal<HeadedSkeleton>(this, 1.0D, 20, 15.0F));
-		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-	}
-	
-	@Override
-	public MobType getMobType() {
-		return MobType.UNDEAD;
+		return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
 	}
 
 	protected void playStepSound(BlockPos pPos, BlockState pBlock) {
@@ -82,9 +76,9 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	@Override
 	public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
 	    ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem)));
-	    AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack, pVelocity);
+	    AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack, pVelocity, null);
 	    if (this.getMainHandItem().getItem() instanceof BowItem) {
-	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
+	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow, null);
 	    }
 	    double d0 = pTarget.getX() - this.getX();
 	    double d1 = pTarget.getY(0.33333333333D) - abstractarrow.getY() - 1;

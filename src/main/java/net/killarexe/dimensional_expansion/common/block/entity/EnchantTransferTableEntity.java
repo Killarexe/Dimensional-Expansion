@@ -1,7 +1,5 @@
 package net.killarexe.dimensional_expansion.common.block.entity;
 
-import java.util.Map;
-
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,6 +11,7 @@ import net.killarexe.dimensional_expansion.init.DEBlockEntityTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -67,7 +66,10 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity {
 	public void transferEnchant(Player player) {
 		ItemStack enchantedItem = getItemInSlot(0);
 		ItemStack targetItem = getItemInSlot(1);
-		int costValue = Mth.clamp(enchantedItem.getBaseRepairCost() + targetItem.getBaseRepairCost(), 1, 5);
+		int costValue = Mth.clamp(
+				enchantedItem.getOrDefault(DataComponents.REPAIR_COST, 0) + targetItem.getOrDefault(DataComponents.REPAIR_COST, 0),
+				1, 5
+		);
 		if(!enchantedItem.isEnchanted() || targetItem.isEmpty() || targetItem.is(Items.AIR)) {
 			return;
 		}
@@ -81,12 +83,12 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity {
 		}
 		boolean transferedEnchant = false;
 		ItemStack copy = new ItemStack(enchantedItem.getItem());
-		for(Object2IntMap.Entry<Holder<Enchantment>> entry: enchantedItem.getAllEnchantments().entrySet()) {
-			if(entry.getKey().canEnchant(targetItem) && !targetItem.getAllEnchantments().containsKey(entry.getKey())){
-				targetItem.enchant(entry.getKey(), entry.getValue());
+		for (Object2IntMap.Entry<Holder<Enchantment>> entry : enchantedItem.getTagEnchantments().entrySet()) {
+			if (entry.getKey().value().canEnchant(targetItem) && targetItem.getTagEnchantments().getLevel(entry.getKey()) == 0) {
+				targetItem.enchant(entry.getKey(), entry.getIntValue());
 				transferedEnchant = true;
-			}else {
-				copy.enchant(entry.getKey(), entry.getValue());
+			} else {
+				copy.enchant(entry.getKey(), entry.getIntValue());
 			}
 		}
 		if(!transferedEnchant) {
@@ -99,8 +101,8 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity {
 		}
 		copy.setDamageValue(enchantedItem.getDamageValue());
 		copy.setCount(enchantedItem.getCount());
-		if(enchantedItem.hasCustomHoverName()) {
-			copy.setHoverName(enchantedItem.getHoverName());
+		if(enchantedItem.get(DataComponents.CUSTOM_NAME) != null) {
+			copy.set(DataComponents.CUSTOM_NAME, enchantedItem.getHoverName());
 		}
 		extractItem(0);
 		insertItem(0, copy);
@@ -108,6 +110,8 @@ public class EnchantTransferTableEntity extends InventoryBlockEntity {
 			player.experienceLevel -= costValue;
 		}
 		player.level().playSound(null, getBlockPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, new Random().nextFloat() * 0.1F + 0.9F);
+
+		//Maybe this is illegal but it works!
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 		executor.schedule(this::dropAll, 1, TimeUnit.SECONDS);
 		executor.shutdown();

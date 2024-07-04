@@ -22,7 +22,7 @@ import net.minecraft.world.entity.Mob;
 
 public class HeadedSkeletonModel<T extends Mob> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DEMod.MOD_ID, "headed_skeleton"), "headed_skeleton");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(DEMod.res("headed_skeleton"), "headed_skeleton");
 	private final ModelPart head;
 
 	public HeadedSkeletonModel(ModelPart root) {
@@ -45,7 +45,7 @@ public class HeadedSkeletonModel<T extends Mob> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

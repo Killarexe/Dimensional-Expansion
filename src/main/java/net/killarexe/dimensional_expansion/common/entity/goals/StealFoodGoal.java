@@ -1,6 +1,7 @@
 package net.killarexe.dimensional_expansion.common.entity.goals;
 
 import net.killarexe.dimensional_expansion.common.entity.Mouvet;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -49,7 +50,7 @@ public class StealFoodGoal extends TargetGoal{
 				return;
 			}
 			for (ItemStack stack : targetMob.getAllSlots()) {
-				if (stack.isEdible() && mob instanceof Mouvet mouvet) {
+				if (stack.get(DataComponents.FOOD) != null && mob instanceof Mouvet mouvet) {
 					mouvet.setCurrentItem(stack.copy());
 					stack.shrink(stack.getCount());
 					targetMob.hurt(targetMob.damageSources().mobAttack(mouvet), 1.0F);
@@ -66,7 +67,7 @@ public class StealFoodGoal extends TargetGoal{
 	
 	private boolean entityHaveEdibleItems(LivingEntity entity) {
 		for(ItemStack stack: entity.getAllSlots()) {
-			if(stack.isEdible()) {
+			if(stack.get(DataComponents.FOOD) != null) {
 				return true;
 			}
 		}

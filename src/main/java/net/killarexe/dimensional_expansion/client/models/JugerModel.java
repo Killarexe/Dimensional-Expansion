@@ -24,7 +24,7 @@ import net.minecraft.util.Mth;
 
 public class JugerModel<T extends Juger> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DEMod.MOD_ID, "juger"), "juger");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(DEMod.res("juger"), "juger");
 	
 	private final ModelPart root;
 	private final ModelPart head;
@@ -133,7 +133,7 @@ public class JugerModel<T extends Juger> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		root().render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 

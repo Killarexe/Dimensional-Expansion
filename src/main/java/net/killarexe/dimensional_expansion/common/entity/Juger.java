@@ -11,7 +11,6 @@ import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -58,16 +57,16 @@ public class Juger extends Monster{
 	@Override
 	public void aiStep() {
 		if(isSunBurnTick()) {
-			setSecondsOnFire(8);
+			setRemainingFireTicks(160);
 		}
 		super.aiStep();
 	}
 	
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		entityData.define(IS_ATTACKING, false);
-		entityData.define(ATTACK_COOLDOWN, tickCount);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		entityData.set(IS_ATTACKING, false);
+		entityData.set(ATTACK_COOLDOWN, tickCount);
 	}
 	
 	@Override
@@ -83,11 +82,6 @@ public class Juger extends Monster{
 	@Override
 	protected SoundEvent getHurtSound(DamageSource pDamageSource) {
 		return DESoundEvents.JUGER_HURT.get();
-	}
-	
-	@Override
-	public MobType getMobType() {
-		return MobType.ARTHROPOD;
 	}
 	
 	@Override
@@ -147,9 +141,9 @@ public class Juger extends Monster{
 	public AnimationState getStandState() {
 		return STAND_STATE;
 	}
-	
+
 	@Override
-	public int getExperienceReward() {
+	protected int getBaseExperienceReward() {
 		return 5;
 	}
 }

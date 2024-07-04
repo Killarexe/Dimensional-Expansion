@@ -2,16 +2,18 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.CompletableFuture;
 
 import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 import static net.killarexe.dimensional_expansion.init.DEItems.*;
@@ -19,11 +21,12 @@ import static net.minecraft.world.item.Items.*;
 
 public class DERecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public DERecipeProvider(PackOutput pOutput) {
-		super(pOutput);
-	}
 
-	@Override
+    public DERecipeProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pRegistries) {
+        super(pOutput, pRegistries);
+    }
+
+    @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
 		createBlasting(output, RecipeCategory.MISC, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, "palon_ingot_blast");
         createSmelting(output, RecipeCategory.MISC, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, "palon_ingot_smelt");
@@ -77,11 +80,11 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_PLANKS.get(), 4).requires(PURPLEHEART_LOG.get())
                 .unlockedBy("has_material", has(PURPLEHEART_LOG.get()))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, "purpleheart_planks_log"));
+                .save(output, DEMod.res("purpleheart_planks_log"));
  
     	ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_PLANKS.get(), 4).requires(STRIPPED_PURPLEHEART_LOG.get())
     			.unlockedBy("has_material", has(STRIPPED_PURPLEHEART_LOG.get()))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, "purpleheart_planks_stripped_log"));
+                .save(output, DEMod.res("purpleheart_planks_stripped_log"));
         
     	ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ORIGIN_PORTAL_KEY.get(), 1).requires(FLINT_AND_STEEL).requires(SIMIX_HAMMER.get()).requires(PALON_INGOT.get())
 	        .unlockedBy("has_material", has(SIMIX_HAMMER.get()))
@@ -103,7 +106,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         
     	ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, PURPLEHEART_CHEST_BOAT.get(), 1).requires(PURPLEHEART_BOAT.get()).requires(CHEST)
                 .unlockedBy("has_material", has(PURPLEHEART_BOAT.get()))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, "purpleheart_chest_boat"));
+                .save(output, DEMod.res("purpleheart_chest_boat"));
         
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, PURPLEHEART_BOOKSHELF.get(), 1).define('I', BOOK).define('#', PURPLEHEART_PLANKS.get())
         .pattern("###")
@@ -161,7 +164,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createTrapDoorRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -170,7 +173,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
     
     private void createSignRecipe(RecipeOutput output, RecipeCategory category, ItemLike requireItem, ItemLike resultItem, String name){
@@ -179,7 +182,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .pattern(" / ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createPressurePlateRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -188,7 +191,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("## ")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createSlabRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -197,13 +200,13 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createButtonRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
     	ShapelessRecipeBuilder.shapeless(category, resultItem).requires(requireItem)
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createStairsRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -212,7 +215,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("## ")
                 .pattern("###")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createFenceRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -221,7 +224,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("#/#")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createFenceGateRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -230,7 +233,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("/#/")
                 .pattern("   ")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createOreBlockRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
@@ -239,13 +242,13 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("###")
                 .pattern("###")
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createMaterialRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, String name){
     	ShapelessRecipeBuilder.shapeless(category, resultItem, 9).requires(requireItem)
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
     
     private void createCrossRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, int count, ItemLike requireItem, ItemLike requireItem1, ItemLike requireItem2, String name){
@@ -254,7 +257,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("@&@")
                 .pattern("#@#")
                 .unlockedBy("has_material", has(requireItem2))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
     
     private void createCrossRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, int count, ItemLike requireItem, ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3, String name){
@@ -263,47 +266,24 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
                 .pattern("@&@")
                 .pattern("#%#")
                 .unlockedBy("has_material", has(requireItem2))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createMixRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, ItemLike requireItem, ItemLike requireItem1, String name){
     	ShapelessRecipeBuilder.shapeless(category, resultItem, 9).requires(requireItem).requires(requireItem1)
                 .unlockedBy("has_material", has(requireItem))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
-    }
-
-    private void createCustomRecipe(RecipeOutput output, RecipeCategory category, ItemLike resultItem, int count,
-                                    ItemLike requireItem1, ItemLike requireItem2, ItemLike requireItem3,
-                                    ItemLike requireItem4, ItemLike requireItem5, ItemLike requireItem6,
-                                    ItemLike requireItem7, ItemLike requireItem8, ItemLike requireItem9, String name){
-        ShapedRecipeBuilder.shaped(category, resultItem, count)
-                .define('1', requireItem1).define('2', requireItem2).define('3', requireItem3)
-                .define('4', requireItem4).define('5', requireItem5).define('6', requireItem6)
-                .define('7', requireItem7).define('8', requireItem8).define('9', requireItem9)
-                .pattern("123")
-                .pattern("456")
-                .pattern("789")
-                .unlockedBy("has_material_1", has(requireItem1))
-                .unlockedBy("has_material_2", has(requireItem2))
-                .unlockedBy("has_material_3", has(requireItem3))
-                .unlockedBy("has_material_4", has(requireItem4))
-                .unlockedBy("has_material_5", has(requireItem5))
-                .unlockedBy("has_material_6", has(requireItem6))
-                .unlockedBy("has_material_7", has(requireItem7))
-                .unlockedBy("has_material_8", has(requireItem8))
-                .unlockedBy("has_material_9", has(requireItem9))
-                .save(output, new ResourceLocation(DEMod.MOD_ID, name));
+                .save(output, DEMod.res(name));
     }
 
     private void createSmelting(RecipeOutput output, RecipeCategory category, ItemLike smeltItem, ItemLike resultItem, float time, int xp, String name){
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp).unlockedBy("has_material", has(smeltItem)).save(output, new ResourceLocation(DEMod.MOD_ID, name));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp).unlockedBy("has_material", has(smeltItem)).save(output, DEMod.res(name));
     }
     
     private void createBlasting(RecipeOutput output, RecipeCategory category, ItemLike smeltItem, ItemLike resultItem, float time, int xp, String name){
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp).unlockedBy("has_material", has(smeltItem)).save(output, new ResourceLocation(DEMod.MOD_ID, name));
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(new ItemStack(smeltItem)), category, resultItem, time, xp).unlockedBy("has_material", has(smeltItem)).save(output, DEMod.res(name));
     }
 
     private static void createSmithingTransform(RecipeOutput pRecipeOutput, RecipeCategory pCategory, SmithingTemplateItem template, Item toolItem, Item ingredientItem, Item pResultItem) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(toolItem), Ingredient.of(ingredientItem), pCategory, pResultItem).unlocks("has_material", has(ingredientItem)).save(pRecipeOutput, new ResourceLocation(DEMod.MOD_ID, getItemName(pResultItem) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(toolItem), Ingredient.of(ingredientItem), pCategory, pResultItem).unlocks("has_material", has(ingredientItem)).save(pRecipeOutput, DEMod.res(getItemName(pResultItem) + "_smithing"));
     }
 }
