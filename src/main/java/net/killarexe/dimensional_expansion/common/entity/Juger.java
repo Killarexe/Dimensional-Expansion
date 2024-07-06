@@ -64,9 +64,9 @@ public class Juger extends Monster{
 	
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		builder.define(IS_ATTACKING, false);
+		builder.define(ATTACK_COOLDOWN, tickCount);
 		super.defineSynchedData(builder);
-		entityData.set(IS_ATTACKING, false);
-		entityData.set(ATTACK_COOLDOWN, tickCount);
 	}
 	
 	@Override

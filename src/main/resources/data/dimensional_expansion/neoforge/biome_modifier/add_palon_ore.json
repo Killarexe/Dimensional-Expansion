@@ -1,5 +1,5 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#minecraft:is_end",
   "features": "dimensional_expansion:palon_ore_placed",
   "step": "underground_ores"

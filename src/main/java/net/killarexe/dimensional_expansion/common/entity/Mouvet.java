@@ -53,7 +53,7 @@ public class Mouvet extends Animal{
 	
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
-		entityData.set(CURRENT_ITEM, ItemStack.EMPTY);
+		builder.define(CURRENT_ITEM, ItemStack.EMPTY);
 		super.defineSynchedData(builder);
 	}
 	

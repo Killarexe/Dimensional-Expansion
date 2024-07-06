@@ -1,5 +1,5 @@
 {
-	"type": "forge:add_spawns",
+	"type": "neoforge:add_spawns",
 	"biomes": "#dimensional_expansion:is_origin",
 	"spawners": {
 		"type": "dimensional_expansion:headed_skeleton",
