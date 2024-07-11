@@ -18,6 +18,8 @@ public class DERegistries {
         DEBlocks.BLOCK.register(bus);
         LOGGER.info("Init Dimensional Expansion Items");
         DEItems.ITEMS.register(bus);
+        LOGGER.debug("Init Dimensional Expansion Pois");
+        DEPois.POI_TYPE.register(bus);
         LOGGER.debug("Init Dimensional Expansion Villager Types");
         DEVillagerTypes.setTypeByBiome();
         DEVillagerTypes.VILLAGER_TYPE.register(bus);

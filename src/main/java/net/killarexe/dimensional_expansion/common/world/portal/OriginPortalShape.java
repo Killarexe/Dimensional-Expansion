@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.world.portal;
 
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,8 +18,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.extensions.IBlockStateExtension;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -27,12 +29,14 @@ public class OriginPortalShape {
 	public static final int MAX_WIDTH = 21;
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = net.neoforged.neoforge.common.extensions.IBlockStateExtension::isPortalFrame;
+	private static final BlockBehaviour.StatePredicate FRAME = IBlockStateExtension::isPortalFrame;
 	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0F;
 	private static final double SAFE_TRAVEL_MAX_VERTICAL_DELTA = 1.0;
+
 	private final LevelAccessor level;
 	private final Direction.Axis axis;
 	private final Direction rightDir;
+
 	private int numPortalBlocks;
 	@Nullable
 	private BlockPos bottomLeft;
@@ -72,7 +76,7 @@ public class OriginPortalShape {
 
 	@Nullable
 	private BlockPos calculateBottomLeft(BlockPos pPos) {
-		int i = Math.max(this.level.getMinBuildHeight(), pPos.getY() - 21);
+		int i = Math.max(this.level.getMinBuildHeight(), pPos.getY() - MAX_WIDTH);
 
 		while (pPos.getY() > i && isEmpty(this.level.getBlockState(pPos.below()))) {
 			pPos = pPos.below();
@@ -85,13 +89,12 @@ public class OriginPortalShape {
 
 	private int calculateWidth() {
 		int i = this.getDistanceUntilEdgeAboveFrame(this.bottomLeft, this.rightDir);
-		return i >= 2 && i <= 21 ? i : 0;
+		return i >= MIN_WIDTH && i <= MAX_WIDTH ? i : 0;
 	}
 
 	private int getDistanceUntilEdgeAboveFrame(BlockPos pPos, Direction pDirection) {
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-
-		for (int i = 0; i <= 21; i++) {
+		for (int i = 0; i <= MAX_WIDTH; i++) {
 			blockpos$mutableblockpos.set(pPos).move(pDirection, i);
 			BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
 			if (!isEmpty(blockstate)) {
@@ -113,7 +116,7 @@ public class OriginPortalShape {
 	private int calculateHeight() {
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 		int i = this.getDistanceUntilTop(blockpos$mutableblockpos);
-		return i >= 3 && i <= 21 && this.hasTopFrame(blockpos$mutableblockpos, i) ? i : 0;
+		return i >= MIN_HEIGHT && i <= MAX_HEIGHT && this.hasTopFrame(blockpos$mutableblockpos, i) ? i : 0;
 	}
 
 	private boolean hasTopFrame(BlockPos.MutableBlockPos pPos, int pDistanceToTop) {
@@ -128,7 +131,7 @@ public class OriginPortalShape {
 	}
 
 	private int getDistanceUntilTop(BlockPos.MutableBlockPos pPos) {
-		for (int i = 0; i < 21; i++) {
+		for (int i = 0; i < MAX_HEIGHT; i++) {
 			pPos.set(this.bottomLeft).move(Direction.UP, i).move(this.rightDir, -1);
 			if (!FRAME.test(this.level.getBlockState(pPos), this.level, pPos)) {
 				return i;
@@ -146,25 +149,24 @@ public class OriginPortalShape {
 					return i;
 				}
 
-				if (blockstate.is(Blocks.NETHER_PORTAL)) {
+				if (blockstate.is(DEBlocks.ORIGIN_PORTAL)) {
 					this.numPortalBlocks++;
 				}
 			}
 		}
-
-		return 21;
+		return MAX_HEIGHT;
 	}
 
 	private static boolean isEmpty(BlockState pState) {
-		return pState.isAir() || pState.is(BlockTags.FIRE) || pState.is(Blocks.NETHER_PORTAL);
+		return pState.isAir() || pState.is(BlockTags.FIRE) || pState.is(DEBlocks.ORIGIN_PORTAL);
 	}
 
 	public boolean isValid() {
-		return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
+		return this.bottomLeft != null && this.width >= MIN_WIDTH && this.width <= MAX_WIDTH && this.height >= MIN_HEIGHT && this.height <= MAX_HEIGHT;
 	}
 
 	public void createPortalBlocks() {
-		BlockState blockstate = Blocks.NETHER_PORTAL.defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
+		BlockState blockstate = DEBlocks.ORIGIN_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
 		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1))
 				.forEach(p_77725_ -> this.level.setBlock(p_77725_, blockstate, 18));
 	}
@@ -180,7 +182,7 @@ public class OriginPortalShape {
 		double d2;
 		if (d0 > 0.0) {
 			double d3 = (double)blockpos.get(pAxis) + (double)pEntityDimensions.width() / 2.0;
-			d2 = Mth.clamp(Mth.inverseLerp(pPos.get(pAxis) - d3, 0.0, d0), 0.0, 1.0);
+			d2 = Mth.clamp(Mth.inverseLerp(pPos.get(pAxis) - d3, 0.0, d0), 0.0, SAFE_TRAVEL_MAX_VERTICAL_DELTA);
 		} else {
 			d2 = 0.5;
 		}
@@ -188,7 +190,7 @@ public class OriginPortalShape {
 		double d5;
 		if (d1 > 0.0) {
 			Direction.Axis direction$axis = Direction.Axis.Y;
-			d5 = Mth.clamp(Mth.inverseLerp(pPos.get(direction$axis) - (double)blockpos.get(direction$axis), 0.0, d1), 0.0, 1.0);
+			d5 = Mth.clamp(Mth.inverseLerp(pPos.get(direction$axis) - (double)blockpos.get(direction$axis), 0.0, d1), 0.0, SAFE_TRAVEL_MAX_VERTICAL_DELTA);
 		} else {
 			d5 = 0.0;
 		}
@@ -199,14 +201,14 @@ public class OriginPortalShape {
 	}
 
 	public static Vec3 findCollisionFreePosition(Vec3 pPos, ServerLevel pLevel, Entity pEntity, EntityDimensions pDimensions) {
-		if (!(pDimensions.width() > 4.0F) && !(pDimensions.height() > 4.0F)) {
+		if (!(pDimensions.width() > SAFE_TRAVEL_MAX_ENTITY_XY) && !(pDimensions.height() > SAFE_TRAVEL_MAX_ENTITY_XY)) {
 			double d0 = (double)pDimensions.height() / 2.0;
 			Vec3 vec3 = pPos.add(0.0, d0, 0.0);
 			VoxelShape voxelshape = Shapes.create(
-					AABB.ofSize(vec3, (double)pDimensions.width(), 0.0, (double)pDimensions.width()).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6)
+					AABB.ofSize(vec3, pDimensions.width(), 0.0, pDimensions.width()).expandTowards(0.0, 1.0, 0.0).inflate(1.0E-6)
 			);
 			Optional<Vec3> optional = pLevel.findFreePosition(
-					pEntity, voxelshape, vec3, (double)pDimensions.width(), (double)pDimensions.height(), (double)pDimensions.width()
+					pEntity, voxelshape, vec3, pDimensions.width(), pDimensions.height(), pDimensions.width()
 			);
 			Optional<Vec3> optional1 = optional.map(p_259019_ -> p_259019_.subtract(0.0, d0, 0.0));
 			return optional1.orElse(pPos);
