@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.item;
 
+import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginPortalForcer;
 import net.killarexe.dimensional_expansion.common.world.portal.OriginPortalShape;
@@ -38,7 +39,9 @@ public class OriginPortalKey extends Item{
 				item.hurtAndBreak(1, player, item.getEquipmentSlot());
 				return InteractionResult.SUCCESS;
 			}
+			DEMod.LOGGER.info("Shape not found..");
 		}
+		DEMod.LOGGER.info("Failed.");
 		return InteractionResult.FAIL;
 	}
 }

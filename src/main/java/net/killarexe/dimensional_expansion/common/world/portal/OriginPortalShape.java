@@ -10,7 +10,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,7 +17,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.extensions.IBlockStateExtension;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -29,7 +27,7 @@ public class OriginPortalShape {
 	public static final int MAX_WIDTH = 21;
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = IBlockStateExtension::isPortalFrame;
+	private static final BlockBehaviour.StatePredicate FRAME = (state, level, pos) -> state.is(DEBlocks.ORIGIN_FRAME.get());
 	private static final float SAFE_TRAVEL_MAX_ENTITY_XY = 4.0F;
 	private static final double SAFE_TRAVEL_MAX_VERTICAL_DELTA = 1.0;
 
@@ -44,17 +42,16 @@ public class OriginPortalShape {
 	private final int width;
 
 	public static Optional<OriginPortalShape> findEmptyPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Direction.Axis pAxis) {
-		return findPortalShape(pLevel, pBottomLeft, p_77727_ -> p_77727_.isValid() && p_77727_.numPortalBlocks == 0, pAxis);
+		return findPortalShape(pLevel, pBottomLeft, shape -> shape.isValid() && shape.numPortalBlocks == 0, pAxis);
 	}
 
 	public static Optional<OriginPortalShape> findPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Predicate<OriginPortalShape> pPredicate, Direction.Axis pAxis) {
 		Optional<OriginPortalShape> optional = Optional.of(new OriginPortalShape(pLevel, pBottomLeft, pAxis)).filter(pPredicate);
 		if (optional.isPresent()) {
 			return optional;
-		} else {
-			Direction.Axis direction$axis = pAxis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
-			return Optional.of(new OriginPortalShape(pLevel, pBottomLeft, direction$axis)).filter(pPredicate);
 		}
+		Direction.Axis direction$axis = pAxis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X;
+		return Optional.of(new OriginPortalShape(pLevel, pBottomLeft, direction$axis)).filter(pPredicate);
 	}
 
 	public OriginPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Direction.Axis pAxis) {
@@ -93,19 +90,19 @@ public class OriginPortalShape {
 	}
 
 	private int getDistanceUntilEdgeAboveFrame(BlockPos pPos, Direction pDirection) {
-		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+		BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
 		for (int i = 0; i <= MAX_WIDTH; i++) {
-			blockpos$mutableblockpos.set(pPos).move(pDirection, i);
-			BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
+			blockPos.set(pPos).move(pDirection, i);
+			BlockState blockstate = this.level.getBlockState(blockPos);
 			if (!isEmpty(blockstate)) {
-				if (FRAME.test(blockstate, this.level, blockpos$mutableblockpos)) {
+				if (FRAME.test(blockstate, this.level, blockPos)) {
 					return i;
 				}
 				break;
 			}
 
-			BlockState blockstate1 = this.level.getBlockState(blockpos$mutableblockpos.move(Direction.DOWN));
-			if (!FRAME.test(blockstate1, this.level, blockpos$mutableblockpos)) {
+			BlockState blockstate1 = this.level.getBlockState(blockPos.move(Direction.DOWN));
+			if (!FRAME.test(blockstate1, this.level, blockPos)) {
 				break;
 			}
 		}
@@ -176,8 +173,8 @@ public class OriginPortalShape {
 	}
 
 	public static Vec3 getRelativePosition(BlockUtil.FoundRectangle pFoundRectangle, Direction.Axis pAxis, Vec3 pPos, EntityDimensions pEntityDimensions) {
-		double d0 = (double)pFoundRectangle.axis1Size - (double)pEntityDimensions.width();
-		double d1 = (double)pFoundRectangle.axis2Size - (double)pEntityDimensions.height();
+		double d0 = pFoundRectangle.axis1Size - pEntityDimensions.width();
+		double d1 = pFoundRectangle.axis2Size - pEntityDimensions.height();
 		BlockPos blockpos = pFoundRectangle.minCorner;
 		double d2;
 		if (d0 > 0.0) {

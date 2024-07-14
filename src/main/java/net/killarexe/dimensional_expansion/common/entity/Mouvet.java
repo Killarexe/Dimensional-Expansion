@@ -32,7 +32,7 @@ public class Mouvet extends Animal{
 	
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMobAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.75f)
-			.add(Attributes.JUMP_STRENGTH, 1.0f)
+			.add(Attributes.JUMP_STRENGTH, 0.25f)
 			.add(Attributes.MAX_HEALTH, 10.0f);
 	
 	public Mouvet(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -59,7 +59,10 @@ public class Mouvet extends Animal{
 	
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
-		pCompound.put("current_item", getCurrentItem().save(registryAccess()));
+		ItemStack currentItem = getCurrentItem();
+		if (currentItem != null) {
+			pCompound.put("current_item", currentItem.save(registryAccess()));
+		}
 		super.addAdditionalSaveData(pCompound);
 	}
 
