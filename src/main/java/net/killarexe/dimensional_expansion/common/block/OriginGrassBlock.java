@@ -23,11 +23,12 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LightEngine;
+import net.minecraft.world.level.material.MapColor;
 
 public class OriginGrassBlock extends OriginDirtBlock implements BonemealableBlock{
 
 	public OriginGrassBlock() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).mapColor(MapColor.COLOR_MAGENTA));
 	}
 	
 	private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {

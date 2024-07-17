@@ -38,8 +38,8 @@
   "1.20.2": {
   	"0.9.3a": "Updated to 1.20.2, Remove unused features, code, data & assets"
   },
-  "1.20.4": {
-    "0.9.4a": "Updated to 1.20.4."
+  "1.21": {
+    "0.9.4a": "Update to 1.21 and switched to NeoForge."
   },
   "promos": {
     "1.16.4-latest": "0.1a",

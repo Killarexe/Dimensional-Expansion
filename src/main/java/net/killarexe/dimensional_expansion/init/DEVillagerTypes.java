@@ -33,7 +33,7 @@ public class DEVillagerTypes {
     	return type;
     }
 
-	//FIXME: This function always failed due to "Registry object not present...(Item)"
+	//FIXME: This function always failed due to "Try to access unbound resource...(Item)"
     public static void setTypeByBiome() {
     	for(Map.Entry<VillagerType, Set<ResourceKey<Biome>>> entry: VILLAGER_TYPE_BY_BIOME.entrySet()) {
     		for(ResourceKey<Biome> biome: entry.getValue()) {

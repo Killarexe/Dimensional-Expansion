@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.MapColor;
 
 public class SavorleafCropBlock extends DMCropBlock{
 
@@ -15,7 +16,7 @@ public class SavorleafCropBlock extends DMCropBlock{
 	public static final IntegerProperty AGE = IntegerProperty.create("age", 0, MAX_AGE);
 	
 	public SavorleafCropBlock() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).mapColor(MapColor.COLOR_LIGHT_BLUE));
 	}
 	
 	@Override

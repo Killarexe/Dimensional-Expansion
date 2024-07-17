@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:random_patch",
 	"config": {
-		"tries": 64,
+		"tries": 32,
 		"xz_spread": 7,
 		"y_spread": 3,
 		"feature": {
@@ -11,7 +11,10 @@
 					"to_place": {
 						"type": "minecraft:simple_state_provider",
 						"state": {
-							"Name": "dimensional_expansion:origin_tall_grass"
+							"Name": "dimensional_expansion:origin_tall_grass",
+							"Properties": {
+								"half": "lower"
+							}
 						}
 					}
 				}

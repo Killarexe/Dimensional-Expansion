@@ -47,7 +47,7 @@ public class Mouvet extends Animal{
 		this.goalSelector.addGoal(1, new PanicGoal(this, 1.15f));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<Player>(this, Player.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
 		this.targetSelector.addGoal(2, new StealFoodGoal(this, 1.0F));
 	}
 	
@@ -60,7 +60,7 @@ public class Mouvet extends Animal{
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
 		ItemStack currentItem = getCurrentItem();
-		if (currentItem != null) {
+		if (!currentItem.isEmpty()) {
 			pCompound.put("current_item", currentItem.save(registryAccess()));
 		}
 		super.addAdditionalSaveData(pCompound);

@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.common.FarmlandWaterManager;
 import net.neoforged.neoforge.common.IPlantable;
@@ -20,7 +21,7 @@ import net.neoforged.neoforge.common.IPlantable;
 public class OriginFarmlandBlock extends FarmBlock{
 
 	public OriginFarmlandBlock() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND).mapColor(MapColor.COLOR_LIGHT_BLUE));
 	}
 	
 	public static void turnToOriginDirt(BlockState pState, Level pLevel, BlockPos pPos) {

@@ -165,7 +165,7 @@ public class OriginPortalShape {
 	public void createPortalBlocks() {
 		BlockState blockstate = DEBlocks.ORIGIN_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
 		BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1))
-				.forEach(p_77725_ -> this.level.setBlock(p_77725_, blockstate, 18));
+				.forEach(pos -> this.level.setBlock(pos, blockstate, 18));
 	}
 
 	public boolean isComplete() {

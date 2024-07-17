@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 
 public class SavorleafBlock extends Block{
 	public SavorleafBlock() {
@@ -16,6 +17,7 @@ public class SavorleafBlock extends Block{
 			.strength(2, 2)
 			.friction(0.8f)
 			.sound(SoundType.GRASS)
+			.mapColor(MapColor.COLOR_MAGENTA)
 		);
 	}
 	

@@ -1,5 +1,6 @@
 package net.killarexe.dimensional_expansion.common.block;
 
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class OriginDirtBlock extends Block{
 
 	public OriginDirtBlock() {
-		this(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH).sound(SoundType.GRAVEL));
+		this(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH).sound(SoundType.GRAVEL).mapColor(MapColor.COLOR_LIGHT_BLUE));
 	}
 	
 	protected OriginDirtBlock(Properties pProperties) {

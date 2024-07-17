@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.phys.Vec3;
@@ -39,12 +40,11 @@ import java.util.Optional;
 public class OriginPortalBlock extends Block implements Portal {
 	public static final MapCodec<OriginPortalBlock> CODEC = simpleCodec((_prop) -> new OriginPortalBlock());
 	public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-	private static final int AABB_OFFSET = 2;
 	private static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
 	private static final VoxelShape Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
 
 	public OriginPortalBlock() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL).noOcclusion());
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL).noOcclusion().mapColor(MapColor.COLOR_ORANGE));
 		registerDefaultState(getStateDefinition().any().setValue(AXIS, Direction.Axis.X));
 	}
 
@@ -54,12 +54,13 @@ public class OriginPortalBlock extends Block implements Portal {
 	}
 
 	@Override
-	protected BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
-		Direction.Axis facingAxis = pDirection.getAxis();
+	protected BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+		Direction.Axis facingAxis = pFacing.getAxis();
 		Direction.Axis currentAxis = pState.getValue(AXIS);
-		boolean flag = currentAxis == facingAxis || currentAxis.isHorizontal();
-		return !flag && !pState.is(this) && !new OriginPortalShape(pLevel, pPos, currentAxis).isComplete()
-				? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+		boolean flag = currentAxis != facingAxis && facingAxis.isHorizontal();
+		return !flag && !pFacingState.is(this) && !new PortalShape(pLevel, pCurrentPos, currentAxis).isComplete()
+				? Blocks.AIR.defaultBlockState()
+				: super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
 	}
 
 	@Override
