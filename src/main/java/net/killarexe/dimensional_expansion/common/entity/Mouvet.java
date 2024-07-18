@@ -33,7 +33,7 @@ public class Mouvet extends Animal{
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMobAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.75f)
 			.add(Attributes.JUMP_STRENGTH, 0.25f)
-			.add(Attributes.MAX_HEALTH, 10.0f);
+			.add(Attributes.MAX_HEALTH, 5.0f);
 	
 	public Mouvet(EntityType<? extends Animal> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -44,7 +44,7 @@ public class Mouvet extends Animal{
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Mob.class, 10));
 		this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(1, new PanicGoal(this, 1.15f));
+		this.goalSelector.addGoal(1, new PanicGoal(this, 1.075f));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));

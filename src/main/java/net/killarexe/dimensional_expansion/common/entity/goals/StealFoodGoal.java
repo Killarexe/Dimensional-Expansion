@@ -49,28 +49,21 @@ public class StealFoodGoal extends TargetGoal{
 				mob.getNavigation().moveTo(targetMob, 0.75F);
 				return;
 			}
-			for (ItemStack stack : targetMob.getAllSlots()) {
-				if (stack.get(DataComponents.FOOD) != null && mob instanceof Mouvet mouvet) {
-					mouvet.setCurrentItem(stack.copy());
-					stack.shrink(stack.getCount());
-					targetMob.hurt(targetMob.damageSources().mobAttack(mouvet), 1.0F);
-					mouvet.setTarget(null);
-					Vec3 randomPos = DefaultRandomPos.getPos(mouvet, 5, 4);
-					if (randomPos != null) {
-						mouvet.getNavigation().moveTo(randomPos.x, randomPos.y, randomPos.z, 0.75F);
-					}
-					break;
+			ItemStack stack = targetMob.getItemInHand(targetMob.getUsedItemHand());
+			if (stack.get(DataComponents.FOOD) != null && mob instanceof Mouvet mouvet) {
+				mouvet.setCurrentItem(stack.copy());
+				stack.shrink(stack.getCount());
+				targetMob.hurt(targetMob.damageSources().mobAttack(mouvet), 1.0F);
+				mouvet.setTarget(null);
+				Vec3 randomPos = DefaultRandomPos.getPos(mouvet, 5, 4);
+				if (randomPos != null) {
+					mouvet.getNavigation().moveTo(randomPos.x, randomPos.y, randomPos.z, 0.75F);
 				}
 			}
 		}
 	}
 	
 	private boolean entityHaveEdibleItems(LivingEntity entity) {
-		for(ItemStack stack: entity.getAllSlots()) {
-			if(stack.get(DataComponents.FOOD) != null) {
-				return true;
-			}
-		}
-		return false;
+		return entity.getItemInHand(entity.getUsedItemHand()).get(DataComponents.FOOD) != null;
 	}
 }

@@ -28,8 +28,8 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
-		createBlasting(output, RecipeCategory.MISC, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 200, "palon_ingot_blast");
-        createSmelting(output, RecipeCategory.MISC, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 201, "palon_ingot_smelt");
+		createBlasting(output, RecipeCategory.MISC, PALON_ORE.get(), PALON_INGOT.get(), 0.1f, 225, "palon_ingot_blast");
+        createSmelting(output, RecipeCategory.MISC, RAW_PALON.get(), PALON_INGOT.get(), 0.5f, 200, "palon_ingot_smelt");
         createMaterialRecipe(output, RecipeCategory.MISC, PALON_NUGGET.get(), PALON_INGOT.get(), "palon_nugget");
         createMaterialRecipe(output, RecipeCategory.MISC, PALON_INGOT.get(), PALON_BLOCK.get(), "palon_ingot_block");
         createOreBlockRecipe(output, RecipeCategory.MISC, PALON_BLOCK.get(), PALON_INGOT.get(), "palon_block");
@@ -39,7 +39,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createMaterialRecipe(output, RecipeCategory.MISC, BASSMITE_GEM.get(), BASSMITE_BLOCK.get(), "bassmite_gem_block");
         createOreBlockRecipe(output, RecipeCategory.MISC, BASSMITE_BLOCK.get(), BASSMITE_GEM.get(), "bassmite_block");
         
-        createBlasting(output, RecipeCategory.MISC, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 200, "simix_ingot_blast");
+        createBlasting(output, RecipeCategory.MISC, SIMIX_ORE.get(), SIMIX_INGOT.get(), 0.1f, 225, "simix_ingot_blast");
         createSmelting(output, RecipeCategory.MISC, RAW_SIMIX.get(), SIMIX_INGOT.get(), 0.1f, 200, "simix_ingot_smelt");
         createMaterialRecipe(output, RecipeCategory.MISC, SIMIX_NUGGET.get(), SIMIX_INGOT.get(), "simix_nugget");
         createMaterialRecipe(output, RecipeCategory.MISC, SIMIX_INGOT.get(), SIMIX_BLOCK.get(), "simix_ingot_block");
@@ -65,7 +65,7 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
         createTrapDoorRecipe(output, RecipeCategory.MISC, PURPLEHEART_TRAPDOOR.get(), PURPLEHEART_PLANKS.get(), "purpleheart_trapdoor");
         createSignRecipe(output, RecipeCategory.MISC, DEItems.PURPLEHEART_SIGN.get(), PURPLEHEART_PLANKS.get(), "purpleheart_sign");
         
-        createSmelting(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE.get(), SULFUR_STONE.get(), 0.1f, 150, "sulfur_cobblestone");
+        createSmelting(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE.get(), SULFUR_STONE.get(), 0.1f, 100, "sulfur_cobblestone");
         createStairsRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE_STAIRS.get(), SULFUR_COBBLESTONE.get(), "sulfur_cobblestone_stairs");
         createStairsRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_STONE_STAIRS.get(), SULFUR_STONE.get(), "sulfur_stone_stairs");
         createSlabRecipe(output, RecipeCategory.BUILDING_BLOCKS, SULFUR_COBBLESTONE_SLAB.get(), SULFUR_COBBLESTONE.get(), "sulfur_cobblestone_slab");
@@ -136,6 +136,18 @@ public class DERecipeProvider extends RecipeProvider implements IConditionBuilde
 			.pattern(" / ")
 			.unlockedBy("has_material", has(LEAD))
 			.save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), 2)
+                .define('#', PALON_INGOT.get()).define('O', BASSMITE_UPGRADE_SMITHING_TEMPLATE.get())
+                .pattern("###")
+                .pattern("#O#")
+                .pattern("###");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EMERTYST_UPGRADE_SMITHING_TEMPLATE.get(), 2)
+                .define('#', SIMIX_INGOT.get()).define('O', EMERTYST_UPGRADE_SMITHING_TEMPLATE.get())
+                .pattern("###")
+                .pattern("#O#")
+                .pattern("###");
 
         createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_SWORD, BASSMITE_GEM.get(), BASSMITE_SWORD.get());
         createSmithingTransform(output, RecipeCategory.TOOLS, BASSMITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_PICKAXE, BASSMITE_GEM.get(), BASSMITE_PICKAXE.get());
