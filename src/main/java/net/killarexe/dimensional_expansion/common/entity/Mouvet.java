@@ -1,17 +1,19 @@
 package net.killarexe.dimensional_expansion.common.entity;
 
 import net.killarexe.dimensional_expansion.common.entity.goals.StealFoodGoal;
+import net.killarexe.dimensional_expansion.common.entity.goals.TakeFoodGoal;
 import net.killarexe.dimensional_expansion.init.DESoundEvents;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -23,8 +25,13 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class Mouvet extends Animal{
 	
@@ -32,7 +39,7 @@ public class Mouvet extends Animal{
 	
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMobAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.75f)
-			.add(Attributes.JUMP_STRENGTH, 0.25f)
+			.add(Attributes.JUMP_STRENGTH, 0.5f)
 			.add(Attributes.MAX_HEALTH, 5.0f);
 	
 	public Mouvet(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -44,6 +51,7 @@ public class Mouvet extends Animal{
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Mob.class, 10));
 		this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(2, new TakeFoodGoal(this, 1.0F, 0.75F, 10));
 		this.goalSelector.addGoal(1, new PanicGoal(this, 1.075f));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		
@@ -92,6 +100,17 @@ public class Mouvet extends Animal{
 			level().addFreshEntity(new ItemEntity(level(), position().x, position().y + 1 , position().z, getCurrentItem(), 0, 0.5D, 0.0));
 		}
 		super.dropEquipment();
+	}
+
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
+		if (pLevel.getRandom().nextInt(500) <= 10) {
+			List<Item> foodItems = BuiltInRegistries.ITEM.stream().filter(item -> new ItemStack(item).get(DataComponents.FOOD) != null).toList();
+			if (!foodItems.isEmpty()) {
+				setCurrentItem(new ItemStack(foodItems.get(random.nextInt(foodItems.size() - 1))));
+			}
+		}
+		return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
 	}
 
 	public ItemStack getCurrentItem() {

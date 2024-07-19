@@ -8,17 +8,14 @@ import net.neoforged.neoforge.common.BiomeManager;
 
 public class DEBiomes {
 
-    public static final ResourceKey<Biome> PURPLEHEART_FOREST = registerBiome("purpleheart_forest", BiomeManager.BiomeType.WARM, 10, false);
-    public static final ResourceKey<Biome> BLUE_SAND_DESERT = registerBiome("blue_sand_desert", BiomeManager.BiomeType.DESERT, 10, false);
-    public static final ResourceKey<Biome> ORIGIN_DEADLAND = registerBiome("origin_deadland", BiomeManager.BiomeType.DESERT, 10, false);
-    public static final ResourceKey<Biome> ORIGIN_PLAINS = registerBiome("origin_plains", BiomeManager.BiomeType.WARM, 10, false);
+    public static final ResourceKey<Biome> PURPLEHEART_FOREST = registerBiome("purpleheart_forest", BiomeManager.BiomeType.WARM, 10);
+    public static final ResourceKey<Biome> BLUE_SAND_DESERT = registerBiome("blue_sand_desert", BiomeManager.BiomeType.DESERT, 10);
+    public static final ResourceKey<Biome> ORIGIN_DEADLAND = registerBiome("origin_deadland", BiomeManager.BiomeType.DESERT, 10);
+    public static final ResourceKey<Biome> ORIGIN_PLAINS = registerBiome("origin_plains", BiomeManager.BiomeType.WARM, 10);
 
-    private static ResourceKey<Biome> registerBiome(String name, BiomeManager.BiomeType type, int weight, boolean addToOverworld){
+    private static ResourceKey<Biome> registerBiome(String name, BiomeManager.BiomeType type, int weight){
         ResourceKey<Biome> biome = ResourceKey.create(Registries.BIOME, DEMod.res(name));
         BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight));
-        if(addToOverworld) {
-        	BiomeManager.addAdditionalOverworldBiomes(biome);
-        }
         return biome;
     }
 

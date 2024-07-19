@@ -1,5 +1,4 @@
 {
-	"name": "dimensional_expansion:abandoned_portal",
 	"fallback": "minecraft:empty",
 	"elements": [
 		{
@@ -8,6 +7,7 @@
 				"element_type": "minecraft:single_pool_element",
 				"projection": "terrain_matching",
 				"location": "dimensional_expansion:abandonned_portal",
+				"override_liquid_settings": "apply_waterlogging",
 				"processors": "dimensional_expansion:abandonned_portal_degradation"
 			}
 		}

@@ -47,15 +47,15 @@ public class DECreativeTabs {
     }
     
     public static void addItemsToCreativeTabs(BuildCreativeModeTabContentsEvent e) {
-    	if(e.getTab() == MISC.get()) {
+    	if (e.getTab() == MISC.get()) {
     		addItemsToCreativeTab(e, Tabs.MISC);
-    	}else if(e.getTab() == BLOCKS.get()) {
+    	} else if (e.getTab() == BLOCKS.get()) {
     		addItemsToCreativeTab(e, Tabs.BLOCKS);
-    	}else if(e.getTab() == COMBAT.get()) {
+    	} else if (e.getTab() == COMBAT.get()) {
     		addItemsToCreativeTab(e, Tabs.COMBAT);
-    	}else if(e.getTab() == TOOLS.get()) {
+    	} else if (e.getTab() == TOOLS.get()) {
     		addItemsToCreativeTab(e, Tabs.TOOLS);
-    	}else if(e.getTab() == MOBS.get()) {
+    	} else if (e.getTab() == MOBS.get()) {
     		addItemsToCreativeTab(e, Tabs.MOBS);
     	}
     }

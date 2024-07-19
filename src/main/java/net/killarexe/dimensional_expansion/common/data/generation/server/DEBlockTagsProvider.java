@@ -2,6 +2,7 @@ package net.killarexe.dimensional_expansion.common.data.generation.server;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DETags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
@@ -9,6 +10,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -174,5 +176,7 @@ public class DEBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         		DEBlocks.POTTED_PURPLEISH_CACTUS.get()
         );
         tag(BlockTags.DEAD_BUSH_MAY_PLACE_ON).add(DEBlocks.BLUE_SAND.get());
+		tag(DETags.SULFUR_STONE_ORE_REPLACEABLES).add(DEBlocks.SULFUR_STONE.get());
+		tag(DETags.END_STONE_ORE_REPLACEABLES).add(Blocks.END_STONE);
     }
 }
