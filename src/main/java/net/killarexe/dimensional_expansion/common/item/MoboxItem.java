@@ -63,9 +63,12 @@ public class MoboxItem extends Item {
 	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
 		CompoundTag currentEntity = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
 		if(entity instanceof LivingEntity livingEntity && currentEntity.isEmpty()) {
-			stack.set(DataComponents.CUSTOM_DATA, CustomData.of(livingEntity.serializeNBT(player.registryAccess())));
-			entity.remove(RemovalReason.DISCARDED);
-			return false;
+			CompoundTag savedEntity = livingEntity.serializeAttachments(player.registryAccess());
+			if (savedEntity != null) {
+				stack.set(DataComponents.CUSTOM_DATA, CustomData.of(savedEntity));
+				entity.remove(RemovalReason.DISCARDED);
+				return false;
+			}
 		}
 		return super.onLeftClickEntity(stack, player, entity);
 	}

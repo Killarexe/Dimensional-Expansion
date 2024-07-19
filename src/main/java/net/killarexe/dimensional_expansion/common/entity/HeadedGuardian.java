@@ -63,7 +63,7 @@ public class HeadedGuardian extends AbstractGolem implements RangedAttackMob{
 	    ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem)));
 	    AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack, pVelocity, null);
 	    if (this.getMainHandItem().getItem() instanceof BowItem) {
-	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow, null);
+	    	abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow, null, null);
 	    }
 	    double d0 = pTarget.getX() - this.getX();
 	    double d1 = pTarget.getY(0.33333333333D) - abstractarrow.getY() - 0.5F;

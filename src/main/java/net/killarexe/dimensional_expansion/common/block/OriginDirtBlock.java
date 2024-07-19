@@ -1,8 +1,8 @@
 package net.killarexe.dimensional_expansion.common.block;
 
 import net.minecraft.world.level.material.MapColor;
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
 import net.killarexe.dimensional_expansion.init.DEBlocks;
@@ -24,11 +24,11 @@ public class OriginDirtBlock extends Block{
 	}
 
 	@Override
-	public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
-		if(toolAction == ToolActions.SHOVEL_FLATTEN) {
+	public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+		if (itemAbility == ItemAbilities.SHOVEL_FLATTEN) {
 			return DEBlocks.ORIGIN_DIRT_PATH.get().defaultBlockState();
 		}
-		if(toolAction == ToolActions.HOE_TILL) {
+		if (itemAbility == ItemAbilities.HOE_TILL) {
 			return DEBlocks.ORIGIN_FARMLAND.get().defaultBlockState();
 		}
 		return state;

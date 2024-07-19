@@ -4,6 +4,7 @@ import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
@@ -16,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.common.FarmlandWaterManager;
-import net.neoforged.neoforge.common.IPlantable;
 
 public class OriginFarmlandBlock extends FarmBlock{
 
@@ -40,7 +40,7 @@ public class OriginFarmlandBlock extends FarmBlock{
 	    if (!isNearWater(pLevel, pPos) && !pLevel.isRainingAt(pPos.above())) {
 	    	if (i > 0) {
 	            pLevel.setBlock(pPos, pState.setValue(MOISTURE, Integer.valueOf(i - 1)), 2);
-	        } else if (!isUnderCrops(pLevel, pPos)) {
+	        } else if (!shouldMaintainFarmland(pLevel, pPos)) {
 	        	turnToOriginDirt(pState, pLevel, pPos);
 	        }
 	    } else if (i < 7) {
@@ -55,12 +55,10 @@ public class OriginFarmlandBlock extends FarmBlock{
 	    super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
 	}
 	
-	private static boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
-		BlockState plant = pLevel.getBlockState(pPos.above());
-	    BlockState state = pLevel.getBlockState(pPos);
-	    return plant.getBlock() instanceof IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable)plant.getBlock());
+	private static boolean shouldMaintainFarmland(BlockGetter level, BlockPos pos) {
+		return level.getBlockState(pos.above()).is(BlockTags.MAINTAINS_FARMLAND);
 	}
-	
+
 	private static boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
 		BlockState state = pLevel.getBlockState(pPos);
 	    for(BlockPos blockpos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
