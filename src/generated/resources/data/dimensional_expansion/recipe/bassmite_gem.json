@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dimensional_expansion:bassmite_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:bassmite_gem"
+  }
+}

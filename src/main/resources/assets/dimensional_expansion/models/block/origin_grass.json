@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "dimensional_expansion:block/origin_grass"
-  },
-  "render_type": "cutout"
-}

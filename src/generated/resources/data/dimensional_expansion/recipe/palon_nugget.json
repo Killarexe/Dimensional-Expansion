@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dimensional_expansion:palon_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "dimensional_expansion:palon_nugget"
+  }
+}

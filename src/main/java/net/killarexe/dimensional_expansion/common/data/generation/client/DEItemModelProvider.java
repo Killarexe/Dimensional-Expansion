@@ -69,6 +69,9 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.PURPLEHEART_CHEST_BOAT);
     	
     	oneLayerItem(DEItems.SWEDEN_DISC);
+        oneLayerItem(DEItems.VERY_SPECIAL_DISC);
+        oneLayerItem(DEItems.GROOVY_DISC);
+
     	oneLayerItem(DEItems.PURPLE_BERRY);
     	oneLayerItem(DEItems.SAVORLEAF);
     	oneLayerItem(DEItems.VIOLET_CARROT);
@@ -98,13 +101,14 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.ORIGIN_DIRT);
         simpleBlockItem(DEBlocks.ORIGIN_FARMLAND);
 
+        simpleBlockItem(DEBlocks.PURPLEISH_CACTUS);
         simpleBlockItem(DEBlocks.PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.STRIPPED_PURPLEHEART_LOG);
         simpleBlockItem(DEBlocks.PURPLEHEART_PLANKS);
         simpleBlockItem(DEBlocks.PURPLEHEART_SLAB);
         inventoryItem(DEBlocks.PURPLEHEART_FENCE);
         simpleBlockItem(DEBlocks.PURPLEHEART_FENCE_GATE);
-        inventoryItem(DEBlocks.PURPLEHEART_BUTTON);
+        simpleBlockItem(DEBlocks.PURPLEHEART_BUTTON);
         simpleBlockItem(DEBlocks.PURPLEHEART_PRESSURE_PLATE);
         oneLayerItem(DEBlocks.PURPLEHEART_DOOR);
         trapDoorItem(DEBlocks.PURPLEHEART_TRAPDOOR);
@@ -137,6 +141,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.BLUE_SANDSTONE);
         simpleBlockItem(DEBlocks.ORIGIN_FRAME);
         simpleBlockItem(DEBlocks.SAVORLEAF_BLOCK);
+
+        simpleBlockItem(DEBlocks.ENCHANT_TRANSFER_TABLE);
         
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
         oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");

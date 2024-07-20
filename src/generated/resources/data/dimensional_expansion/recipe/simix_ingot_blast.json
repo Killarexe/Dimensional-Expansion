@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 225,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dimensional_expansion:simix_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:simix_ingot"
+  }
+}

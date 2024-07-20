@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "dimensional_expansion:raw_palon"
+  },
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:palon_ingot"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dimensional_expansion:block/enchant_transfer_table"
+    }
+  }
+}

@@ -82,6 +82,8 @@ public class DEItems {
     public static final DeferredHolder<Item, Item> PURPLEHEART_CHEST_BOAT = createItem("purpleheart_chest_boat", () -> new ChestBoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEChestBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     
     public static final DeferredHolder<Item, Item> SWEDEN_DISC = createDiscItem("sweden_disc", DEJukeboxSongs.SWEDEN_REMIX, DECreativeTabs.Tabs.MISC);
+    public static final DeferredHolder<Item, Item> VERY_SPECIAL_DISC = createDiscItem("very_spcial_disc", DEJukeboxSongs.VERY_SPECIAL_DISC, DECreativeTabs.Tabs.MISC);
+    public static final DeferredHolder<Item, Item> GROOVY_DISC = createDiscItem("groovy_disc", DEJukeboxSongs.GROOVY, DECreativeTabs.Tabs.MISC);
 
     public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     public static final DeferredHolder<Item, DeferredSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);

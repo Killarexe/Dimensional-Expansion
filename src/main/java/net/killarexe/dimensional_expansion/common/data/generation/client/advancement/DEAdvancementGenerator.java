@@ -16,11 +16,13 @@ import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -28,6 +30,8 @@ public class DEAdvancementGenerator implements AdvancementProvider.AdvancementGe
 
 	@Override
 	public void generate(Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
+		HolderGetter<Structure> structures = registries.lookupOrThrow(Registries.STRUCTURE);
+
 		AdvancementHolder root = createRootAdvancement(
 				DEBlocks.ORIGIN_GRASS_BLOCK.get(),
 				DEMod.res("textures/block/palon_block.png"),
@@ -119,7 +123,7 @@ public class DEAdvancementGenerator implements AdvancementProvider.AdvancementGe
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.Builder.inStructure(registries.lookupOrThrow(Registries.STRUCTURE).getOrThrow(DEStructures.ABANDONNED_PORTAL))
+						LocationPredicate.Builder.inStructure(structures.getOrThrow(DEStructures.ABANDONNED_PORTAL))
 				)
 		).save(saver, DEMod.res("origin_abandonned_portal").toString());
 		
@@ -132,7 +136,7 @@ public class DEAdvancementGenerator implements AdvancementProvider.AdvancementGe
 		.addCriterion(
 				"in_structure",
 				PlayerTrigger.TriggerInstance.located(
-						LocationPredicate.Builder.inStructure(registries.lookupOrThrow(Registries.STRUCTURE).getOrThrow(DEStructures.VILLAGE_ORIGIN_PLAINS))
+						LocationPredicate.Builder.inStructure(structures.getOrThrow(DEStructures.VILLAGE_ORIGIN_PLAINS))
 				)
 		).save(saver, DEMod.res("village_origin_plains").toString());
 	}

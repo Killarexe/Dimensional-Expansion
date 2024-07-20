@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:flint_and_steel"
+    },
+    {
+      "item": "dimensional_expansion:simix_hammer"
+    },
+    {
+      "item": "dimensional_expansion:palon_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:origin_portal_key"
+  }
+}

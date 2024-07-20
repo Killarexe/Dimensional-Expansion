@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "dimensional_expansion:block/purpleheart_sapling"
-  },
-  "render_type": "cutout"
-}

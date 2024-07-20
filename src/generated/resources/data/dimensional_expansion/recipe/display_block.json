@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:end_stone"
+    },
+    "I": {
+      "item": "dimensional_expansion:palon_ingot"
+    },
+    "O": {
+      "item": "minecraft:item_frame"
+    }
+  },
+  "pattern": [
+    " O ",
+    "III",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:display_block"
+  }
+}

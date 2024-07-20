@@ -3,12 +3,13 @@ package net.killarexe.dimensional_expansion.common.data.generation.client;
 import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 
 import net.killarexe.dimensional_expansion.DEMod;
+import net.killarexe.dimensional_expansion.common.block.EnchantTransferTable;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -35,6 +36,13 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		simpleBlock(VIOLET_STONE.get());
 		simpleBlock(PURPLEHEART_LEAVES.get());
 		simpleBlock(BLUE_SAND.get());
+		simpleBlock(SULFUR_COBBLESTONE.get());
+
+		pathBlock(ORIGIN_DIRT_PATH,
+				ResourceLocation.parse(blockTexture(ORIGIN_DIRT_PATH.get()) + "_top"),
+				ResourceLocation.parse(blockTexture(ORIGIN_DIRT_PATH.get()) + "_side"),
+				blockTexture(ORIGIN_DIRT.get())
+		);
 
 		logBlock(PURPLEHEART_LOG.get());
 		logBlock(STRIPPED_PURPLEHEART_LOG.get());
@@ -45,7 +53,7 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		slabBlock(SULFUR_STONE_BRICKS_SLAB.get(), SULFUR_STONE_BRICKS.getId(), blockTexture(SULFUR_STONE_BRICKS.get()));
 		slabBlock(VIOLET_STONE_SLAB.get(), VIOLET_STONE.getId(), blockTexture(VIOLET_STONE.get()));
 
-		fenceBlock(PURPLEHEART_FENCE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
+		fenceBlockWithInventory(PURPLEHEART_FENCE, blockTexture(PURPLEHEART_PLANKS.get()));
 
 		fenceGateBlock(PURPLEHEART_FENCE_GATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
 
@@ -75,6 +83,12 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		simpleBlock(ORIGIN_FRAME.get());
 
 		crossBlock(PURPLE_BERRY_DEAD_BUSH, blockTexture(PURPLE_BERRY_DEAD_BUSH.get()));
+		crossBlock(ORIGIN_GRASS, blockTexture(ORIGIN_GRASS.get()));
+		crossBlock(PURPLE_ROSE, blockTexture(PURPLE_ROSE.get()));
+		crossBlock(PURPLEHEART_SAPLING, blockTexture(PURPLEHEART_SAPLING.get()));
+
+		enchantTransferTable(ENCHANT_TRANSFER_TABLE);
+		cactus(PURPLEISH_CACTUS);
 
 		doublePlantBlock(ORIGIN_TALL_GRASS, ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_top"),
 				ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_bottom"));
@@ -115,6 +129,108 @@ public class DEBlockStateProvider extends BlockStateProvider {
 				.modelFile(models().wallInventory(block.getId().getPath() + "_inventory", texture)).addModel();
 	}
 
+	private void cactus(DeferredHolder<Block, ? extends Block> block) {
+		Block cactusBlock = block.get();
+		ResourceLocation location = blockTexture(cactusBlock);
+		BlockModelBuilder model = models().cubeBottomTop(
+				block.getId().getPath(),
+				ResourceLocation.parse(location + "_side"),
+				ResourceLocation.parse(location + "_bottom"),
+				ResourceLocation.parse(location + "_top")
+		);
+		ModelBuilder<BlockModelBuilder>.ElementBuilder builder = model.element();
+		builder.from(0, 0, 0).to(16, 16, 16);
+		builder.face(Direction.DOWN).uvs(0, 0 ,16, 16).texture("#bottom").cullface(Direction.DOWN).end()
+				.face(Direction.UP).uvs(0, 0, 16, 16).texture("#top").cullface(Direction.UP).end();
+		builder.end();
+		ModelBuilder<BlockModelBuilder>.ElementBuilder builder1 = model.element();
+		builder1.from(0, 0, 1).to(16, 16, 15);
+		builder1.face(Direction.NORTH).uvs(0, 0 ,16, 16).texture("#side").cullface(Direction.NORTH).end()
+				.face(Direction.SOUTH).uvs(0, 0, 16, 16).texture("#side").cullface(Direction.SOUTH).end();
+		builder1.end();
+		ModelBuilder<BlockModelBuilder>.ElementBuilder builder2 = model.element();
+		builder2.from(1, 0, 0).to(15, 16, 16);
+		builder2.face(Direction.WEST).uvs(0, 0 ,16, 16).texture("#side").cullface(Direction.WEST).end()
+				.face(Direction.EAST).uvs(0, 0, 16, 16).texture("#side").cullface(Direction.EAST).end();
+		builder2.end();
+		model.renderType("cutout");
+		getVariantBuilder(cactusBlock).partialState().setModels(new ConfiguredModel(model));
+	}
+
+	private void enchantTransferTable(DeferredHolder<Block, EnchantTransferTable> block) {
+		EnchantTransferTable enchantTransferTable = block.get();
+		ResourceLocation location = blockTexture(enchantTransferTable);
+		BlockModelBuilder model = models().cubeBottomTop(
+				block.getId().getPath(),
+				ResourceLocation.parse(location + "_side"),
+				blockTexture(ORIGIN_FRAME.get()),
+				ResourceLocation.parse(location + "_top")
+		);
+		ModelBuilder<BlockModelBuilder>.ElementBuilder builder = model.element();
+		builder.from(6, 0, 0);
+		builder.to(16, 12, 16);
+		builder.allFaces(this::createEnchantTransferTableFaces);
+		builder.end();
+		model.renderType("cutout");
+		getVariantBuilder(enchantTransferTable).partialState().setModels(new ConfiguredModel(model));
+	}
+
+	private void createEnchantTransferTableFaces(Direction direction, ModelBuilder.ElementBuilder.FaceBuilder builder) {
+		switch (direction) {
+			case DOWN:
+				builder.uvs(0, 0, 16, 16);
+				builder.texture("#bottom");
+				builder.cullface(direction);
+				break;
+			case UP:
+				builder.uvs(0, 0, 16, 16);
+				builder.texture("#top");
+				builder.cullface(direction);
+				break;
+			case NORTH, SOUTH, WEST, EAST:
+				builder.uvs(0, 4, 16, 16);
+				builder.texture("#side");
+				builder.cullface(direction);
+				break;
+		}
+		builder.end();
+	}
+
+	private void portalBlock(DeferredHolder<Block, ? extends Block> block) {
+	}
+
+	private void pathBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation top, ResourceLocation side, ResourceLocation down) {
+		BlockModelBuilder model = models().cubeBottomTop(block.getId().getPath(), side, down, top);
+		ModelBuilder<BlockModelBuilder>.ElementBuilder builder = model.element();
+		builder.from(0, 0, 0);
+		builder.to(16, 15, 16);
+		builder.allFaces(this::createPathBlockFaces);
+		builder.end();
+		model.renderType("cutout");
+		getVariantBuilder(block.get()).partialState()
+				.setModels(new ConfiguredModel(model));
+	}
+
+	private void createPathBlockFaces(Direction direction, ModelBuilder.ElementBuilder.FaceBuilder builder) {
+		switch (direction) {
+			case DOWN:
+				builder.uvs(0, 0, 16, 16);
+				builder.texture("#bottom");
+				builder.cullface(direction);
+				break;
+			case UP:
+				builder.uvs(0, 0, 16, 16);
+				builder.texture("#top");
+				break;
+			case NORTH, SOUTH, WEST, EAST:
+				builder.uvs(0, 1, 16, 16);
+				builder.texture("#side");
+				builder.cullface(direction);
+				break;
+        }
+		builder.end();
+	}
+
 	private void crossBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
 		getVariantBuilder(block.get()).partialState()
 				.setModels(new ConfiguredModel(models().cross(block.getId().getPath(), texture).renderType("cutout")));
@@ -126,5 +242,12 @@ public class DEBlockStateProvider extends BlockStateProvider {
 				.addModels(new ConfiguredModel(models().cross(block.getId().getPath() + "_bottom", bottom).renderType("cutout")))
 				.partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
 				.addModels(new ConfiguredModel(models().cross(block.getId().getPath() + "_top", top).renderType("cutout")));
+	}
+
+	private void fenceBlockWithInventory(DeferredHolder<Block, ? extends FenceBlock> block, ResourceLocation texture) {
+		FenceBlock fenceBlock = block.get();
+		fenceBlock(fenceBlock, texture);
+		getMultipartBuilder(fenceBlock).part()
+				.modelFile(models().fenceInventory(block.getId().getPath() + "_inventory", texture)).addModel();
 	}
 }

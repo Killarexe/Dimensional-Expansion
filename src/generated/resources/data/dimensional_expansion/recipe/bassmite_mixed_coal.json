@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "dimensional_expansion:bassmite_mixed_coal"
+  }
+}

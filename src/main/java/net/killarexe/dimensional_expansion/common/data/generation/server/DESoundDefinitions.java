@@ -30,7 +30,9 @@ public class DESoundDefinitions extends SoundDefinitionsProvider {
 		addEntitySound(DESoundEvents.MOUVET_HURT, "mouvet", "hurt", "hurt");
 		
 		addMusicDisc(DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, "sweden_remix");
-		
+		addMusicDisc(DESoundEvents.MUSIC_DISC_VERY_SPCIAL_DISC, "very_special_disc");
+		addMusicDisc(DESoundEvents.MUSIC_DISC_GROOVY, "groovy");
+
 		addMusic(DESoundEvents.ORIGIN_MUSIC, "origin_music", "nightly_walk", "seeing_the_stars", "the_origin");
 	}
 	

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "dimensional_expansion:bassmite_gem"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:bassmite_boots"
+  },
+  "template": {
+    "item": "dimensional_expansion:bassmite_upgrade_smithing_template"
+  }
+}

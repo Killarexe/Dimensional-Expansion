@@ -18,7 +18,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 @EventBusSubscriber(modid = DEMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DEDataGenerator {
-	
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent e) {
 		DataGenerator generator = e.getGenerator();
@@ -30,8 +29,6 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeClient(), new DEBlockStateProvider(output, helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Item Models...");
 		generator.addProvider(e.includeClient(), new DEItemModelProvider(output, helper));
-		DEMod.LOGGER.info("Generating Dimensional Expansion Advencement Files...");
-		generator.addProvider(e.includeClient(), new DEAdvancementProvider(output, lookupProvider, helper));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Lang Files...");
 		generator.addProvider(e.includeClient(), new DEEnUsProvider(output));
 		DEMod.LOGGER.info("Generating Dimensional Expansion LootTables...");
@@ -47,5 +44,8 @@ public class DEDataGenerator {
 		generator.addProvider(e.includeServer(), new DERecipeProvider(output, lookupProvider));
 		DEMod.LOGGER.info("Generating Dimensional Expansion Sound Definitions...");
 		generator.addProvider(e.includeServer(), new DESoundDefinitions(output, helper));
+		//NOTE: Wait for NeoForgeDevs to patch this...
+		//DEMod.LOGGER.info("Generating Dimensional Expansion Advencement Files...");
+		//generator.addProvider(e.includeClient(), new DEAdvancementProvider(output, lookupProvider, helper));
 	}
 }

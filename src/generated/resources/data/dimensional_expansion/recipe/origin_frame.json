@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "dimensional_expansion:bassmite_gem"
+    },
+    "%": {
+      "item": "dimensional_expansion:simix_ingot"
+    },
+    "&": {
+      "item": "minecraft:ender_pearl"
+    },
+    "@": {
+      "item": "dimensional_expansion:palon_ingot"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "@&@",
+    "#%#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "dimensional_expansion:origin_frame"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "dimensional_expansion:emertyst_gem"
+  },
+  "base": {
+    "item": "dimensional_expansion:bassmite_chestplate"
+  },
+  "result": {
+    "count": 1,
+    "id": "dimensional_expansion:emertyst_chestplate"
+  },
+  "template": {
+    "item": "dimensional_expansion:emertyst_upgrade_smithing_template"
+  }
+}

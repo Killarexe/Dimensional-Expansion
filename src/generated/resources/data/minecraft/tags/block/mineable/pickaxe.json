@@ -1,0 +1,31 @@
+{
+  "values": [
+    "dimensional_expansion:palon_ore",
+    "dimensional_expansion:palon_block",
+    "dimensional_expansion:bassmite_ore",
+    "dimensional_expansion:bassmite_block",
+    "dimensional_expansion:simix_ore",
+    "dimensional_expansion:simix_block",
+    "dimensional_expansion:emertyst_ore",
+    "dimensional_expansion:emertyst_block",
+    "dimensional_expansion:sulfur_stone",
+    "dimensional_expansion:sulfur_cobblestone",
+    "dimensional_expansion:sulfur_cobblestone_slab",
+    "dimensional_expansion:sulfur_cobblestone_stairs",
+    "dimensional_expansion:sulfur_stone_button",
+    "dimensional_expansion:sulfur_stone_pressure_plate",
+    "dimensional_expansion:sulfur_stone_slab",
+    "dimensional_expansion:sulfur_stone_stairs",
+    "dimensional_expansion:sulfur_stone_bricks",
+    "dimensional_expansion:sulfur_stone_bricks_slab",
+    "dimensional_expansion:sulfur_stone_bricks_stairs",
+    "dimensional_expansion:sulfur_stone_bricks_wall",
+    "dimensional_expansion:violet_stone",
+    "dimensional_expansion:violet_stone_slab",
+    "dimensional_expansion:violet_stone_stairs",
+    "dimensional_expansion:violet_stone_wall",
+    "dimensional_expansion:blue_sandstone",
+    "dimensional_expansion:origin_frame",
+    "dimensional_expansion:display_block"
+  ]
+}

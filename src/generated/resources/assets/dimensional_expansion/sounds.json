@@ -1,0 +1,89 @@
+{
+  "disc.groovy": {
+    "sounds": [
+      "dimensional_expansion:record/groovy"
+    ],
+    "subtitle": "record.dimensional_expansion.groovy.subtitle"
+  },
+  "disc.sweden_remix": {
+    "sounds": [
+      "dimensional_expansion:record/sweden_remix"
+    ],
+    "subtitle": "record.dimensional_expansion.sweden_remix.subtitle"
+  },
+  "disc.very_special_disc": {
+    "sounds": [
+      "dimensional_expansion:record/very_special_disc"
+    ],
+    "subtitle": "record.dimensional_expansion.very_special_disc.subtitle"
+  },
+  "entity.blue_sand_man.ambient": {
+    "sounds": [
+      "dimensional_expansion:entity/blue_sand_man/say1",
+      "dimensional_expansion:entity/blue_sand_man/say2"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.ambient"
+  },
+  "entity.blue_sand_man.death": {
+    "sounds": [
+      "dimensional_expansion:entity/blue_sand_man/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.death"
+  },
+  "entity.blue_sand_man.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/blue_sand_man/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.blue_sand_man.hurt"
+  },
+  "entity.juger.ambient": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/say1"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.ambient"
+  },
+  "entity.juger.attack": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/attack"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.attack"
+  },
+  "entity.juger.death": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.death"
+  },
+  "entity.juger.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/juger/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.juger.hurt"
+  },
+  "entity.mouvet.ambient": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/say1"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.ambient"
+  },
+  "entity.mouvet.death": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/death"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.death"
+  },
+  "entity.mouvet.hurt": {
+    "sounds": [
+      "dimensional_expansion:entity/mouvet/hurt"
+    ],
+    "subtitle": "entity.dimensional_expansion.mouvet.hurt"
+  },
+  "music.origin": {
+    "sounds": [
+      "dimensional_expansion:music/nightly_walk",
+      "dimensional_expansion:music/seeing_the_stars",
+      "dimensional_expansion:music/the_origin"
+    ],
+    "subtitle": "origin_music"
+  }
+}

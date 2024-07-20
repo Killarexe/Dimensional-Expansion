@@ -151,7 +151,11 @@ public class DEEnUsProvider extends LanguageProvider {
         /*Discs*/
         add(DEItems.SWEDEN_DISC.get(), "Sweden in the 90's Disc");
         add(DEItems.SWEDEN_DISC.get().getDescriptionId() + ".desc", "Sweden in the 90's by Killar.exe");
-        
+        add(DEItems.VERY_SPECIAL_DISC.get(), "Very Special Disc");
+        add(DEItems.VERY_SPECIAL_DISC.get().getDescriptionId() + ".desc", "A Very Spcial Disc by Killar.exe");
+        add(DEItems.GROOVY_DISC.get(), "Groovy Disc");
+        add(DEItems.GROOVY_DISC.get().getDescriptionId() + ".desc", "Groovy by Killar.exe");
+
         /*ItemGroups*/
         add("itemGroup." + DEMod.MOD_ID + ".combat", "Dimensional Expansion Combat");
         add("itemGroup." + DEMod.MOD_ID + ".tools", "Dimensional Expansion Tools");
