@@ -22,6 +22,7 @@ eclipse
 run
 run-data
 runs
+src/generated/resources/.cache/
 
 # Files from Forge MDK
 forge*changelog.txt
