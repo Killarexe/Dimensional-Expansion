@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -51,8 +52,12 @@ public class InventoryBlockEntity extends BlockEntity{
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return serializeAttachments(pRegistries);
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        CompoundTag tag = serializeAttachments(pRegistries);
+        if (tag != null) {
+            return tag;
+        }
+        return new CompoundTag();
     }
 
     @Override

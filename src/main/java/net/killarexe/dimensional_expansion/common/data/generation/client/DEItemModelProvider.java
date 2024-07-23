@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -75,6 +76,8 @@ public class DEItemModelProvider extends ItemModelProvider {
     	oneLayerItem(DEItems.PURPLE_BERRY);
     	oneLayerItem(DEItems.SAVORLEAF);
     	oneLayerItem(DEItems.VIOLET_CARROT);
+
+        compassItem(DEItems.COORD_LINKER);
     	oneLayerItem(DEItems.MOBOX);
 
         oneLayerItem(DEItems.BASSMITE_UPGRADE_SMITHING_TEMPLATE);
@@ -108,7 +111,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.PURPLEHEART_SLAB);
         inventoryItem(DEBlocks.PURPLEHEART_FENCE);
         simpleBlockItem(DEBlocks.PURPLEHEART_FENCE_GATE);
-        simpleBlockItem(DEBlocks.PURPLEHEART_BUTTON);
+        inventoryItem(DEBlocks.PURPLEHEART_BUTTON);
         simpleBlockItem(DEBlocks.PURPLEHEART_PRESSURE_PLATE);
         oneLayerItem(DEBlocks.PURPLEHEART_DOOR);
         trapDoorItem(DEBlocks.PURPLEHEART_TRAPDOOR);
@@ -116,8 +119,8 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.PURPLEHEART_STAIRS);
         simpleBlockItem(DEBlocks.PURPLEHEART_BOOKSHELF);
 
-        oneLayerItem(DEBlocks.PURPLE_ROSE);
-        oneLayerItem(DEBlocks.PURPLEHEART_SAPLING);
+        oneLayerItem(DEBlocks.PURPLE_ROSE, "block");
+        oneLayerItem(DEBlocks.PURPLEHEART_SAPLING, "block");
 
         simpleBlockItem(DEBlocks.SULFUR_STONE);
         simpleBlockItem(DEBlocks.SULFUR_COBBLESTONE);
@@ -127,7 +130,7 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SULFUR_STONE_PRESSURE_PLATE);
         simpleBlockItem(DEBlocks.SULFUR_STONE_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_STAIRS);
-        simpleBlockItem(DEBlocks.SULFUR_STONE_BUTTON);
+        inventoryItem(DEBlocks.SULFUR_STONE_BUTTON);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_SLAB);
         simpleBlockItem(DEBlocks.SULFUR_STONE_BRICKS_STAIRS);
@@ -143,9 +146,10 @@ public class DEItemModelProvider extends ItemModelProvider {
         simpleBlockItem(DEBlocks.SAVORLEAF_BLOCK);
 
         simpleBlockItem(DEBlocks.ENCHANT_TRANSFER_TABLE);
-        
+
         simpleBlockItem(DEBlocks.DISPLAY_BLOCK);
         oneLayerItem(DEBlocks.PURPLE_BERRY_DEAD_BUSH, "block");
+        oneLayerItem(DEBlocks.ORIGIN_GRASS, "block");
         oneLayerItem(DEBlocks.ORIGIN_TALL_GRASS, DEMod.res("origin_tall_grass_top"), false, "block");
     }
 
@@ -164,14 +168,24 @@ public class DEItemModelProvider extends ItemModelProvider {
     private void oneLayerItem(DeferredHolder<?, ?> item, ResourceLocation texture, boolean handheld, String baseDir){
         ResourceLocation itemTexture = DEMod.res(baseDir + "/" + texture.getPath());
         if(existingFileHelper.exists(itemTexture, PackType.CLIENT_RESOURCES, ".png", "textures")){
-            if(!handheld) {
-                getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/generated"))).texture("layer0", itemTexture);
-            }else{
-                getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/handheld"))).texture("layer0", itemTexture);
-            }
+            getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc(handheld ? "item/handheld": "item/generated"))).texture("layer0", itemTexture);
         }else{
-            DEMod.LOGGER.warn("Failed to find texture for: " + item.getId().toString());
+            DEMod.LOGGER.warn("Failed to find texture for: {}", item.getId());
         }
+    }
+
+    private void compassItem(DeferredHolder<Item, ? extends Item> item) {
+        ItemModelBuilder builder = getBuilder(item.getId().getPath());
+        builder.parent(getExistingFile(mcLoc("item/handheld"))).texture("layer0", "minecraft:item/compass_16");
+        builder.override().predicate(mcLoc("angle"), 0.0f).model(getExistingFile(mcLoc("item/compass"))).end();
+        for (int angle = 0; angle < 31; angle++) {
+            int angle_index = angle < 15 ? angle + 17 : angle - 15;
+            float angle_predicate = angle * 0.03125f + 0.015625f;
+            builder.override()
+                    .predicate(mcLoc("angle"), angle_predicate)
+                    .model(getExistingFile(mcLoc("item/compass_" + String.format("%02d", angle_index)))).end();
+        }
+        builder.override().predicate(mcLoc("angle"), 0.984375f).model(getExistingFile(mcLoc("item/compass"))).end();
     }
     
     private void spawnEgg(DeferredHolder<Item, ? extends DeferredSpawnEggItem> item) {

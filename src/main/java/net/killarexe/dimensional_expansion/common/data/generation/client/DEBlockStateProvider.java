@@ -4,6 +4,7 @@ import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 
 import net.killarexe.dimensional_expansion.DEMod;
 import net.killarexe.dimensional_expansion.common.block.EnchantTransferTable;
+import net.killarexe.dimensional_expansion.init.DEBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -54,7 +55,6 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		slabBlock(VIOLET_STONE_SLAB.get(), VIOLET_STONE.getId(), blockTexture(VIOLET_STONE.get()));
 
 		fenceBlockWithInventory(PURPLEHEART_FENCE, blockTexture(PURPLEHEART_PLANKS.get()));
-
 		fenceGateBlock(PURPLEHEART_FENCE_GATE.get(), blockTexture(PURPLEHEART_PLANKS.get()));
 
 		buttonBlock(PURPLEHEART_BUTTON.get(), blockTexture(PURPLEHEART_PLANKS.get()));
@@ -167,7 +167,7 @@ public class DEBlockStateProvider extends BlockStateProvider {
 				ResourceLocation.parse(location + "_top")
 		);
 		ModelBuilder<BlockModelBuilder>.ElementBuilder builder = model.element();
-		builder.from(6, 0, 0);
+		builder.from(0, 0, 0);
 		builder.to(16, 12, 16);
 		builder.allFaces(this::createEnchantTransferTableFaces);
 		builder.end();
