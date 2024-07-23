@@ -204,7 +204,7 @@ public class DEBlocks {
 	public static final DeferredHolder<Block, SavorleafBlock> SAVORLEAF_BLOCK = createCustomBlock("savorleaf_block",
             SavorleafBlock::new, DECreativeTabs.Tabs.BLOCKS);
 
-	public static final DeferredHolder<Block, Block> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush",
+	public static final DeferredHolder<Block, PurpleBerryBush> PURPLE_BERRY_BUSH = createCustomBlock("purple_berry_bush",
             PurpleBerryBush::new);
 
 	public static final DeferredHolder<Block, SavorleafCropBlock> SAVORLEAF_CROP = createCustomBlock("savorleaf_crop",

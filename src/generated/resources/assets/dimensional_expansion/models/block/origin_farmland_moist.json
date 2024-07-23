@@ -44,6 +44,6 @@
     "bottom": "dimensional_expansion:block/origin_dirt",
     "particle": "dimensional_expansion:block/origin_dirt",
     "side": "dimensional_expansion:block/origin_dirt",
-    "top": "dimensional_expansion:block/origin_farmland"
+    "top": "dimensional_expansion:block/origin_farmland_moist"
   }
 }

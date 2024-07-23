@@ -6,9 +6,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DMCropBlock extends CropBlock{
+public class DECropBlock extends CropBlock{
 
-	public DMCropBlock(Properties pProperties) {
+	public DECropBlock(Properties pProperties) {
 		super(pProperties);
 	}
 

@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class VioletCarrotCropBlock extends DMCropBlock{
+public class VioletCarrotCropBlock extends DECropBlock {
 
-	public static final int MAX_AGE = 7;
+	public static final int MAX_AGE = 3;
 	public static final IntegerProperty AGE = IntegerProperty.create("age", 0, MAX_AGE);
 	
 	public VioletCarrotCropBlock() {

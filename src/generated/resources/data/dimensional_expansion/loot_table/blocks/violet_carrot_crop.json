@@ -19,7 +19,7 @@
                   "block": "dimensional_expansion:violet_carrot_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "7"
+                    "age": "3"
                   }
                 }
               ],
@@ -41,7 +41,7 @@
           "block": "dimensional_expansion:violet_carrot_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "7"
+            "age": "3"
           }
         }
       ],

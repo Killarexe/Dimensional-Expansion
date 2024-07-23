@@ -3,13 +3,14 @@ package net.killarexe.dimensional_expansion.common.data.generation.client;
 import static net.killarexe.dimensional_expansion.init.DEBlocks.*;
 
 import net.killarexe.dimensional_expansion.DEMod;
-import net.killarexe.dimensional_expansion.common.block.EnchantTransferTable;
-import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.common.block.*;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -90,6 +91,12 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		enchantTransferTable(ENCHANT_TRANSFER_TABLE);
 		cactus(PURPLEISH_CACTUS);
 
+		farmland(ORIGIN_FARMLAND, OriginFarmlandBlock.MOISTURE, blockTexture(ORIGIN_DIRT.get()));
+
+		crop(SAVORLEAF_CROP, SavorleafCropBlock.AGE);
+		crop(VIOLET_CARROT_CROP, VioletCarrotCropBlock.AGE);
+		growableBush(PURPLE_BERRY_BUSH, PurpleBerryBush.AGE);
+
 		doublePlantBlock(ORIGIN_TALL_GRASS, ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_top"),
 				ResourceLocation.parse(blockTexture(ORIGIN_TALL_GRASS.get()) + "_bottom"));
 
@@ -98,11 +105,6 @@ public class DEBlockStateProvider extends BlockStateProvider {
 						models().cubeBottomTop(BLUE_SANDSTONE.getId().getPath(), blockTexture(BLUE_SANDSTONE.get()),
 								ResourceLocation.parse(blockTexture(BLUE_SANDSTONE.get()) + "_bottom"),
 								ResourceLocation.parse(blockTexture(BLUE_SANDSTONE.get()) + "_top"))));
-
-		getVariantBuilder(ORIGIN_FARMLAND.get()).partialState()
-				.setModels(new ConfiguredModel(
-						models().cubeBottomTop(ORIGIN_FARMLAND.getId().getPath(), blockTexture(ORIGIN_DIRT.get()),
-								blockTexture(ORIGIN_DIRT.get()), blockTexture(ORIGIN_FARMLAND.get()))));
 
 		getVariantBuilder(ORIGIN_GRASS_BLOCK.get()).partialState()
 				.setModels(new ConfiguredModel(models().cubeBottomTop(ORIGIN_GRASS_BLOCK.getId().getPath(),
@@ -122,11 +124,45 @@ public class DEBlockStateProvider extends BlockStateProvider {
 						ResourceLocation.parse(blockTexture(DISPLAY_BLOCK.get()) + "_top"))));
 	}
 
-	private void wallInventoryBlock(DeferredHolder<Block, ? extends WallBlock> block, ResourceLocation texture) {
-		WallBlock wallBlock = block.get();
-		wallBlock(wallBlock, texture);
-		getMultipartBuilder(wallBlock).part()
-				.modelFile(models().wallInventory(block.getId().getPath() + "_inventory", texture)).addModel();
+	private void farmland(DeferredHolder<Block, ? extends FarmBlock> block, IntegerProperty moist, ResourceLocation otherSides) {
+		FarmBlock farmBlock = block.get();
+		VariantBlockStateBuilder blockStateBuilder = getVariantBuilder(farmBlock);
+		String path = block.getId().getPath();
+		ResourceLocation topLocation = blockTexture(farmBlock);
+		ModelFile unmoistModel = createPathModel(path, topLocation, otherSides, otherSides);
+		ModelFile moistModel = createPathModel(path + "_moist", ResourceLocation.parse(topLocation + "_moist"), otherSides, otherSides);
+		blockStateBuilder.forAllStates(blockState -> {
+			boolean isMoist = blockState.getValue(moist) > 6;
+			return ConfiguredModel.builder().modelFile(isMoist ? moistModel : unmoistModel).build();
+		});
+	}
+
+	private void growableBush(DeferredHolder<Block, ? extends SweetBerryBushBlock> block, IntegerProperty ageProperty) {
+		SweetBerryBushBlock sweetBerryBushBlock = block.get();
+		VariantBlockStateBuilder blockStateBuilder = getVariantBuilder(sweetBerryBushBlock);
+		blockStateBuilder.forAllStates(blockState -> {
+			int age = blockState.getValue(ageProperty);
+			return ConfiguredModel.builder().modelFile(createBushModel(block.getId().getPath(), age)).build();
+		});
+	}
+
+	private ModelFile createBushModel(String blockPath, int age) {
+		String path = blockPath + "_stage" + age;
+		return models().cross(path, DEMod.res("block/" + path)).renderType("cutout");
+	}
+
+	private void crop(DeferredHolder<Block, ? extends CropBlock> block, IntegerProperty ageProperty) {
+		CropBlock cropBlock = block.get();
+		VariantBlockStateBuilder blockStateBuilder = getVariantBuilder(cropBlock);
+		blockStateBuilder.forAllStates(blockState -> {
+			int age = blockState.getValue(ageProperty);
+			return ConfiguredModel.builder().modelFile(createCropModel(block.getId().getPath(), age)).build();
+		});
+	}
+
+	private ModelFile createCropModel(String blockPath, int age) {
+		String path = blockPath + "_stage" + age;
+		return models().crop(path, DEMod.res("block/" + path)).renderType("cutout");
 	}
 
 	private void cactus(DeferredHolder<Block, ? extends Block> block) {
@@ -196,19 +232,24 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		builder.end();
 	}
 
-	private void portalBlock(DeferredHolder<Block, ? extends Block> block) {
+	private void pathBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation top, ResourceLocation side, ResourceLocation down) {
+		getVariantBuilder(block.get()).partialState().setModels(new ConfiguredModel(createPathModel(block.getId().getPath(), top, side, down)));
 	}
 
-	private void pathBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation top, ResourceLocation side, ResourceLocation down) {
-		BlockModelBuilder model = models().cubeBottomTop(block.getId().getPath(), side, down, top);
+	private ModelFile createPathModel(String blockPath, ResourceLocation top, ResourceLocation side, ResourceLocation down) {
+		BlockModelBuilder model = models()
+				.withExistingParent(blockPath, "block")
+				.texture("side", side).
+				texture("bottom", down)
+				.texture("top", top)
+				.texture("particle", down);
 		ModelBuilder<BlockModelBuilder>.ElementBuilder builder = model.element();
 		builder.from(0, 0, 0);
 		builder.to(16, 15, 16);
 		builder.allFaces(this::createPathBlockFaces);
 		builder.end();
 		model.renderType("cutout");
-		getVariantBuilder(block.get()).partialState()
-				.setModels(new ConfiguredModel(model));
+		return model;
 	}
 
 	private void createPathBlockFaces(Direction direction, ModelBuilder.ElementBuilder.FaceBuilder builder) {
@@ -249,5 +290,12 @@ public class DEBlockStateProvider extends BlockStateProvider {
 		fenceBlock(fenceBlock, texture);
 		getMultipartBuilder(fenceBlock).part()
 				.modelFile(models().fenceInventory(block.getId().getPath() + "_inventory", texture)).addModel();
+	}
+
+	private void wallInventoryBlock(DeferredHolder<Block, ? extends WallBlock> block, ResourceLocation texture) {
+		WallBlock wallBlock = block.get();
+		wallBlock(wallBlock, texture);
+		getMultipartBuilder(wallBlock).part()
+				.modelFile(models().wallInventory(block.getId().getPath() + "_inventory", texture)).addModel();
 	}
 }
