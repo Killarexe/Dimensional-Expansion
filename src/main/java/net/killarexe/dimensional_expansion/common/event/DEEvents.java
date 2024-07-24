@@ -31,8 +31,6 @@ public class DEEvents {
 	private static void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() ->{
         	DEMod.LOGGER.info("Dimensional Expansion Common Setup");
-        	DEMod.LOGGER.info("Register Dimensional Expansion Packets");
-        	DEChannel.register();
         	DEMod.LOGGER.info("Register Dimensional Expansion WoodTypes");
         	WoodType.register(DEWoodTypes.PURPLEHEART);
         	DEMod.LOGGER.info("Put Dimensional Expansion Strippables");
