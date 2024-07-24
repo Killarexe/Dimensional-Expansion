@@ -28,9 +28,7 @@ public class OriginPortalShape {
 	@SuppressWarnings("unused")
 	private static final int MIN_HEIGHT = 3;
 	public static final int MAX_HEIGHT = 21;
-	private static final BlockBehaviour.StatePredicate FRAME = (p_77720_, p_77721_, p_77722_) -> {
-      return p_77720_.getBlock() == DEBlocks.ORIGIN_FRAME.get();
-	};
+	private static final BlockBehaviour.StatePredicate FRAME = (state, p_77721_, p_77722_) -> state.getBlock() == DEBlocks.ORIGIN_FRAME.get();
 	private final LevelAccessor level;
 	private final Direction.Axis axis;
 	private final Direction rightDir;
@@ -41,9 +39,7 @@ public class OriginPortalShape {
 	private final int width;
 	
 	public static Optional<OriginPortalShape> findEmptyPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Direction.Axis pAxis) {
-		return findPortalShape(pLevel, pBottomLeft, (p_77727_) -> {
-			return p_77727_.isValid() && p_77727_.numPortalBlocks == 0;
-	    }, pAxis);
+		return findPortalShape(pLevel, pBottomLeft, (shape) -> shape.isValid() && shape.numPortalBlocks == 0, pAxis);
 	}
 
 	public static Optional<OriginPortalShape> findPortalShape(LevelAccessor pLevel, BlockPos pBottomLeft, Predicate<OriginPortalShape> pPredicate, Direction.Axis pAxis) {

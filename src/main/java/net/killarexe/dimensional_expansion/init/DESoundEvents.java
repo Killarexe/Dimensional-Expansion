@@ -22,8 +22,11 @@ public class DESoundEvents{
 	public static final RegistryObject<SoundEvent> BLUE_SAND_MAN_HURT = createFixedSound("entity.blue_sand_man.hurt", 6.0F);
 	
 	public static final RegistryObject<SoundEvent> ORIGIN_MUSIC = createVariableSound("music.origin");
+
 	public static final RegistryObject<SoundEvent> MUSIC_DISC_SWEDEN_REMIX = createVariableSound("disc.sweden_remix");
-	
+	public static final RegistryObject<SoundEvent> MUSIC_DISC_VERY_SPECIAL_DISC = createVariableSound("disc.very_special_disc");
+	public static final RegistryObject<SoundEvent> MUSIC_DISC_GROOVY_DISC = createVariableSound("disc.groovy");
+
 	private static RegistryObject<SoundEvent> createFixedSound(String id, float range){
 		return SOUND_EVENTS.register(id, () -> SoundEvent.createFixedRangeEvent(new ResourceLocation(DEMod.MOD_ID, id), range));
 	}

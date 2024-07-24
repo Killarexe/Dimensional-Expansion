@@ -12,5 +12,5 @@
             }
         }
     ],
-    "render_type": "cutout"
+    "render_type": "translucent"
 }

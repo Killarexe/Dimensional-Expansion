@@ -196,5 +196,15 @@
   "tooltip.dimensional_expansion.shift": "Hold §eSHIFT §ffor more info.",
   "tooltip.dimensional_expansion.time_power_stone": "Change between day and night.",
   "tooltip.dimensional_expansion.warp_power_stone": "Teleport you at spawn point.",
-  "tooltip.dimensional_expansion.weather_power_stone": "Switch between raing and sun."
+  "tooltip.dimensional_expansion.weather_power_stone": "Switch between raing and sun.",
+  "item.dimensional_expansion.very_special_disc": "Very Special Disc",
+  "item.dimensional_expansion.very_special_disc.desc": "A Very Spcial Disc by Killar.exe",
+  "item.dimensional_expansionsmithing_template.emertyst_upgrade.ingredients": "Emertyst Gem",
+  "item.dimensional_expansion.smithing_template.bassmite_upgrade.additions_slot_description": "Add Bassmite Gem",
+  "item.dimensional_expansion.smithing_template.bassmite_upgrade.applies_to": "Netherite Armors & Gears",
+  "item.dimensional_expansion.smithing_template.bassmite_upgrade.base_slot_description": "Add netherite armor, weapon or tool",
+  "item.dimensional_expansion.smithing_template.bassmite_upgrade.ingredients": "Bassmite Gem",
+  "item.dimensional_expansion.smithing_template.emertyst_upgrade.additions_slot_description": "Add Emertyst Gem",
+  "item.dimensional_expansion.smithing_template.emertyst_upgrade.applies_to": "Bassmite Armors & Gears",
+  "item.dimensional_expansion.smithing_template.emertyst_upgrade.base_slot_description": "Add bassmite armor, weapon or tool"
 }

@@ -7,10 +7,13 @@ import net.killarexe.dimensional_expansion.common.item.*;
 import net.killarexe.dimensional_expansion.common.item.BoatItem;
 import net.killarexe.dimensional_expansion.common.item.material.*;
 import net.killarexe.dimensional_expansion.utils.DEMath;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -30,6 +33,7 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
@@ -62,7 +66,7 @@ public class DEItems {
     public static final RegistryObject<Item> RAW_SIMIX = createItem("raw_simix", DECreativeTabs.Tabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_INGOT = createItem("simix_ingot", DECreativeTabs.Tabs.MISC, true);
     public static final RegistryObject<Item> SIMIX_NUGGET = createItem("simix_nugget", DECreativeTabs.Tabs.MISC, true);
-    public static final RegistryObject<Item> SIMIX_HAMMER = createItem("simix_hammer", () -> new SimixHammerItem(), DECreativeTabs.Tabs.TOOLS);
+    public static final RegistryObject<Item> SIMIX_HAMMER = createItem("simix_hammer", SimixHammerItem::new, DECreativeTabs.Tabs.TOOLS);
     public static final RegistryObject<FuelItem> SIMIX_MIXED_COAL = createFuelItem("simix_mixed_coal", 12800, DECreativeTabs.Tabs.MISC, true);
 
     public static final RegistryObject<Item> EMERTYST_GEM = createItem("emertyst_gem", DECreativeTabs.Tabs.MISC, true);
@@ -78,27 +82,29 @@ public class DEItems {
     public static final RegistryObject<HorseArmorItem> EMERTYST_HORSE_ARMOR = createHorseArmorItem("emertyst_horse_armor", 22, "emertyst", DECreativeTabs.Tabs.COMBAT, true);
     public static final RegistryObject<FuelItem> EMERTYST_MIXED_COAL = createFuelItem("emertyst_mixed_coal", 25600, DECreativeTabs.Tabs.MISC, true);
 
-    public static final RegistryObject<Item> ALLOY_CRYSTAL = createItem("alloy_crystal", () -> new AlloyCrystal(), DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> ALLOY_CRYSTAL = createItem("alloy_crystal", AlloyCrystal::new, DECreativeTabs.Tabs.MISC);
     
-    public static final RegistryObject<PurpleBerry> PURPLE_BERRY = createItem("purple_berry", () -> new PurpleBerry(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<SavorleafItem> SAVORLEAF = createItem("savorleaf", () -> new SavorleafItem(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<VioletCarrot> VIOLET_CARROT = createItem("violet_carrot", () -> new VioletCarrot(), DECreativeTabs.Tabs.MISC); 
+    public static final RegistryObject<PurpleBerry> PURPLE_BERRY = createItem("purple_berry", PurpleBerry::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<SavorleafItem> SAVORLEAF = createItem("savorleaf", SavorleafItem::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<VioletCarrot> VIOLET_CARROT = createItem("violet_carrot", VioletCarrot::new, DECreativeTabs.Tabs.MISC);
     
-    public static final RegistryObject<Item> WEATHER_POWER_STONE = createItem("weather_power_stone", () -> new WeatherPowerStone(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<Item> REMOTE_POWER_STONE = createItem("remote_power_stone", () -> new RemotePowerStone(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<Item> TIME_POWER_STONE = createItem("time_power_stone", () -> new TimePowerStone(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<Item> WARP_POWER_STONE = createItem("warp_power_stone", () -> new WarpPowerStone(), DECreativeTabs.Tabs.MISC);
-    public static final RegistryObject<Item> COORD_LINKER = createItem("coord_linker", () -> new CoordLinker(), DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> WEATHER_POWER_STONE = createItem("weather_power_stone", WeatherPowerStone::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> REMOTE_POWER_STONE = createItem("remote_power_stone", RemotePowerStone::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> TIME_POWER_STONE = createItem("time_power_stone", TimePowerStone::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> WARP_POWER_STONE = createItem("warp_power_stone", WarpPowerStone::new, DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<Item> COORD_LINKER = createItem("coord_linker", CoordLinker::new, DECreativeTabs.Tabs.MISC);
 
     public static final RegistryObject<Item> PEARL_ESSENCE = createItem("pearl_essence", DECreativeTabs.Tabs.MISC, false);
 
-    public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = createItem("origin_portal_key", () -> new OriginPortalKey(), DECreativeTabs.Tabs.TOOLS);
+    public static final RegistryObject<Item> ORIGIN_PORTAL_KEY = createItem("origin_portal_key", OriginPortalKey::new, DECreativeTabs.Tabs.TOOLS);
     
     public static final RegistryObject<Item> PURPLEHEART_SIGN = createItem("purpleheart_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DEBlocks.PURPLEHEART_SIGN.get(), DEBlocks.PURPLEHEART_WALL_SIGN.get()), DECreativeTabs.Tabs.BLOCKS);
     public static final RegistryObject<Item> PURPLEHEART_BOAT = createItem("purpleheart_boat", () -> new BoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     public static final RegistryObject<Item> PURPLEHEART_CHEST_BOAT = createItem("purpleheart_chest_boat", () -> new ChestBoatItem(new Item.Properties().stacksTo(1).fireResistant(), DEChestBoatEntity.Type.PURPLEHEART), DECreativeTabs.Tabs.MISC);
     
     public static final RegistryObject<RecordItem> SWEDEN_DISC = createDiscItem("sweden_disc", 7, DESoundEvents.MUSIC_DISC_SWEDEN_REMIX, DECreativeTabs.Tabs.MISC, 0);
+    public static final RegistryObject<RecordItem> VERY_SPECIAL_DISC = createDiscItem("very_special_disc", 7, DESoundEvents.MUSIC_DISC_VERY_SPECIAL_DISC, DECreativeTabs.Tabs.MISC, 0);
+    public static final RegistryObject<RecordItem> GROOVY_DISC = createDiscItem("groovy_disc", 7, DESoundEvents.MUSIC_DISC_GROOVY_DISC, DECreativeTabs.Tabs.MISC, 0);
 
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_SKELETON_SPAWN_EGG = createSpawnEggItem("headed_skeleton_spawn_egg", DEEntityTypes.HEADED_SKELETON, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> HEADED_GUARDIAN_SPAWN_EGG = createSpawnEggItem("headed_guardian_spawn_egg", DEEntityTypes.HEADED_GUARDIAN, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
@@ -106,12 +112,11 @@ public class DEItems {
     public static final RegistryObject<ForgeSpawnEggItem> MOUVET_SPAWN_EGG = createSpawnEggItem("mouvet_spawn_egg", DEEntityTypes.MOUVET, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     public static final RegistryObject<ForgeSpawnEggItem> JUGER_SPAWN_EGG = createSpawnEggItem("juger_spawn_egg", DEEntityTypes.JUGER, 0xFFFFFF, 0xFFFFFF, DECreativeTabs.Tabs.MOBS);
     
-    public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", () -> new MoboxItem(), DECreativeTabs.Tabs.MISC);
-    
-    public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item){
-    	return ITEMS.register(id, item);
-    }
-    
+    public static final RegistryObject<MoboxItem> MOBOX = createItem("mobox", MoboxItem::new, DECreativeTabs.Tabs.MISC);
+
+    public static final RegistryObject<SmithingTemplateItem> BASSMITE_UPGRADE_SMITHING_TEMPLATE = createSmithingTransformItem("bassmite_upgrade_smithing_template", "bassmite", DECreativeTabs.Tabs.MISC);
+    public static final RegistryObject<SmithingTemplateItem> EMERTYST_UPGRADE_SMITHING_TEMPLATE = createSmithingTransformItem("emertyst_upgrade_smithing_template", "emertyst", DECreativeTabs.Tabs.MISC);
+
     public static <T extends Item> RegistryObject<T> createItem(String id, Supplier<T> item, DECreativeTabs.Tabs tab){
     	ITEM_TAB_MAP.put(id, tab);
     	return ITEMS.register(id, item);
@@ -204,6 +209,28 @@ public class DEItems {
     
     private static RegistryObject<ForgeSpawnEggItem> createSpawnEggItem(String id, RegistryObject<? extends EntityType<? extends Mob>> entityType, int backgroundColor, int forgroundColor, DECreativeTabs.Tabs tab){
     	return createItem(id, () -> new ForgeSpawnEggItem(entityType, backgroundColor, forgroundColor, new Item.Properties()), tab);
+    }
+
+    private static RegistryObject<SmithingTemplateItem> createSmithingTransformItem(String id, String baseItemId, DECreativeTabs.Tabs tab) {
+        return createItem(id, () -> new SmithingTemplateItem(
+                Component.translatable(Util.makeDescriptionId("item", DEMod.res( "smithing_template." + baseItemId + "_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("item", DEMod.res("smithing_template." + baseItemId + "_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
+                Component.translatable(Util.makeDescriptionId("upgrade", DEMod.res(baseItemId + "_upgrade"))).withStyle(ChatFormatting.GRAY),
+                Component.translatable(Util.makeDescriptionId("item", DEMod.res("smithing_template." + baseItemId + "_upgrade.base_slot_description"))),
+                Component.translatable(Util.makeDescriptionId("item", DEMod.res("smithing_template." + baseItemId + "_upgrade.additions_slot_description"))),
+                List.of(
+                        new ResourceLocation("item/empty_armor_slot_helmet"),
+                        new ResourceLocation("item/empty_armor_slot_chestplate"),
+                        new ResourceLocation("item/empty_armor_slot_leggings"),
+                        new ResourceLocation("item/empty_armor_slot_boots"),
+                        new ResourceLocation("item/empty_slot_sword"),
+                        new ResourceLocation("item/empty_slot_pickaxe"),
+                        new ResourceLocation("item/empty_slot_axe"),
+                        new ResourceLocation("item/empty_slot_shovel"),
+                        new ResourceLocation("item/empty_slot_hoe")
+                ),
+                List.of(DEMod.res( "item/empty_slot_" + baseItemId))
+        ), tab);
     }
 
     @OnlyIn(Dist.CLIENT)

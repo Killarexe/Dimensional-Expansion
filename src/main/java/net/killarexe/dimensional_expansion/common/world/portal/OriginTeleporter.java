@@ -54,24 +54,23 @@ public class OriginTeleporter implements ITeleporter{
 		PoiManager poimanager = this.level.getPoiManager();
 		int i = pIsOrigin ? 16 : 128;
 		poimanager.ensureLoadedAndValid(this.level, pPos, i);
-		Optional<PoiRecord> optional = poimanager.getInSquare((p_230634_) -> {
-			return p_230634_.is(poi.unwrapKey().get());
-		}, pPos, i, PoiManager.Occupancy.ANY).filter((p_192981_) -> {
-			return pWorldBorder.isWithinBounds(p_192981_.getPos());
-		}).sorted(Comparator.<PoiRecord>comparingDouble((p_192984_) -> {
-			return p_192984_.getPos().distSqr(pPos);
-		}).thenComparingInt((p_192992_) -> {
-			return p_192992_.getPos().getY();
-		})).filter((p_192990_) -> {
-			return this.level.getBlockState(p_192990_.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS);
-		}).findFirst();
-		return optional.map((p_192975_) -> {
-			BlockPos blockpos = p_192975_.getPos();
+		Optional<PoiRecord> optional = poimanager.getInSquare(
+				(poiType) -> poiType.is(poi.unwrapKey().get()), pPos, i, PoiManager.Occupancy.ANY)
+				.filter((poi) -> pWorldBorder.isWithinBounds(poi.getPos())).
+				sorted(Comparator.<PoiRecord>comparingDouble((poiRecord) -> poiRecord.getPos().distSqr(pPos))
+						.thenComparingInt((poiRecord) -> poiRecord.getPos().getY()))
+				.filter((poiRecord) -> this.level.getBlockState(poiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
+				.findFirst();
+		return optional.map((poiRecord) -> {
+			BlockPos blockpos = poiRecord.getPos();
 			this.level.getChunkSource().addRegionTicket(PORTAL, new ChunkPos(blockpos), 3, blockpos);
 			BlockState blockstate = this.level.getBlockState(blockpos);
-			return BlockUtil.getLargestRectangleAround(blockpos, blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (p_192978_) -> {
-				return this.level.getBlockState(p_192978_) == blockstate;
-			});
+			return BlockUtil.getLargestRectangleAround(
+					blockpos,
+					blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS),
+					21, Direction.Axis.Y,
+					21, (blockPos) -> this.level.getBlockState(blockPos) == blockstate
+			);
 		});
 	}
 

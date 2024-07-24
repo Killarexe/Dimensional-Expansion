@@ -1,9 +1,21 @@
 {
+  "disc.groovy": {
+    "sounds": [
+      "dimensional_expansion:record/groovy"
+    ],
+    "subtitle": "record.dimensional_expansion.groovy.subtitle"
+  },
   "disc.sweden_remix": {
     "sounds": [
       "dimensional_expansion:record/sweden_remix"
     ],
     "subtitle": "record.dimensional_expansion.sweden_remix.subtitle"
+  },
+  "disc.very_special_disc": {
+    "sounds": [
+      "dimensional_expansion:record/very_special_disc"
+    ],
+    "subtitle": "record.dimensional_expansion.very_special_disc.subtitle"
   },
   "entity.blue_sand_man.ambient": {
     "sounds": [
@@ -71,6 +83,7 @@
       "dimensional_expansion:music/nightly_walk",
       "dimensional_expansion:music/seeing_the_stars",
       "dimensional_expansion:music/the_origin"
-    ]
+    ],
+    "subtitle": "origin_music"
   }
 }
