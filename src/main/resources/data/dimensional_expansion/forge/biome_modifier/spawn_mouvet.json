@@ -3,7 +3,7 @@
 	"biomes": "#dimensional_expansion:is_origin",
 	"spawners": {
 		"type": "dimensional_expansion:juger",
-		"weight": 2,
+		"weight": 1,
 		"minCount": 1,
 		"maxCount": 1
 	}

@@ -32,7 +32,7 @@ public class TakeFoodGoal extends Goal {
             return false;
         }
         findTarget();
-        return targetItem.filter(itemEntity -> itemEntity.getItem().isEdible()).isPresent() && !mouvet.getCurrentItem().isEmpty();
+        return targetItem.isPresent() && mouvet.getCurrentItem().isEmpty();
     }
 
     protected AABB getTargetSearchArea(double pTargetDistance) {
@@ -44,7 +44,7 @@ public class TakeFoodGoal extends Goal {
     }
 
     protected void findTarget() {
-        List<ItemEntity> itemEntities = mouvet.level().getEntitiesOfClass(ItemEntity.class, this.getTargetSearchArea(getFollowDistance()), filter -> true);
+        List<ItemEntity> itemEntities = mouvet.level().getEntitiesOfClass(ItemEntity.class, this.getTargetSearchArea(getFollowDistance()), filter -> filter.getItem().isEdible());
         if (itemEntities.isEmpty()){
             targetItem = Optional.empty();
             return;

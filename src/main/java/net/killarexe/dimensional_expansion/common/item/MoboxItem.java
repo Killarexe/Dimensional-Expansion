@@ -57,6 +57,9 @@ public class MoboxItem extends Item {
 	
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
+		if (entity instanceof Player) {
+			return super.onLeftClickEntity(stack, player, entity);
+		}
 		CompoundTag currentEntity = stack.getOrCreateTagElement("current_entity");
 		if(entity instanceof LivingEntity livingEntity && currentEntity.isEmpty()) {
 			stack.addTagElement("current_entity", livingEntity.serializeNBT());

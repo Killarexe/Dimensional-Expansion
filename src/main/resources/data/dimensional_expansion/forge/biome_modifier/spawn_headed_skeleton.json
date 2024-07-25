@@ -3,7 +3,7 @@
 	"biomes": "#dimensional_expansion:is_origin",
 	"spawners": {
 		"type": "dimensional_expansion:mouvet",
-		"weight": 2,
+		"weight": 5,
 		"minCount": 1,
 		"maxCount": 3
 	}

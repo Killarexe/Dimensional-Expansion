@@ -8,7 +8,9 @@ import com.google.common.collect.ImmutableSet;
 
 import net.killarexe.dimensional_expansion.common.block.OriginPortalBlock;
 import net.killarexe.dimensional_expansion.init.DEBlocks;
+import net.killarexe.dimensional_expansion.init.DEPois;
 import net.minecraft.BlockUtil;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -21,6 +23,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -38,10 +41,22 @@ import net.minecraftforge.registries.RegisterEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class OriginTeleporter implements ITeleporter{
+	private static final int TICKET_RADIUS = 3;
+	private static final int SEARCH_RADIUS = 128;
+	private static final int CREATE_RADIUS = 16;
+	private static final int FRAME_HEIGHT = 5;
+	private static final int FRAME_WIDTH = 4;
+	private static final int FRAME_BOX = 3;
+	private static final int FRAME_HEIGHT_START = -1;
+	private static final int FRAME_HEIGHT_END = 4;
+	private static final int FRAME_WIDTH_START = -1;
+	private static final int FRAME_WIDTH_END = 3;
+	private static final int FRAME_BOX_START = -1;
+	private static final int FRAME_BOX_END = 2;
+	private static final int NOTHING_FOUND = -1;
 
 	public static final TicketType<BlockPos> PORTAL = TicketType.create("origin_portal", Vec3i::compareTo, 300);
-	public static Holder<PoiType> poi;
-	
+
 	private final ServerLevel level;
 	private final BlockPos entityPos;
 	
@@ -50,27 +65,26 @@ public class OriginTeleporter implements ITeleporter{
 		this.entityPos = entityPos;
 	}
 
-	public Optional<BlockUtil.FoundRectangle> findPortalAround(BlockPos pPos, boolean pIsOrigin, WorldBorder pWorldBorder) {
+	public Optional<BlockUtil.FoundRectangle> findPortalAround(BlockPos pPos, boolean isOrigin, WorldBorder pWorldBorder) {
 		PoiManager poimanager = this.level.getPoiManager();
-		int i = pIsOrigin ? 16 : 128;
+		int i = isOrigin ? CREATE_RADIUS : SEARCH_RADIUS;
 		poimanager.ensureLoadedAndValid(this.level, pPos, i);
-		Optional<PoiRecord> optional = poimanager.getInSquare(
-				(poiType) -> poiType.is(poi.unwrapKey().get()), pPos, i, PoiManager.Occupancy.ANY)
-				.filter((poi) -> pWorldBorder.isWithinBounds(poi.getPos())).
-				sorted(Comparator.<PoiRecord>comparingDouble((poiRecord) -> poiRecord.getPos().distSqr(pPos))
-						.thenComparingInt((poiRecord) -> poiRecord.getPos().getY()))
-				.filter((poiRecord) -> this.level.getBlockState(poiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
-				.findFirst();
-		return optional.map((poiRecord) -> {
+		Optional<PoiRecord> optional = poimanager
+				.getInSquare(poiType -> poiType.is(DEPois.ORIGIN_PORTAL_POI.getKey()), pPos, i, PoiManager.Occupancy.ANY)
+				.filter(poiRecord -> pWorldBorder.isWithinBounds(poiRecord.getPos()))
+				.sorted(Comparator.<PoiRecord>comparingDouble(poiRecord -> poiRecord.getPos().distSqr(pPos))
+						.thenComparingInt(poiRecord -> poiRecord.getPos().getY()))
+				.filter(poiRecord -> this.level.getBlockState(poiRecord.getPos())
+						.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
+		return optional.map(poiRecord -> {
 			BlockPos blockpos = poiRecord.getPos();
-			this.level.getChunkSource().addRegionTicket(PORTAL, new ChunkPos(blockpos), 3, blockpos);
+			this.level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, blockpos);
 			BlockState blockstate = this.level.getBlockState(blockpos);
 			return BlockUtil.getLargestRectangleAround(
 					blockpos,
 					blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS),
-					21, Direction.Axis.Y,
-					21, (blockPos) -> this.level.getBlockState(blockPos) == blockstate
-			);
+					21, Direction.Axis.Y, 21,
+					(pos) -> this.level.getBlockState(pos) == blockstate);
 		});
 	}
 
@@ -152,7 +166,7 @@ public class OriginTeleporter implements ITeleporter{
 			for(int l2 = 0; l2 < 3; ++l2) {
 				blockpos$mutableblockpos.setWithOffset(blockpos, k2 * direction.getStepX(), l2, k2 * direction.getStepZ());
 				this.level.setBlock(blockpos$mutableblockpos, blockstate, 18);
-				this.level.getPoiManager().add(blockpos$mutableblockpos, poi);
+				this.level.getPoiManager().add(blockpos$mutableblockpos, DEPois.ORIGIN_PORTAL_POI.getHolder().get());
 			}
 		}
 		return Optional.of(new BlockUtil.FoundRectangle(blockpos.immutable(), 2, 3));
@@ -173,63 +187,48 @@ public class OriginTeleporter implements ITeleporter{
 		}
 		return true;
 	}
-	
+
 	@Override
-	public Entity placeEntity(Entity entity, ServerLevel currentLevel, ServerLevel nextLevel, float yaw, Function<Boolean, Entity> repositionEntity) {
-		PortalInfo info = getPortalInfo(entity, nextLevel);
-		
-		if(entity instanceof ServerPlayer player) {
-			player.setServerLevel(nextLevel);
-			nextLevel.addDuringPortalTeleport(player);
-			entity.setYRot(info.yRot % 360.0f);
-			entity.setXRot(info.xRot % 360.0f);
-			entity.moveTo(info.pos);
+	public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel server, float yaw, Function<Boolean, Entity> repositionEntity) {
+		PortalInfo portalinfo = getPortalInfo(entity, server);
+		if (entity instanceof ServerPlayer player) {
+			player.setServerLevel(server);
+			server.addDuringPortalTeleport(player);
+			player.connection.teleport(portalinfo.pos.x, portalinfo.pos.y, portalinfo.pos.z, portalinfo.yRot, portalinfo.xRot);
+			player.connection.resetPosition();
+			CriteriaTriggers.CHANGED_DIMENSION.trigger(player, currentWorld.dimension(), server.dimension());
 			return entity;
 		}
-		
-		Entity newEntity = entity.getType().create(nextLevel);
-		if(newEntity != null) {
-			newEntity.restoreFrom(entity);
-			newEntity.moveTo(info.pos.x, info.pos.y, info.pos.z, info.xRot, info.yRot);
-			newEntity.setDeltaMovement(info.speed);
-			nextLevel.addDuringTeleport(newEntity);
+		Entity entityNew = entity.getType().create(server);
+		if (entityNew != null) {
+			entityNew.restoreFrom(entity);
+			entityNew.moveTo(portalinfo.pos.x, portalinfo.pos.y, portalinfo.pos.z, portalinfo.yRot, entityNew.getXRot());
+			entityNew.setDeltaMovement(portalinfo.speed);
+			server.addDuringTeleport(entityNew);
 		}
-		return newEntity;
+		return entityNew;
 	}
-	
-	private PortalInfo getPortalInfo(Entity entity, ServerLevel level) {
-		WorldBorder border = level.getWorldBorder();
-		//double d0 = Math.max(-2.9999872E7D, border.getMinX() + 16.);
-		double d1 = Math.max(-2.9999872E7D, border.getMinZ() + 16.);
-		//double d2 = Math.min(2.9999872E7D, border.getMaxX() - 16.);
-		double d3 = Math.min(2.9999872E7D, border.getMaxZ() - 16.);
-		double d4 = DimensionType.getTeleportationScale(entity.level().dimensionType(), level.dimensionType());
-		BlockPos pos = new BlockPos(
-				new Vec3i(
-						(int)Mth.clamp(entity.getX() * d4, d1, d3),
-						(int)entity.getY(),
-						(int)Mth.clamp(entity.getZ() * d4, d1, d3)
-				)
-		);
-		
-		return this.getExitPortal(entity, pos, border).map(repositioner -> {
-			BlockState state = entity.level().getBlockState(this.entityPos);
-			Direction.Axis dir;
-			Vec3 vec;
-			
-			if(state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
-				dir = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-				BlockUtil.FoundRectangle result = BlockUtil.getLargestRectangleAround(this.entityPos, dir, 21, Direction.Axis.Z, 21,
-						_pos ->entity.level().getBlockState(_pos) == state
-				);
-				vec = OriginPortalShape.getRelativePosition(result, dir, entity.position(), entity.getDimensions(entity.getPose()));
-			}else {
-				dir = Direction.Axis.X;
-				vec = new Vec3(0.5f, 0, 0);
+
+	private PortalInfo getPortalInfo(Entity entity, ServerLevel server) {
+		WorldBorder worldborder = server.getWorldBorder();
+		double d0 = DimensionType.getTeleportationScale(entity.level().dimensionType(), server.dimensionType());
+		BlockPos blockpos1 = worldborder.clampToBounds(entity.getX() * d0, entity.getY(), entity.getZ() * d0);
+		return this.getExitPortal(entity, blockpos1, worldborder).map(repositioner -> {
+			BlockState blockstate = entity.level().getBlockState(this.entityPos);
+			Direction.Axis direction$axis;
+			Vec3 vector3d;
+
+			if (blockstate.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
+				direction$axis = blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS);
+				BlockUtil.FoundRectangle teleportationrepositioner$result = BlockUtil.getLargestRectangleAround(this.entityPos, direction$axis, 21, Direction.Axis.Y, 21,
+						pos -> entity.level().getBlockState(pos) == blockstate);
+				vector3d = OriginPortalShape.getRelativePosition(teleportationrepositioner$result, direction$axis, entity.position(), entity.getDimensions(entity.getPose()));
+			} else {
+				direction$axis = Direction.Axis.X;
+				vector3d = new Vec3(0.5, 0, 0);
 			}
-			return OriginPortalShape.createPortalInfo(level, repositioner, dir, vec,
-					entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot()
-			);
+
+			return OriginPortalShape.createPortalInfo(server, repositioner, direction$axis, vector3d, entity, entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
 		}).orElse(new PortalInfo(entity.position(), Vec3.ZERO, entity.getYRot(), entity.getXRot()));
 	}
 	
@@ -243,14 +242,5 @@ public class OriginTeleporter implements ITeleporter{
 			return this.createPortal(pos, dir);
 		}
 		return result;
-	}
-	
-	@SubscribeEvent
-	public static void registerPOI(RegisterEvent e) {
-		e.register(ForgeRegistries.Keys.POI_TYPES, helper -> {
-			PoiType poiType = new PoiType(ImmutableSet.copyOf(DEBlocks.ORIGIN_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
-			helper.register("origin_portal", poiType);
-			poi = ForgeRegistries.POI_TYPES.getHolder(poiType).get();
-		});
 	}
 }

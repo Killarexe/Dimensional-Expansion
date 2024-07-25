@@ -95,7 +95,7 @@ public class OriginPortalBlock extends NetherPortalBlock{
 		if(level != null) {
 			entity.changeDimension(level, new OriginTeleporter(level, pos));
 		}else {
-			DEMod.LOGGER.error("Dimension "+ dimension.toString() +" don't exsit!");
+			DEMod.LOGGER.error("Dimension "+ dimension +" don't exsit!");
 		}
 	}
 }

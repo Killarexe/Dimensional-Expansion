@@ -43,7 +43,7 @@ public class StealFoodGoal extends TargetGoal{
 		targetMob = mob.getTarget();
 		if(targetMob instanceof Player player) {
 			if(mob.canAttack(targetMob, TargetingConditions.forCombat().range(range))) {
-				ItemStack stack = player.getMainHandItem();
+				ItemStack stack = player.getItemInHand(player.getUsedItemHand());
 				if(stack.isEdible()) {
 					if(mob instanceof Mouvet mouvet) {
 						mouvet.setCurrentItem(stack.copy());

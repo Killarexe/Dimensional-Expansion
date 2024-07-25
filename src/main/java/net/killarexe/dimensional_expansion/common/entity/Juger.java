@@ -25,8 +25,9 @@ import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
-public class Juger extends Monster{
+public class Juger extends Monster {
 
 	private static final EntityDataAccessor<Boolean> IS_ATTACKING = SynchedEntityData.defineId(Juger.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Integer> ATTACK_COOLDOWN = SynchedEntityData.defineId(Juger.class, EntityDataSerializers.INT);
@@ -36,8 +37,8 @@ public class Juger extends Monster{
 	public static final AttributeSupplier.Builder ATTRIBUTES = createMonsterAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.25f)
 			.add(Attributes.JUMP_STRENGTH, 0.5f)
-			.add(Attributes.ATTACK_DAMAGE, 7.0f)
-			.add(Attributes.MAX_HEALTH, 40.0f);
+			.add(Attributes.ATTACK_DAMAGE, 5.0f)
+			.add(Attributes.MAX_HEALTH, 30.0f);
 	
 	public Juger(EntityType<? extends Monster> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -46,7 +47,7 @@ public class Juger extends Monster{
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.25F, true));
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.125F, true));
 		this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 
@@ -79,7 +80,7 @@ public class Juger extends Monster{
 	}
 	
 	@Override
-	public MobType getMobType() {
+	public @NotNull MobType getMobType() {
 		return MobType.ARTHROPOD;
 	}
 	
@@ -106,7 +107,7 @@ public class Juger extends Monster{
 	
 	@Override
 	public double getMeleeAttackRangeSqr(LivingEntity pEntity) {
-		return (double)(this.getBbWidth() * 1.0F * this.getBbWidth() * 1.0F + pEntity.getBbWidth());
+		return this.getBbWidth() * 1.0F * this.getBbWidth() * 1.0F + pEntity.getBbWidth();
 	}
 	
 	@Override

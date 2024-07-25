@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "category": "equipment",
+  "template": {
+    "item": "dimensional_expansion:emertyst_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "dimensional_expansion:bassmite_helmet"
+  },
+  "addition": {
+    "item": "dimensional_expansion:emertyst_gem"
+  },
+  "result": {
+    "item": "dimensional_expansion:emertyst_helmet",
+    "count": 1
+  }
+}

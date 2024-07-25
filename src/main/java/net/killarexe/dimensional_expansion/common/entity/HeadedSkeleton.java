@@ -37,7 +37,7 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 			.add(Attributes.MOVEMENT_SPEED, 0.0f)
 			.add(Attributes.KNOCKBACK_RESISTANCE, 10.0f)
 			.add(Attributes.JUMP_STRENGTH, 0.0f)
-			.add(Attributes.MAX_HEALTH, 30.0f);
+			.add(Attributes.MAX_HEALTH, 20.0f);
 
 	public HeadedSkeleton(EntityType<? extends HeadedSkeleton> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -66,7 +66,7 @@ public class HeadedSkeleton extends Monster implements RangedAttackMob{
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
 			MobSpawnType pReason, SpawnGroupData pSpawnData, CompoundTag pDataTag) {
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-		this.goalSelector.addGoal(4, new RangedBowAttackGoal<HeadedSkeleton>(this, 1.0D, 20, 15.0F));
+		this.goalSelector.addGoal(4, new RangedBowAttackGoal<HeadedSkeleton>(this, 1.0D, 30, 15.0F));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
 	}
 	
