@@ -50,7 +50,7 @@ public class Mouvet extends Animal{
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Mob.class, 10));
 		this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(2, new TakeFoodGoal(this, 1.0F, 0.75F, 0));
+		this.goalSelector.addGoal(2, new TakeFoodGoal(this, 1.0F, 0.75F, 10));
 		this.goalSelector.addGoal(1, new PanicGoal(this, 1.15f));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		

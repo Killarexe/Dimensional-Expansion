@@ -196,6 +196,7 @@ public class DEItems {
     }
 
     private static RegistryObject<RecordItem> createDiscItem(String id, int comparatorValue, RegistryObject<SoundEvent> sound, DECreativeTabs.Tabs tab, int seconds){
+        ITEM_TAB_MAP.put(id, tab);
         return ITEMS.register(id, () -> new RecordItem(comparatorValue, () -> sound.get(), new Item.Properties().stacksTo(1), DEMath.secondsToTicks(seconds)));
     }
 

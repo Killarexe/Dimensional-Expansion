@@ -47,6 +47,14 @@
 				},
 				{
 					"type": "minecraft:item",
+					"name": "dimensional_expansion:bassmite_upgrade_smithing_template"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "dimensional_expansion:emertyst_upgrade_smithing_template"
+				},
+				{
+					"type": "minecraft:item",
 					"name": "minecraft:emerald"
 				}
 			]

@@ -30,8 +30,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
 					"name": "dimensional_expansion:palon_ingot",
+					"weight": 5,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -61,8 +61,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 15,
 					"name": "minecraft:bread",
+					"weight": 15,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -77,8 +77,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_pickaxe"
+					"name": "dimensional_expansion:bassmite_pickaxe",
+					"weight": 5
 				},
 				{
 					"type": "minecraft:item",
@@ -97,8 +97,8 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 20,
 					"name": "minecraft:stick",
+					"weight": 20,
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -113,8 +113,16 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_shovel"
+					"name": "dimensional_expansion:bassmite_shovel",
+					"weight": 5
+				},
+				{
+					"type": "minecraft:item",
+					"name": "dimensional_expansion:bassmite_upgrade_smithing_template"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "dimensional_expansion:emertyst_upgrade_smithing_template"
 				}
 			]
 		}

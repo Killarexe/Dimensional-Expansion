@@ -1,174 +1,130 @@
 {
-	"type": "minecraft:chest",
-	"pools": [
-		{
-			"rolls": {
-				"type": "minecraft:uniform",
-				"min": 3,
-				"max": 8
-			},
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "dimensional_expansion:emertyst_gem",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 1,
-								"max": 3
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"name": "dimensional_expansion:palon_ingot",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 1,
-								"max": 5
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:simix_ingot",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 1,
-								"max": 3
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"name": "minecraft:bread",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 1,
-								"max": 3
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"name": "minecraft:golden_apple",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 1,
-								"max": 3
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_pickaxe"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_sword"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_chestplate"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_helmet"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_leggings"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:bassmite_boots"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:origin_frame",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 3,
-								"max": 7
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "dimensional_expansion:purpleheart_sapling",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 3,
-								"max": 7
-							},
-							"add": false
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 3,
-					"name": "minecraft:saddle"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "dimensional_expansion:bassmite_horse_armor"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "dimensional_expansion:emertyst_horse_armor"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:diamond_horse_armor"
-				}
-			]
-		}
-	]
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3,
+        "max": 8
+      },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:simix_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:emertyst_gem",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:palon_ingot",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:simix_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bread",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:bassmite_pickaxe",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:palon_mixed_coal",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:bassmite_shovel",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:bassmite_upgrade_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dimensional_expansion:emertyst_upgrade_smithing_template"
+        }
+      ]
+    }
+  ]
 }
